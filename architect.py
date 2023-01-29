@@ -1,31 +1,29 @@
 import json_format as json
-import variables_format as vars
+from data_format import *
 
 
-#create large data
-def create_large_data():
-    pass
+id_names = ['azimuth','AOI','wvl','radius','pitch','height']
+data = Structure()
 
-def create_vars():
-    pass
+#append to data structure
+mm = []
+data.append(Tag(id_names, [30,45, 210, 50, 175, 100]), mm)
 
 
-def create_data(dynamic: list, static: list):
-    interval = (0,2)
-    data = {}
-    possible = True
-    for dlist in dynamic:
-        for step in interval(dlist):
-            indexes = dlist.get(step)
-            for i in indexes:
-                if not data.get(i):
-                    for slist in static
-                        #create large_data
-                        #create variables (static.value) in variables format
-                        if not large_data.get(i).get(slist) == s.value:
-                            possible = False
-                            break
-                    if possible:
-                        data.add(i)
+
+#constraints for displaying data
+#EX: two dynamic and the rest static to plot x, and y
+data.add_constraint('azimuth', [0])
+data.add_constraint('AOI', [0])
+data.add_constraint('wvl', [0])
+data.add_constraint('radius', [0])
+data.add_constraint('pitch', [0])
+data.add_constraint('height', [0])
+
+
+
+
+
+
 
 
