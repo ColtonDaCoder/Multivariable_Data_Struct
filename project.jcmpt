@@ -1,0 +1,43 @@
+Problem = {
+  InfoLevel = %(info_level)i
+  StorageFormat = Binary
+  Electromagnetics {
+    TimeHarmonic {
+      Scattering {
+        FieldComponents = Electric
+        FiniteElementDegree = %(fem_degree)i
+      }
+    }
+  }
+}
+
+# POST PROCESSES
+
+# ENERGY
+PostProcess {
+  DensityIntegration {
+    OutputQuantity=ElectromagneticFieldAbsorption
+    FieldBagPath="project_results/fieldbag.jcm"
+    OutputFileName="project_results/absorption.jcm"
+  } 
+}
+PostProcess {
+  FourierTransform {
+    NormalDirection = Z
+    Format = JCM
+    FieldBagPath = "./project_results/fieldbag.jcm"
+    OutputFileName = "./project_results/fourier_modes_r.jcm"
+    #NumericalAperture = 0.09
+  }
+}
+#PostProcess {
+#  FourierTransform {
+#    NormalDirection = -Z
+#    Format = JCM
+#    FieldBagPath = "./project_results/fieldbag.jcm"
+#    OutputFileName = "./project_results/fourier_modes_t.jcm"
+#    Rotation = X:-Y:-Z # So we don't get negative powerflux
+#    #NumericalAperture = 0.09
+#  }
+#} 
+ 
