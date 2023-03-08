@@ -20,7 +20,7 @@ keys = {}  # Create empty dictionary for keys
 
 set = Structure()
 for wvl in WVL:
-    output_file = output_folder+"/fe3_"+str(wvl)+".json"
+    output_file = output_folder+"/fe3_220_222.json"
     Au_nk = np.loadtxt('Al_OMEL_mfp.nk')   #Al not GOLD!!!!!!!!!!!!!!!!!!!!!!!
     wl_Au_data = []; n_Au_real = []; n_Au_imag = []
     for data in Au_nk:
@@ -84,7 +84,7 @@ for wvl in WVL:
         for azi in AZI:
             #print('Wavelength : %3.2f nm' % (keys['vacuum_wavelength']*1e9))
             keys['n_2'] = np.interp(keys['vacuum_wavelength'], wl_Au_data, n_Au_real) + 1j*np.interp(keys['vacuum_wavelength'], wl_Au_data, n_Au_imag)
-            keys['n_3'] = np.interp(keys['vacuum_wavelength'], wl_Aminoacid_data, n_Aminoacid_real) + 1j*np.interp(keys['vacuum_wavelength'], wl_Aminoacid_data, n_Aminoacid_imag)
+            keys['n_4'] = np.interp(keys['vacuum_wavelength'], wl_Aminoacid_data, n_Aminoacid_real) + 1j*np.interp(keys['vacuum_wavelength'], wl_Aminoacid_data, n_Aminoacid_imag)
             keys['kappa'] = np.interp(keys['vacuum_wavelength'], wl_Aminoacid_kappa, kappa_Aminoacid_real) + 1j*np.interp(keys['vacuum_wavelength'], wl_Aminoacid_kappa, kappa_Aminoacid_imag)
             #keys['sm_filename'] = '"'+'project_results/sm.jcm"'
             keys['azimuth'] = azi
@@ -126,34 +126,32 @@ for wvl in WVL:
             P_s_r = np.sum(powerFlux_r['PowerFluxDensity'][0][:, 2]);
             P_p_r = np.sum(powerFlux_r['PowerFluxDensity'][1][:, 2]); 
 		
-            #filename_MM = './project_results/sm.jcm'
-            #table = jcmwave.loadtable(filename_MM)
-            #row1 = [
-	        #float(table['Mueller_xy11'][0]), 
-		#float(table['Mueller_xy12'][0]),
-		#float(table['Mueller_xy13'][0]),
-		#float(table['Mueller_xy14'][0])]
-            #row2 = [
-		#float(table['Mueller_xy21'][0]),
-		#float(table['Mueller_xy22'][0]),
-		#float(table['Mueller_xy23'][0]),
-		#float(table['Mueller_xy24'][0])]
-            #row3 = [
-		#float(table['Mueller_xy31'][0]),
-		#float(table['Mueller_xy32'][0]),
-		#float(table['Mueller_xy33'][0]),
-		#float(table['Mueller_xy34'][0])]
-            #row4 = [
-		#float(table['Mueller_xy41'][0]),
-		#float(table['Mueller_xy42'][0]),
-		#float(table['Mueller_xy43'][0]),
-		#float(table['Mueller_xy44'][0])]
-            #mm = [row1, row2, row3, row4]
-            #store[aoi][azi] = {}
-            #store[aoi][azi]['mm'] = mm
+            filename_MM = './project_results/sm.jcm'
+            table = jcmwave.loadtable(filename_MM)
+            row1 = [
+	        float(table['Mueller_xy11'][0]), 
+		float(table['Mueller_xy12'][0]),
+		float(table['Mueller_xy13'][0]),
+		float(table['Mueller_xy14'][0])]
+            row2 = [
+		float(table['Mueller_xy21'][0]),
+		float(table['Mueller_xy22'][0]),
+		float(table['Mueller_xy23'][0]),
+		float(table['Mueller_xy24'][0])]
+            row3 = [
+		float(table['Mueller_xy31'][0]),
+		float(table['Mueller_xy32'][0]),
+		float(table['Mueller_xy33'][0]),
+		float(table['Mueller_xy34'][0])]
+            row4 = [
+		float(table['Mueller_xy41'][0]),
+		float(table['Mueller_xy42'][0]),
+		float(table['Mueller_xy43'][0]),
+		float(table['Mueller_xy44'][0])]
+            mm = [row1, row2, row3, row4]
 
             id_names = ['azimuth','AOI','wvl','radius','pitch','height', 'kappa']
-            set.append(Tag(id_names, [azi, aoi, wvl, keys['radius'], keys['pitch'], keys['height'], kappa]), ["abs pillar", "abs film", "abs amino", "reflected flux"], [[absR_pillar, absL_pillar], [absR_film, absL_film], [absR_amino, absL_amino], [P_s_r, P_p_r]])
+            set.append(Tag(id_names, [azi, aoi, wvl, keys['radius'], keys['pitch'], keys['height'], kappa]), ["abs pillar", "abs film", "abs amino", "reflected flux", "mm"], [[absR_pillar, absL_pillar], [absR_film, absL_film], [absR_amino, absL_amino], [P_s_r, P_p_r], mm])
             set.save_json(output_file)
 	    
         toc = time.time() # use time() not clock() on linux system  
