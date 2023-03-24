@@ -225,7 +225,7 @@ def polar_plot(X, Y, Z, DECOMP=False):
     #plt.savefig(str(wvl)+"polar.png")
     plt.show()
 
-def complete_MM_heatmap_plot(X, Y, kZ, no_kZ,raw):
+def complete_MM_heatmap_plot(X, Y, no_kZ, raw, kZ=0):
     fig, ax = plt.subplots(4,4, figsize=(10,8))
     for j in range(4):
         for i in range(4):
@@ -296,4 +296,4 @@ elements = [11,12,13,14,21,22,23,24,31,32,33,34,41,42,43,44]
 #for j, element in enumerate(elements):
 #for i in range(6):
     #complete_MM_heatmap_plot(str(220+i*2))
-convert_to_plot("fe3_kappa/fe3_220.json")
+#convert_to_plot("fe3_kappa/fe3_220.json")

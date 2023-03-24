@@ -2,6 +2,7 @@ import json_format as json
 import numpy as np
 from data_format import *
 from format_module import *
+import matplotlib as plt
 
 
 def getXY(set, x_name, y_name):
@@ -12,6 +13,49 @@ def getXY(set, x_name, y_name):
         Y[int(element.get(y_name))] = None
     X.popitem()
     return list(X.keys()), list(Y.keys())
+
+#cloude decomposition matrix
+def cloude_decomp(self, mm):
+    #pauli matrices
+    p = [
+            [
+                [1,0],
+                [0,1]
+            ],
+            [
+                [1,0],
+                [0,-1]
+            ],
+            [
+                [0,1],
+                [1,0]
+            ],
+            [
+                [0,-1j],
+                [1j,0]
+            ]
+        ]
+    A = np.array([np.conj(i).flatten() for i in p])
+    #coherency matrix = (1/4) A(pauli(sub i) kronecker pauli(sub j))A^-1
+    sigma = 0
+    for i in range(4):
+        for j in range(4):
+            sigma = sigma + mm[i][j]*(A@np.kron(p[i],np.conj(p[j]))@np.linalg.inv(A))
+    C = (1/4) * sigma
+
+    w,v = np.linalg.eigh(C)
+    Ψ1=np.transpose(v[:, 3])
+    j11=Ψ1[0] + Ψ1[1]
+    j12=Ψ1[2] - 1j*Ψ1[3]
+    j21=Ψ1[2] + 1j*Ψ1[3]
+    j22=Ψ1[0]-Ψ1[1]
+    J=np.array([[j11,j12],[j21,j22]])
+    A = (1/np.sqrt(2))*np.array([[1, 0, 0, 1], [1, 0, 0, -1], [0, 1, 1, 0], [0, 1j, -1j, 0]])
+    Ainv = np.linalg.inv(A)
+    Jconj=np.matrix.conjugate(J)
+    M = A@(np.kron(J,Jconj))@Ainv
+    M = M.real
+    return M 
 
 def convert_to_plot(set):
     id_names = ['azimuth','AOI','wvl','radius','pitch','height', 'kappa']
@@ -46,12 +90,56 @@ def convert_to_plot(set):
                 #Z[mmi][yi].append(kappa_value)
     return X, Y, Z
 
+def get_sum(set):
+    i = 0
+    index = []
+    store = []
+    for hashable in set.data.keys():
+        if set.get(hashable).get('wvl') == 222:
+            break;
+        pillar  = set.get(hashable).get("abs pillar")[0]
+        film  = set.get(hashable).get("abs film")[0]
+        amino  = set.get(hashable).get("abs amino")[0]
+        store.append(pillar+film+amino)
+        #index.append(i)
+        index.append(set.get(hashable).get("AOI"))
+        i=i+1
+    plt.pyplot.plot(index, store, 'bo')
+    plt.pyplot.show()
+
+
+def get_sep(set):
+    i = 0
+    index = []
+    store = []
+    inner = []
+    for hashable in set.data.keys():
+        pillar  = set.get(hashable).get("abs pillar")[0]
+        film  = set.get(hashable).get("abs film")[0]
+        amino  = set.get(hashable).get("abs amino")[0]
+        inner.append(pillar+film+amino)
+        index.append(i)
+        i=i+1
+        if i == 46:
+            i = 0
+            store.append(inner)
+            inner = []
+    for b in store:
+        plt.pyplot.plot([a for a in range(46)], b, 'bo')
+        plt.pyplot.show()
+
+
+
+
 
 id_names = ['azimuth','AOI','wvl','radius','pitch','height', 'kappa']
 
-set = Structure.from_json("hashed.json")
-X, Y, Z = convert_to_plot(set)
-complete_MM_heatmap_plot("FCC","230")
+set = Structure.from_json("fe3_220_222.json")
+#for hashable in set.keys():
+    #set.get(hashable).get('mm')
+get_sum(set)
+#X, Y, Z = convert_to_plot(set)
+#complete_MM_heatmap_plot(X, Y, Z, '220')
 
 #wvl = 230
 #set = Structure.from_json("FCC_220_230.json")
