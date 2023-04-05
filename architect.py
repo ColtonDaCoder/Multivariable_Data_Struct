@@ -11,11 +11,10 @@ def getXY(set, x_name, y_name):
     for element in set.get_elements():
         X[int(element.get(x_name))] = None
         Y[int(element.get(y_name))] = None
-    X.popitem()
     return list(X.keys()), list(Y.keys())
 
 #cloude decomposition matrix
-def cloude_decomp(self, mm):
+def cloude_decomp(mm):
     #pauli matrices
     p = [
             [
@@ -57,7 +56,40 @@ def cloude_decomp(self, mm):
     M = M.real
     return M 
 
-def convert_to_plot(set):
+
+
+def azi_X_aoi_Y(set, wvl, kappa):
+    id_names = ['azimuth','AOI','wvl','radius','pitch','height', 'kappa']
+    radius = 50
+    pitch = 175
+    height = 50
+    #remove last unfinished element
+    #len of X and Y is dependent on len of y
+    x, y = getXY(set, "azimuth", "AOI")
+    
+    base_x,base_y = np.meshgrid(x,y)
+    elements = [11,12,13,14,21,22,23,24,31,32,33,34,41,42,43,44]
+    X = [base_x for e in elements]
+    Y = [base_y for e in elements]
+    Z=[[ [] for i in range(len(y))] for e in elements]
+    #Z = is len of elements, len of y
+    for yi, yv in enumerate(y):
+        for xv in x:
+            for mmi, element in enumerate(elements):
+                try:
+                    data_tag = Tag(id_names, [xv, yv, wvl, radius, pitch, height, kappa])
+                    sub = str(element)
+                    value = set.get(data_tag.hashable).get("dMM")[int(sub[0])-1][int(sub[1])-1]
+                    Z[mmi][yi].append(value) 
+                except:
+                    print(str(xv) + " " + str(yv) + " " + str(element))
+                    exit()
+                    Z[mmi][yi].append(None)
+                #Z[mmi][yi].append(kappa_value)
+    return X, Y, Z
+
+
+def azi_X_wvl_Y(set):
     id_names = ['azimuth','AOI','wvl','radius','pitch','height', 'kappa']
     radius = 50
     pitch = 175
@@ -77,15 +109,18 @@ def convert_to_plot(set):
         for xv in x:
             for mmi, element in enumerate(elements):
                 try:
-                    data_tag = Tag(id_names, [xv, 56, yv, radius, pitch, height, kappa])
-                    noKdata_tag = Tag(id_names, [xv, 56, yv, radius, pitch, height, False])
+                    data_tag = Tag(id_names, [xv, 48, yv, radius, pitch, height, kappa])
+                    #noKdata_tag = Tag(id_names, [xv, 56, yv, radius, pitch, height, False])
                     sub = str(element)
                     kappa_value = set.get(data_tag.hashable).get("dMM")[int(sub[0])-1][int(sub[1])-1]
-                    nokappa_value = set.get(noKdata_tag.hashable).get("dMM")[int(sub[0])-1][int(sub[1])-1]
-                    dif = (kappa_value-nokappa_value)/kappa_value 
+                    #nokappa_value = set.get(noKdata_tag.hashable).get("dMM")[int(sub[0])-1][int(sub[1])-1]
+                    #dif = (kappa_value-nokappa_value)/kappa_value 
                     #Z[mmi][yi].append(np.log10(np.absolute(dif)))
-                    Z[mmi][yi].append(nokappa_value)
+                    Z[mmi][yi].append(kappa_value)
                 except:
+                    print(str(xv) + " " + str(yv) + " " + str(element))
+                    exit()
+                    print(data_tag.hashable)
                     Z[mmi][yi].append(None)
                 #Z[mmi][yi].append(kappa_value)
     return X, Y, Z
@@ -100,7 +135,9 @@ def get_sum(set):
         pillar  = set.get(hashable).get("abs pillar")[0]
         film  = set.get(hashable).get("abs film")[0]
         amino  = set.get(hashable).get("abs amino")[0]
-        store.append(pillar+film+amino)
+        amino  = set.get(hashable).get("abs amino")[0]
+        reflect = set.get(hashable).get("reflected flux")[0]
+        store.append(pillar+film+amino+reflect)
         #index.append(i)
         index.append(set.get(hashable).get("AOI"))
         i=i+1
@@ -113,11 +150,14 @@ def get_sep(set):
     index = []
     store = []
     inner = []
+    total = []
     for hashable in set.data.keys():
         pillar  = set.get(hashable).get("abs pillar")[0]
         film  = set.get(hashable).get("abs film")[0]
         amino  = set.get(hashable).get("abs amino")[0]
-        inner.append(pillar+film+amino)
+        reflect = set.get(hashable).get("reflected flux")[0]
+        inner.append(pillar+film+amino+reflect)
+        total.append(pillar+film+amino+reflect)
         index.append(i)
         i=i+1
         if i == 46:
@@ -132,12 +172,22 @@ def get_sep(set):
 
 
 
-id_names = ['azimuth','AOI','wvl','radius','pitch','height', 'kappa']
 
-set = Structure.from_json("fe3_220_222.json")
+
+id_names = ['azimuth','AOI','wvl','radius','pitch','height', 'kappa']
+wvl = 220
+#file = 'hashed.json'
+file = "fe3_NA_1_5.json"
+set = Structure.from_json(file)
+X, Y, kZ = azi_X_wvl_Y(set)
+#X, Y, no_kZ = azi_X_aoi_Y(set, 222, False)
+single_polar_plot(X, Y, kZ)
+
 #for hashable in set.keys():
     #set.get(hashable).get('mm')
-get_sum(set)
+#X, Y, Z = azi_X_aoi_Y(set)
+#contour_plot(X, Y, Z, 41)
+
 #X, Y, Z = convert_to_plot(set)
 #complete_MM_heatmap_plot(X, Y, Z, '220')
 

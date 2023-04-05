@@ -162,8 +162,8 @@ def old_convert_to_plot(file):
     return X,Y,Z
 
 def single_polar_plot(X, Y, Z, DECOMP=False):
-    rTicks = [219, 220,224,226, 230] 
-    xTicks = [0, np.pi/8,np.pi/6,np.pi/4] 
+    rTicks = [219,222,] 
+    xTicks = [0, np.pi/8,np.pi/6,np.pi/4, np.pi/3] 
 
     fig, axis = plt.subplots(figsize=(10,10),subplot_kw=dict(projection='polar'))
     cm = plt.cm.Reds
@@ -194,7 +194,7 @@ def polar_plot(X, Y, Z, DECOMP=False):
     #X = azimuth (xticks)
     #Y = AOI (rticks)
     #Z = dMM
-    rTicks = [219,222,226,230] 
+    rTicks = [219,222,] 
     xTicks = [0,np.pi/8,np.pi/6,np.pi/4] 
 
     fig, axis = plt.subplots(4,4,figsize=(10,10),subplot_kw=dict(projection='polar'))
@@ -233,30 +233,33 @@ def complete_MM_heatmap_plot(X, Y, no_kZ, raw, kZ=0):
             mm = str(str(j+1)+str(i+1))
             
             #toggle for difference or magnitude
-            #Z = [[(kZ[val][i][j] - no_kZ[val][i][j])/kZ[val][i][j] for j, azi in enumerate(kZ[val][i])] for i, aoi in enumerate(kZ[val])]   
-            Z = [[no_kZ[val][i][j] for j, azi in enumerate(no_kZ[val][i])] for i, aoi in enumerate(no_kZ[val])]  
-            Z = np.absolute(Z)
-            #Z = np.log10(Z)
+            if not kZ == 0:
+                Z = [[(kZ[val][i][j] - no_kZ[val][i][j])/kZ[val][i][j] for j, azi in enumerate(kZ[val][i])] for i, aoi in enumerate(kZ[val])]   
+                Z = np.absolute(Z)
+                Z = np.log10(Z)
+            else:
+                Z = [[no_kZ[val][i][j] for j, azi in enumerate(no_kZ[val][i])] for i, aoi in enumerate(no_kZ[val])]  
+                Z = np.absolute(Z)
             z_max = np.amax(Z)
             #z_max = 1
             z_min = np.amin(Z)
-            z_min = -0.02
-            z_max = 0.05
-            c = ax[j,i].pcolormesh(X, Y, Z, cmap=plt.cm.Reds, vmin=z_min, vmax=z_max)
+            #z_min = -0.02
+            #z_max = 0.05
+            c = ax[j,i].pcolormesh(X[0], Y[0], Z, cmap=plt.cm.Reds, vmin=z_min, vmax=z_max)
 
             cbar = fig.colorbar(c, ax=ax[i,j]) 
             cbar.ax.yaxis.set_major_formatter(tick.FormatStrFormatter('%.2f'))
             ax[j,i].set_xlabel('azi', fontsize=10)
             ax[j,i].set_ylabel('AOI', fontsize=10)
 
-            ax[j,i].set_title("wvl: " + raw[:3] + " MM: " + str(mm))
+            ax[j,i].set_title("wvl: " + str(raw)[:3] + " MM: " + str(mm))
     plt.tight_layout(h_pad=1,w_pad=0.5)
     #plt.savefig("magnitude_heatmap_fe3_full_MM/"+raw+"/Complete_MM.png")
     #plt.savefig("log_heatmap_fe3_"+raw+".png")
     plt.show()
 
 
-def contour_plot(X, Y, kZ, no_kZ, mm):
+def contour_plot(x, y, no_kZ, wvl, mm, kZ=None):
     sub = str(mm)
     val = (int(sub[0])-1)*4 + (int(sub[1])-1)
     X = [i*(180/np.pi) for i in x[val]]
@@ -264,7 +267,8 @@ def contour_plot(X, Y, kZ, no_kZ, mm):
 
     #percent difference
     #Z = [[(kZ[val][i][j] - no_kZ[val][i][j])/kZ[val][i][j] for j, azi in enumerate(kZ[val][i])] for i, aoi in enumerate(kZ[val])]  
-    Z = [[no_kZ[val][i][j] for j, azi in enumerate(no_kZ[val][i])] for i, aoi in enumerate(no_kZ[val])]  
+    Z = [[no_kZ[val][i][j] for j, aoi in enumerate(no_kZ[val][i])] for i, aoi in enumerate(no_kZ[val])]  
+    print(no_kZ[0][0][0])
     Z = np.absolute(Z)
     #Z = np.log10(Z)
     fig, ax = plt.subplots()
@@ -274,7 +278,7 @@ def contour_plot(X, Y, kZ, no_kZ, mm):
 
     c = ax.pcolormesh(X, Y, Z, cmap=plt.cm.Reds, vmin=z_min, vmax=z_max)
     #c = ax.imshow(Z, cmap=plt.cm.Reds)
-    ax.set_title("wvl: " + raw[:3] + " MM: " + str(mm))
+    ax.set_title("wvl: " + str(wvl) + " MM: " + str(mm))
 
     # set the limits of the plot to the limits of the data
     ax.axis([30, np.amax(X), np.amin(Y), np.amax(Y)])
