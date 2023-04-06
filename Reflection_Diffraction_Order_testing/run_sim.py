@@ -5,23 +5,17 @@ import format_module
 import json
 import jcmwave,time,imp,shutil,os 
 from optparse import OptionParser
-AOI = [i*4+48 for i in range(16)]
+AOI = [20, 40, 60]
 AZI = [i for i in range(46)]
+WVL = [i*2+200 for i in range(51)]
+kappa = False 
 
-
-#AOI = [20]
-#AZI = [34]
-
-WVL = [220, 222]
-
-output_folder = "kappa"
-kappa = True 
+output_file = ""
 
 keys = {}  # Create empty dictionary for keys
 
 set = Structure()
 for wvl in WVL:
-    output_file = output_folder+"/testing_ascii.json"
     Al_nk = np.loadtxt('Al_OMEL_mfp.nk')   #Al not GOLD!!!!!!!!!!!!!!!!!!!!!!!
     wl_Al_data = []; n_Al_real = []; n_Al_imag = []
     for data in Al_nk:
@@ -130,8 +124,8 @@ for wvl in WVL:
             powerFlux_r = jcmwave.convert2powerflux(fourierModes_r)
 
             # Reflected flux in normal direction
-            P_s_r = np.real(np.sum(powerFlux_r['PowerFluxDensity'][0][:, 2]));
-            P_p_r = np.real(np.sum(powerFlux_r['PowerFluxDensity'][1][:, 2])); 
+            P_s_r = np.real(powerFlux_r['PowerFluxDensity'][0][:, 2]);
+            P_p_r = np.real(powerFlux_r['PowerFluxDensity'][1][:, 2]); 
 		
             filename_MM = './project_results/sm.jcm'
             table = jcmwave.loadtable(filename_MM)
@@ -141,17 +135,16 @@ for wvl in WVL:
                 for i in range(4):
                     row = []
                     for j in range(4):
-                        row.append(float(table['Mueller_xy'+str(1+i)+str(1+j)][0][1]))
-                        #row.append(float(table['Mueller_xy'+str(1+i)+str(1+j)][0]))
+                        row.append(float(table['Mueller_xy'+str(1+i)+str(1+j)][0]))
                     mm.append(row)
                 rows.append(mm)
 
             id_names = ['azimuth','AOI','wvl','radius','pitch','height', 'kappa']
+            reflection_list = [[P_s_r[order], P_p_r[order]] for order in range(len(P_s_r))]
 
-            set.append(Tag(id_names, [azi, aoi, wvl, keys['radius'], keys['pitch'], 50, kappa]), ["abs pillar", "abs film", "abs amino", "reflected flux", "mm"], [[absS_pillar, absP_pillar], [absS_film, absP_film], [absS_amino, absP_amino], [P_s_r, P_p_r], rows[0]])
+            set.append(Tag(id_names, [azi, aoi, wvl, keys['radius'], keys['pitch'], 50, kappa]), ["abs pillar", "abs film", "abs amino", "reflected_diff_orders", "reflected flux", "mm_diff_orders", "mm"], [[absS_pillar, absP_pillar], [absS_film, absP_film], [absS_amino, absP_amino], len(P_s_r), reflection_list, len(rows), rows])
             #set.append(Tag(id_names, [azi, aoi, wvl, keys['radius'], keys['pitch'], 50, kappa]), ["abs film", "abs air", "reflected flux", "mm"], [[absR_film, absL_film], [absR_air, absL_air], [P_s_r, P_p_r], mm])
             set.save_json(output_file)
-            exit()
 	    
         toc = time.time() # use time() not clock() on linux system  
         t = toc-tic
