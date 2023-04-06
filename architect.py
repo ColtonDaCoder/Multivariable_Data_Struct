@@ -11,6 +11,7 @@ def getXY(set, x_name, y_name):
     for element in set.get_elements():
         X[int(element.get(x_name))] = None
         Y[int(element.get(y_name))] = None
+
     return list(X.keys()), list(Y.keys())
 
 #cloude decomposition matrix
@@ -152,21 +153,29 @@ def get_sep(set):
     inner = []
     total = []
     for hashable in set.data.keys():
+        if set.get(hashable).get('wvl') == 222:
+            break;
         pillar  = set.get(hashable).get("abs pillar")[0]
         film  = set.get(hashable).get("abs film")[0]
         amino  = set.get(hashable).get("abs amino")[0]
         reflect = set.get(hashable).get("reflected flux")[0]
         inner.append(pillar+film+amino+reflect)
         total.append(pillar+film+amino+reflect)
+        #inner.append(film+reflect)
+        #total.append(film+reflect)
         index.append(i)
         i=i+1
         if i == 46:
             i = 0
             store.append(inner)
             inner = []
+    i=0
     for b in store:
         plt.pyplot.plot([a for a in range(46)], b, 'bo')
+        plt.pyplot.title(i*4)
+        plt.pyplot.yticks([0.9, 0.92,0.94, 0.96, 0.98, 1.0])
         plt.pyplot.show()
+        i= i+1
 
 
 
@@ -177,11 +186,18 @@ def get_sep(set):
 id_names = ['azimuth','AOI','wvl','radius','pitch','height', 'kappa']
 wvl = 220
 #file = 'hashed.json'
-file = "fe3_NA_1_5.json"
+file = "flat_test.json"
+file = "fe3_NA_0_9.json"
 set = Structure.from_json(file)
-X, Y, kZ = azi_X_wvl_Y(set)
+#X, Y, kZ = azi_X_aoi_Y(set, wvl, True)
+get_sep(set)
+#complete_MM_heatmap_plot(X, Y, kZ, wvl)
+#file = "fe3_220_222_NA_2_5.json"
+#set = Structure.from_json(file)
+#get_sum(set)
+#X, Y, kZ = azi_X_aoi_Y(set, "220")
 #X, Y, no_kZ = azi_X_aoi_Y(set, 222, False)
-single_polar_plot(X, Y, kZ)
+#single_polar_plot(X, Y, kZ)
 
 #for hashable in set.keys():
     #set.get(hashable).get('mm')
