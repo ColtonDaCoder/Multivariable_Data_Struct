@@ -1,0 +1,52 @@
+--------------------------------------
+Running PBS prologue script
+--------------------------------------
+User and Job Data:
+--------------------------------------
+Job ID:    936759.smic3
+Username:  coltonb
+Group:     Users
+Date:      04-Apr-2023 17:09
+Node:      smic381 (26706)
+--------------------------------------
+PBS has allocated the following nodes:
+
+smic381
+
+A total of 28 processors on 1 nodes allocated
+---------------------------------------------
+Check nodes and clean them of stray processes
+---------------------------------------------
+Checking node smic381 17:09:51 
+Done clearing all the allocated nodes
+------------------------------------------------------
+Concluding PBS prologue script - 04-Apr-2023 17:09:51
+------------------------------------------------------
+Loading mvapich2/2.3.3/intel-19.0.5
+  Loading requirement: intel/19.0.5
+JOBS_PER_NODE=1
+/ddnA/work/coltonb/Al_Pillars_Film_FCC_fe3_abs/Al_Pillars_Film_FCC_220_222/run_sim.py:6: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
+  import jcmwave,time,imp,shutil,os
+=>> PBS: job killed: walltime 28844 exceeded limit 28800
+------------------------------------------------------
+Running PBS epilogue script    - 05-Apr-2023 01:10:34
+------------------------------------------------------
+Checking node smic381 (MS)
+Checking node smic381 ; cleared cache ; ok
+------------------------------------------------------
+Concluding PBS epilogue script - 05-Apr-2023 01:10:36
+------------------------------------------------------
+Exit Status:     271
+Job ID:          936759.smic3
+Username:        coltonb
+Group:           Users
+Job Name:        FCC_fe3_220_222
+Session Id:      26705
+Resource Limits: ncpus=1,neednodes=1:ppn=28,nodes=1:ppn=28,walltime=08:00:00
+Resources Used:  cput=85:49:06,mem=15184148kb,vmem=20681684kb,walltime=08:00:45
+Queue Used:      bigmem
+Account String:  hpc_mcpeak11
+Node:            smic381
+Process id:      5211
+Last status:     05-Apr-2023:01:01 PBS_job=936759.smic3 user=coltonb allocation=hpc_mcpeak11 queue=bigmem total_load=9.87 cpu_hours=0.01 wall_hours=6.95 unused_nodes=0 total_nodes=1 ppn=28 avg_load=9.87 avg_cpu=100% avg_mem=278mb avg_vmem=2741mb top_proc=coltonb:JCMsolveWo+:smic381:1913M:199M:0.0hr:100% toppm=coltonb:JCMsolveWorker:smic381:2575M:795M node_processes=5 avg_avail_mem=244383mb min_avail_mem=244383mb reverified_avg_load=9.18
+------------------------------------------------------
