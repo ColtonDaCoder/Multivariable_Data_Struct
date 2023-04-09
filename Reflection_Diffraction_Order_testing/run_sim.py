@@ -5,12 +5,12 @@ import format_module
 import json
 import jcmwave,time,imp,shutil,os 
 from optparse import OptionParser
-AOI = [20, 40, 60]
-AZI = [i for i in range(46)]
-WVL = [i*2+200 for i in range(51)]
+AOI = [20]
+AZI = [i+17 for i in range(29)]
+WVL = [222]
 kappa = False 
 
-output_file = ""
+output_file = "diffraction_orders_test_20.json"
 
 keys = {}  # Create empty dictionary for keys
 
@@ -129,20 +129,20 @@ for wvl in WVL:
 		
             filename_MM = './project_results/sm.jcm'
             table = jcmwave.loadtable(filename_MM)
-            rows = []
-            for num in range(1):
+            mm_orders = []
+            for num in range(len(table['Mueller_xy11'][0])):
                 mm = []
                 for i in range(4):
                     row = []
                     for j in range(4):
-                        row.append(float(table['Mueller_xy'+str(1+i)+str(1+j)][0]))
+                        row.append(float(table['Mueller_xy'+str(1+i)+str(1+j)][0][num]))
                     mm.append(row)
-                rows.append(mm)
+                mm_orders.append(mm)
 
             id_names = ['azimuth','AOI','wvl','radius','pitch','height', 'kappa']
             reflection_list = [[P_s_r[order], P_p_r[order]] for order in range(len(P_s_r))]
 
-            set.append(Tag(id_names, [azi, aoi, wvl, keys['radius'], keys['pitch'], 50, kappa]), ["abs pillar", "abs film", "abs amino", "reflected_diff_orders", "reflected flux", "mm_diff_orders", "mm"], [[absS_pillar, absP_pillar], [absS_film, absP_film], [absS_amino, absP_amino], len(P_s_r), reflection_list, len(rows), rows])
+            set.append(Tag(id_names, [azi, aoi, wvl, keys['radius'], keys['pitch'], 50, kappa]), ["abs pillar", "abs film", "abs amino", "reflected_diff_orders", "reflected flux", "mm_diff_orders", "mm"], [[absS_pillar, absP_pillar], [absS_film, absP_film], [absS_amino, absP_amino], len(P_s_r), reflection_list, len(mm_orders), mm_orders])
             #set.append(Tag(id_names, [azi, aoi, wvl, keys['radius'], keys['pitch'], 50, kappa]), ["abs film", "abs air", "reflected flux", "mm"], [[absR_film, absL_film], [absR_air, absL_air], [P_s_r, P_p_r], mm])
             set.save_json(output_file)
 	    
