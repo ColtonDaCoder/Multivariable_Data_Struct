@@ -5,12 +5,12 @@ import format_module
 import json
 import jcmwave,time,imp,shutil,os 
 from optparse import OptionParser
-AOI = [20]
-AZI = [i+17 for i in range(29)]
-WVL = [222]
+AOI = [60]
+AZI = [i for i in range(46)]
+WVL = [280]
 kappa = False 
 
-output_file = "diffraction_orders_test_20.json"
+output_file = "NA_5.json"
 
 keys = {}  # Create empty dictionary for keys
 

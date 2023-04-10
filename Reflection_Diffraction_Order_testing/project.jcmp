@@ -27,8 +27,8 @@ PostProcess {
     Format = JCM-ASCII
     FieldBagPath = "./project_results/fieldbag.jcm"
     OutputFileName = "./project_results/fourier_modes_r.jcm"
-    ChiefRay = [-20 0]  
-    NumericalAperture = 1.5
+    ChiefRay = [-60 0]  
+    NumericalAperture = 5.0
   }
 }
 PostProcess {                                
@@ -39,13 +39,3 @@ PostProcess {
     OutputFileName = "project_results/sm.jcm"                                
   }                                
 }   
-#PostProcess {
-#  FourierTransform {
-#    NormalDirection = -Z
-#    Format = JCM
-#    FieldBagPath = "./project_results/fieldbag.jcm"
-#    OutputFileName = "./project_results/fourier_modes_t.jcm"
-#    Rotation = X:-Y:-Z # So we don't get negative powerflux
-#    #NumericalAperture = 0.09
-#  }
-#}
