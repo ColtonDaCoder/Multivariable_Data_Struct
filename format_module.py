@@ -225,7 +225,7 @@ def polar_plot(X, Y, Z, DECOMP=False):
     #plt.savefig(str(wvl)+"polar.png")
     plt.show()
 
-def complete_MM_heatmap_plot(X, Y, no_kZ, raw, kZ=0):
+def complete_MM_heatmap_plot(X, Y, no_kZ, raw, diff_order, kZ=0):
     fig, ax = plt.subplots(4,4, figsize=(10,8))
     for j in range(4):
         for i in range(4):
@@ -236,23 +236,28 @@ def complete_MM_heatmap_plot(X, Y, no_kZ, raw, kZ=0):
             if not kZ == 0:
                 Z = [[(kZ[val][i][j] - no_kZ[val][i][j])/kZ[val][i][j] for j, azi in enumerate(kZ[val][i])] for i, aoi in enumerate(kZ[val])]   
                 Z = np.absolute(Z)
-                Z = np.log10(Z)
+                #Z = np.log10(Z)
             else:
                 Z = [[no_kZ[val][i][j] for j, azi in enumerate(no_kZ[val][i])] for i, aoi in enumerate(no_kZ[val])]  
                 Z = np.absolute(Z)
-            z_max = np.amax(Z)
+            Z = np.array(Z)
+            norm_list = Z.flatten() 
+            norm_list = np.delete(norm_list, np.where(norm_list == 1234)) 
+            z_max = np.amax(norm_list)
+            #z_max = np.amax(Z)
             #z_max = 1
-            z_min = np.amin(Z)
+            z_min = np.amin(norm_list)
+            Z[Z == 1234] = z_min
             #z_min = -0.02
             #z_max = 0.05
-            c = ax[j,i].pcolormesh(X[0], Y[0], Z, cmap=plt.cm.Reds, vmin=z_min, vmax=z_max)
+            c = ax[j,i].pcolormesh(X[1][0], Y[1][0], Z, cmap=plt.cm.Reds, vmin=z_min, vmax=z_max)
 
             cbar = fig.colorbar(c, ax=ax[i,j]) 
             cbar.ax.yaxis.set_major_formatter(tick.FormatStrFormatter('%.2f'))
-            ax[j,i].set_xlabel('azi', fontsize=10)
-            ax[j,i].set_ylabel('AOI', fontsize=10)
+            ax[j,i].set_xlabel(X[0], fontsize=10)
+            ax[j,i].set_ylabel(Y[0], fontsize=10)
 
-            ax[j,i].set_title("wvl: " + str(raw)[:3] + " MM: " + str(mm))
+            ax[j,i].set_title(raw[0] + ": " + str(raw[1]) + " MM: " + str(mm), + "diff " + diff_order)
     plt.tight_layout(h_pad=1,w_pad=0.5)
     #plt.savefig("magnitude_heatmap_fe3_full_MM/"+raw+"/Complete_MM.png")
     #plt.savefig("log_heatmap_fe3_"+raw+".png")

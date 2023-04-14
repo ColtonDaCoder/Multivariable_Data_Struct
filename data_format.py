@@ -82,6 +82,17 @@ class Structure():
         for hashable in self.data.keys():
             self.data.get(hashable)['dMM'] = self.cloude_decomp(self.data.get(hashable).get('mm')).tolist()
 
+    def full_decomp_diff_orders(self,):
+        for hashable in self.data.keys():
+            dMM = []
+            for matrix in self.data.get(hashable).get('mm'):
+                dMM.append(self.cloude_decomp(matrix).tolist())
+            self.data.get(hashable)['dMM'] = dMM
+
+    def add_set(self, set):
+        for hashable in set.data.keys():
+            self.data[hashable] = set.get(hashable)
+
     def add_constraint(self, name, range, is_static):
         self.constraints.append(Constraint(name, range, is_static))
 
