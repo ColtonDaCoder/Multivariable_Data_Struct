@@ -27,8 +27,8 @@ PostProcess {
     Format = JCM-ASCII
     FieldBagPath = "./project_results/fieldbag.jcm"
     OutputFileName = "./project_results/fourier_modes_r.jcm"
-    ChiefRay = [-60 0]  
-    NumericalAperture = 5.0
+    #ChiefRay = [-60 0]  
+    #NumericalAperture = 5.0
   }
 }
 PostProcess {                                

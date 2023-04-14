@@ -10,7 +10,7 @@ AZI = [i for i in range(46)]
 WVL = [280]
 kappa = False 
 
-output_file = "NA_5.json"
+output_file = "no_NA.json"
 
 keys = {}  # Create empty dictionary for keys
 

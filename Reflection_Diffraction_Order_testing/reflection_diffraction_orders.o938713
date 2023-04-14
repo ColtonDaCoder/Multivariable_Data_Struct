@@ -1,0 +1,51 @@
+--------------------------------------
+Running PBS prologue script
+--------------------------------------
+User and Job Data:
+--------------------------------------
+Job ID:    938713.smic3
+Username:  coltonb
+Group:     Users
+Date:      10-Apr-2023 18:31
+Node:      smic009 (14957)
+--------------------------------------
+PBS has allocated the following nodes:
+
+smic009
+
+A total of 20 processors on 1 nodes allocated
+---------------------------------------------
+Check nodes and clean them of stray processes
+---------------------------------------------
+Checking node smic009 18:31:33 
+Done clearing all the allocated nodes
+------------------------------------------------------
+Concluding PBS prologue script - 10-Apr-2023 18:31:33
+------------------------------------------------------
+Loading mvapich2/2.3.3/intel-19.0.5
+  Loading requirement: intel/19.0.5
+JOBS_PER_NODE=1
+/ddnA/work/coltonb/Multivariable_Data_Struct/Reflection_Diffraction_Order_testing/run_sim.py:6: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
+  import jcmwave,time,imp,shutil,os
+Total runtime for WVL: 280 AOI: 60 aziumth: 45 - 1424.0680 s
+------------------------------------------------------
+Running PBS epilogue script    - 10-Apr-2023 18:55:24
+------------------------------------------------------
+Checking node smic009 (MS)
+Checking node smic009 ; cleared cache ; ok
+------------------------------------------------------
+Concluding PBS epilogue script - 10-Apr-2023 18:55:27
+------------------------------------------------------
+Exit Status:     0
+Job ID:          938713.smic3
+Username:        coltonb
+Group:           Users
+Job Name:        reflection_diffraction_orders
+Session Id:      14956
+Resource Limits: ncpus=1,neednodes=1:ppn=20,nodes=1:ppn=20,walltime=04:00:00
+Resources Used:  cput=05:00:25,mem=14185972kb,vmem=18068224kb,walltime=00:23:53
+Queue Used:      workq
+Account String:  hpc_mcpeak11
+Node:            smic009
+Process id:      23691
+------------------------------------------------------
