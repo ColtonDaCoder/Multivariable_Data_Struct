@@ -136,27 +136,26 @@ def get_sum(set):
     aoi_list = []
     wvl_list = []
     for hashable in set.data.keys():
-        if(set.get(hashable).get('AOI') == 20):
-            s_p = 0
-            pillar  = set.get(hashable).get("abs pillar")[s_p]
-            film  = set.get(hashable).get("abs film")[s_p]
-            amino  = set.get(hashable).get("abs amino")[s_p]
-            reflect = np.sum([i[s_p] for i in set.get(hashable).get("reflected flux")])
-            sum.append(pillar+film+amino+reflect)
-            orders_list.append(set.get(hashable).get("reflected_diff_orders"))
-            azi_list.append(set.get(hashable).get("azimuth"))
-            aoi_list.append(set.get(hashable).get("AOI"))
-            wvl_list.append(set.get(hashable).get("wvl"))
-            i=i+1
+        s_p = 0
+        pillar  = set.get(hashable).get("abs pillar")[s_p]
+        film  = set.get(hashable).get("abs film")[s_p]
+        amino  = set.get(hashable).get("abs amino")[s_p]
+        reflect = np.sum([i[s_p] for i in set.get(hashable).get("reflected flux")])
+        sum.append(pillar+film+amino+reflect)
+        orders_list.append(set.get(hashable).get("reflected_diff_orders"))
+        azi_list.append(set.get(hashable).get("azimuth"))
+        aoi_list.append(set.get(hashable).get("AOI"))
+        wvl_list.append(set.get(hashable).get("wvl"))
+        i=i+1
     #plt.scatter(azi_list, wvl_list, c=orders_list)
-    plt.scatter(azi_list, wvl_list, c=orders_list)
+    plt.scatter(wvl_list, sum, c=azi_list)
     #fig = plt.figure()
     #ax = fig.add_subplot(projection='3d')
     #ax.scatter(azi_list, wvl_list, aoi_list, c=sum)
     #fig.colorbar(ax.collections[0])
     plt.show()
-    plt.scatter(azi_list, wvl_list, c=sum)
-    plt.show()
+    #plt.scatter(azi_list, wvl_list, c=sum)
+    #plt.show()
 
 def get_reflect(set):
     i = 0
@@ -198,18 +197,17 @@ def get_reflect(set):
     aoi_list = []
     wvl_list = []
     for hashable in set.data.keys():
-        if(set.get(hashable).get('AOI') == 20):
-            s_p = 0
-            pillar  = set.get(hashable).get("abs pillar")[s_p]
-            film  = set.get(hashable).get("abs film")[s_p]
-            amino  = set.get(hashable).get("abs amino")[s_p]
-            reflect = np.sum([i[s_p] for i in set.get(hashable).get("reflected flux")])
-            sum.append(pillar+film+amino+reflect)
-            orders_list.append(set.get(hashable).get("reflected_diff_orders"))
-            azi_list.append(set.get(hashable).get("azimuth"))
-            aoi_list.append(set.get(hashable).get("AOI"))
-            wvl_list.append(set.get(hashable).get("wvl"))
-            i=i+1
+        s_p = 0
+        pillar  = set.get(hashable).get("abs pillar")[s_p]
+        film  = set.get(hashable).get("abs film")[s_p]
+        amino  = set.get(hashable).get("abs amino")[s_p]
+        reflect = np.sum([i[s_p] for i in set.get(hashable).get("reflected flux")])
+        sum.append(pillar+film+amino+reflect)
+        orders_list.append(set.get(hashable).get("reflected_diff_orders"))
+        azi_list.append(set.get(hashable).get("azimuth"))
+        aoi_list.append(set.get(hashable).get("AOI"))
+        wvl_list.append(set.get(hashable).get("wvl"))
+        i=i+1
     for i in range(len(complete_wvl)):
         #plt.plot(complete_wvl[i], complete_orders[i], colors[i]+'o')
         plt.scatter(complete_wvl[i], wvl_list, c=orders_list)
@@ -259,10 +257,10 @@ def get_sep(set):
 
 id_names = ['azimuth','AOI','wvl','radius','pitch','height', 'kappa']
 wvl = 220
-file = 'Reflection_Diffraction_Order_testing/diffraction_orders_test.json'
-file = 'full_decomp_diffraction_orders.json'
+file = 'Reflection_Diffraction_Order_testing/no_NA.json'
+#file = 'full_decomp_diffraction_orders.json'
 set = Structure.from_json(file)
-aoi = 40
+#aoi = 40
 get_sum(set)
 #for i in range(8):
     #X, Y, kZ = azi_X_wvl_Y(set, aoi, False, i)
