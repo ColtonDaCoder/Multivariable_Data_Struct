@@ -1,10 +1,7 @@
 import json
 import matplotlib.pyplot as plt
-from mpl_toolkits import mplot3d
-import matplotlib.ticker as tick
 import numpy as np
 import copy
-
 
 class json_file:
 
@@ -14,9 +11,6 @@ class json_file:
             self.data = {}
         else:
             self.data = self.get_json(self.filename) 
-
-    def reload(self):
-        self.data = self.get_json(self.filename)
 
     #returns json file of wavelength file
     def get_json(self, filename):
@@ -120,7 +114,6 @@ class json_file:
     def save_json(self, filename, data): 
         with open(filename, 'w') as write_file:
             write_file.write(json.dumps(data, indent=4))
-        self.reload()
 
 def save_json(filename, data): 
     with open(filename, 'w') as write_file:
@@ -139,170 +132,3 @@ def tiago_to_json(filename):
             for k in range(16):
                 store[aoi][azi]["mm"] = [raw[j][6:10].tolist(), raw[j][10:14].tolist(), raw[j][14:18].tolist(), raw[j][18:22].tolist()]
     return store
-
-def old_convert_to_plot(file):
-    all_data = json_file(file).data
-    #remove last unfinished element
-    all_data.popitem()
-    y = [int(aoi[0:2]) for aoi in all_data]
-    x = [float(azi) for azi in all_data["20"]]
-    #len of X and Y is dependent on len of y
-    base_x,base_y = np.meshgrid(np.radians(x),y)
-    X = [base_x for i in range(16)]
-    Y = [base_y for i in range(16)] 
-    elements = [11,12,13,14,21,22,23,24,31,32,33,34,41,42,43,44]
-    Z=[[ [] for aoi in all_data ] for e in elements]
-    #Z = is len of elements, len of y
-    for i, aoi in enumerate(all_data): 
-        for azi in all_data[aoi]:
-            dMM = all_data[aoi][azi]["dMM"]
-            for index, element in enumerate(elements):
-                sub = str(element)
-                Z[index][i].append(dMM[int(sub[0])-1][int(sub[1])-1])
-    return X,Y,Z
-
-def single_polar_plot(X, Y, Z, DECOMP=False):
-    rTicks = [219,222,] 
-    xTicks = [0, np.pi/8,np.pi/6,np.pi/4, np.pi/3] 
-
-    fig, axis = plt.subplots(figsize=(10,10),subplot_kw=dict(projection='polar'))
-    cm = plt.cm.Reds
-    i = 0
-    j = 3
-    val = i*4+j
-    Zmin = np.amin(Z[val])
-    Zmax = np.amax(Z[val])
-    cb = axis.pcolormesh(X[val],Y[val],Z[val],vmin=Zmin, vmax=Zmax, antialiased=True, cmap = cm) 
-    axis.set_rticks(rTicks, fontsize=10) #AOI
-    axis.set_xticks(xTicks, fontsize=10)
-    axis.set_rlim(rTicks[0], rTicks[-1])
-    axis.set_xlim(xTicks[0], xTicks[-1]) #azimuth
-    axis.grid( color = 'gray', linestyle = '--', linewidth = 1 )
-    title = str(j+1) + str(i+1)
-    #if DECOMP and (i == 0 and j == 0):
-        #title = "DI"
-    fig.colorbar(cb,ax=axis,pad=0.2)
-
-    axis.set_title(title,fontsize=20)
-    plt.tight_layout(h_pad=1,w_pad=3)
-    #plt.savefig(str(wvl)+"polar.png")
-    plt.show()
-
-def polar_plot(X, Y, Z, DECOMP=False):
-    #file = "fe3_nokappa/noK_fe3_"+raw+".json"
-    #X,Y,Z = convert_to_plot(file)
-    #X = azimuth (xticks)
-    #Y = AOI (rticks)
-    #Z = dMM
-    rTicks = [219,222,] 
-    xTicks = [0,np.pi/8,np.pi/6,np.pi/4] 
-
-    fig, axis = plt.subplots(4,4,figsize=(10,10),subplot_kw=dict(projection='polar'))
-    cm = plt.cm.Reds
-    for j in range(4):
-        for i in range(4):
-            val = i*4+j
-            Zmin = np.amin(Z[val])
-            Zmax = np.amax(Z[val])
-            print(Zmin)
-            #if DECOMP and (i == 0 and j == 0):
-                #Zmin = 0.9
-                #Zmax = 1.1
-            cb = axis[j,i].pcolormesh(X[val],Y[val],Z[val],vmin=Zmin, vmax=Zmax, antialiased=True, cmap = cm) 
-            #cb = axis[j,i].pcolormesh(X[val],Y[val],Z[val],vmin=Zmin, vmax=Zmax, shading='gouraud', antialiased=True, cmap = cm) 
-            axis[j,i].set_rticks(rTicks, fontsize=10) #AOI
-            axis[j,i].set_xticks(xTicks, fontsize=10)
-            axis[j,i].set_rlim(rTicks[0], rTicks[-1])
-            axis[j,i].set_xlim(xTicks[0], xTicks[-1]) #azimuth
-            axis[j,i].grid( color = 'gray', linestyle = '--', linewidth = 1 )
-            title = str(j+1) + str(i+1)
-            #if DECOMP and (i == 0 and j == 0):
-                #title = "DI"
-            fig.colorbar(cb,ax=axis[j,i],pad=0.2)
-
-            axis[j,i].set_title(title,fontsize=20)
-    plt.tight_layout(h_pad=1,w_pad=3)
-    #plt.savefig(str(wvl)+"polar.png")
-    plt.show()
-
-def complete_MM_heatmap_plot(X, Y, no_kZ, raw, diff_order, kZ=0):
-    fig, ax = plt.subplots(4,4, figsize=(10,8))
-    for j in range(4):
-        for i in range(4):
-            val = i*4+j
-            mm = str(str(j+1)+str(i+1))
-            
-            #toggle for difference or magnitude
-            if not kZ == 0:
-                Z = [[(kZ[val][i][j] - no_kZ[val][i][j])/kZ[val][i][j] for j, azi in enumerate(kZ[val][i])] for i, aoi in enumerate(kZ[val])]   
-                Z = np.absolute(Z)
-                #Z = np.log10(Z)
-            else:
-                Z = [[no_kZ[val][i][j] for j, azi in enumerate(no_kZ[val][i])] for i, aoi in enumerate(no_kZ[val])]  
-                Z = np.absolute(Z)
-            Z = np.array(Z)
-            norm_list = Z.flatten() 
-            norm_list = np.delete(norm_list, np.where(norm_list == 1234)) 
-            z_max = np.amax(norm_list)
-            #z_max = np.amax(Z)
-            #z_max = 1
-            z_min = np.amin(norm_list)
-            Z[Z == 1234] = z_min
-            #z_min = -0.02
-            #z_max = 0.05
-            c = ax[j,i].pcolormesh(X[1][0], Y[1][0], Z, cmap=plt.cm.Reds, vmin=z_min, vmax=z_max)
-
-            cbar = fig.colorbar(c, ax=ax[i,j]) 
-            cbar.ax.yaxis.set_major_formatter(tick.FormatStrFormatter('%.2f'))
-            ax[j,i].set_xlabel(X[0], fontsize=10)
-            ax[j,i].set_ylabel(Y[0], fontsize=10)
-
-            ax[j,i].set_title(raw[0] + ": " + str(raw[1]) + " MM: " + str(mm), + "diff " + diff_order)
-    plt.tight_layout(h_pad=1,w_pad=0.5)
-    #plt.savefig("magnitude_heatmap_fe3_full_MM/"+raw+"/Complete_MM.png")
-    #plt.savefig("log_heatmap_fe3_"+raw+".png")
-    plt.show()
-
-
-def contour_plot(x, y, no_kZ, wvl, mm, kZ=None):
-    sub = str(mm)
-    val = (int(sub[0])-1)*4 + (int(sub[1])-1)
-    X = [i*(180/np.pi) for i in x[val]]
-    Y = y[val]
-
-    #percent difference
-    #Z = [[(kZ[val][i][j] - no_kZ[val][i][j])/kZ[val][i][j] for j, azi in enumerate(kZ[val][i])] for i, aoi in enumerate(kZ[val])]  
-    Z = [[no_kZ[val][i][j] for j, aoi in enumerate(no_kZ[val][i])] for i, aoi in enumerate(no_kZ[val])]  
-    print(no_kZ[0][0][0])
-    Z = np.absolute(Z)
-    #Z = np.log10(Z)
-    fig, ax = plt.subplots()
-    z_max = np.amax(Z)
-    #z_max = 1
-    z_min = np.amin(Z)
-
-    c = ax.pcolormesh(X, Y, Z, cmap=plt.cm.Reds, vmin=z_min, vmax=z_max)
-    #c = ax.imshow(Z, cmap=plt.cm.Reds)
-    ax.set_title("wvl: " + str(wvl) + " MM: " + str(mm))
-
-    # set the limits of the plot to the limits of the data
-    ax.axis([30, np.amax(X), np.amin(Y), np.amax(Y)])
-     
-    fig.colorbar(c, ax=ax)
-
-    ax.set_xlabel('azimuth')
-    ax.set_ylabel('AOI')
-    plt.show()
-    #plt.text(80,62, raw+" "+str(mm)+"log(|(chiral - achiral/chiral)|)")
-    #plt.savefig("magnitude_heatmap_fe3_full_MM/"+raw+"/"+raw+"_"+str(mm)+".png")
-    
-
-#file = "fe3_nokappa/noK_fe3_230.json"
-#obj = json_file(file)
-#obj.add_DI()
-#obj.add_DMM()
-elements = [11,12,13,14,21,22,23,24,31,32,33,34,41,42,43,44]
-#for j, element in enumerate(elements):
-#for i in range(6):
-    #complete_MM_heatmap_plot(str(220+i*2))
-#convert_to_plot("fe3_kappa/fe3_220.json")

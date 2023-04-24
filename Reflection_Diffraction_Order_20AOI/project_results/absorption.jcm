@@ -1,0 +1,33 @@
+/* <BLOBHead>
+__BLOBTYPE__=Table
+__MODE__=TEXT
+__OPTIONS__=LHExchanged
+__OWNER__=JCMwave
+__TAG__=e6918c54cfce87a77ba0838f5f8877c0
+__VERSION__=1.0.0
+Column1:Name=DomainId
+Column1:Type=int
+Column2:Name=ElectromagneticFieldAbsorption_1
+Column2:Type=doublecomplex
+Column3:Name=ElectromagneticFieldAbsorption_2
+Column3:Type=doublecomplex
+Title=ElectromagneticFieldAbsorption
+<I>NColumns=3
+<I>NRows=4
+*/
+# Row 1
+1
+(4.614070194984952e-32,0.000000000000000e+00)
+(-2.892951162703309e-33,0.000000000000000e+00)
+# Row 2
+2
+(1.618917257097395e-14,0.000000000000000e+00)
+(1.449429301427395e-14,0.000000000000000e+00)
+# Row 3
+3
+(4.018988367698816e-15,0.000000000000000e+00)
+(4.532841921542925e-15,0.000000000000000e+00)
+# Row 4
+4
+(2.450149419621574e-16,0.000000000000000e+00)
+(1.976439835701569e-16,0.000000000000000e+00)

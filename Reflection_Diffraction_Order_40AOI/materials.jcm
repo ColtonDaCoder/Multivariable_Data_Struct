@@ -1,0 +1,27 @@
+
+Material { 
+  Name = "Air" 
+  Id = 1
+  RelPermittivity = 1
+  RelPermeability = 1.0
+}
+Material { 
+  Name = "Al Pillar" # Al Pillars
+  Id = 2
+  RelPermittivity = (-3.63049999850428, 0.422959999233412)
+  RelPermeability = 1.0
+}
+Material { 
+  Name = "Al Film" # Al Film
+  Id = 3
+  RelPermittivity = (-3.63049999850428, 0.422959999233412)
+  RelPermeability = 1.0
+}
+Material { 
+  Name = "Aminoacid" # Molecular Layer
+  Id = 4
+  RelPermittivity = (3.849209634233, 1.556750864856)
+  RelPermeability = 1.0
+  #RelBiPermittivity = (1.3047912248e-04, 2.9517590738e-04)
+  #RelBiPermeability = (-1.3047912248e-04, -2.9517590738e-04)
+}

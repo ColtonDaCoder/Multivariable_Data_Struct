@@ -1,0 +1,79 @@
+
+
+Layout3D {
+  UnitOfLength = 1e-09
+ 
+  MeshOptions {
+    MaximumSideLength = 40
+  }
+  BoundaryConditions {
+    Boundary {
+      Direction = Vertical 
+      Class = Transparent 
+    }
+  }
+  Extrusion {
+    Objects {
+      Polygon { 
+        Name = "ComputationalDomain/Background" 
+        DomainId = 3
+        Priority = -1
+        Port = Origin
+        RotationAngle = 7 ##JCMwave rotates anti-clockwise, RC2 rotates clockwise
+        PeriodicUnitCell {
+            LatticeAngle = 90
+            LatticeVectorLengths = [175 175]
+            Shape = Rectilinear
+        }
+      } 
+      
+      Circle {
+        Name = "Circle" 
+        DomainId = 101
+                GlobalPosition = [87.5 87.5]
+        Radius = 50
+        RefineAll = 2
+                MeshOptions {
+            MaximumSidelength = 20
+        }
+      }
+    }
+
+    MultiLayer {
+      MeshOptions {
+        MaximumSideLengthZ = 25
+      }    
+      
+      Layer {
+        Thickness = 50
+        DomainId = 3
+      }
+      Layer {
+        Thickness = 10
+                MeshOptions {
+            MaximumSidelengthZUpper = 2
+        }
+        DomainIdMapping = [101 2 
+                           3 4]
+      }
+      Layer {
+        Thickness = 40
+                MeshOptions {
+            MaximumSidelengthZUpper = 2
+        }
+        DomainIdMapping = [101 2
+                           3 1]
+      }
+      Layer {
+        Thickness = 10
+        DomainIdMapping = [101 4
+                           3 1]
+      }
+     Layer {
+        Thickness = 50
+        DomainIdMapping = [3 1]
+      }
+    }
+  }
+
+
