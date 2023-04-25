@@ -82,7 +82,7 @@ def azi_X_aoi_Y(set, wvl, kappa, diff_order):
                 try:
                     data_tag = Tag(id_names, [xv, yv, wvl, radius, pitch, height, kappa])
                     sub = str(element)
-                    value = set.get(data_tag.hashable).get("dMM")[diff_order][int(sub[0])-1][int(sub[1])-1]
+                    value = set.get(data_tag.hashable).get("mm_information").get("dMM")[diff_order][int(sub[0])-1][int(sub[1])-1]
                     Z[mmi][yi].append(value) 
                 except:
                     print(str(xv) + " " + str(yv) + " " + str(element))
@@ -112,7 +112,7 @@ def azi_X_wvl_Y(set, aoi, kappa, diff_order):
                     data_tag = Tag(id_names, [xv, aoi, yv, radius, pitch, height, kappa])
                     #noKdata_tag = Tag(id_names, [xv, 56, yv, radius, pitch, height, False])
                     sub = str(element)
-                    kappa_value = set.get(data_tag.hashable).get("dMM")[diff_order][int(sub[0])-1][int(sub[1])-1]
+                    kappa_value = set.get(data_tag.hashable).get("mm_information")[diff_order].get("dmm")[int(sub[0])-1][int(sub[1])-1]
                     #nokappa_value = set.get(noKdata_tag.hashable).get("dMM")[int(sub[0])-1][int(sub[1])-1]
                     #dif = (kappa_value-nokappa_value)/kappa_value 
                     #Z[mmi][yi].append(np.log10(np.absolute(dif)))
@@ -140,7 +140,7 @@ def get_sum(set):
         pillar  = set.get(hashable).get("abs pillar")[s_p]
         film  = set.get(hashable).get("abs film")[s_p]
         amino  = set.get(hashable).get("abs amino")[s_p]
-        reflect = np.sum([i[s_p] for i in set.get(hashable).get("reflected flux")])
+        reflect = np.sum([i[1][s_p] for i in set.get(hashable).get("reflected flux")])
         sum.append(pillar+film+amino+reflect)
         orders_list.append(set.get(hashable).get("reflected_diff_orders"))
         azi_list.append(set.get(hashable).get("azimuth"))
@@ -257,11 +257,39 @@ def get_sep(set):
 
 id_names = ['azimuth','AOI','wvl','radius','pitch','height', 'kappa']
 wvl = 220
-file = 'Reflection_Diffraction_Order_testing/no_NA.json'
-#file = 'full_decomp_diffraction_orders.json'
+file = 'Reflection_Diffraction_Order_20AOI/20AOI.json'
+
+file = 'proper_20AOI.json'
 set = Structure.from_json(file)
+#for i in range(3):
+    #X, Y, kZ = azi_X_wvl_Y(set, 20, False,i)
+    #complete_MM_heatmap_plot(['azi', X], ['wvl', Y], kZ, ['aoi', 20],i)
+
+
+
+def list_toDict(set):
+    for key in set.data.keys():
+        full_order_list = []
+        for order in set.data.get(key).get("mm"):
+            dimen = order[0]
+            mm = order[1] 
+            dmm = cloude_decomp(mm)
+            map = dict()
+            map["OutX"] = dimen[0][0][0]
+            map["OutY"] = dimen[0][1][0]
+            map["OutZ"] = dimen[0][2][0]
+            map["OutTheta"] = dimen[1][0]
+            map["OutPhi"] = dimen[2][0]
+            order_map = dict()
+            order_map["dimensions"] = map
+            order_map["mm"] = mm
+            order_map["dmm"] = dmm.tolist()
+            full_order_list.append(order_map)
+        set.data[key]["mm_information"] = full_order_list
+        set.data[key].pop("mm")
+    set.save_json("proper_20AOI.json")
 #aoi = 40
-get_sum(set)
+#get_sum(set)
 #for i in range(8):
     #X, Y, kZ = azi_X_wvl_Y(set, aoi, False, i)
     #complete_MM_heatmap_plot(['azi', X], ['wvl', Y], kZ, ['aoi', aoi], i)
