@@ -1,0 +1,102 @@
+--------------------------------------
+Running PBS prologue script
+--------------------------------------
+User and Job Data:
+--------------------------------------
+Job ID:    943316.smic3
+Username:  coltonb
+Group:     Users
+Date:      24-Apr-2023 15:48
+Node:      smic025 (31590)
+--------------------------------------
+PBS has allocated the following nodes:
+
+smic025
+
+A total of 20 processors on 1 nodes allocated
+---------------------------------------------
+Check nodes and clean them of stray processes
+---------------------------------------------
+Checking node smic025 15:48:53 
+Done clearing all the allocated nodes
+------------------------------------------------------
+Concluding PBS prologue script - 24-Apr-2023 15:48:53
+------------------------------------------------------
+Loading mvapich2/2.3.3/intel-19.0.5
+  Loading requirement: intel/19.0.5
+JOBS_PER_NODE=1
+/ddnA/work/coltonb/Multivariable_Data_Struct/Reflection_Diffraction_Order_60AOI/run_sim.py:6: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
+  import jcmwave,time,imp,shutil,os
+Total runtime for WVL: 200 AOI: 60 aziumth: 45 - 1366.0653 s
+Total runtime for WVL: 202 AOI: 60 aziumth: 45 - 1372.3269 s
+Total runtime for WVL: 204 AOI: 60 aziumth: 45 - 1382.6461 s
+Total runtime for WVL: 206 AOI: 60 aziumth: 45 - 1381.5760 s
+Total runtime for WVL: 208 AOI: 60 aziumth: 45 - 1389.9386 s
+Total runtime for WVL: 210 AOI: 60 aziumth: 45 - 1382.9307 s
+Total runtime for WVL: 212 AOI: 60 aziumth: 45 - 1386.0831 s
+Total runtime for WVL: 214 AOI: 60 aziumth: 45 - 1417.4897 s
+Total runtime for WVL: 216 AOI: 60 aziumth: 45 - 1416.7486 s
+Total runtime for WVL: 218 AOI: 60 aziumth: 45 - 1409.7741 s
+Total runtime for WVL: 220 AOI: 60 aziumth: 45 - 1407.1468 s
+Total runtime for WVL: 222 AOI: 60 aziumth: 45 - 1416.3318 s
+Total runtime for WVL: 224 AOI: 60 aziumth: 45 - 1413.3275 s
+Total runtime for WVL: 226 AOI: 60 aziumth: 45 - 1424.8997 s
+Total runtime for WVL: 228 AOI: 60 aziumth: 45 - 1449.4965 s
+Total runtime for WVL: 230 AOI: 60 aziumth: 45 - 1435.7109 s
+Total runtime for WVL: 232 AOI: 60 aziumth: 45 - 1410.3629 s
+Total runtime for WVL: 234 AOI: 60 aziumth: 45 - 1398.6297 s
+Total runtime for WVL: 236 AOI: 60 aziumth: 45 - 1393.1166 s
+Total runtime for WVL: 238 AOI: 60 aziumth: 45 - 1385.1685 s
+Total runtime for WVL: 240 AOI: 60 aziumth: 45 - 1375.6093 s
+Total runtime for WVL: 242 AOI: 60 aziumth: 45 - 1377.7230 s
+Total runtime for WVL: 244 AOI: 60 aziumth: 45 - 1368.7463 s
+Total runtime for WVL: 246 AOI: 60 aziumth: 45 - 1372.3337 s
+Total runtime for WVL: 248 AOI: 60 aziumth: 45 - 1373.5399 s
+Total runtime for WVL: 250 AOI: 60 aziumth: 45 - 1380.4433 s
+Total runtime for WVL: 252 AOI: 60 aziumth: 45 - 1388.1792 s
+Total runtime for WVL: 254 AOI: 60 aziumth: 45 - 1391.5975 s
+Total runtime for WVL: 256 AOI: 60 aziumth: 45 - 1391.7142 s
+Total runtime for WVL: 258 AOI: 60 aziumth: 45 - 1388.8208 s
+Total runtime for WVL: 260 AOI: 60 aziumth: 45 - 1393.2826 s
+Total runtime for WVL: 262 AOI: 60 aziumth: 45 - 1396.5405 s
+Total runtime for WVL: 264 AOI: 60 aziumth: 45 - 1403.0589 s
+Total runtime for WVL: 266 AOI: 60 aziumth: 45 - 1400.4990 s
+Total runtime for WVL: 268 AOI: 60 aziumth: 45 - 1411.7930 s
+Total runtime for WVL: 270 AOI: 60 aziumth: 45 - 1408.7649 s
+Total runtime for WVL: 272 AOI: 60 aziumth: 45 - 1406.6299 s
+Total runtime for WVL: 274 AOI: 60 aziumth: 45 - 1408.2216 s
+Total runtime for WVL: 276 AOI: 60 aziumth: 45 - 1412.4759 s
+Total runtime for WVL: 278 AOI: 60 aziumth: 45 - 1405.3323 s
+Total runtime for WVL: 280 AOI: 60 aziumth: 45 - 1417.7302 s
+Total runtime for WVL: 282 AOI: 60 aziumth: 45 - 1437.7113 s
+Total runtime for WVL: 284 AOI: 60 aziumth: 45 - 1433.2805 s
+Total runtime for WVL: 286 AOI: 60 aziumth: 45 - 1430.0358 s
+Total runtime for WVL: 288 AOI: 60 aziumth: 45 - 1436.4498 s
+Total runtime for WVL: 290 AOI: 60 aziumth: 45 - 1437.2318 s
+Total runtime for WVL: 292 AOI: 60 aziumth: 45 - 1444.5101 s
+Total runtime for WVL: 294 AOI: 60 aziumth: 45 - 1447.2828 s
+Total runtime for WVL: 296 AOI: 60 aziumth: 45 - 1450.8365 s
+Total runtime for WVL: 298 AOI: 60 aziumth: 45 - 1450.0841 s
+Total runtime for WVL: 300 AOI: 60 aziumth: 45 - 1452.3360 s
+------------------------------------------------------
+Running PBS epilogue script    - 25-Apr-2023 11:44:32
+------------------------------------------------------
+Checking node smic025 (MS)
+Checking node smic025 ; cleared cache ; ok
+------------------------------------------------------
+Concluding PBS epilogue script - 25-Apr-2023 11:44:34
+------------------------------------------------------
+Exit Status:     0
+Job ID:          943316.smic3
+Username:        coltonb
+Group:           Users
+Job Name:        reflection_diffraction_orders_20AOI
+Session Id:      31589
+Resource Limits: ncpus=1,neednodes=1:ppn=20,nodes=1:ppn=20,walltime=22:00:00
+Resources Used:  cput=249:31:30,mem=18254508kb,vmem=22405516kb,walltime=19:55:41
+Queue Used:      workq
+Account String:  hpc_mcpeak11
+Node:            smic025
+Process id:      29111
+Last status:     25-Apr-2023:11:01 PBS_job=943316.smic3 user=coltonb allocation=hpc_mcpeak11 queue=workq total_load=15.00 cpu_hours=0.33 wall_hours=18.21 unused_nodes=0 total_nodes=1 ppn=20 avg_load=15.00 avg_cpu=950% avg_mem=8483mb avg_vmem=11895mb top_proc=coltonb:JCMsolveWo+:smic025:10.8G:8.2G:0.1hr:950% toppm=coltonb:JCMsolveWorker:smic025:11125M:8422M node_processes=5 avg_avail_mem=54821mb min_avail_mem=54821mb reverified_avg_load=11.65
+------------------------------------------------------
