@@ -11,8 +11,6 @@ def getXY(set, x_name, y_name):
     for element in set.get_elements():
         X[int(element.get(x_name))] = None
         Y[int(element.get(y_name))] = None
-    Y.popitem()
-    Y.popitem()
 
     return list(X.keys()), list(Y.keys())
 
@@ -81,18 +79,22 @@ def azi_X_aoi_Y(set, wvl, kappa, diff_order):
             for mmi, element in enumerate(elements):
                 try:
                     data_tag = Tag(id_names, [xv, yv, wvl, radius, pitch, height, kappa])
+                    print(data_tag.hashable)
+                    print(set.data)
                     sub = str(element)
+                    print(sub)
                     value = set.get(data_tag.hashable).get("mm_information").get("dMM")[diff_order][int(sub[0])-1][int(sub[1])-1]
                     Z[mmi][yi].append(value) 
-                except:
+                except Exception as e:
+                    print(e)
                     print(str(xv) + " " + str(yv) + " " + str(element))
                     exit()
                     Z[mmi][yi].append(None)
                 #Z[mmi][yi].append(kappa_value)
     return X, Y, Z
 
-
 def azi_X_wvl_Y(set, aoi, kappa, diff_order):
+    diff_order_map = {('0', '0'): 0, ('1', '0'): 1, ('1', '-1'): 2, ('0', '-1'): 3, ('0', '1'): 4, ('1', '1'): 5}
     id_names = ['azimuth','AOI','wvl','radius','pitch','height', 'kappa']
     radius = 50
     pitch = 175
@@ -105,6 +107,7 @@ def azi_X_wvl_Y(set, aoi, kappa, diff_order):
     elements = [11,12,13,14,21,22,23,24,31,32,33,34,41,42,43,44]
     Z=[[ [] for i in range(len(y))] for e in elements]
     #Z = is len of elements, len of y
+    order_map = dict()
     for yi, yv in enumerate(y):
         for xi, xv in enumerate(x):
             for mmi, element in enumerate(elements):
@@ -112,17 +115,120 @@ def azi_X_wvl_Y(set, aoi, kappa, diff_order):
                     data_tag = Tag(id_names, [xv, aoi, yv, radius, pitch, height, kappa])
                     #noKdata_tag = Tag(id_names, [xv, 56, yv, radius, pitch, height, False])
                     sub = str(element)
-                    kappa_value = set.get(data_tag.hashable).get("mm_information")[diff_order].get("dmm")[int(sub[0])-1][int(sub[1])-1]
+                    data_point = set.get(data_tag.hashable)
+                    for index, order in enumerate(data_point.get("reflected flux")):
+                        order_tuple = (order[0][0], order[0][1])
+                        order_map[order_tuple] = None 
+                        if diff_order_map.get(order_tuple) == diff_order: 
+                            dmm_element = data_point.get("mm_information")[index].get("dmm")[int(sub[0])-1][int(sub[1])-1]
+                            break
+                        else:
+                            dmm_element = 1234
+
                     #nokappa_value = set.get(noKdata_tag.hashable).get("dMM")[int(sub[0])-1][int(sub[1])-1]
                     #dif = (kappa_value-nokappa_value)/kappa_value 
                     #Z[mmi][yi].append(np.log10(np.absolute(dif)))
-                    Z[mmi][yi].append(kappa_value)
+                    Z[mmi][yi].append(dmm_element)
                 except:
                     #print(str(xv) + " " + str(yv) + " " + str(element))
                     Z[mmi][yi].append(1234)
                 #Z[mmi][yi].append(kappa_value)
     X = [base_x for e in elements]
     Y = [base_y for e in elements]
+    print(order_map)
+    return X, Y, Z
+
+def azi_X_wvl_Y_reflect_sep_diff_orders(set, aoi, kappa, diff_order):
+    diff_order_map = {('0', '0'): 0, ('1', '0'): 1, ('1', '-1'): 2, ('0', '-1'): 3, ('0', '1'): 4, ('1', '1'): 5}
+    id_names = ['azimuth','AOI','wvl','radius','pitch','height', 'kappa']
+    radius = 50
+    pitch = 175
+    height = 50
+    #remove last unfinished element
+    #len of X and Y is dependent on len of y
+    x, y = getXY(set, "azimuth", "wvl")
+    
+    base_x,base_y = np.meshgrid(np.radians(x),y)
+    Z=[ [] for i in range(len(y))]
+    #Z = is len of elements, len of y
+    order_map = dict()
+    for yi, yv in enumerate(y):
+        for xi, xv in enumerate(x):
+            data_tag = Tag(id_names, [xv, aoi, yv, radius, pitch, height, kappa])
+            data_point = set.get(data_tag.hashable)
+            for index, order in enumerate(data_point.get("reflected flux")):
+                order_tuple = (order[0][0], order[0][1])
+                order_map[order_tuple] = None 
+                if diff_order_map.get(order_tuple) == diff_order: 
+                    DI = data_point.get("reflected flux")[index][1][0]
+                    break
+                else:
+                    DI = 1234
+            Z[yi].append(DI)
+    X = base_x
+    Y = base_y
+    #print(order_map)
+    return X, Y, Z, order_map
+
+def azi_X_wvl_Y_reflect(set, aoi, kappa):
+    diff_order_map = {('0', '0'): 0, ('1', '0'): 1, ('1', '-1'): 2, ('0', '-1'): 3, ('0', '1'): 4, ('1', '1'): 5}
+    id_names = ['azimuth','AOI','wvl','radius','pitch','height', 'kappa']
+    radius = 50
+    pitch = 175
+    height = 50
+    #remove last unfinished element
+    #len of X and Y is dependent on len of y
+    x, y = getXY(set, "azimuth", "wvl")
+    
+    base_x,base_y = np.meshgrid(np.radians(x),y)
+    Z=[ [] for i in range(len(y))]
+    #Z = is len of elements, len of y
+    order_map = dict()
+    for yi, yv in enumerate(y):
+        for xi, xv in enumerate(x):
+            data_tag = Tag(id_names, [xv, aoi, yv, radius, pitch, height, kappa])
+            data_point = set.get(data_tag.hashable)
+            total_reflect = 0
+            for index, order in enumerate(data_point.get("reflected flux")):
+                order_tuple = (order[0][0], order[0][1])
+                order_map[order_tuple] = None 
+                total_reflect = total_reflect + data_point.get("reflected flux")[index][1][0]
+            Z[yi].append(total_reflect)
+    X = base_x
+    Y = base_y
+    #print(order_map)
+    return X, Y, Z
+
+def azi_X_wvl_Y_DI(set, aoi, kappa, diff_order):
+    diff_order_map = {('0', '0'): 0, ('1', '0'): 1, ('1', '-1'): 2, ('0', '-1'): 3, ('0', '1'): 4, ('1', '1'): 5}
+    id_names = ['azimuth','AOI','wvl','radius','pitch','height', 'kappa']
+    radius = 50
+    pitch = 175
+    height = 50
+    #remove last unfinished element
+    #len of X and Y is dependent on len of y
+    x, y = getXY(set, "azimuth", "wvl")
+    
+    base_x,base_y = np.meshgrid(np.radians(x),y)
+    Z=[ [] for i in range(len(y))]
+    #Z = is len of elements, len of y
+    order_map = dict()
+    for yi, yv in enumerate(y):
+        for xi, xv in enumerate(x):
+            data_tag = Tag(id_names, [xv, aoi, yv, radius, pitch, height, kappa])
+            data_point = set.get(data_tag.hashable)
+            for index, order in enumerate(data_point.get("reflected flux")):
+                order_tuple = (order[0][0], order[0][1])
+                order_map[order_tuple] = None 
+                if diff_order_map.get(order_tuple) == diff_order: 
+                    DI = data_point.get("mm_information")[index].get("DI")
+                    break
+                else:
+                    DI = 1234
+            Z[yi].append(DI)
+    X = base_x
+    Y = base_y
+    print(order_map)
     return X, Y, Z
 
 def get_sum(set):
@@ -149,6 +255,7 @@ def get_sum(set):
         i=i+1
     #plt.scatter(azi_list, wvl_list, c=orders_list)
     plt.scatter(wvl_list, sum, c=azi_list)
+    plt.title("1")
     #fig = plt.figure()
     #ax = fig.add_subplot(projection='3d')
     #ax.scatter(azi_list, wvl_list, aoi_list, c=sum)
@@ -157,7 +264,8 @@ def get_sum(set):
     #plt.scatter(azi_list, wvl_list, c=sum)
     #plt.show()
 
-def get_reflect(set):
+def get_reflect(set, aoi, azi):
+    diff_order_map = {('0', '0'): 0, ('1', '0'): 1, ('1', '-1'): 2, ('0', '-1'): 3, ('0', '1'): 4, ('1', '1'): 5}
     i = 0
     x = []
     y = []
@@ -168,28 +276,33 @@ def get_reflect(set):
     aoi_list = []
     wvl_list = []
     s_p = 0
-    aoi = 40
-    azi = 40 
+    aoi = aoi
+    azi = azi
     radius = 50
     pitch = 175
     height = 50
     kappa = False
     id_names = ['azimuth','AOI','wvl','radius','pitch','height', 'kappa']
 
-    complete_orders = [[] for i in range(8)]
-    complete_wvl = [[] for i in range(8)]
+    complete_orders = [[] for i in range(6)]
+    complete_wvl = [[] for i in range(6)]
 
     len_list = dict()
 
     for element in set.get_elements():
         len_list[int(element.get("wvl"))] = None
     len_list.popitem()
+    diff_map = dict()
     for wvl in len_list.keys():
         data_tag = Tag(id_names, [azi, aoi, wvl, radius, pitch, height, kappa])
         data_point = set.get(data_tag.hashable).get("reflected flux")
         for order, value in enumerate(data_point):
-            complete_orders[order].append(value[s_p])
-            complete_wvl[order].append(wvl)
+            diff_tuple = (value[0][0], value[0][1])
+            diff_map[diff_tuple] = None
+            index = diff_order_map.get(diff_tuple)
+            complete_orders[index].append(value[1][s_p])
+            complete_wvl[index].append(wvl)
+    print(diff_map)
     colors = ['b', 'g', 'r', 'c', 'm', 'y', 'k', 'w'] 
     sum = []
     orders_list = []
@@ -201,7 +314,7 @@ def get_reflect(set):
         pillar  = set.get(hashable).get("abs pillar")[s_p]
         film  = set.get(hashable).get("abs film")[s_p]
         amino  = set.get(hashable).get("abs amino")[s_p]
-        reflect = np.sum([i[s_p] for i in set.get(hashable).get("reflected flux")])
+        reflect = np.sum([i[1][s_p] for i in set.get(hashable).get("reflected flux")])
         sum.append(pillar+film+amino+reflect)
         orders_list.append(set.get(hashable).get("reflected_diff_orders"))
         azi_list.append(set.get(hashable).get("azimuth"))
@@ -209,10 +322,17 @@ def get_reflect(set):
         wvl_list.append(set.get(hashable).get("wvl"))
         i=i+1
     for i in range(len(complete_wvl)):
-        #plt.plot(complete_wvl[i], complete_orders[i], colors[i]+'o')
-        plt.scatter(complete_wvl[i], wvl_list, c=orders_list)
+        print(len(complete_orders[2]))
+        plt.plot(complete_wvl[i], complete_orders[i], colors[i]+'o')
+    plt.legend(diff_order_map.keys())
+    plt.title(str(aoi) + " AOI; " + str(azi) + " azimuth")
+    print(len(complete_wvl[1]))
+    print(len(complete_orders[1]))
+
+    #plt.scatter(complete_wvl[1], complete_orders[1], )
     #fig = plt.figure()
-    #ax = fig.add_subplot(projection='3d') #ax.scatter(azi_list, wvl_list, aoi_list, c=sum)
+    #ax = fig.add_subplot(projection='3d') 
+    #ax.scatter(azi_list, wvl_list, aoi_list, c=sum)
     #fig.colorbar(ax.collections[0])
     plt.show()
 
@@ -225,12 +345,10 @@ def get_sep(set):
     inner = []
     total = []
     for hashable in set.data.keys():
-        if set.get(hashable).get('wvl') == 222:
-            break;
         pillar  = set.get(hashable).get("abs pillar")[0]
         film  = set.get(hashable).get("abs film")[0]
         amino  = set.get(hashable).get("abs amino")[0]
-        reflect = np.sum(set.get(hashable).get("reflected flux")[0])
+        reflect = np.sum(i[1][0] for i in set.get(hashable).get("reflected flux"))
         inner.append(pillar+film+amino+reflect)
         total.append(pillar+film+amino+reflect)
         #inner.append(film+reflect)
@@ -249,21 +367,6 @@ def get_sep(set):
         plt.pyplot.show()
         i= i+1
 
-
-
-
-
-
-
-id_names = ['azimuth','AOI','wvl','radius','pitch','height', 'kappa']
-wvl = 220
-file = 'Reflection_Diffraction_Order_20AOI/20AOI.json'
-
-file = 'proper_20AOI.json'
-set = Structure.from_json(file)
-#for i in range(3):
-    #X, Y, kZ = azi_X_wvl_Y(set, 20, False,i)
-    #complete_MM_heatmap_plot(['azi', X], ['wvl', Y], kZ, ['aoi', 20],i)
 
 
 
@@ -287,7 +390,40 @@ def list_toDict(set):
             full_order_list.append(order_map)
         set.data[key]["mm_information"] = full_order_list
         set.data[key].pop("mm")
-    set.save_json("proper_20AOI.json")
+    set.save_json("proper_60AOI.json")
+
+
+
+id_names = ['azimuth','AOI','wvl','radius','pitch','height', 'kappa']
+
+file = 'proper_60AOI_DI.json'
+set = Structure.from_json(file)
+aoi = 60
+wvl = 230
+
+X, Y, Z = azi_X_wvl_Y(set, aoi, False, 0)
+complete_MM_heatmap_plot(X,Y,Z, '', 0)
+
+polar_plot(X,Y,Z)
+exit()
+
+#exit()
+#get_reflect(set, aoi, 40)
+#for i in range(24):
+    #get_reflect(set, aoi,i*2)
+#exit()
+X, Y, kZ = azi_X_wvl_Y_reflect(set, aoi, False)
+DI_heatmap_plot(['azi',X],['wvl',Y],kZ,"AOI: " + str(aoi) + ", Combined Reflect")
+
+for i in range(3):
+    #X, Y, kZ = azi_X_wvl_Y(set, aoi, False,i)
+    #complete_MM_heatmap_plot(['azi', X], ['wvl', Y], kZ, ['aoi', aoi],i)
+    #X, Y, kZ = azi_X_wvl_Y(set, aoi, False,i)
+    X, Y, kZ, order = azi_X_wvl_Y_reflect_sep_diff_orders(set, aoi, False,i)
+    DI_heatmap_plot(['azi',X],['wvl',Y],kZ,"AOI: " + str(aoi) + ", Diff Order: " + str(i))
+
+
+
 #aoi = 40
 #get_sum(set)
 #for i in range(8):

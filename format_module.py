@@ -1,5 +1,6 @@
 import json
 import matplotlib.pyplot as plt
+import matplotlib.ticker as ticker
 import numpy as np
 import copy
 
@@ -155,11 +156,11 @@ def old_convert_to_plot(file):
     return X,Y,Z
 
 def single_polar_plot(X, Y, Z, DECOMP=False):
-    rTicks = [219,222,] 
-    xTicks = [0, np.pi/8,np.pi/6,np.pi/4, np.pi/3] 
+    rTicks = [200,220,240,260,280,300,] 
+    xTicks = [0, np.pi/8,np.pi/6,np.pi/4] 
 
     fig, axis = plt.subplots(figsize=(10,10),subplot_kw=dict(projection='polar'))
-    cm = plt.cm.Reds
+    cm = plt.cm.seismic
     i = 0
     j = 3
     val = i*4+j
@@ -174,7 +175,9 @@ def single_polar_plot(X, Y, Z, DECOMP=False):
     title = str(j+1) + str(i+1)
     #if DECOMP and (i == 0 and j == 0):
         #title = "DI"
-    fig.colorbar(cb,ax=axis,pad=0.2)
+    fmt = ticker.FormatStrFormatter("%.2f")
+    cbar = fig.colorbar(cb, ax=axis, format=fmt) 
+    #fig.colorbar(cb,ax=axis,pad=0.2)
 
     axis.set_title(title,fontsize=20)
     plt.tight_layout(h_pad=1,w_pad=3)
@@ -187,16 +190,18 @@ def polar_plot(X, Y, Z, DECOMP=False):
     #X = azimuth (xticks)
     #Y = AOI (rticks)
     #Z = dMM
-    rTicks = [219,222,] 
+    rTicks = [200,220,240,260,280,300] 
     xTicks = [0,np.pi/8,np.pi/6,np.pi/4] 
 
     fig, axis = plt.subplots(4,4,figsize=(10,10),subplot_kw=dict(projection='polar'))
-    cm = plt.cm.Reds
+    cm = plt.cm.seismic
     for j in range(4):
         for i in range(4):
             val = i*4+j
             Zmin = np.amin(Z[val])
             Zmax = np.amax(Z[val])
+            #Zmin = -0.8
+            #Zmax = 0.8
             print(Zmin)
             #if DECOMP and (i == 0 and j == 0):
                 #Zmin = 0.9
@@ -211,16 +216,49 @@ def polar_plot(X, Y, Z, DECOMP=False):
             title = str(j+1) + str(i+1)
             #if DECOMP and (i == 0 and j == 0):
                 #title = "DI"
-            fig.colorbar(cb,ax=axis[j,i],pad=0.2)
+            fmt = ticker.FormatStrFormatter("%.2f")
+            cbar = fig.colorbar(cb, ax=axis[j,i], format=fmt) 
+            #fig.colorbar(cb,ax=axis[j,i],pad=0.2)
 
             axis[j,i].set_title(title,fontsize=20)
     plt.tight_layout(h_pad=1,w_pad=3)
     #plt.savefig(str(wvl)+"polar.png")
     plt.show()
 
+def DI_heatmap_plot(X, Y, Z, title):
+    fig, ax = plt.subplots(1,1, figsize=(10,8))
+    X[1] = [i*(180/np.pi) for i in X[1]]
+    Z = np.absolute(Z)
+    #Z = np.log10(Z)
+    Z = np.array(Z)
+    
+    norm_list = Z.flatten() 
+    #print(norm_list)
+    norm_list = np.delete(norm_list, np.where(norm_list == 1234)) 
+    z_max = np.amax(norm_list)
+    z_min = np.amin(norm_list)
+    Z[Z == 1234] = z_min
+
+    c = ax.pcolormesh(X[1], Y[1], Z, cmap=plt.cm.Reds, vmin=z_min, vmax=z_max)
+    
+    fmt = ticker.FormatStrFormatter("%.2f")
+    cbar = fig.colorbar(c, ax=ax, format=fmt) 
+    #cbar.ax.yaxis.set_major_formatter(tick.FormatStrFormatter('%.2f'))
+    ax.set_xlabel(X[0], fontsize=10)
+    ax.set_ylabel(Y[0], fontsize=10)
+
+    #plt.tight_layout(h_pad=1,w_pad=0.5)
+    plt.title(title)
+    plt.show()
+
+
+
+
+    
+
 def complete_MM_heatmap_plot(X, Y, no_kZ, raw, diff_order, kZ=0):
     fig, ax = plt.subplots(4,4, figsize=(10,8))
-    X[1] = [i*(180/np.pi) for i in X[1]]
+    X[0] = [i*(180/np.pi) for i in X[1]]
     for j in range(4):
         for i in range(4):
             val = i*4+j
@@ -243,13 +281,15 @@ def complete_MM_heatmap_plot(X, Y, no_kZ, raw, diff_order, kZ=0):
             z_min = np.amin(norm_list)
             Z[Z == 1234] = z_min
             #z_min = -0.02
-            #z_max = 0.05
-            c = ax[j,i].pcolormesh(X[1][0], Y[1][0], Z, cmap=plt.cm.Reds, vmin=z_min, vmax=z_max)
-
-            cbar = fig.colorbar(c, ax=ax[i,j]) 
+            #z_max = 0.1
+            #c = ax[j,i].pcolormesh(X[1][0], Y[1][0], Z, cmap=plt.cm.Reds, vmin=z_min, vmax=z_max)
+            c = ax[j,i].pcolormesh(X[0], Y[0], Z, cmap=plt.cm.Reds, vmin=z_min, vmax=z_max)
+            
+            fmt = ticker.FormatStrFormatter("%.2f")
+            cbar = fig.colorbar(c, ax=ax[i,j], format=fmt) 
             #cbar.ax.yaxis.set_major_formatter(tick.FormatStrFormatter('%.2f'))
-            ax[j,i].set_xlabel(X[0], fontsize=10)
-            ax[j,i].set_ylabel(Y[0], fontsize=10)
+            ax[j,i].set_xlabel(X[0][0][0], fontsize=10)
+            ax[j,i].set_ylabel(Y[0][0][0], fontsize=10)
 
             #ax[j,i].set_title(str(raw[0]) + ": " + str(raw[1]) + " MM: " + str(mm), + "diff " + diff_order)
     plt.tight_layout(h_pad=1,w_pad=0.5)

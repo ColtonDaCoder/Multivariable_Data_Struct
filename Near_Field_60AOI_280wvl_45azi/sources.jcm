@@ -1,0 +1,28 @@
+
+
+SourceBag {
+  Source {
+    ElectricFieldStrength { #This is R-CPL
+      PlaneWave {
+        Lambda0 = 3e-07
+        ThetaPhi = [60 0]
+	Incidence = FromAbove
+        SP = [(1, 0), (0, 1)]
+	PowerFluxScaling=UnitNormal
+      }
+    }
+  }
+}
+SourceBag {
+  Source {
+    ElectricFieldStrength { #This is L-CPL
+      PlaneWave {
+        Lambda0 = 3e-07
+        ThetaPhi = [60 0]
+	Incidence = FromAbove
+	SP = [(1, 0), (0, -1)]
+	PowerFluxScaling=UnitNormal
+      }
+    }
+  }
+}
