@@ -1,0 +1,63 @@
+--------------------------------------
+Running PBS prologue script
+--------------------------------------
+User and Job Data:
+--------------------------------------
+Job ID:    957020.smic3
+Username:  coltonb
+Group:     Users
+Date:      07-Jun-2023 12:37
+Node:      smic114 (27110)
+--------------------------------------
+PBS has allocated the following nodes:
+
+smic114
+
+A total of 20 processors on 1 nodes allocated
+---------------------------------------------
+Check nodes and clean them of stray processes
+---------------------------------------------
+Checking node smic114 12:37:09 
+Done clearing all the allocated nodes
+------------------------------------------------------
+Concluding PBS prologue script - 07-Jun-2023 12:37:09
+------------------------------------------------------
+Loading mvapich2/2.3.3/intel-19.0.5
+  Loading requirement: intel/19.0.5
+JOBS_PER_NODE=1
+/ddnA/work/coltonb/Multivariable_Data_Struct/Near_Field_60AOI_280wvl_45azi/run_sim.py:6: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
+  import jcmwave,time,imp,shutil,os
+/ddnA/work/coltonb/Multivariable_Data_Struct/Near_Field_60AOI_280wvl_45azi/run_sim.py:92: RuntimeWarning: Could not start JCMedit. local variable 'port' referenced before assignment
+  jcmwave.solve('project.jcmp')
+Traceback (most recent call last):
+  File "/ddnA/work/coltonb/Multivariable_Data_Struct/Near_Field_60AOI_280wvl_45azi/run_sim.py", line 92, in <module>
+    jcmwave.solve('project.jcmp')
+  File "/home/coltonb/JCMsuite_5.4.0/ThirdPartySupport/Python/jcmwave/solve.py", line 478, in solve
+    raise RuntimeError('*** JCMsolve failed. ==>\n\n%s' % (str(msg),))
+RuntimeError: *** JCMsolve failed. ==>
+
+*** Error: File "project.jcmpt", line: 48
+>>>         OutputQuantity = AnisotropicElectricChiralityDensity
+Data out of range: Invalid choice "AnisotropicElectricChiralityDensity". Possibilities are: [BiMagneticFluxDensity,DispersiveMagneticFluxDensity,Displacement,ElectricChargeDensity,ElectricChiralityDensity,ElectricConductivity,ElectricCurrentDensity,ElectricFieldEnergyDensity,ElectricFieldStrength,ElectricFluxDensity,ElectricPotential,ElectromagneticChiralityConversionDensity,ElectromagneticChiralityDensity,ElectromagneticChiralityFluxDensity,ElectromagneticFieldAbsorptionDensity,ElectromagneticFieldEnergyFluxDensity,Emissivity,ForceDensity,ForceSurfaceDensity,HolomorphicDispersiveMagneticFluxDensity,HolomorphicElectricFieldEnergyDensity,HolomorphicElectromagneticChiralityFluxDensity,HolomorphicElectromagneticFieldEnergyFluxDensity,HolomorphicMagneticFieldEnergyDensity,InitialStrain,LinearThermalExpansibility,MagneticChiralityDensity,MagneticCurrentDensity,MagneticFieldEnergyDensity,MagneticFieldStrength,MagneticFluxDensity,MagneticPotential,MassDensity,OmegaSqrElectricFluxDensity,OmegaSqrMagneticFluxDensity,PoissonRatio,RelBiPermeability,RelBiPermittivity,RelPermeability,RelPermittivity,SpecificHeat,Stiffness,Strain,Stress,Temperature,ThermalConductivity,ThermalFluxDensity,ThermalSourceDensity,YoungModulus] *** 
+
+------------------------------------------------------
+Running PBS epilogue script    - 07-Jun-2023 12:37:22
+------------------------------------------------------
+Checking node smic114 (MS)
+Checking node smic114 ; cleared cache ; ok
+------------------------------------------------------
+Concluding PBS epilogue script - 07-Jun-2023 12:37:24
+------------------------------------------------------
+Exit Status:     1
+Job ID:          957020.smic3
+Username:        coltonb
+Group:           Users
+Job Name:        near_field_60aoi
+Session Id:      27109
+Resource Limits: ncpus=1,neednodes=1:ppn=20,nodes=1:ppn=20,walltime=22:00:00
+Resources Used:  cput=00:00:01,mem=63808kb,vmem=755364kb,walltime=00:00:15
+Queue Used:      workq
+Account String:  hpc_mcpeak11
+Node:            smic114
+Process id:      27863
+------------------------------------------------------

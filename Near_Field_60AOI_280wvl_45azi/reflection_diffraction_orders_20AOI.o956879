@@ -1,0 +1,51 @@
+--------------------------------------
+Running PBS prologue script
+--------------------------------------
+User and Job Data:
+--------------------------------------
+Job ID:    956879.smic3
+Username:  coltonb
+Group:     Users
+Date:      07-Jun-2023 01:37
+Node:      smic119 (12727)
+--------------------------------------
+PBS has allocated the following nodes:
+
+smic119
+
+A total of 20 processors on 1 nodes allocated
+---------------------------------------------
+Check nodes and clean them of stray processes
+---------------------------------------------
+Checking node smic119 01:37:57 
+Done clearing all the allocated nodes
+------------------------------------------------------
+Concluding PBS prologue script - 07-Jun-2023 01:37:57
+------------------------------------------------------
+Loading mvapich2/2.3.3/intel-19.0.5
+  Loading requirement: intel/19.0.5
+JOBS_PER_NODE=1
+/ddnA/work/coltonb/Multivariable_Data_Struct/Reflection_Diffraction_Order_60AOI/run_sim.py:6: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
+  import jcmwave,time,imp,shutil,os
+------------------------------------------------------
+Running PBS epilogue script    - 07-Jun-2023 12:33:13
+------------------------------------------------------
+Checking node smic119 (MS)
+Checking node smic119 ; cleared cache ; ok
+------------------------------------------------------
+Concluding PBS epilogue script - 07-Jun-2023 12:33:16
+------------------------------------------------------
+Exit Status:     271
+Job ID:          956879.smic3
+Username:        coltonb
+Group:           Users
+Job Name:        reflection_diffraction_orders_20AOI
+Session Id:      12726
+Resource Limits: ncpus=1,neednodes=1:ppn=20,nodes=1:ppn=20,walltime=22:00:00
+Resources Used:  cput=137:18:14,mem=17991428kb,vmem=22406708kb,walltime=10:55:19
+Queue Used:      workq
+Account String:  hpc_mcpeak11
+Node:            smic119
+Process id:      17137
+Last status:     07-Jun-2023:12:02 PBS_job=956879.smic3 user=coltonb allocation=hpc_mcpeak11 queue=workq total_load=12.69 cpu_hours=0.13 wall_hours=9.55 unused_nodes=0 total_nodes=1 ppn=20 avg_load=12.69 avg_cpu=2000% avg_mem=7047mb avg_vmem=10780mb top_proc=coltonb:JCMsolveWo+:smic119:9946M:6.8G:0.0hr:2000% toppm=coltonb:JCMsolveWorker:smic119:9640M:7006M node_processes=5 avg_avail_mem=55500mb min_avail_mem=55500mb reverified_avg_load=9.84
+------------------------------------------------------

@@ -44,8 +44,8 @@ PostProcess {
 PostProcess {
      ExportFields {
                 FieldBagPath = "project_results/fieldbag.jcm"
-                Format = JCM
-        OutputQuantity = AnisotropicElectricChiralityDensity
+                Format = JCM-ASCII
+        OutputQuantity = ElectricChiralityDensity
                 OutputFileName = "project_results/ElectricChiralityDensity_xy_z10.jcm"
                 Cartesian {
                         GridPointsX = [-175e-09 : 0.5e-09 : 175e-09]
@@ -57,8 +57,8 @@ PostProcess {
 PostProcess {
      ExportFields {
                 FieldBagPath = "project_results/fieldbag.jcm"
-                Format = JCM
-        OutputQuantity = AnisotropicMagneticChiralityDensity
+                Format = JCM-ASCII
+        OutputQuantity = MagneticChiralityDensity
                 OutputFileName = "project_results/MagneticChiralityDensity_xy_z10.jcm"
                 Cartesian {
                         GridPointsX = [-175e-09 : 0.5e-09 : 175e-09]
@@ -70,8 +70,8 @@ PostProcess {
 PostProcess {
      ExportFields {
                 FieldBagPath = "project_results/fieldbag.jcm"
-                Format = JCM
-        OutputQuantity = AnisotropicElectricChiralityDensity
+                Format = JCM-ASCII
+        OutputQuantity = ElectricChiralityDensity
                 OutputFileName = "project_results/ElectricChiralityDensity_xy_z90.jcm"
                 Cartesian {
                         GridPointsX = [-175e-09 : 0.5e-09 : 175e-09]
@@ -83,8 +83,8 @@ PostProcess {
 PostProcess {
      ExportFields {
                 FieldBagPath = "project_results/fieldbag.jcm"
-                Format = JCM
-        OutputQuantity = AnisotropicMagneticChiralityDensity
+                Format = JCM-ASCII
+        OutputQuantity = MagneticChiralityDensity
                 OutputFileName = "project_results/MagneticChiralityDensity_xy_z90.jcm"
                 Cartesian {
                         GridPointsX = [-175e-09 : 0.5e-09 : 175e-09]
@@ -97,7 +97,7 @@ PostProcess {
   DensityIntegration {
     FieldBagPath = "project_results/fieldbag.jcm"
     DomainIds = [2,3,4]
-    OutputQuantity = AnisotropicElectricChirality
+    OutputQuantity = ElectricChirality
     OutputFileName = "project_results/anisotropic_electric_chirality.jcm"
   }
 }
@@ -105,7 +105,7 @@ PostProcess {
   DensityIntegration {
     FieldBagPath = "project_results/fieldbag.jcm"
     DomainIds = [2,3,4]
-    OutputQuantity = AnisotropicMagneticChirality
+    OutputQuantity = MagneticChirality
     OutputFileName = "project_results/anisotropic_magnetic_chirality.jcm"
   }
 }
