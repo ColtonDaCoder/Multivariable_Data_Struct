@@ -1,0 +1,48 @@
+--------------------------------------
+Running PBS prologue script
+--------------------------------------
+User and Job Data:
+--------------------------------------
+Job ID:    962414.smic3
+Username:  coltonb
+Group:     Users
+Date:      27-Jun-2023 04:55
+Node:      smic120 (11060)
+--------------------------------------
+PBS has allocated the following nodes:
+
+smic120
+
+A total of 20 processors on 1 nodes allocated
+---------------------------------------------
+Check nodes and clean them of stray processes
+---------------------------------------------
+Checking node smic120 04:55:28 
+Done clearing all the allocated nodes
+------------------------------------------------------
+Concluding PBS prologue script - 27-Jun-2023 04:55:28
+------------------------------------------------------
+Loading mvapich2/2.3.3/intel-19.0.5
+  Loading requirement: intel/19.0.5
+JOBS_PER_NODE=1
+------------------------------------------------------
+Running PBS epilogue script    - 27-Jun-2023 04:55:34
+------------------------------------------------------
+Checking node smic120 (MS)
+Checking node smic120 ; cleared cache ; ok
+------------------------------------------------------
+Concluding PBS epilogue script - 27-Jun-2023 04:55:36
+------------------------------------------------------
+Exit Status:     0
+Job ID:          962414.smic3
+Username:        coltonb
+Group:           Users
+Job Name:        60aoi
+Session Id:      11059
+Resource Limits: ncpus=1,neednodes=1:ppn=20,nodes=1:ppn=20,walltime=00:10:00
+Resources Used:  cput=00:00:02,mem=0kb,vmem=0kb,walltime=00:00:08
+Queue Used:      workq
+Account String:  hpc_mcpeak11
+Node:            smic120
+Process id:      11788
+------------------------------------------------------

@@ -2,12 +2,13 @@ import jcmwave
 import pandas as pd
 
 
-eleclow = jcmwave.loadcartesianfields('./project_results/ElectricChiralityDensity_xy_z10.jcm')
-maglow = jcmwave.loadcartesianfields('./project_results/MagneticChiralityDensity_xy_z10.jcm')
-#pd.DataFrame(eleclow['field'][0][:,:,0].real + maglow['field'][0][:,:,0].real).to_excel('C0low.xlsx')
-pd.DataFrame(eleclow['Y']).to_csv('eleclow_Y0.csv')
-#pd.DataFrame(eleclow['X']).to_excel('eleclow_X0.xlsx')
-#pd.DataFrame(eleclow['Z']).to_excel('eleclow_Z0.xlsx')
+eleclow = jcmwave.loadcartesianfields('./project_results/ElectricChiralityDensity_xy_z90.jcm')
+maglow = jcmwave.loadcartesianfields('./project_results/MagneticChiralityDensity_xy_z90.jcm')
+pd.DataFrame(eleclow['field'][0][:,:,0].real + maglow['field'][0][:,:,0].real).to_csv('C0high.csv')
+pd.DataFrame(eleclow['field'][1][:,:,0].real + maglow['field'][1][:,:,0].real).to_csv('C1high.csv')
+pd.DataFrame(eleclow['Y']).to_csv('elechigh_Y0.csv')
+pd.DataFrame(eleclow['X']).to_csv('elechigh_X0.csv')
+pd.DataFrame(eleclow['Z']).to_csv('elechigh_Z0.csv')
 
 exit()
 elechigh = pd.DataFrame(jcmwave.loadcartesianfields('./project_results/ElectricChiralityDensity_xy_z90.jcm')['field'])
