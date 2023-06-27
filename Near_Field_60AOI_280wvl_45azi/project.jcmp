@@ -24,7 +24,6 @@ PostProcess {
 PostProcess {
   FourierTransform {
     NormalDirection = Z
-    Format = JCM-ASCII
     FieldBagPath = "./project_results/fieldbag.jcm"
     OutputFileName = "./project_results/fourier_modes_r.jcm"
     #ChiefRay = [-60 0]  
@@ -33,7 +32,6 @@ PostProcess {
 }
 PostProcess {                                
   ScatteringMatrix {                                
-    Format = JCM-ASCII                                
     PolarizationConvention = Hauge-Berkeley                                
     InputFileName = "project_results/fourier_modes_r.jcm"                                
     OutputFileName = "project_results/sm.jcm"                                
@@ -44,7 +42,6 @@ PostProcess {
 PostProcess {
      ExportFields {
                 FieldBagPath = "project_results/fieldbag.jcm"
-                Format = JCM-ASCII
         OutputQuantity = ElectricChiralityDensity
                 OutputFileName = "project_results/ElectricChiralityDensity_xy_z10.jcm"
                 Cartesian {
@@ -57,7 +54,6 @@ PostProcess {
 PostProcess {
      ExportFields {
                 FieldBagPath = "project_results/fieldbag.jcm"
-                Format = JCM-ASCII
         OutputQuantity = MagneticChiralityDensity
                 OutputFileName = "project_results/MagneticChiralityDensity_xy_z10.jcm"
                 Cartesian {
@@ -70,7 +66,6 @@ PostProcess {
 PostProcess {
      ExportFields {
                 FieldBagPath = "project_results/fieldbag.jcm"
-                Format = JCM-ASCII
         OutputQuantity = ElectricChiralityDensity
                 OutputFileName = "project_results/ElectricChiralityDensity_xy_z90.jcm"
                 Cartesian {
@@ -83,7 +78,6 @@ PostProcess {
 PostProcess {
      ExportFields {
                 FieldBagPath = "project_results/fieldbag.jcm"
-                Format = JCM-ASCII
         OutputQuantity = MagneticChiralityDensity
                 OutputFileName = "project_results/MagneticChiralityDensity_xy_z90.jcm"
                 Cartesian {

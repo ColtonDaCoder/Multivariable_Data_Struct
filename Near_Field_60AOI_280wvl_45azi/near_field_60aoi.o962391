@@ -1,0 +1,63 @@
+--------------------------------------
+Running PBS prologue script
+--------------------------------------
+User and Job Data:
+--------------------------------------
+Job ID:    962391.smic3
+Username:  coltonb
+Group:     Users
+Date:      27-Jun-2023 03:52
+Node:      smic048 (8459)
+--------------------------------------
+PBS has allocated the following nodes:
+
+smic048
+
+A total of 20 processors on 1 nodes allocated
+---------------------------------------------
+Check nodes and clean them of stray processes
+---------------------------------------------
+Checking node smic048 03:52:05 
+Done clearing all the allocated nodes
+------------------------------------------------------
+Concluding PBS prologue script - 27-Jun-2023 03:52:05
+------------------------------------------------------
+Loading mvapich2/2.3.3/intel-19.0.5
+  Loading requirement: intel/19.0.5
+JOBS_PER_NODE=1
+/ddnA/work/coltonb/Multivariable_Data_Struct/Near_Field_60AOI_280wvl_45azi
+Traceback (most recent call last):
+  File "/ddnA/work/coltonb/Multivariable_Data_Struct/Near_Field_60AOI_280wvl_45azi/get_data.py", line 9, in <module>
+    eleclow = pd.DataFrame(jcmwave.loadtable('./project_results/ElectricChiralityDensity_xy_z10.jcm')['field'])
+  File "/home/coltonb/JCMsuite_5.4.0/ThirdPartySupport/Python/jcmwave/loadtable.py", line 135, in loadtable
+    tables.append(loadtable_(ft, format))
+  File "/home/coltonb/JCMsuite_5.4.0/ThirdPartySupport/Python/jcmwave/loadtable.py", line 162, in loadtable_
+    except TypeError as tEx: raise tEx
+  File "/home/coltonb/JCMsuite_5.4.0/ThirdPartySupport/Python/jcmwave/loadtable.py", line 161, in loadtable_
+    try: header=__private.readblobheader(ft, 'Table')
+  File "/home/coltonb/JCMsuite_5.4.0/ThirdPartySupport/Python/jcmwave/__private/readblobheader.py", line 29, in readblobheader
+    dealentry(f, blobtype, header, headerentry)    
+  File "/home/coltonb/JCMsuite_5.4.0/ThirdPartySupport/Python/jcmwave/__private/readblobheader.py", line 49, in dealentry
+    raise TypeError('Wrong file format. `%s` expected' % (blobtype,))
+TypeError: Wrong file format. `Table` expected
+------------------------------------------------------
+Running PBS epilogue script    - 27-Jun-2023 03:52:08
+------------------------------------------------------
+Checking node smic048 (MS)
+Checking node smic048 ; cleared cache ; ok
+------------------------------------------------------
+Concluding PBS epilogue script - 27-Jun-2023 03:52:11
+------------------------------------------------------
+Exit Status:     1
+Job ID:          962391.smic3
+Username:        coltonb
+Group:           Users
+Job Name:        near_field_60aoi
+Session Id:      8458
+Resource Limits: ncpus=1,neednodes=1:ppn=20,nodes=1:ppn=20,walltime=00:10:00
+Resources Used:  cput=00:00:00,mem=0kb,vmem=0kb,walltime=00:00:06
+Queue Used:      workq
+Account String:  hpc_mcpeak11
+Node:            smic048
+Process id:      9173
+------------------------------------------------------

@@ -1,0 +1,55 @@
+--------------------------------------
+Running PBS prologue script
+--------------------------------------
+User and Job Data:
+--------------------------------------
+Job ID:    962389.smic3
+Username:  coltonb
+Group:     Users
+Date:      27-Jun-2023 03:46
+Node:      smic048 (5378)
+--------------------------------------
+PBS has allocated the following nodes:
+
+smic048
+
+A total of 20 processors on 1 nodes allocated
+---------------------------------------------
+Check nodes and clean them of stray processes
+---------------------------------------------
+Checking node smic048 03:46:28 
+Done clearing all the allocated nodes
+------------------------------------------------------
+Concluding PBS prologue script - 27-Jun-2023 03:46:28
+------------------------------------------------------
+Loading mvapich2/2.3.3/intel-19.0.5
+  Loading requirement: intel/19.0.5
+JOBS_PER_NODE=1
+/ddnA/work/coltonb/Multivariable_Data_Struct/Near_Field_60AOI_280wvl_45azi
+Traceback (most recent call last):
+  File "/ddnA/work/coltonb/Multivariable_Data_Struct/Near_Field_60AOI_280wvl_45azi/get_data.py", line 9, in <module>
+    eleclow = pd.DataFrame(jcmwave.loadcartesianfields('./project_results/ElectricChirality_xy_z10.jcm')['field'])
+  File "/home/coltonb/JCMsuite_5.4.0/ThirdPartySupport/Python/jcmwave/loadcartesianfields.py", line 64, in loadcartesianfields
+    raise TypeError('file_name -> file path expected.');
+TypeError: file_name -> file path expected.
+------------------------------------------------------
+Running PBS epilogue script    - 27-Jun-2023 03:46:31
+------------------------------------------------------
+Checking node smic048 (MS)
+Checking node smic048 ; cleared cache ; ok
+------------------------------------------------------
+Concluding PBS epilogue script - 27-Jun-2023 03:46:33
+------------------------------------------------------
+Exit Status:     1
+Job ID:          962389.smic3
+Username:        coltonb
+Group:           Users
+Job Name:        near_field_60aoi
+Session Id:      5377
+Resource Limits: ncpus=1,neednodes=1:ppn=20,nodes=1:ppn=20,walltime=00:10:00
+Resources Used:  cput=00:00:00,mem=0kb,vmem=0kb,walltime=00:00:06
+Queue Used:      workq
+Account String:  hpc_mcpeak11
+Node:            smic048
+Process id:      6095
+------------------------------------------------------
