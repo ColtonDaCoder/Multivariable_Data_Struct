@@ -8,7 +8,7 @@ from optparse import OptionParser
 AOI = [60]
 AZI = [i for i in range(46)]
 WVL = [i*2+200 for i in range(51)]
-kappa = False 
+kappa = True
 
 output_file = "60AOI.json"
 

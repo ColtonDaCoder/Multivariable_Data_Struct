@@ -3,7 +3,7 @@
 #PBS -l walltime=022:00:00
 #PBS -A hpc_mcpeak11
 #PBS -q workq
-#PBS -N reflection_diffraction_orders_20AOI
+#PBS -N reflection_diffraction_orders_60AOI_kappa
 #PBS -j oe
 
 JOBS_PER_NODE=1

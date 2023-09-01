@@ -1,0 +1,62 @@
+--------------------------------------
+Running PBS prologue script
+--------------------------------------
+User and Job Data:
+--------------------------------------
+Job ID:    978803.smic3
+Username:  coltonb
+Group:     Users
+Date:      31-Aug-2023 11:45
+Node:      smic018 (6677)
+--------------------------------------
+PBS has allocated the following nodes:
+
+smic018
+
+A total of 20 processors on 1 nodes allocated
+---------------------------------------------
+Check nodes and clean them of stray processes
+---------------------------------------------
+Checking node smic018 11:45:20 
+Done clearing all the allocated nodes
+------------------------------------------------------
+Concluding PBS prologue script - 31-Aug-2023 11:45:20
+------------------------------------------------------
+Loading mvapich2/2.3.3/intel-19.0.5
+  Loading requirement: intel/19.0.5
+JOBS_PER_NODE=1
+/ddnA/work/coltonb/Multivariable_Data_Struct/Reflection_Diffraction_Order_60AOI/run_sim.py:6: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
+  import jcmwave,time,imp,shutil,os
+Traceback (most recent call last):
+  File "/ddnA/work/coltonb/Multivariable_Data_Struct/Reflection_Diffraction_Order_60AOI/run_sim.py", line 92, in <module>
+    jcmwave.solve('project.jcmp')
+  File "/home/coltonb/JCMsuite_5.4.0/ThirdPartySupport/Python/jcmwave/solve.py", line 478, in solve
+    raise RuntimeError('*** JCMsolve failed. ==>\n\n%s' % (str(msg),))
+RuntimeError: *** JCMsolve failed. ==>
+
+
+
+*** Error: Licensing failed: Network license manager error ->
+ OlComm 454 Request cannot connect to target *** 
+
+------------------------------------------------------
+Running PBS epilogue script    - 31-Aug-2023 11:45:32
+------------------------------------------------------
+Checking node smic018 (MS)
+Checking node smic018 ; cleared cache ; ok
+------------------------------------------------------
+Concluding PBS epilogue script - 31-Aug-2023 11:45:35
+------------------------------------------------------
+Exit Status:     1
+Job ID:          978803.smic3
+Username:        coltonb
+Group:           Users
+Job Name:        reflection_diffraction_orders_60AOI_kappa
+Session Id:      6676
+Resource Limits: ncpus=1,neednodes=1:ppn=20,nodes=1:ppn=20,walltime=22:00:00
+Resources Used:  cput=00:00:01,mem=0kb,vmem=0kb,walltime=00:00:14
+Queue Used:      workq
+Account String:  hpc_mcpeak11
+Node:            smic018
+Process id:      7420
+------------------------------------------------------

@@ -1,0 +1,40 @@
+<?
+keys['permittivity_1'] = (keys['n_1'])**2
+keys['permittivity_2'] = (keys['n_2'])**2
+keys['permittivity_4'] = (keys['n_4'])**2
+keys['RelBiPermittivity'] = -1j*keys['kappa']
+keys['RelBiPermeability'] = 1j*keys['kappa']
+
+keys['RelBiPermittivity_real'] = keys['RelBiPermittivity'].real
+keys['RelBiPermittivity_imag'] = keys['RelBiPermittivity'].imag
+
+keys['RelBiPermeability_real'] = keys['RelBiPermeability'].real
+keys['RelBiPermeability_imag'] = keys['RelBiPermeability'].imag
+keys['isKappa'] = keys['isKappa']
+?>
+Material { 
+  Name = "Air" 
+  Id = 1
+  RelPermittivity = %(permittivity_1)e
+  RelPermeability = 1.0
+}
+Material { 
+  Name = "Al Pillar" # Al Pillars
+  Id = 2
+  RelPermittivity = %(permittivity_2)e
+  RelPermeability = 1.0
+}
+Material { 
+  Name = "Al Film" # Al Film
+  Id = 3
+  RelPermittivity = %(permittivity_2)e
+  RelPermeability = 1.0
+}
+Material { 
+  Name = "Aminoacid" # Molecular Layer
+  Id = 4
+  RelPermittivity = %(permittivity_4)e
+  RelPermeability = 1.0
+  #RelBiPermittivity = (%(RelBiPermittivity_real)10e, %(RelBiPermittivity_imag)10e)
+  #RelBiPermeability = (%(RelBiPermeability_real)10e, %(RelBiPermeability_imag)10e)
+}

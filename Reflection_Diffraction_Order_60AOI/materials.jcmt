@@ -35,6 +35,6 @@ Material {
   Id = 4
   RelPermittivity = %(permittivity_4)e
   RelPermeability = 1.0
-  #RelBiPermittivity = (%(RelBiPermittivity_real)10e, %(RelBiPermittivity_imag)10e)
-  #RelBiPermeability = (%(RelBiPermeability_real)10e, %(RelBiPermeability_imag)10e)
+  RelBiPermittivity = (%(RelBiPermittivity_real)10e, %(RelBiPermittivity_imag)10e)
+  RelBiPermeability = (%(RelBiPermeability_real)10e, %(RelBiPermeability_imag)10e)
 }

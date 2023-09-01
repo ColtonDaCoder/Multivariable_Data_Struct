@@ -1,0 +1,14 @@
+#!/bin/bash
+#PBS -l nodes=1:ppn=20
+#PBS -l walltime=022:00:00
+#PBS -A hpc_mcpeak11
+#PBS -q workq
+#PBS -N reflection_diffraction_orders_60AOI_kappa
+#PBS -j oe
+
+JOBS_PER_NODE=1
+echo "JOBS_PER_NODE="$JOBS_PER_NODE
+
+export WDIR=/work/coltonb/Multivariable_Data_Struct/Reflection_Diffraction_Order_60AOI_2/
+cd $WDIR
+python run_sim.py -t 20
