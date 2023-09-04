@@ -1,0 +1,130 @@
+Problem = {
+  InfoLevel = %(info_level)i
+  StorageFormat = Binary
+  Electromagnetics {
+    TimeHarmonic {
+      Scattering {
+        FieldComponents = Electric
+        FiniteElementDegree = %(fem_degree)i
+      }
+    }
+  }
+}
+
+# POST PROCESSES
+
+# ENERGY
+PostProcess {
+  DensityIntegration {
+    OutputQuantity=ElectromagneticFieldAbsorption
+    FieldBagPath="project_results/fieldbag.jcm"
+    OutputFileName="project_results/absorption.jcm"
+  }
+}
+PostProcess {
+  FourierTransform {
+    NormalDirection = Z
+    FieldBagPath = "./project_results/fieldbag.jcm"
+    OutputFileName = "./project_results/fourier_modes_r.jcm"
+    #ChiefRay = [-%(AOI)e 0]  
+    #NumericalAperture = 5.0
+  }
+}
+PostProcess {                                
+  ScatteringMatrix {                                
+    PolarizationConvention = Hauge-Berkeley                                
+    InputFileName = "project_results/fourier_modes_r.jcm"                                
+    OutputFileName = %(sm_filename)s                                
+  }                                
+}   
+
+#-------------------------------------------------------------------------------------#
+PostProcess {
+     ExportFields {
+                FieldBagPath = "project_results/fieldbag.jcm"
+        OutputQuantity = ElectricChiralityDensity
+                OutputFileName = "project_results/Azi"+str(%(azimuth))+"ElectricChiralityDensity_xy_z56.jcm"
+                Cartesian {
+                        GridPointsX = [-175e-09 : 0.5e-09 : 175e-09]
+                        GridPointsY = [-175e-09 : 0.5e-09 : 175e-09]
+                        GridPointsZ = 56e-9
+                }
+        }
+}
+PostProcess {
+     ExportFields {
+                FieldBagPath = "project_results/fieldbag.jcm"
+        OutputQuantity = MagneticChiralityDensity
+                OutputFileName = "project_results/Azi"+str(%(azimuth))+"MagneticChiralityDensity_xy_z56.jcm"
+                Cartesian {
+                        GridPointsX = [-175e-09 : 0.5e-09 : 175e-09]
+                        GridPointsY = [-175e-09 : 0.5e-09 : 175e-09]
+                        GridPointsZ = 56e-9
+                }
+        }
+}
+PostProcess {
+     ExportFields {
+                FieldBagPath = "project_results/fieldbag.jcm"
+        OutputQuantity = ElectricChiralityDensity
+                OutputFileName = "project_results/Azi"+str(%(azimuth))+"ElectricChiralityDensity_xy_z104.jcm"
+                Cartesian {
+                        GridPointsX = [-175e-09 : 0.5e-09 : 175e-09]
+                        GridPointsY = [-175e-09 : 0.5e-09 : 175e-09]
+                        GridPointsZ = 104e-9
+                }
+        }
+}
+PostProcess {
+     ExportFields {
+                FieldBagPath = "project_results/fieldbag.jcm"
+        OutputQuantity = MagneticChiralityDensity
+                OutputFileName = "project_results/Azi"+str(%(azimuth))+"MagneticChiralityDensity_xy_z104.jcm"
+                Cartesian {
+                        GridPointsX = [-175e-09 : 0.5e-09 : 175e-09]
+                        GridPointsY = [-175e-09 : 0.5e-09 : 175e-09]
+                        GridPointsZ = 104e-9
+                }
+        }
+}
+PostProcess {
+     ExportFields {
+                FieldBagPath = "project_results/fieldbag.jcm"
+        OutputQuantity = ElectricChiralityDensity
+                OutputFileName = "project_results/Azi"+str(%(azimuth))+"ElectricChiralityDensity_xy_z120.jcm"
+                Cartesian {
+                        GridPointsX = [-175e-09 : 0.5e-09 : 175e-09]
+                        GridPointsY = [-175e-09 : 0.5e-09 : 175e-09]
+                        GridPointsZ = 120e-9
+                }
+        }
+}
+PostProcess {
+     ExportFields {
+                FieldBagPath = "project_results/fieldbag.jcm"
+        OutputQuantity = MagneticChiralityDensity
+                OutputFileName = "project_results/Azi"+str(%(azimuth))+"MagneticChiralityDensity_xy_z120.jcm"
+                Cartesian {
+                        GridPointsX = [-175e-09 : 0.5e-09 : 175e-09]
+                        GridPointsY = [-175e-09 : 0.5e-09 : 175e-09]
+                        GridPointsZ = 120e-9
+                }
+        }
+}
+
+PostProcess {
+  DensityIntegration {
+    FieldBagPath = "project_results/fieldbag.jcm"
+    DomainIds = [2,3,4]
+    OutputQuantity = ElectricChirality
+    OutputFileName = "project_results/Azi"+str(%(azimuth))+"anisotropic_electric_chirality.jcm"
+  }
+}
+PostProcess {
+  DensityIntegration {
+    FieldBagPath = "project_results/fieldbag.jcm"
+    DomainIds = [2,3,4]
+    OutputQuantity = MagneticChirality
+    OutputFileName = "project_results/Azi"+str(%(azimuth))+"anisotropic_magnetic_chirality.jcm"
+  }
+}

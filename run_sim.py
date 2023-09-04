@@ -6,11 +6,11 @@ import json
 import jcmwave,time,imp,shutil,os 
 from optparse import OptionParser
 AOI = [60]
-AZI = [i for i in range(46)]
+AZI = [45]
 WVL = [280]
 kappa = False 
 
-output_file = "no_NA.json"
+output_file = "60AOI.json"
 
 keys = {}  # Create empty dictionary for keys
 
@@ -122,14 +122,20 @@ for wvl in WVL:
             filename_fourierModes_r = './project_results/fourier_modes_r.jcm';
             fourierModes_r = jcmwave.loadtable(filename_fourierModes_r,format='named')
             powerFlux_r = jcmwave.convert2powerflux(fourierModes_r)
-
+            
+            reflection_list = []
+            total_P_s_r = np.real(powerFlux_r['PowerFluxDensity'][0][:,2])
+            total_P_p_r = np.real(powerFlux_r['PowerFluxDensity'][1][:,2])
             # Reflected flux in normal direction
-            P_s_r = np.real(powerFlux_r['PowerFluxDensity'][0][:, 2]);
-            P_p_r = np.real(powerFlux_r['PowerFluxDensity'][1][:, 2]); 
-		
+            for order in range(len(powerFlux_r['PowerFluxDensity'][0])):
+                orders_list = [str(fourierModes_r['N1'][order]), str(fourierModes_r['N2'][order])]
+                P_s_r = total_P_s_r[order]
+                P_p_r = total_P_s_r[order]
+                reflection_list.append([orders_list, [P_s_r, P_p_r]])
+
             filename_MM = './project_results/sm.jcm'
             table = jcmwave.loadtable(filename_MM)
-            mm_orders = []
+            mm_orders = []	
             for num in range(len(table['Mueller_xy11'][0])):
                 mm = []
                 for i in range(4):
@@ -137,12 +143,16 @@ for wvl in WVL:
                     for j in range(4):
                         row.append(float(table['Mueller_xy'+str(1+i)+str(1+j)][0][num]))
                     mm.append(row)
-                mm_orders.append(mm)
+                Kout = table['KOut'][num]
+                thetaOut = table['ThetaOut'][num]
+                phiOut = table['PhiOut'][num]
+  
+                order_list = [[[float(Kout[0].real), float(Kout[0].imag)], [float(Kout[1].real), float(Kout[1].imag)],[float(Kout[2].real), float(Kout[2].imag)]], [float(thetaOut), float(thetaOut)], [float(phiOut), float(phiOut)]]
+                mm_orders.append([order_list, mm])
 
             id_names = ['azimuth','AOI','wvl','radius','pitch','height', 'kappa']
-            reflection_list = [[P_s_r[order], P_p_r[order]] for order in range(len(P_s_r))]
 
-            set.append(Tag(id_names, [azi, aoi, wvl, keys['radius'], keys['pitch'], 50, kappa]), ["abs pillar", "abs film", "abs amino", "reflected_diff_orders", "reflected flux", "mm_diff_orders", "mm"], [[absS_pillar, absP_pillar], [absS_film, absP_film], [absS_amino, absP_amino], len(P_s_r), reflection_list, len(mm_orders), mm_orders])
+            set.append(Tag(id_names, [azi, aoi, wvl, keys['radius'], keys['pitch'], 50, kappa]), ["abs pillar", "abs film", "abs amino", "reflected_diff_orders", "reflected flux", "mm_diff_orders", "mm"], [[absS_pillar, absP_pillar], [absS_film, absP_film], [absS_amino, absP_amino], len(reflection_list), reflection_list, len(mm_orders), mm_orders])
             #set.append(Tag(id_names, [azi, aoi, wvl, keys['radius'], keys['pitch'], 50, kappa]), ["abs film", "abs air", "reflected flux", "mm"], [[absR_film, absL_film], [absR_air, absL_air], [P_s_r, P_p_r], mm])
             set.save_json(output_file)
 	    

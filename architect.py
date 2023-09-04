@@ -160,7 +160,7 @@ def azi_X_wvl_Y_reflect_sep_diff_orders(set, aoi, kappa, diff_order):
                 order_tuple = (order[0][0], order[0][1])
                 order_map[order_tuple] = None 
                 if diff_order_map.get(order_tuple) == diff_order: 
-                    DI = data_point.get("reflected flux")[index][1][0]
+                    DI = data_point.get("reflected flux")[index][1][1]
                     break
                 else:
                     DI = 1234
@@ -168,7 +168,7 @@ def azi_X_wvl_Y_reflect_sep_diff_orders(set, aoi, kappa, diff_order):
     X = base_x
     Y = base_y
     #print(order_map)
-    return X, Y, Z, order_map
+    return X, Y, Z
 
 def azi_X_wvl_Y_reflect(set, aoi, kappa):
     diff_order_map = {('0', '0'): 0, ('1', '0'): 1, ('1', '-1'): 2, ('0', '-1'): 3, ('0', '1'): 4, ('1', '1'): 5}
@@ -390,21 +390,30 @@ def list_toDict(set):
             full_order_list.append(order_map)
         set.data[key]["mm_information"] = full_order_list
         set.data[key].pop("mm")
-    set.save_json("proper_60AOI.json")
+    set.save_json("full_60AOI_dmm.json")
 
 
 
 id_names = ['azimuth','AOI','wvl','radius','pitch','height', 'kappa']
 
-file = 'proper_60AOI_DI.json'
+file = 'full_60AOI_dmm.json'
 set = Structure.from_json(file)
+
 aoi = 60
-wvl = 230
 
-X, Y, Z = azi_X_wvl_Y(set, aoi, False, 0)
-complete_MM_heatmap_plot(X,Y,Z, '', 0)
-
-polar_plot(X,Y,Z)
+X, Y, k_Z = azi_X_wvl_Y(set, aoi, True, 0)
+X, Y, nok_Z = azi_X_wvl_Y(set, aoi, False, 4)
+#complete_MM_heatmap_plot(X,Y,nok_Z, '', 0)
+#complete_MM_heatmap_plot(X,Y,nok_Z, '', 0, kZ=k_Z)
+#exit()
+X, Y, k_Z = azi_X_wvl_Y_reflect_sep_diff_orders(set, aoi, True, 0)
+print(k_Z[0][0])
+DI_heatmap_plot(['azi',X],['wvl',Y],k_Z,"P Reflected at AOI: " + str(aoi))
+exit()
+X, Y, k_Z = azi_X_wvl_Y_reflect_sep_diff_orders(set, aoi, False, 0)
+print(k_Z[0][0])
+DI_heatmap_plot(['azi',X],['wvl',Y],k_Z,"AOI: " + str(aoi))
+#polar_plot(X,Y,Z)
 exit()
 
 #exit()
