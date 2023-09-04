@@ -1,0 +1,50 @@
+--------------------------------------
+Running PBS prologue script
+--------------------------------------
+User and Job Data:
+--------------------------------------
+Job ID:    979906.smic3
+Username:  coltonb
+Group:     Users
+Date:      04-Sep-2023 17:33
+Node:      smic198 (8974)
+--------------------------------------
+PBS has allocated the following nodes:
+
+smic198
+
+A total of 20 processors on 1 nodes allocated
+---------------------------------------------
+Check nodes and clean them of stray processes
+---------------------------------------------
+Checking node smic198 17:33:51 
+Done clearing all the allocated nodes
+------------------------------------------------------
+Concluding PBS prologue script - 04-Sep-2023 17:33:51
+------------------------------------------------------
+Loading mvapich2/2.3.3/intel-19.0.5
+  Loading requirement: intel/19.0.5
+JOBS_PER_NODE=1
+/ddnA/work/coltonb/Multivariable_Data_Struct/Near_Field_60AOI_batch_13_14/run_sim.py:6: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
+  import jcmwave,time,imp,shutil,os
+------------------------------------------------------
+Running PBS epilogue script    - 04-Sep-2023 17:34:05
+------------------------------------------------------
+Checking node smic198 (MS)
+Checking node smic198 ; cleared cache ; ok
+------------------------------------------------------
+Concluding PBS epilogue script - 04-Sep-2023 17:34:07
+------------------------------------------------------
+Exit Status:     271
+Job ID:          979906.smic3
+Username:        coltonb
+Group:           Users
+Job Name:        60aoi
+Session Id:      8973
+Resource Limits: ncpus=1,neednodes=1:ppn=20,nodes=1:ppn=20,walltime=01:00:00
+Resources Used:  cput=00:01:29,mem=5336692kb,vmem=10574060kb,walltime=00:00:15
+Queue Used:      workq
+Account String:  hpc_mcpeak11
+Node:            smic198
+Process id:      9774
+------------------------------------------------------

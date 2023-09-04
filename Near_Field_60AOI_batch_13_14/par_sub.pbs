@@ -1,6 +1,6 @@
 #!/bin/bash
 #PBS -l nodes=1:ppn=20
-#PBS -l walltime=00:10:00
+#PBS -l walltime=01:00:00
 #PBS -A hpc_mcpeak11
 #PBS -q workq
 #PBS -N 60aoi 
@@ -9,6 +9,6 @@
 JOBS_PER_NODE=1
 echo "JOBS_PER_NODE="$JOBS_PER_NODE
 
-export WDIR=/work/coltonb/Multivariable_Data_Struct/Near_Field_60AOI_280wvl_45azi/
+export WDIR=/work/coltonb/Multivariable_Data_Struct/Near_Field_60AOI_batch_13_14/
 cd $WDIR
-python get_data.py -t 20
+python run_sim.py -t 20

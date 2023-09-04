@@ -6,11 +6,11 @@ import json
 import jcmwave,time,imp,shutil,os 
 from optparse import OptionParser
 AOI = [60]
-AZI = [13,14]
+AZI = [13+i for i in range(8)]
 WVL = [212+i for i in range(14)]
 kappa = True 
 
-output_file = "60AOI_near_13_14.json"
+output_file = "60AOI_near.json"
 
 keys = {}  # Create empty dictionary for keys
 
@@ -68,7 +68,8 @@ for wvl in WVL:
             'pitch' : 175, # pitch of square lattice (gammadion)
             'z_radius' : 5, # radius of curvature of dimer in z plane
             'z_radius_MSL' : 1, # maximum side length of z radius
-            'isKappa' : kappa
+            'isKappa' : kappa,
+            'wvl' : wvl
             }
 
         # material properties

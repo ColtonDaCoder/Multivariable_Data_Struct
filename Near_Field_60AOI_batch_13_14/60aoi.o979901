@@ -1,0 +1,63 @@
+--------------------------------------
+Running PBS prologue script
+--------------------------------------
+User and Job Data:
+--------------------------------------
+Job ID:    979901.smic3
+Username:  coltonb
+Group:     Users
+Date:      04-Sep-2023 17:22
+Node:      smic198 (6832)
+--------------------------------------
+PBS has allocated the following nodes:
+
+smic198
+
+A total of 20 processors on 1 nodes allocated
+---------------------------------------------
+Check nodes and clean them of stray processes
+---------------------------------------------
+Checking node smic198 17:22:14 
+Done clearing all the allocated nodes
+------------------------------------------------------
+Concluding PBS prologue script - 04-Sep-2023 17:22:14
+------------------------------------------------------
+Loading mvapich2/2.3.3/intel-19.0.5
+  Loading requirement: intel/19.0.5
+JOBS_PER_NODE=1
+/ddnA/work/coltonb/Multivariable_Data_Struct/Near_Field_60AOI_batch_13_14/run_sim.py:6: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
+  import jcmwave,time,imp,shutil,os
+/ddnA/work/coltonb/Multivariable_Data_Struct/Near_Field_60AOI_batch_13_14/run_sim.py:92: RuntimeWarning: Could not start JCMedit. local variable 'port' referenced before assignment
+  jcmwave.solve('project.jcmp')
+Traceback (most recent call last):
+  File "/ddnA/work/coltonb/Multivariable_Data_Struct/Near_Field_60AOI_batch_13_14/run_sim.py", line 92, in <module>
+    jcmwave.solve('project.jcmp')
+  File "/home/coltonb/JCMsuite_5.4.0/ThirdPartySupport/Python/jcmwave/solve.py", line 478, in solve
+    raise RuntimeError('*** JCMsolve failed. ==>\n\n%s' % (str(msg),))
+RuntimeError: *** JCMsolve failed. ==>
+
+*** Error: File "project.jcmpt", line: 46
+>>>                 OutputFileName = "project_results/Azi"+%(azimuth)+"ElectricChiralityDensity_xy_z56.jcm"
+Unknown keyword "+%(azimuth)+"ElectricChiralityDensity_xy_z56.jcm"". *** 
+
+------------------------------------------------------
+Running PBS epilogue script    - 04-Sep-2023 17:22:24
+------------------------------------------------------
+Checking node smic198 (MS)
+Checking node smic198 ; cleared cache ; ok
+------------------------------------------------------
+Concluding PBS epilogue script - 04-Sep-2023 17:22:26
+------------------------------------------------------
+Exit Status:     1
+Job ID:          979901.smic3
+Username:        coltonb
+Group:           Users
+Job Name:        60aoi
+Session Id:      6831
+Resource Limits: ncpus=1,neednodes=1:ppn=20,nodes=1:ppn=20,walltime=01:00:00
+Resources Used:  cput=00:00:01,mem=0kb,vmem=0kb,walltime=00:00:12
+Queue Used:      workq
+Account String:  hpc_mcpeak11
+Node:            smic198
+Process id:      7589
+------------------------------------------------------

@@ -1,0 +1,54 @@
+--------------------------------------
+Running PBS prologue script
+--------------------------------------
+User and Job Data:
+--------------------------------------
+Job ID:    979892.smic3
+Username:  coltonb
+Group:     Users
+Date:      04-Sep-2023 17:07
+Node:      smic001 (5807)
+--------------------------------------
+PBS has allocated the following nodes:
+
+smic001
+
+A total of 20 processors on 1 nodes allocated
+---------------------------------------------
+Check nodes and clean them of stray processes
+---------------------------------------------
+Checking node smic001 17:07:24 
+Done clearing all the allocated nodes
+------------------------------------------------------
+Concluding PBS prologue script - 04-Sep-2023 17:07:24
+------------------------------------------------------
+Loading mvapich2/2.3.3/intel-19.0.5
+  Loading requirement: intel/19.0.5
+JOBS_PER_NODE=1
+Traceback (most recent call last):
+  File "/ddnA/work/coltonb/Multivariable_Data_Struct/Near_Field_60AOI_batch_13_14/get_data.py", line 5, in <module>
+    eleclow = jcmwave.loadcartesianfields('./project_results/ElectricChiralityDensity_xy_z90.jcm')
+  File "/home/coltonb/JCMsuite_5.4.0/ThirdPartySupport/Python/jcmwave/loadcartesianfields.py", line 64, in loadcartesianfields
+    raise TypeError('file_name -> file path expected.');
+TypeError: file_name -> file path expected.
+------------------------------------------------------
+Running PBS epilogue script    - 04-Sep-2023 17:07:31
+------------------------------------------------------
+Checking node smic001 (MS)
+Checking node smic001 ; cleared cache ; ok
+------------------------------------------------------
+Concluding PBS epilogue script - 04-Sep-2023 17:07:34
+------------------------------------------------------
+Exit Status:     1
+Job ID:          979892.smic3
+Username:        coltonb
+Group:           Users
+Job Name:        60aoi
+Session Id:      5806
+Resource Limits: ncpus=1,neednodes=1:ppn=20,nodes=1:ppn=20,walltime=00:10:00
+Resources Used:  cput=00:00:00,mem=0kb,vmem=0kb,walltime=00:00:09
+Queue Used:      workq
+Account String:  hpc_mcpeak11
+Node:            smic001
+Process id:      6532
+------------------------------------------------------
