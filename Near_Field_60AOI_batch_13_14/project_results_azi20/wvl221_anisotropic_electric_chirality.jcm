@@ -1,0 +1,29 @@
+/* <BLOBHead>
+__BLOBTYPE__=Table
+__MODE__=TEXT
+__OPTIONS__=LHExchanged
+__OWNER__=JCMwave
+__TAG__=c341c8141a35a919df3b751bb3f2f87f
+__VERSION__=1.0.0
+Column1:Name=DomainId
+Column1:Type=int
+Column2:Name=ElectricChirality_1
+Column2:Type=doublecomplex
+Column3:Name=ElectricChirality_2
+Column3:Type=doublecomplex
+Title=ElectricChirality
+<I>NColumns=3
+<I>NRows=3
+*/
+# Row 1
+2
+(-5.459538097577115e-24,-5.914866717100321e-25)
+(5.222539957399698e-24,5.658102795630079e-25)
+# Row 2
+3
+(-4.309205463709925e-24,-4.668595679505595e-25)
+(3.700479109479680e-24,4.009101196985874e-25)
+# Row 3
+4
+(2.470062924601959e-23,-7.957290372555179e-24)
+(-2.417311870178504e-23,7.851621569238242e-24)

@@ -8,20 +8,20 @@ Material {
 Material { 
   Name = "Al Pillar" # Al Pillars
   Id = 2
-  RelPermittivity = (-4.20404454541189, 0.470534403480712)
+  RelPermittivity = (-4.88320000182995, 0.530119998183751)
   RelPermeability = 1.0
 }
 Material { 
   Name = "Al Film" # Al Film
   Id = 3
-  RelPermittivity = (-4.20404454541189, 0.470534403480712)
+  RelPermittivity = (-4.88320000182995, 0.530119998183751)
   RelPermeability = 1.0
 }
 Material { 
   Name = "Aminoacid" # Molecular Layer
   Id = 4
-  RelPermittivity = (3.861775099248, 1.476359373086)
+  RelPermittivity = (4.034397303249, 1.13123485604)
   RelPermeability = 1.0
-  RelBiPermittivity = (4.6753715982e-06, 5.6994629489e-04)
-  RelBiPermeability = (-4.6753715982e-06, -5.6994629489e-04)
+  RelBiPermittivity = (6.4238443217e-04, 6.9433535853e-04)
+  RelBiPermeability = (-6.4238443217e-04, -6.9433535853e-04)
 }

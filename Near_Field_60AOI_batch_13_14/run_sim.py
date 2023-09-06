@@ -7,7 +7,7 @@ import jcmwave,time,imp,shutil,os
 from optparse import OptionParser
 AOI = [60]
 AZI = [13+i for i in range(8)]
-WVL = [212+i for i in range(14)]
+WVL = [217+i for i in range(9)]
 kappa = True 
 
 output_file = "60AOI_near.json"

@@ -1,0 +1,60 @@
+--------------------------------------
+Running PBS prologue script
+--------------------------------------
+User and Job Data:
+--------------------------------------
+Job ID:    979951.smic3
+Username:  coltonb
+Group:     Users
+Date:      04-Sep-2023 20:54
+Node:      smic006 (25977)
+--------------------------------------
+PBS has allocated the following nodes:
+
+smic006
+
+A total of 20 processors on 1 nodes allocated
+---------------------------------------------
+Check nodes and clean them of stray processes
+---------------------------------------------
+Checking node smic006 20:55:00 
+Done clearing all the allocated nodes
+------------------------------------------------------
+Concluding PBS prologue script - 04-Sep-2023 20:55:00
+------------------------------------------------------
+Loading mvapich2/2.3.3/intel-19.0.5
+  Loading requirement: intel/19.0.5
+JOBS_PER_NODE=1
+/ddnA/work/coltonb/Multivariable_Data_Struct/Near_Field_60AOI_batch_13_14/run_sim.py:6: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
+  import jcmwave,time,imp,shutil,os
+Total runtime for WVL: 217 AOI: 60 aziumth: 20 - 710.8885 s
+Total runtime for WVL: 218 AOI: 60 aziumth: 20 - 713.3898 s
+Total runtime for WVL: 219 AOI: 60 aziumth: 20 - 711.8848 s
+Total runtime for WVL: 220 AOI: 60 aziumth: 20 - 711.0187 s
+Total runtime for WVL: 221 AOI: 60 aziumth: 20 - 712.3385 s
+Total runtime for WVL: 222 AOI: 60 aziumth: 20 - 710.7263 s
+Total runtime for WVL: 223 AOI: 60 aziumth: 20 - 709.0686 s
+Total runtime for WVL: 224 AOI: 60 aziumth: 20 - 708.1713 s
+Total runtime for WVL: 225 AOI: 60 aziumth: 20 - 709.0542 s
+------------------------------------------------------
+Running PBS epilogue script    - 04-Sep-2023 22:41:43
+------------------------------------------------------
+Checking node smic006 (MS)
+Checking node smic006 ; cleared cache ; ok
+------------------------------------------------------
+Concluding PBS epilogue script - 04-Sep-2023 22:41:47
+------------------------------------------------------
+Exit Status:     0
+Job ID:          979951.smic3
+Username:        coltonb
+Group:           Users
+Job Name:        60aoi
+Session Id:      25976
+Resource Limits: ncpus=1,neednodes=1:ppn=20,nodes=1:ppn=20,walltime=03:00:00
+Resources Used:  cput=15:46:35,mem=9417444kb,vmem=12895248kb,walltime=01:46:45
+Queue Used:      workq
+Account String:  hpc_mcpeak11
+Node:            smic006
+Process id:      13099
+Last status:     04-Sep-2023:22:02 PBS_job=979951.smic3 user=coltonb allocation=hpc_mcpeak11 queue=workq total_load=4.65 cpu_hours=0.00 wall_hours=0.23 unused_nodes=0 total_nodes=1 ppn=20 avg_load=4.65 avg_cpu=981% avg_mem=4469mb avg_vmem=10751mb top_proc=coltonb:JCMsolveWo+:smic006:9.7G:4.3G:0.0hr:981% toppm=coltonb:JCMsolveWorker:smic006:9917M:7327M node_processes=5 avg_avail_mem=61599mb min_avail_mem=61599mb reverified_avg_load=6.20
+------------------------------------------------------
