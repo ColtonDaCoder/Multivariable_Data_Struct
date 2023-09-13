@@ -1,0 +1,34 @@
+
+Material { 
+  Name = "Fused Silica" 
+  Id = 1
+  RelPermittivity = 2.22256578582734
+  RelPermeability = 1.0
+}
+
+
+Material { 
+  Name = "Titanium" 
+  Id = 2
+  RelPermittivity = (-3.52706875, 6.479625)
+  RelPermeability = 1.0
+}
+Material { 
+  Name = "Air/Vacuum" # Background
+  Id = 3
+  RelPermittivity = 1
+  RelPermeability = 1.0
+}
+Material { 
+  Name = "Aluminum" # Nanostructure Metal
+  Id = 4
+  RelPermittivity = (-8.761596543216, 1.14500380771)
+  RelPermeability = 1.0
+}
+
+Material { 
+  Name = "Aminoacid" 
+  Id = 5
+  RelPermittivity = (3.374958794823, 0.568812017736)
+  RelPermeability = 1.0
+}
