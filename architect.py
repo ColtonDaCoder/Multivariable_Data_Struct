@@ -4,6 +4,10 @@ from data_format import *
 from format_module import *
 import matplotlib.pyplot as plt
 
+
+
+
+
 def getXY(set, x_name, y_name):
     X = dict()
     Y = dict()
