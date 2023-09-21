@@ -68,7 +68,7 @@ for armi in arms:
 		n_Aminoacid_real.append(data[1])
 		n_Aminoacid_imag.append(data[2])
 
-    keys['kappa'] = np.interp(keys['vacuum_wavelength'], wl_Aminoacid_data, n_Aminoacid_real) + 1j*np.interp(keys['vacuum_wavelength'], wl_Aminoacid_data, n_Aminoacid_imag)
+	keys['kappa'] = np.interp(keys['vacuum_wavelength'], wl_Aminoacid_data, n_Aminoacid_real) + 1j*np.interp(keys['vacuum_wavelength'], wl_Aminoacid_data, n_Aminoacid_imag)
 	lambdas = np.linspace(210, 290, 81)*1e-9
 
 	for keys['vacuum_wavelength'] in lambdas:
@@ -83,4 +83,4 @@ for armi in arms:
 		jcmwave.jcmt2jcm('./project.jcmpt', keys)
 		jcmwave.jcmt2jcm('./sources.jcmt', keys)
 		jcmwave.jcmt2jcm('./layout.jcmt', keys)
-        jcmwave.solve('./project.jcmp')
+		jcmwave.solve('./project.jcmp')
