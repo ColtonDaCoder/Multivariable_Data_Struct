@@ -8,6 +8,8 @@ keys['RelBiPermittivity'] = -1j*keys['kappa']
 keys['RelBiPermeability'] = 1j*keys['kappa']
 keys['RelBiPermittivity_real'] = keys['RelBiPermittivity'].real
 keys['RelBiPermittivity_imag'] = keys['RelBiPermittivity'].imag
+keys['RelBiPermeability_real'] = keys['RelBiPermeability'].real
+keys['RelBiPermeability_imag'] = keys['RelBiPermeability'].imag
 ?>
 Material { 
   Name = "Fused Silica" 
