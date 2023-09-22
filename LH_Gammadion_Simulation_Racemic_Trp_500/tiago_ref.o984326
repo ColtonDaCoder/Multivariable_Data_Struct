@@ -1,0 +1,348 @@
+--------------------------------------
+Running PBS prologue script
+--------------------------------------
+User and Job Data:
+--------------------------------------
+Job ID:    984326.smic3
+Username:  coltonb
+Group:     Users
+Date:      22-Sep-2023 03:08
+Node:      smic381 (22849)
+--------------------------------------
+PBS has allocated the following nodes:
+
+smic381
+
+A total of 28 processors on 1 nodes allocated
+---------------------------------------------
+Check nodes and clean them of stray processes
+---------------------------------------------
+Checking node smic381 03:08:30 
+Done clearing all the allocated nodes
+------------------------------------------------------
+Concluding PBS prologue script - 22-Sep-2023 03:08:30
+------------------------------------------------------
+Loading mvapich2/2.3.3/intel-19.0.5
+  Loading requirement: intel/19.0.5
+JOBS_PER_NODE=1
+/ddnA/work/coltonb/Multivariable_Data_Struct/LH_Gammadion_Simulation_Racemic_Trp_500/run_simulation.py:2: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
+  import jcmwave,time,imp,shutil,os
+Wavelength : 200.00 nm
+[0, 0, -31415926.53589793]
+
+
+*** convergence of linear system (tol=1.2e, max. steps=20)
+        iter       residual  mean-rate
+    ----------------------------------
+           0     1.4887e-04        -/-
+           1     4.6101e-05       0.31
+           2     4.6046e-05       0.56
+           3     4.6268e-05       0.68
+           4     4.6419e-05       0.75
+           5     4.6735e-05       0.79
+           6     4.6289e-05       0.82
+           7     4.5771e-05       0.84
+           8     4.5588e-05       0.86
+           9     4.5236e-05       0.88
+          10     4.5508e-05       0.89
+          11     4.5281e-05       0.90
+          12     4.4956e-05       0.91
+          13     4.4706e-05       0.91
+          14     4.4689e-05       0.92
+          15     4.4306e-05       0.92
+          16     4.4490e-05       0.93
+          17     4.4585e-05       0.93
+          18     4.4806e-05       0.94
+          19     4.4531e-05       0.94
+          20     4.4309e-05       0.94*** JCMsolve partially failed. ==>
+
+
+
+*** Error: Solving linear system failed: Proceeding with inaccurate results err=.2f *** 
+
+Wavelength : 210.00 nm
+[0, 0, -29919930.034188505]
+
+
+*** convergence of linear system (tol=1.2e, max. steps=20)
+        iter       residual  mean-rate
+    ----------------------------------
+           0     4.7597e-06        -/-
+           1     1.2244e-06       0.26
+           2     1.2206e-06       0.51
+           3     1.1067e-06       0.62
+           4     1.2164e-06       0.71
+           5     1.2752e-06       0.77
+           6     1.1441e-06       0.79
+           7     1.2002e-06       0.82
+           8     1.1632e-06       0.84
+           9     1.0696e-06       0.85
+          10     1.0738e-06       0.86
+          11     1.1356e-06       0.88
+          12     9.7124e-07       0.88
+          13     1.0026e-06       0.89
+          14     1.1372e-06       0.90
+          15     9.4396e-07       0.90
+          16     1.0001e-06       0.91
+          17     9.8599e-07       0.91
+          18     9.9064e-07       0.92
+          19     9.7730e-07       0.92
+          20     9.7975e-07       0.93*** JCMsolve partially failed. ==>
+
+
+
+*** Error: Solving linear system failed: Proceeding with inaccurate results err=.2f *** 
+
+Wavelength : 220.00 nm
+[0, 0, -28559933.21445266]
+
+
+*** convergence of linear system (tol=1.2e, max. steps=20)
+        iter       residual  mean-rate
+    ----------------------------------
+           0     3.5928e-06        -/-
+           1     6.0917e-07       0.26
+           2     6.1054e-07       0.51
+           3     6.1095e-07       0.64
+           4     6.0985e-07       0.71
+           5     6.1075e-07       0.76
+           6     6.1133e-07       0.80
+           7     6.1185e-07       0.82
+           8     6.1166e-07       0.84
+           9     6.1080e-07       0.86
+          10     6.0954e-07       0.87
+          11     6.0836e-07       0.88
+          12     6.0771e-07       0.89
+          13     6.0784e-07       0.90
+          14     6.0892e-07       0.91
+          15     6.0931e-07       0.91
+          16     6.0847e-07       0.92
+          17     6.0731e-07       0.92
+          18     6.0627e-07       0.93
+          19     6.0723e-07       0.93
+          20     6.0763e-07       0.93*** JCMsolve partially failed. ==>
+
+
+
+*** Error: Solving linear system failed: Proceeding with inaccurate results err=.2f *** 
+
+Wavelength : 230.00 nm
+[0, 0, -27318196.987737328]
+
+
+*** convergence of linear system (tol=1.2e, max. steps=20)
+        iter       residual  mean-rate
+    ----------------------------------
+           0     3.0332e-07        -/-
+           1     1.3566e-07       0.59
+           2     1.1242e-07       0.72
+           3     1.2302e-07       0.82
+           4     1.2153e-07       0.81
+           5     1.1977e-07       0.83
+           6     1.1978e-07       0.86
+           7     1.1804e-07       0.87
+           8     1.1781e-07       0.89
+           9     1.1441e-07       0.90
+          10     1.1404e-07       0.91
+          11     1.1340e-07       0.91
+          12     1.1243e-07       0.92
+          13     1.1294e-07       0.93
+          14     1.1182e-07       0.93
+          15     1.1118e-07       0.94
+          16     1.0974e-07       0.94
+          17     1.0875e-07       0.94
+          18     1.0869e-07       0.95
+          19     1.0896e-07       0.95
+          20     1.0858e-07       0.95*** JCMsolve partially failed. ==>
+
+
+
+*** Error: Solving linear system failed: Proceeding with inaccurate results err=.2f *** 
+
+Wavelength : 240.00 nm
+[0, 0, -26179938.779914938]
+
+
+*** convergence of linear system (tol=1.2e, max. steps=20)
+        iter       residual  mean-rate
+    ----------------------------------
+           0     5.9220e-05        -/-
+           1     1.3030e-05       0.25
+           2     1.2701e-05       0.50
+           3     1.3092e-05       0.64
+           4     1.2967e-05       0.71
+           5     1.3542e-05       0.76
+           6     1.3563e-05       0.80
+           7     1.3704e-05       0.82
+           8     1.3395e-05       0.84
+           9     1.4026e-05       0.85
+          10     1.3810e-05       0.86
+          11     1.3623e-05       0.88
+          12     1.3656e-05       0.89
+          13     1.3466e-05       0.89
+          14     1.3568e-05       0.90
+          15     1.3299e-05       0.91
+          16     1.3090e-05       0.91
+          17     1.3075e-05       0.92
+          18     1.2977e-05       0.92
+          19     1.2658e-05       0.92
+          20     1.3027e-05       0.93*** JCMsolve partially failed. ==>
+
+
+
+*** Error: Solving linear system failed: Proceeding with inaccurate results err=.2f *** 
+
+Wavelength : 260.00 nm
+[0, 0, -24166097.3353061]
+
+
+*** convergence of linear system (tol=1.2e, max. steps=20)
+        iter       residual  mean-rate
+    ----------------------------------
+           0     4.4792e-06        -/-
+           1     1.5524e-05       3.47
+           2     2.4179e-05       2.32
+           3     1.5029e-05       1.50
+           4     3.1145e-05       1.62
+           5     2.9217e-05       1.48
+           6     3.5588e-05       1.41
+           7     3.7869e-05       1.36
+           8     4.9524e-05       1.35
+           9     4.2996e-05       1.29
+          10     3.8652e-05       1.24
+          11     3.3306e-05       1.20
+          12     4.5134e-05       1.21
+          13     3.6386e-05       1.17
+          14     3.7152e-05       1.16
+          15     3.3560e-05       1.14
+          16     3.4377e-05       1.14
+          17     3.4471e-05       1.13
+          18     3.3764e-05       1.12
+          19     3.3824e-05       1.11
+          20     3.4838e-05       1.11*** JCMsolve partially failed. ==>
+
+
+
+*** Error: Solving linear system failed: Proceeding with inaccurate results err=.2f *** 
+
+Wavelength : 270.00 nm
+[0, 0, -23271056.693257727]
+
+
+*** convergence of linear system (tol=1.2e, max. steps=20)
+        iter       residual  mean-rate
+    ----------------------------------
+           0     7.7265e-08        -/-
+           1     1.0004e-07       1.40
+           2     8.5201e-08       1.09
+           3     8.6481e-08       1.07
+           4     8.4808e-08       1.04
+           5     1.0020e-07       1.07
+           6     9.7923e-08       1.05
+           7     9.7501e-08       1.05
+           8     9.6205e-08       1.04
+           9     9.6425e-08       1.03
+          10     9.5820e-08       1.03
+          11     9.5534e-08       1.03
+          12     9.5343e-08       1.02
+          13     9.4010e-08       1.02
+          14     9.3010e-08       1.02
+          15     9.5715e-08       1.02
+          16     9.6357e-08       1.02
+          17     9.5098e-08       1.02
+          18     9.6391e-08       1.02
+          19     9.6158e-08       1.02
+          20     9.5221e-08       1.01*** JCMsolve partially failed. ==>
+
+
+
+*** Error: Solving linear system failed: Proceeding with inaccurate results err=.2f *** 
+
+Wavelength : 280.00 nm
+[0, 0, -22439947.525641378]
+
+
+*** convergence of linear system (tol=1.2e, max. steps=20)
+        iter       residual  mean-rate
+    ----------------------------------
+           0     2.7841e-08        -/-
+           1     3.8203e-08       1.61
+           2     2.5475e-08       1.46
+           3     2.8388e-08       1.33
+           4     4.2257e-08       1.37
+           5     4.2303e-08       1.29
+           6     4.1179e-08       1.23
+           7     4.0752e-08       1.19
+           8     4.0784e-08       1.17
+           9     4.1002e-08       1.15
+          10     4.0379e-08       1.13
+          11     4.1309e-08       1.12
+          12     5.0725e-08       1.13
+          13     5.7136e-08       1.13
+          14     4.6495e-08       1.10
+          15     4.6733e-08       1.10
+          16     4.6236e-08       1.09
+          17     4.4416e-08       1.08
+          18     4.3624e-08       1.07
+          19     6.3982e-08       1.09
+          20     5.5537e-08       1.08*** JCMsolve partially failed. ==>
+
+
+
+*** Error: Solving linear system failed: Proceeding with inaccurate results err=.2f *** 
+
+Wavelength : 290.00 nm
+[0, 0, -21666156.231653742]
+
+
+*** convergence of linear system (tol=1.2e, max. steps=20)
+        iter       residual  mean-rate
+    ----------------------------------
+           0     2.2413e-05        -/-
+           1     1.3984e-05       0.68
+           2     1.2879e-05       0.87
+           3     1.2734e-05       0.91
+           4     1.2403e-05       0.93
+           5     1.2284e-05       0.94
+           6     1.2032e-05       0.95
+           7     1.1801e-05       0.95
+           8     1.1491e-05       0.95
+           9     1.1342e-05       0.95
+          10     1.1248e-05       0.95
+          11     1.1108e-05       0.95
+          12     1.1099e-05       0.95
+          13     1.1066e-05       0.95
+          14     1.1092e-05       0.96
+          15     1.1083e-05       0.96
+          16     1.1087e-05       0.96
+          17     1.1050e-05       0.96
+          18     1.1071e-05       0.96
+          19     1.1440e-05       0.97
+          20     1.1420e-05       0.97*** JCMsolve partially failed. ==>
+
+
+
+*** Error: Solving linear system failed: Proceeding with inaccurate results err=.2f *** 
+
+------------------------------------------------------
+Running PBS epilogue script    - 22-Sep-2023 09:55:36
+------------------------------------------------------
+Checking node smic381 (MS)
+Checking node smic381 ; cleared cache ; ok
+------------------------------------------------------
+Concluding PBS epilogue script - 22-Sep-2023 09:55:38
+------------------------------------------------------
+Exit Status:     0
+Job ID:          984326.smic3
+Username:        coltonb
+Group:           Users
+Job Name:        tiago_ref
+Session Id:      22848
+Resource Limits: ncpus=1,neednodes=1:ppn=28,nodes=1:ppn=28,walltime=08:00:00
+Resources Used:  cput=30:08:27,mem=55560040kb,vmem=64645556kb,walltime=06:47:08
+Queue Used:      bigmem
+Account String:  hpc_mcpeak11
+Node:            smic381
+Process id:      2584
+Last status:     22-Sep-2023:09:02 PBS_job=984326.smic3 user=coltonb allocation=hpc_mcpeak11 queue=bigmem total_load=1.73 cpu_hours=2.86 wall_hours=5.15 unused_nodes=0 total_nodes=1 ppn=28 avg_load=1.73 avg_cpu=93% avg_mem=51249mb avg_vmem=59773mb top_proc=coltonb:JCMsolveWo+:smic381:57.6G:50.0G:2.8hr:93% toppm=coltonb:JCMsolveWorker:smic381:62370M:54210M node_processes=5 avg_avail_mem=201663mb min_avail_mem=201663mb reverified_avg_load=1.95
+------------------------------------------------------

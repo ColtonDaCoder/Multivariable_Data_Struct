@@ -68,18 +68,20 @@ for armi in arms:
 		n_Aminoacid_real.append(data[1])
 		n_Aminoacid_imag.append(data[2])
 
-	keys['vacuum_wavelength'] = 210*1e-9
-	keys['wvl'] = 230*1e-9
-	print('Wavelength : %3.2f nm' % (keys['vacuum_wavelength']*1e9))
-	keys['kappa'] = np.interp(keys['vacuum_wavelength'], wl_Aminoacid_data, n_Aminoacid_real) + 1j*np.interp(keys['vacuum_wavelength'], wl_Aminoacid_data, n_Aminoacid_imag)
-	keys['n_1'] = np.interp(keys['vacuum_wavelength'], wl_Fused_Silica_data, n_Fused_Silica_real)
-	keys['n_2'] = np.interp(keys['vacuum_wavelength'], wl_Ti_data, n_Ti_real) + 1j*np.interp(keys['vacuum_wavelength'], wl_Ti_data, n_Ti_imag)
-	keys['n_4'] = np.interp(keys['vacuum_wavelength'], wl_Al_data, n_Al_real) + 1j*np.interp(keys['vacuum_wavelength'], wl_Al_data, n_Al_imag)
-	keys['n_5'] = np.interp(keys['vacuum_wavelength'], wl_Aminoacid_data, n_Aminoacid_real) + 1j*np.interp(keys['vacuum_wavelength'], wl_Aminoacid_data, n_Aminoacid_imag)
-	keys['sm_filename'] = '"'+'project_results/sm_%dnm.jcm"' % int(keys['vacuum_wavelength']*1e9)	#for saving MM file
-	jcmwave.jcmt2jcm('./boundary_conditions.jcmt', keys)
-	jcmwave.jcmt2jcm('./materials.jcmt', keys)
-	jcmwave.jcmt2jcm('./project.jcmpt', keys)
-	jcmwave.jcmt2jcm('./sources.jcmt', keys)
-	jcmwave.jcmt2jcm('./layout.jcmt', keys)
-	jcmwave.solve('./project.jcmp')
+	lambdas = [200,210,220,230,240,260,270,280,290]
+	for l in lambdas:
+		keys['vacuum_wavelength'] = l*1e-9
+		keys['wvl'] = l
+		print('Wavelength : %3.2f nm' % (keys['vacuum_wavelength']*1e9))
+		keys['kappa'] = np.interp(keys['vacuum_wavelength'], wl_Aminoacid_data, n_Aminoacid_real) + 1j*np.interp(keys['vacuum_wavelength'], wl_Aminoacid_data, n_Aminoacid_imag)
+		keys['n_1'] = np.interp(keys['vacuum_wavelength'], wl_Fused_Silica_data, n_Fused_Silica_real)
+		keys['n_2'] = np.interp(keys['vacuum_wavelength'], wl_Ti_data, n_Ti_real) + 1j*np.interp(keys['vacuum_wavelength'], wl_Ti_data, n_Ti_imag)
+		keys['n_4'] = np.interp(keys['vacuum_wavelength'], wl_Al_data, n_Al_real) + 1j*np.interp(keys['vacuum_wavelength'], wl_Al_data, n_Al_imag)
+		keys['n_5'] = np.interp(keys['vacuum_wavelength'], wl_Aminoacid_data, n_Aminoacid_real) + 1j*np.interp(keys['vacuum_wavelength'], wl_Aminoacid_data, n_Aminoacid_imag)
+		keys['sm_filename'] = '"'+'project_results/sm_%dnm.jcm"' % int(keys['vacuum_wavelength']*1e9)	#for saving MM file
+		jcmwave.jcmt2jcm('./boundary_conditions.jcmt', keys)
+		jcmwave.jcmt2jcm('./materials.jcmt', keys)
+		jcmwave.jcmt2jcm('./project.jcmpt', keys)
+		jcmwave.jcmt2jcm('./sources.jcmt', keys)
+		jcmwave.jcmt2jcm('./layout.jcmt', keys)
+		jcmwave.solve('./project.jcmp')
