@@ -27,7 +27,7 @@ for armi in arms:
 		'boundary' : 'Periodic',
 		'info_level' : -1,
 		'pitch': 500,
-		'fem_degree' : 2,
+		'fem_degree' : 3,
 		'arm_thickness' : armi,
 		'angle': 0,
 		'n_refinement_steps' : 0, # Currently we get non-physical results if this is >0
@@ -68,7 +68,7 @@ for armi in arms:
 		n_Aminoacid_real.append(data[1])
 		n_Aminoacid_imag.append(data[2])
 
-	keys['vacuum_wavelength'] = 230*1e-9
+	keys['vacuum_wavelength'] = 210*1e-9
 	keys['wvl'] = 230*1e-9
 	print('Wavelength : %3.2f nm' % (keys['vacuum_wavelength']*1e9))
 	keys['kappa'] = np.interp(keys['vacuum_wavelength'], wl_Aminoacid_data, n_Aminoacid_real) + 1j*np.interp(keys['vacuum_wavelength'], wl_Aminoacid_data, n_Aminoacid_imag)

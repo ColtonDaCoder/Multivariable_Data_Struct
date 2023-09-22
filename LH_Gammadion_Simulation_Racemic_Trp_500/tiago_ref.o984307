@@ -1,0 +1,50 @@
+--------------------------------------
+Running PBS prologue script
+--------------------------------------
+User and Job Data:
+--------------------------------------
+Job ID:    984307.smic3
+Username:  coltonb
+Group:     Users
+Date:      22-Sep-2023 00:24
+Node:      smic347 (17337)
+--------------------------------------
+PBS has allocated the following nodes:
+
+smic347
+
+A total of 20 processors on 1 nodes allocated
+---------------------------------------------
+Check nodes and clean them of stray processes
+---------------------------------------------
+Checking node smic347 00:24:55 
+Done clearing all the allocated nodes
+------------------------------------------------------
+Concluding PBS prologue script - 22-Sep-2023 00:24:55
+------------------------------------------------------
+Loading mvapich2/2.3.3/intel-19.0.5
+  Loading requirement: intel/19.0.5
+JOBS_PER_NODE=1
+/ddnA/work/coltonb/Multivariable_Data_Struct/LH_Gammadion_Simulation_Racemic_Trp_500/run_simulation.py:2: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
+  import jcmwave,time,imp,shutil,os
+------------------------------------------------------
+Running PBS epilogue script    - 22-Sep-2023 00:25:37
+------------------------------------------------------
+Checking node smic347 (MS)
+Checking node smic347 ; cleared cache ; ok
+------------------------------------------------------
+Concluding PBS epilogue script - 22-Sep-2023 00:25:39
+------------------------------------------------------
+Exit Status:     271
+Job ID:          984307.smic3
+Username:        coltonb
+Group:           Users
+Job Name:        tiago_ref
+Session Id:      17336
+Resource Limits: ncpus=1,neednodes=1:ppn=20,nodes=1:ppn=20,walltime=03:00:00
+Resources Used:  cput=00:05:09,mem=11018928kb,vmem=14549232kb,walltime=00:00:43
+Queue Used:      workq
+Account String:  hpc_mcpeak11
+Node:            smic347
+Process id:      18148
+------------------------------------------------------
