@@ -11,11 +11,12 @@ jcm_root = "C:\\Users\\Colton Bruni\\Documents\\JCMsuite"
 sys.path.append(os.path.join(jcm_root, 'ThirdPartySupport', 'Python'))
 import jcmwave
 os.chdir("Github/Multivariable_Data_Struct/")
+folder = "Near_Field_60AOI_batch_13_14/project_results_azi13"
 
-
-cfb = jcmwave.loadcartesianfields('Near_Field_60AOI_batch_13_14/project_results_azi13/wvl212_ElectricChiralityDensity_xy_z56.jcm')
+folder = "LH_Gammadion_Simulation_Racemic_Trp_500/project_results/"
+cfb = jcmwave.loadcartesianfields(folder+'_ElectricChiralityDensity_xy_z3.jcm')
 chi = cfb['field'][1]
-cfb = jcmwave.loadcartesianfields('Near_Field_60AOI_batch_13_14/project_results_azi13/wvl212_MagneticChiralityDensity_xy_z56.jcm')
+cfb = jcmwave.loadcartesianfields(folder+'_MagneticChiralityDensity_xy_z3.jcm')
 chim = cfb['field'][1]
 import matplotlib.pyplot as plt
 C1 = chi[:,:,0].real+chim[:,:,0].real
@@ -25,6 +26,33 @@ plt.subplot(1,1,1)
 plot1 = plt.pcolormesh(cfb['X']*10**9, cfb['Y']*10**9, C1, cmap=plt.cm.seismic, shading='gouraud')
 cb = plt.colorbar(plot1)
 plt.show()
+folder = "LH_Gammadion_Simulation_Racemic_Trp_500/project_results/"
+cfb = jcmwave.loadcartesianfields(folder+'_ElectricChiralityDensity_xy_z90.jcm')
+chi = cfb['field'][1]
+cfb = jcmwave.loadcartesianfields(folder+'_MagneticChiralityDensity_xy_z90.jcm')
+chim = cfb['field'][1]
+import matplotlib.pyplot as plt
+C1 = chi[:,:,0].real+chim[:,:,0].real
+fig, ax = plt.subplots(figsize=(8,4))
+
+plt.subplot(1,1,1)
+plot1 = plt.pcolormesh(cfb['X']*10**9, cfb['Y']*10**9, C1, cmap=plt.cm.seismic, shading='gouraud')
+cb = plt.colorbar(plot1)
+plt.show()
+folder = "LH_Gammadion_Simulation_Racemic_Trp_500/project_results/"
+cfb = jcmwave.loadcartesianfields(folder+'_ElectricChiralityDensity_xy_z120.jcm')
+chi = cfb['field'][1]
+cfb = jcmwave.loadcartesianfields(folder+'_MagneticChiralityDensity_xy_z120.jcm')
+chim = cfb['field'][1]
+import matplotlib.pyplot as plt
+C1 = chi[:,:,0].real+chim[:,:,0].real
+fig, ax = plt.subplots(figsize=(8,4))
+
+plt.subplot(1,1,1)
+plot1 = plt.pcolormesh(cfb['X']*10**9, cfb['Y']*10**9, C1, cmap=plt.cm.seismic, shading='gouraud')
+cb = plt.colorbar(plot1)
+plt.show()
+exit()
 
 cfb = jcmwave.loadcartesianfields('Near_Field_60AOI_batch_13_14/project_results_azi13/wvl212_ElectricChiralityDensity_xy_z104.jcm')
 chi = cfb['field'][1]
