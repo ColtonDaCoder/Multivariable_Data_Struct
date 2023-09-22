@@ -5,7 +5,7 @@ Problem = {
     TimeHarmonic {
       Scattering {
         FieldComponents = Electric
-        FiniteElementDegree = 2
+        FiniteElementDegree = 3
       }
     }
   }
@@ -35,7 +35,7 @@ PostProcess {
   ScatteringMatrix {                                
     PolarizationConvention = Hauge-Berkeley                                
     InputFileName = "project_results/fourier_modes_r.jcm"                                
-    OutputFileName = "project_results/sm_230nm.jcm"                                
+    OutputFileName = "project_results/sm_210nm.jcm"                                
   }                                
 }   
 
@@ -44,11 +44,11 @@ PostProcess {
      ExportFields {
                 FieldBagPath = "project_results/fieldbag.jcm"
         OutputQuantity = ElectricChiralityDensity
-                OutputFileName = "project_results/_ElectricChiralityDensity_xy_z56.jcm"
+                OutputFileName = "project_results/_ElectricChiralityDensity_xy_z3.jcm"
                 Cartesian {
                         GridPointsX = [-175e-09 : 0.5e-09 : 175e-09]
                         GridPointsY = [-175e-09 : 0.5e-09 : 175e-09]
-                        GridPointsZ = 56e-9
+                        GridPointsZ = 3e-9
                 }
         }
 }
@@ -56,11 +56,11 @@ PostProcess {
      ExportFields {
                 FieldBagPath = "project_results/fieldbag.jcm"
         OutputQuantity = MagneticChiralityDensity
-                OutputFileName = "project_results/_MagneticChiralityDensity_xy_z56.jcm"
+                OutputFileName = "project_results/_MagneticChiralityDensity_xy_z3.jcm"
                 Cartesian {
                         GridPointsX = [-175e-09 : 0.5e-09 : 175e-09]
                         GridPointsY = [-175e-09 : 0.5e-09 : 175e-09]
-                        GridPointsZ = 56e-9
+                        GridPointsZ = 3e-9
                 }
         }
 }
@@ -68,11 +68,11 @@ PostProcess {
      ExportFields {
                 FieldBagPath = "project_results/fieldbag.jcm"
         OutputQuantity = ElectricChiralityDensity
-                OutputFileName = "project_results/_ElectricChiralityDensity_xy_z104.jcm"
+                OutputFileName = "project_results/_ElectricChiralityDensity_xy_z90.jcm"
                 Cartesian {
                         GridPointsX = [-175e-09 : 0.5e-09 : 175e-09]
                         GridPointsY = [-175e-09 : 0.5e-09 : 175e-09]
-                        GridPointsZ = 104e-9
+                        GridPointsZ = 90e-9
                 }
         }
 }
@@ -80,11 +80,11 @@ PostProcess {
      ExportFields {
                 FieldBagPath = "project_results/fieldbag.jcm"
         OutputQuantity = MagneticChiralityDensity
-                OutputFileName = "project_results/_MagneticChiralityDensity_xy_z104.jcm"
+                OutputFileName = "project_results/_MagneticChiralityDensity_xy_z90.jcm"
                 Cartesian {
                         GridPointsX = [-175e-09 : 0.5e-09 : 175e-09]
                         GridPointsY = [-175e-09 : 0.5e-09 : 175e-09]
-                        GridPointsZ = 104e-9
+                        GridPointsZ = 90e-9
                 }
         }
 }
