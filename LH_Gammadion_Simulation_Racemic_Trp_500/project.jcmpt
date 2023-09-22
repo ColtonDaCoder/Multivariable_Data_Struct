@@ -11,6 +11,7 @@ Problem = {
   }
 }
 
+
 # POST PROCESSES
 
 # ENERGY
@@ -43,7 +44,7 @@ PostProcess {
      ExportFields {
                 FieldBagPath = "project_results/fieldbag.jcm"
         OutputQuantity = ElectricChiralityDensity
-                OutputFileName = "project_results_azi%(azimuth)i/wvl%(wvl)i_ElectricChiralityDensity_xy_z56.jcm"
+                OutputFileName = "project_results/_ElectricChiralityDensity_xy_z56.jcm"
                 Cartesian {
                         GridPointsX = [-175e-09 : 0.5e-09 : 175e-09]
                         GridPointsY = [-175e-09 : 0.5e-09 : 175e-09]
@@ -55,7 +56,7 @@ PostProcess {
      ExportFields {
                 FieldBagPath = "project_results/fieldbag.jcm"
         OutputQuantity = MagneticChiralityDensity
-                OutputFileName = "project_results_azi%(azimuth)i/wvl%(wvl)i_MagneticChiralityDensity_xy_z56.jcm"
+                OutputFileName = "project_results/_MagneticChiralityDensity_xy_z56.jcm"
                 Cartesian {
                         GridPointsX = [-175e-09 : 0.5e-09 : 175e-09]
                         GridPointsY = [-175e-09 : 0.5e-09 : 175e-09]
@@ -67,7 +68,7 @@ PostProcess {
      ExportFields {
                 FieldBagPath = "project_results/fieldbag.jcm"
         OutputQuantity = ElectricChiralityDensity
-                OutputFileName = "project_results_azi%(azimuth)i/wvl%(wvl)i_ElectricChiralityDensity_xy_z104.jcm"
+                OutputFileName = "project_results/_ElectricChiralityDensity_xy_z104.jcm"
                 Cartesian {
                         GridPointsX = [-175e-09 : 0.5e-09 : 175e-09]
                         GridPointsY = [-175e-09 : 0.5e-09 : 175e-09]
@@ -79,7 +80,7 @@ PostProcess {
      ExportFields {
                 FieldBagPath = "project_results/fieldbag.jcm"
         OutputQuantity = MagneticChiralityDensity
-                OutputFileName = "project_results_azi%(azimuth)i/wvl%(wvl)i_MagneticChiralityDensity_xy_z104.jcm"
+                OutputFileName = "project_results/_MagneticChiralityDensity_xy_z104.jcm"
                 Cartesian {
                         GridPointsX = [-175e-09 : 0.5e-09 : 175e-09]
                         GridPointsY = [-175e-09 : 0.5e-09 : 175e-09]
@@ -91,7 +92,7 @@ PostProcess {
      ExportFields {
                 FieldBagPath = "project_results/fieldbag.jcm"
         OutputQuantity = ElectricChiralityDensity
-                OutputFileName = "project_results_azi%(azimuth)i/wvl%(wvl)i_ElectricChiralityDensity_xy_z120.jcm"
+                OutputFileName = "project_results/_ElectricChiralityDensity_xy_z120.jcm"
                 Cartesian {
                         GridPointsX = [-175e-09 : 0.5e-09 : 175e-09]
                         GridPointsY = [-175e-09 : 0.5e-09 : 175e-09]
@@ -103,7 +104,7 @@ PostProcess {
      ExportFields {
                 FieldBagPath = "project_results/fieldbag.jcm"
         OutputQuantity = MagneticChiralityDensity
-                OutputFileName = "project_results_azi%(azimuth)i/wvl%(wvl)i_MagneticChiralityDensity_xy_z120.jcm"
+                OutputFileName = "project_results/_MagneticChiralityDensity_xy_z120.jcm"
                 Cartesian {
                         GridPointsX = [-175e-09 : 0.5e-09 : 175e-09]
                         GridPointsY = [-175e-09 : 0.5e-09 : 175e-09]
@@ -117,7 +118,7 @@ PostProcess {
     FieldBagPath = "project_results/fieldbag.jcm"
     DomainIds = [2,3,4]
     OutputQuantity = ElectricChirality
-    OutputFileName = "project_results_azi%(azimuth)i/wvl%(wvl)i_anisotropic_electric_chirality.jcm"
+    OutputFileName = "project_results/_anisotropic_electric_chirality.jcm"
   }
 }
 PostProcess {
@@ -125,6 +126,6 @@ PostProcess {
     FieldBagPath = "project_results/fieldbag.jcm"
     DomainIds = [2,3,4]
     OutputQuantity = MagneticChirality
-    OutputFileName = "project_results_azi%(azimuth)i/wvl%(wvl)i_anisotropic_magnetic_chirality.jcm"
+    OutputFileName = "project_results/_anisotropic_magnetic_chirality.jcm"
   }
 }

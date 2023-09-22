@@ -1,0 +1,85 @@
+--------------------------------------
+Running PBS prologue script
+--------------------------------------
+User and Job Data:
+--------------------------------------
+Job ID:    984028.smic3
+Username:  coltonb
+Group:     Users
+Date:      21-Sep-2023 01:04
+Node:      smic134 (28523)
+--------------------------------------
+PBS has allocated the following nodes:
+
+smic134
+
+A total of 20 processors on 1 nodes allocated
+---------------------------------------------
+Check nodes and clean them of stray processes
+---------------------------------------------
+Checking node smic134 01:04:59 
+Done clearing all the allocated nodes
+------------------------------------------------------
+Concluding PBS prologue script - 21-Sep-2023 01:04:59
+------------------------------------------------------
+Loading mvapich2/2.3.3/intel-19.0.5
+  Loading requirement: intel/19.0.5
+JOBS_PER_NODE=1
+/ddnA/work/coltonb/Multivariable_Data_Struct/LH_Gammadion_Simulation_Racemic_Trp_500/run_simulation.py:2: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
+  import jcmwave,time,imp,shutil,os
+Wavelength : 210.00 nm
+Traceback (most recent call last):
+  File "/home/coltonb/JCMsuite_5.4.0/ThirdPartySupport/Python/jcmwave/__private/jcmt2jcm_from_string.py", line 92, in jcmt2jcm_from_string
+    try: (jcm, jcm_lines)=exec_jcmpyo(jcmpyo, copy.deepcopy(keys))
+  File "/home/coltonb/JCMsuite_5.4.0/ThirdPartySupport/Python/jcmwave/__private/jcmt2jcm_from_string.py", line 219, in exec_jcmpyo
+    exec(jcmpyo,globals(),jcmNameSpaceL)
+  File "<jcmpy>", line 2, in <module>
+  File "/home/coltonb/JCMsuite_5.4.0/ThirdPartySupport/Python/jcmwave/__private/jcmt2jcm_from_string.py", line 199, in jcm_echo
+    raise subErr
+  File "/home/coltonb/JCMsuite_5.4.0/ThirdPartySupport/Python/jcmwave/__private/jcmt2jcm_from_string.py", line 190, in jcm_echo
+    jcm = re.sub('[%]([?]?)\(([^)]*)\)([\d]{0,2})([sdiefg])', 
+  File "./lib/python3.9/re.py", line 210, in sub
+  File "/home/coltonb/JCMsuite_5.4.0/ThirdPartySupport/Python/jcmwave/__private/jcmt2jcm_from_string.py", line 191, in <lambda>
+    lambda m: jcm_sub(m, keys), jcm);
+  File "/home/coltonb/JCMsuite_5.4.0/ThirdPartySupport/Python/jcmwave/__private/jcmt2jcm_from_string.py", line 142, in jcm_sub
+    raise subError
+jcmwave.__private.jcmt2jcm_from_string.__SubstitutionError: No value provided for key `wvl`.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/ddnA/work/coltonb/Multivariable_Data_Struct/LH_Gammadion_Simulation_Racemic_Trp_500/run_simulation.py", line 83, in <module>
+    jcmwave.jcmt2jcm('./project.jcmpt', keys)
+  File "/home/coltonb/JCMsuite_5.4.0/ThirdPartySupport/Python/jcmwave/jcmt2jcm.py", line 87, in jcmt2jcm
+    except Exception as ex: raise ex
+  File "/home/coltonb/JCMsuite_5.4.0/ThirdPartySupport/Python/jcmwave/jcmt2jcm.py", line 85, in jcmt2jcm
+    jcmt_filetag=__jcmt2jcm(jcmt_file, keys, outputfile)
+  File "/home/coltonb/JCMsuite_5.4.0/ThirdPartySupport/Python/jcmwave/jcmt2jcm.py", line 128, in __jcmt2jcm
+    [jcm,backtrace]=__private.jcmt2jcm_from_string(jcmt, keys, jcmt_file)
+  File "/home/coltonb/JCMsuite_5.4.0/ThirdPartySupport/Python/jcmwave/__private/jcmt2jcm_from_string.py", line 94, in jcmt2jcm_from_string
+    raise SubstitutionError(jcmt_file, None, subError.pos, 
+jcmwave.__private.jcmt2jcm_from_string.SubstitutionError: 
+  File "project.jcmpt", line: 47, column: 54
+                    OutputFileName = "project_results/wvl%(wvl)i_ElectricChiralityDensity_xy_z56.jcm"
+No value provided for key `wvl`.
+------------------------------------------------------
+Running PBS epilogue script    - 21-Sep-2023 01:05:02
+------------------------------------------------------
+Checking node smic134 (MS)
+Checking node smic134 ; cleared cache ; ok
+------------------------------------------------------
+Concluding PBS epilogue script - 21-Sep-2023 01:05:05
+------------------------------------------------------
+Exit Status:     1
+Job ID:          984028.smic3
+Username:        coltonb
+Group:           Users
+Job Name:        tiago_ref
+Session Id:      28522
+Resource Limits: ncpus=1,neednodes=1:ppn=20,nodes=1:ppn=20,walltime=03:00:00
+Resources Used:  cput=00:00:00,mem=0kb,vmem=0kb,walltime=00:00:05
+Queue Used:      workq
+Account String:  hpc_mcpeak11
+Node:            smic134
+Process id:      29248
+------------------------------------------------------

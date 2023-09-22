@@ -1,0 +1,57 @@
+--------------------------------------
+Running PBS prologue script
+--------------------------------------
+User and Job Data:
+--------------------------------------
+Job ID:    984015.smic3
+Username:  coltonb
+Group:     Users
+Date:      21-Sep-2023 00:35
+Node:      smic154 (10151)
+--------------------------------------
+PBS has allocated the following nodes:
+
+smic154
+
+A total of 20 processors on 1 nodes allocated
+---------------------------------------------
+Check nodes and clean them of stray processes
+---------------------------------------------
+Checking node smic154 00:35:53 
+Done clearing all the allocated nodes
+------------------------------------------------------
+Concluding PBS prologue script - 21-Sep-2023 00:35:53
+------------------------------------------------------
+Loading mvapich2/2.3.3/intel-19.0.5
+  Loading requirement: intel/19.0.5
+JOBS_PER_NODE=1
+/ddnA/work/coltonb/Multivariable_Data_Struct/LH_Gammadion_Simulation_Racemic_Trp_500/run_simulation.py:2: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
+  import jcmwave,time,imp,shutil,os
+Traceback (most recent call last):
+  File "/ddnA/work/coltonb/Multivariable_Data_Struct/LH_Gammadion_Simulation_Racemic_Trp_500/run_simulation.py", line 44, in <module>
+    Fused_Silica_nk = np.loadtxt('../data/fused_silica_malitson.nk')
+  File "./lib/python3.9/site-packages/numpy/lib/npyio.py", line 1067, in loadtxt
+  File "./lib/python3.9/site-packages/numpy/lib/_datasource.py", line 193, in open
+  File "./lib/python3.9/site-packages/numpy/lib/_datasource.py", line 530, in open
+FileNotFoundError: [Errno 2] No such file or directory: '../data/fused_silica_malitson.nk'
+------------------------------------------------------
+Running PBS epilogue script    - 21-Sep-2023 00:35:56
+------------------------------------------------------
+Checking node smic154 (MS)
+Checking node smic154 ; cleared cache ; ok
+------------------------------------------------------
+Concluding PBS epilogue script - 21-Sep-2023 00:35:58
+------------------------------------------------------
+Exit Status:     1
+Job ID:          984015.smic3
+Username:        coltonb
+Group:           Users
+Job Name:        tiago_ref
+Session Id:      10150
+Resource Limits: ncpus=1,neednodes=1:ppn=20,nodes=1:ppn=20,walltime=03:00:00
+Resources Used:  cput=00:00:00,mem=0kb,vmem=0kb,walltime=00:00:05
+Queue Used:      workq
+Account String:  hpc_mcpeak11
+Node:            smic154
+Process id:      10872
+------------------------------------------------------
