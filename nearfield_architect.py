@@ -12,6 +12,8 @@ sys.path.append(os.path.join(jcm_root, 'ThirdPartySupport', 'Python'))
 import jcmwave
 os.chdir("Github/Multivariable_Data_Struct/")
 import matplotlib.pyplot as plt
+import scipy
+from scipy.ndimage import median_filter
 folder = "Near_Field_60AOI_batch_13_14/project_results_azi"
 #folder = "LH_Gammadion_Simulation_Racemic_Trp_500/project_results/"
 
@@ -22,21 +24,27 @@ folder = "Near_Field_60AOI_batch_13_14/project_results_azi"
 def ChiralDensityPlot(folder, trans_wvl, heights, azis):
     for azi in azis:
         for wvl in trans_wvl:
-            plug = folder+azi+'/'+trans_wvl
+            plug = folder+azi+'/'+wvl
+            first = True 
             for h in heights:
                 cfb = jcmwave.loadcartesianfields(plug+'_ElectricChiralityDensity_xy_z'+h+'.jcm')
                 chi = cfb['field'][1]
                 cfb = jcmwave.loadcartesianfields(plug+'_MagneticChiralityDensity_xy_z'+h+'.jcm')
                 chim = cfb['field'][1]
-                C1 = chi[:,:,0].real+chim[:,:,0].real
+                C0 = chi[:,:,0].real+chim[:,:,0].real
+                if first:
+                   C1 = C0
+                   first = False
                 fig, ax = plt.subplots(figsize=(8,4))
                 plt.subplot(1,1,1)
-                plot1 = plt.pcolormesh(cfb['X']*10**9, cfb['Y']*10**9, C1, cmap=plt.cm.seismic, shading='gouraud')
-                cb = plt.colorbar(plot1)
-                plt.show()
-azis = [str(13 + i) for i in range(8)]
-wvl = [212 + i for i in range(14)]
-heights = ['56', '104', '120']
+            data = C1/C0
+            fdata = scipy.ndimage.median_filter(data,size=(4,4))
+            plot1 = plt.pcolormesh(cfb['X']*10**9, cfb['Y']*10**9, C1/C0, cmap=plt.cm.seismic, shading='gouraud')
+            cb = plt.colorbar(plot1)     
+            plt.savefig("Normalized Pillar Chiral Density/azi"+str(azi)+str(wvl)+"normalized.png")
+azis = [str(17 + i) for i in range(4)]
+lambdas = [225 + i for i in range(1)]
+heights = ['104', '120']
 s_wvl = []
 for l in lambdas:
    s_wvl.append('wvl' + str(l))
