@@ -2,7 +2,7 @@
 Material { 
   Name = "Fused Silica" 
   Id = 1
-  RelPermittivity = 2.22256578582734
+  RelPermittivity = 2.3364996269719
   RelPermeability = 1.0
 }
 
@@ -10,7 +10,7 @@ Material {
 Material { 
   Name = "Titanium" 
   Id = 2
-  RelPermittivity = (-3.52706875, 6.479625)
+  RelPermittivity = (-1.019844, 4.38768)
   RelPermeability = 1.0
 }
 Material { 
@@ -22,15 +22,15 @@ Material {
 Material { 
   Name = "Aluminum" # Nanostructure Metal
   Id = 4
-  RelPermittivity = (-8.761596543216, 1.14500380771)
+  RelPermittivity = (-4.504683172731, 0.50659129546)
   RelPermeability = 1.0
 }
 
 Material { 
   Name = "Aminoacid" 
   Id = 5
-  RelPermittivity = (3.374958794823, 0.568812017736)
+  RelPermittivity = (2.66630745024, 1.970399906208)
   RelPermeability = 1.0
-  RelBiPermittivity = (1.5426900000e-01, -1.8435720000e+00)
-  RelBiPermeability = (-1.5426900000e-01, 1.8435720000e+00)
+  RelBiPermittivity = (5.6967600000e-01, -1.7294040000e+00)
+  RelBiPermeability = (-5.6967600000e-01, 1.7294040000e+00)
 }

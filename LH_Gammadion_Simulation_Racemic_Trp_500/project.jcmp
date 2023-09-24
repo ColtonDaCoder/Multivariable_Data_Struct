@@ -24,7 +24,7 @@ PostProcess {
 }
 PostProcess {
   FourierTransform {
-    NormalDirection = Z
+    NormalDirection = -Z
     FieldBagPath = "./project_results/fieldbag.jcm"
     OutputFileName = "./project_results/fourier_modes_r.jcm"
     #ChiefRay = [-%?(AOI)e 0]  
@@ -35,7 +35,7 @@ PostProcess {
   ScatteringMatrix {                                
     PolarizationConvention = Hauge-Berkeley                                
     InputFileName = "project_results/fourier_modes_r.jcm"                                
-    OutputFileName = "project_results/sm_290nm.jcm"                                
+    OutputFileName = "project_results/sm_220nm.jcm"                                
   }                                
 }   
 
@@ -44,7 +44,7 @@ PostProcess {
      ExportFields {
                 FieldBagPath = "project_results/fieldbag.jcm"
         OutputQuantity = ElectricChiralityDensity
-                OutputFileName = "project_results/wvl290_ElectricChiralityDensity_xy_z13_75.jcm"
+                OutputFileName = "project_results/trans_wvl220_ElectricChiralityDensity_xy_z13_75.jcm"
                 Cartesian {
                         GridPointsX = [-250e-09 : 0.5e-09 : 250e-09]
                         GridPointsY = [-250e-09 : 0.5e-09 : 250e-09]
@@ -56,7 +56,7 @@ PostProcess {
      ExportFields {
                 FieldBagPath = "project_results/fieldbag.jcm"
         OutputQuantity = MagneticChiralityDensity
-                OutputFileName = "project_results/wvl290_MagneticChiralityDensity_xy_z13_75.jcm"
+                OutputFileName = "project_results/trans_wvl220_MagneticChiralityDensity_xy_z13_75.jcm"
                 Cartesian {
                         GridPointsX = [-250e-09 : 0.5e-09 : 250e-09]
                         GridPointsY = [-250e-09 : 0.5e-09 : 250e-09]
@@ -68,7 +68,7 @@ PostProcess {
      ExportFields {
                 FieldBagPath = "project_results/fieldbag.jcm"
         OutputQuantity = ElectricChiralityDensity
-                OutputFileName = "project_results/wvl290_ElectricChiralityDensity_xy_z125.jcm"
+                OutputFileName = "project_results/trans_wvl220_ElectricChiralityDensity_xy_z125.jcm"
                 Cartesian {
                         GridPointsX = [-250e-09 : 0.5e-09 : 250e-09]
                         GridPointsY = [-250e-09 : 0.5e-09 : 250e-09]
@@ -80,7 +80,7 @@ PostProcess {
      ExportFields {
                 FieldBagPath = "project_results/fieldbag.jcm"
         OutputQuantity = MagneticChiralityDensity
-                OutputFileName = "project_results/wvl290_MagneticChiralityDensity_xy_z125.jcm"
+                OutputFileName = "project_results/trans_wvl220_MagneticChiralityDensity_xy_z125.jcm"
                 Cartesian {
                         GridPointsX = [-250e-09 : 0.5e-09 : 250e-09]
                         GridPointsY = [-250e-09 : 0.5e-09 : 250e-09]
@@ -92,7 +92,7 @@ PostProcess {
      ExportFields {
                 FieldBagPath = "project_results/fieldbag.jcm"
         OutputQuantity = ElectricChiralityDensity
-                OutputFileName = "project_results/wvl290_ElectricChiralityDensity_xy_z150.jcm"
+                OutputFileName = "project_results/trans_wvl220_ElectricChiralityDensity_xy_z150.jcm"
                 Cartesian {
                         GridPointsX = [-250e-09 : 0.5e-09 : 250e-09]
                         GridPointsY = [-250e-09 : 0.5e-09 : 250e-09]
@@ -104,7 +104,7 @@ PostProcess {
      ExportFields {
                 FieldBagPath = "project_results/fieldbag.jcm"
         OutputQuantity = MagneticChiralityDensity
-                OutputFileName = "project_results/wvl290_MagneticChiralityDensity_xy_z150.jcm"
+                OutputFileName = "project_results/trans_wvl220_MagneticChiralityDensity_xy_z150.jcm"
                 Cartesian {
                         GridPointsX = [-250e-09 : 0.5e-09 : 250e-09]
                         GridPointsY = [-250e-09 : 0.5e-09 : 250e-09]
@@ -118,7 +118,7 @@ PostProcess {
     FieldBagPath = "project_results/fieldbag.jcm"
     DomainIds = [2,3,4]
     OutputQuantity = ElectricChirality
-    OutputFileName = "project_results/wvl290_anisotropic_electric_chirality.jcm"
+    OutputFileName = "project_results/trans_wvl220_anisotropic_electric_chirality.jcm"
   }
 }
 PostProcess {
@@ -126,6 +126,6 @@ PostProcess {
     FieldBagPath = "project_results/fieldbag.jcm"
     DomainIds = [2,3,4]
     OutputQuantity = MagneticChirality
-    OutputFileName = "project_results/wvl290_anisotropic_magnetic_chirality.jcm"
+    OutputFileName = "project_results/trans_wvl220_anisotropic_magnetic_chirality.jcm"
   }
 }
