@@ -35,12 +35,21 @@ def ChiralDensityPlot(folder, trans_wvl, heights, azis):
                 if first:
                    C1 = C0
                    first = False
-            data = C1/C0
+            lam = 210*1e-9
+            c0 = 299792458
+            n = (1)**0.5
+            omega = (2*np.pi*c0)/(lam)
+            eps0 = 8.854*1e-12
+            norm_A_sqr = 2
+            C0 = np.abs((eps0*omega)/(2*c0))*norm_A_sqr
+
+            data = np.log10(np.abs(C1/C0))
             fdata = scipy.ndimage.median_filter(data,size=(4,4))
             fig, ax = plt.subplots(figsize=(8,4))
             plt.subplot(1,1,1)
-            plot1 = plt.pcolormesh(cfb['X']*10**9, cfb['Y']*10**9, C1/C0, cmap=plt.cm.seismic, shading='gouraud')
-            cb = plt.colorbar(plot1)     
+            plot1 = plt.pcolormesh(cfb['X']*10**9, cfb['Y']*10**9, fdata, cmap=plt.cm.seismic, shading='gouraud')
+            
+            cb = plt.colorbar(plot1, label="log(|C1/C0|")     
             plt.savefig("gammadian azi"+str(azi)+str(wvl)+"realnormalized.png")
 azis = ['']
 lambdas = [200, 210]
