@@ -31,29 +31,28 @@ def ChiralDensityPlot(folder, trans_wvl, heights, azis):
                 chi = cfb['field'][1]
                 cfb = jcmwave.loadcartesianfields(plug+'_MagneticChiralityDensity_xy_z'+h+'.jcm')
                 chim = cfb['field'][1]
-                C0 = chi[:,:,0].real+chim[:,:,0].real
-                if first:
-                   C1 = C0
-                   first = False
-            lam = 210*1e-9
+                C1 = chi[:,:,0].real+chim[:,:,0].real
+                #if first:
+                   #C1 = C0
+                   #first = False
+            lam = int(wvl[-3:])*1e-9
             c0 = 299792458
             n = (1)**0.5
             omega = (2*np.pi*c0)/(lam)
             eps0 = 8.854*1e-12
             norm_A_sqr = 2
-            C0 = np.abs((eps0*omega)/(2*c0))*norm_A_sqr
-
-            data = np.log10(np.abs(C1/C0))
+            C0 = np.abs((eps0*omega)/(2))
+            data = np.abs(C1/C0)
             fdata = scipy.ndimage.median_filter(data,size=(4,4))
             fig, ax = plt.subplots(figsize=(8,4))
             plt.subplot(1,1,1)
-            plot1 = plt.pcolormesh(cfb['X']*10**9, cfb['Y']*10**9, fdata, cmap=plt.cm.seismic, shading='gouraud')
+            plot1 = plt.pcolormesh(cfb['X']*10**9, cfb['Y']*10**9, fdata, cmap=plt.cm.seismic, shading='gouraud', vmin=0.000001, vmax=0.5)
             
-            cb = plt.colorbar(plot1, label="log(|C1/C0|")     
-            plt.savefig("gammadian azi"+str(azi)+str(wvl)+"realnormalized.png")
+            cb = plt.colorbar(plot1, label="|C1/C0|")     
+            plt.savefig("gammadian azi"+str(azi)+str(wvl)+"scaledrealnormalized.png")
 azis = ['']
 lambdas = [200, 210]
-heights = ['125', '150']
+heights = ['125']
 s_wvl = []
 for l in lambdas:
    s_wvl.append('trans_wvl' + str(l))
