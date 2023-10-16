@@ -427,7 +427,7 @@ Layout {
     }    
 
     Layer {
-      Thickness = 70
+      Thickness = 200
       DomainId = 3 #Air
     }
     LayerInterface {

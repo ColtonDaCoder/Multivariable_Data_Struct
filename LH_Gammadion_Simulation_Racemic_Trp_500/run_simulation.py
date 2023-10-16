@@ -4,7 +4,7 @@ from optparse import OptionParser
 
 
 keys = {}  # Create empty dictionary for keys
-arms = [135]
+arms = [82]
 for armi in arms:
 
 	parser = OptionParser()
@@ -21,7 +21,7 @@ for armi in arms:
 
 	# Set simulation parameters
 	keys = {
-		'gap':10,
+		'gap':40,
 		'uol': 1e-9,
 		'display_triangulation' : 'no',
 		'boundary' : 'Periodic',
@@ -31,7 +31,7 @@ for armi in arms:
 		'arm_thickness' : armi,
 		'angle': 0,
 		'n_refinement_steps' : 0, # Currently we get non-physical results if this is >0
-		'thickness' : 100, #thickness of the structure
+		'thickness' : 50, #thickness of the structure
 		'adhesion_thickness': 5,
 		'z_radius' : 5, # radius of curvature of dimer in z plane
 		'z_radius_MSL' : 1, # maximum side length of z radius
@@ -68,7 +68,7 @@ for armi in arms:
 		n_Aminoacid_real.append(data[1])
 		n_Aminoacid_imag.append(data[2])
 
-	lambdas = [200,210,220,230,240,260,270,280,290]
+	lambdas = [230]
 	for l in lambdas:
 		keys['vacuum_wavelength'] = l*1e-9
 		keys['wvl'] = l
