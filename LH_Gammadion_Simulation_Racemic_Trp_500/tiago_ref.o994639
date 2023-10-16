@@ -1,0 +1,83 @@
+--------------------------------------
+Running PBS prologue script
+--------------------------------------
+User and Job Data:
+--------------------------------------
+Job ID:    994639.smic3
+Username:  coltonb
+Group:     Users
+Date:      16-Oct-2023 09:47
+Node:      smic381 (29034)
+--------------------------------------
+PBS has allocated the following nodes:
+
+smic381
+
+A total of 28 processors on 1 nodes allocated
+---------------------------------------------
+Check nodes and clean them of stray processes
+---------------------------------------------
+Checking node smic381 09:47:28 
+Done clearing all the allocated nodes
+------------------------------------------------------
+Concluding PBS prologue script - 16-Oct-2023 09:47:28
+------------------------------------------------------
+Loading mvapich2/2.3.3/intel-19.0.5
+  Loading requirement: intel/19.0.5
+JOBS_PER_NODE=1
+/ddnA/work/coltonb/Multivariable_Data_Struct/LH_Gammadion_Simulation_Racemic_Trp_500/run_simulation.py:2: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
+  import jcmwave,time,imp,shutil,os
+Wavelength : 230.00 nm
+[0, 0, -27318196.987737328]
+
+
+*** convergence of linear system (tol=1.2e, max. steps=20)
+        iter       residual  mean-rate
+    ----------------------------------
+           0     4.7242e-05        -/-
+           1     7.1066e-06       0.15
+           2     7.1013e-06       0.39
+           3     7.0984e-06       0.53
+           4     7.1029e-06       0.62
+           5     7.1006e-06       0.68
+           6     7.1029e-06       0.73
+           7     7.1041e-06       0.76
+           8     7.1088e-06       0.79
+           9     7.1089e-06       0.81
+          10     7.1132e-06       0.83
+          11     7.1101e-06       0.84
+          12     7.1114e-06       0.85
+          13     7.1078e-06       0.86
+          14     7.1116e-06       0.87
+          15     7.1118e-06       0.88
+          16     7.1139e-06       0.89
+          17     7.1249e-06       0.89
+          18     7.1218e-06       0.90
+          19     7.1084e-06       0.91
+          20     7.1104e-06       0.91*** JCMsolve partially failed. ==>
+
+
+
+*** Error: Solving linear system failed: Proceeding with inaccurate results err=.2f *** 
+
+------------------------------------------------------
+Running PBS epilogue script    - 16-Oct-2023 10:28:43
+------------------------------------------------------
+Checking node smic381 (MS)
+Checking node smic381 ; cleared cache ; ok
+------------------------------------------------------
+Concluding PBS epilogue script - 16-Oct-2023 10:28:46
+------------------------------------------------------
+Exit Status:     0
+Job ID:          994639.smic3
+Username:        coltonb
+Group:           Users
+Job Name:        tiago_ref
+Session Id:      29033
+Resource Limits: ncpus=1,neednodes=1:ppn=28,nodes=1:ppn=28,walltime=05:00:00
+Resources Used:  cput=03:01:52,mem=48193220kb,vmem=56615552kb,walltime=00:41:17
+Queue Used:      bigmem
+Account String:  hpc_mcpeak11
+Node:            smic381
+Process id:      6039
+------------------------------------------------------
