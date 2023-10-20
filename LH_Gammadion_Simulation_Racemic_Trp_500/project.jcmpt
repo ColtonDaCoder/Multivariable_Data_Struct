@@ -4,8 +4,13 @@ Problem = {
   Electromagnetics {
     TimeHarmonic {
       Scattering {
-        FieldComponents = Electric
-        FiniteElementDegree = %(fem_degree)i
+	Accuracy {
+          FiniteElementDegree = %(fem_degree)i
+          Precision = 1e-6
+          Refinement {
+            MaxNumberSteps = %(n_refinement_steps)i
+          }
+	}
       }
     }
   }

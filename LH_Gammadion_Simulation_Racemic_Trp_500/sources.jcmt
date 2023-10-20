@@ -49,7 +49,7 @@ SourceBag {
         Lambda0 = %(vacuum_wavelength)e
         ThetaPhi = [0 0]
 	Incidence = FromAbove
-        SP = [1 0]
+        SP = [(1, 0), (0, 1)]
 	#PowerFluxScaling=UnitNormal
       }
     }
@@ -62,7 +62,7 @@ SourceBag {
         Lambda0 = %(vacuum_wavelength)e
         ThetaPhi = [0 0]
 	Incidence = FromAbove
-	SP = [0 1]
+	SP = [(1, 0), (0, -1)]
 	#PowerFluxScaling=UnitNormal
       }
     }

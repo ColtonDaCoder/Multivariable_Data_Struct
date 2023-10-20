@@ -1,0 +1,111 @@
+--------------------------------------
+Running PBS prologue script
+--------------------------------------
+User and Job Data:
+--------------------------------------
+Job ID:    997593.smic3
+Username:  coltonb
+Group:     Users
+Date:      20-Oct-2023 13:03
+Node:      smic381 (32720)
+--------------------------------------
+PBS has allocated the following nodes:
+
+smic381
+
+A total of 28 processors on 1 nodes allocated
+---------------------------------------------
+Check nodes and clean them of stray processes
+---------------------------------------------
+Checking node smic381 13:03:25 
+Done clearing all the allocated nodes
+------------------------------------------------------
+Concluding PBS prologue script - 20-Oct-2023 13:03:25
+------------------------------------------------------
+Loading mvapich2/2.3.3/intel-19.0.5
+  Loading requirement: intel/19.0.5
+JOBS_PER_NODE=1
+/ddnA/work/coltonb/Multivariable_Data_Struct/LH_Gammadion_Simulation_Racemic_Trp_500/run_simulation.py:2: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
+  import jcmwave,time,imp,shutil,os
+Wavelength : 230.00 nm
+[0, 0, -27318196.987737328]
+
+
+*** Warning: AbstractBLOB_Reader::GetKeyword
+ Improper Keyword  found *** 
+
+
+*** Warning: AbstractBLOB_Reader::GetKeyword
+ Improper Keyword < found *** 
+
+
+*** Warning: AbstractBLOB_Reader::GetKeyword
+ Improper Keyword << found *** 
+
+
+*** Warning: AbstractBLOB_Reader::GetKeyword
+ Improper Keyword <<< found *** 
+
+
+*** Warning: AbstractBLOB_Reader::GetKeyword
+ Improper Keyword <<<< found *** 
+
+
+*** Warning: AbstractBLOB_Reader::GetKeyword
+ Improper Keyword <<<<< found *** 
+
+
+*** Warning: AbstractBLOB_Reader::GetKeyword
+ Improper Keyword <<<<<< found *** 
+
+
+*** convergence of linear system (tol=1.2e, max. steps=20)
+        iter       residual  mean-rate
+    ----------------------------------
+           0     2.3940e-04        -/-
+           1     2.5579e-05       0.12
+           2     2.5530e-05       0.35
+           3     2.5499e-05       0.49
+           4     2.5489e-05       0.59
+           5     2.5503e-05       0.66
+           6     2.5481e-05       0.70
+           7     2.5517e-05       0.74
+           8     2.5517e-05       0.77
+           9     2.5512e-05       0.79
+          10     2.5509e-05       0.81
+          11     2.5533e-05       0.82
+          12     2.5527e-05       0.84
+          13     2.5518e-05       0.85
+          14     2.5534e-05       0.86
+          15     2.5534e-05       0.87
+          16     2.5563e-05       0.88
+          17     2.5572e-05       0.88
+          18     2.5580e-05       0.89
+          19     2.5596e-05       0.89
+          20     2.5562e-05       0.90*** JCMsolve partially failed. ==>
+
+
+
+*** Error: Solving linear system failed: Proceeding with inaccurate results err=.2f *** 
+
+------------------------------------------------------
+Running PBS epilogue script    - 20-Oct-2023 13:43:44
+------------------------------------------------------
+Checking node smic381 (MS)
+Checking node smic381 ; cleared cache ; ok
+------------------------------------------------------
+Concluding PBS epilogue script - 20-Oct-2023 13:43:47
+------------------------------------------------------
+Exit Status:     0
+Job ID:          997593.smic3
+Username:        coltonb
+Group:           Users
+Job Name:        tiago_ref
+Session Id:      32719
+Resource Limits: ncpus=1,neednodes=1:ppn=28,nodes=1:ppn=28,walltime=05:00:00
+Resources Used:  cput=02:55:36,mem=47311164kb,vmem=55787360kb,walltime=00:40:21
+Queue Used:      bigmem
+Account String:  hpc_mcpeak11
+Node:            smic381
+Process id:      9736
+------------------------------------------------------
