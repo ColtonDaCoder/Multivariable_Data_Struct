@@ -26,13 +26,13 @@ def ChiralDensityPlot(folder, trans_wvl, heights, azis):
     for azi in azis:
         for wvl in trans_wvl:
             plug = folder+azi+'/wvl'+wvl+'_'
-            #plug = folder
+            #plug = folder+wvl
             first = True 
             for h in heights:
                 cfb = jcmwave.loadcartesianfields(plug+'ElectricChiralityDensity_xy_z'+h+'.jcm')
-                chi = cfb['field'][1]
+                chi = cfb['field'][0]
                 cfb = jcmwave.loadcartesianfields(plug+'MagneticChiralityDensity_xy_z'+h+'.jcm')
-                chim = cfb['field'][1]
+                chim = cfb['field'][0]
                 C1 = chi[:,:,0].real+chim[:,:,0].real
                 if first:
                    C0 = C1
@@ -40,30 +40,30 @@ def ChiralDensityPlot(folder, trans_wvl, heights, azis):
                 #plot1 = plt.pcolormesh(cfb['X']*10**9, cfb['Y']*10**9, np.abs(C1), cmap=plt.cm.seismic, shading='gouraud',vmin=0, vmax=5)
                 #cb = plt.colorbar(plot1, label="log|C1/C0|")     
                 #plt.show()
-            lam = 228*1e-9
+            lam = 230*1e-9
             c0 = 299792458
             omega = (2*np.pi*c0)/(lam)
             eps0 = 8.854*1e-12
-            #C0 = (2*eps0*omega)/(2*c0)
+            C0 = (2*eps0*omega)/(2*c0)
             data = np.abs(C1/C0)
             #data = np.log10(data)
             fdata = scipy.ndimage.median_filter(data,size=(4,4))
             fig, ax = plt.subplots(figsize=(8,4))
             plt.subplot(1,1,1)
             
-            plot1 = plt.pcolormesh(cfb['X']*10**9, cfb['Y']*10**9, C1, cmap=plt.cm.seismic, shading='gouraud')
-            low=-8
-            high=8
+            plot1 = plt.pcolormesh(cfb['X']*10**9, cfb['Y']*10**9, fdata, cmap=plt.cm.seismic, shading='gouraud')
+            low=0
+            high=40000
             #plot1 = plt.pcolormesh(cfb['X']*10**9, cfb['Y']*10**9, fdata, cmap=plt.cm.seismic, shading='gouraud', vmin=low, vmax=high)
              
             cb = plt.colorbar(plot1, label="|C1/C0|")     
-            plt.savefig("pillar"+str(azi)+str(wvl)+"colton.png")
-azis = ['13']
-lambdas = [212]
-heights = ['120']
+            plt.savefig("pillar"+str(wvl)+"colton.png")
+azis = ['20']
+lambdas = [225]
+heights = ['104']
 s_wvl = []
 for l in lambdas:
-   #s_wvl.append('82arm_trans_wvl' + str(l))
+   #s_wvl.append('82arm_trans_wvl' + str(l) + '_')
    s_wvl.append(str(l))
 ChiralDensityPlot(folder, s_wvl, heights, azis) 
 exit()
