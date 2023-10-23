@@ -31,6 +31,6 @@ Material {
   Id = 5
   RelPermittivity = (3.961767127615, 2.065523218392)
   RelPermeability = 1.0
-  RelBiPermittivity = (5.0304900000e-01, -2.0530040000e+00)
-  RelBiPermeability = (-5.0304900000e-01, 2.0530040000e+00)
+  #RelBiPermittivity = (5.0304900000e-01, -2.0530040000e+00)
+  #RelBiPermeability = (-5.0304900000e-01, 2.0530040000e+00)
 }

@@ -73,11 +73,11 @@ PostProcess {
      ExportFields {
                 FieldBagPath = "project_results/fieldbag.jcm"
         OutputQuantity = ElectricChiralityDensity
-                OutputFileName = "project_results/82arm_strans_wvl%(wvl)i_ElectricChiralityDensity_xy_z75.jcm"
+                OutputFileName = "project_results/82arm_strans_wvl%(wvl)i_ElectricChiralityDensity_xy_z56.jcm"
                 Cartesian {
                         GridPointsX = [-250e-09 : 0.5e-09 : 250e-09]
                         GridPointsY = [-250e-09 : 0.5e-09 : 250e-09]
-                        GridPointsZ = 75e-9
+                        GridPointsZ = 56e-9
                 }
         }
 }
@@ -85,11 +85,11 @@ PostProcess {
      ExportFields {
                 FieldBagPath = "project_results/fieldbag.jcm"
         OutputQuantity = MagneticChiralityDensity
-                OutputFileName = "project_results/82arm_trans_wvl%(wvl)i_MagneticChiralityDensity_xy_z75.jcm"
+                OutputFileName = "project_results/82arm_trans_wvl%(wvl)i_MagneticChiralityDensity_xy_z56.jcm"
                 Cartesian {
                         GridPointsX = [-250e-09 : 0.5e-09 : 250e-09]
                         GridPointsY = [-250e-09 : 0.5e-09 : 250e-09]
-                        GridPointsZ = 75e-9
+                        GridPointsZ = 56e-9
                 }
         }
 }

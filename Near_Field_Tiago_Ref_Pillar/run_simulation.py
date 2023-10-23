@@ -1,4 +1,5 @@
-import numpy as np
+i
+port numpy as np
 import jcmwave,time,imp,shutil,os 
 from optparse import OptionParser
 
