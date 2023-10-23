@@ -1,0 +1,29 @@
+/* <BLOBHead>
+__BLOBTYPE__=Table
+__MODE__=TEXT
+__OPTIONS__=LHExchanged
+__OWNER__=JCMwave
+__TAG__=d40b35632b0b2813ef10c6f4fb5ed332
+__VERSION__=1.0.0
+Column1:Name=DomainId
+Column1:Type=int
+Column2:Name=MagneticChirality_1
+Column2:Type=doublecomplex
+Column3:Name=MagneticChirality_2
+Column3:Type=doublecomplex
+Title=MagneticChirality
+<I>NColumns=3
+<I>NRows=3
+*/
+# Row 1
+2
+(7.766284353458225e-24,4.773385384239092e-41)
+(-3.777745205086345e-24,-9.576160214245815e-41)
+# Row 2
+3
+(-8.373007517501240e-25,1.569404651420462e-40)
+(7.140738612714916e-25,-3.715675284699520e-41)
+# Row 3
+4
+(1.001218878577703e-23,-2.327517193979170e-26)
+(-8.587324362489742e-24,-1.524757114717661e-26)

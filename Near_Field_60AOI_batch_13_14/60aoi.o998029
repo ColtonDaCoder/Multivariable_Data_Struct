@@ -1,0 +1,56 @@
+--------------------------------------
+Running PBS prologue script
+--------------------------------------
+User and Job Data:
+--------------------------------------
+Job ID:    998029.smic3
+Username:  coltonb
+Group:     Users
+Date:      22-Oct-2023 15:40
+Node:      smic382 (1516)
+--------------------------------------
+PBS has allocated the following nodes:
+
+smic382
+
+A total of 28 processors on 1 nodes allocated
+---------------------------------------------
+Check nodes and clean them of stray processes
+---------------------------------------------
+Checking node smic382 15:40:07 
+Done clearing all the allocated nodes
+------------------------------------------------------
+Concluding PBS prologue script - 22-Oct-2023 15:40:07
+------------------------------------------------------
+Loading mvapich2/2.3.3/intel-19.0.5
+  Loading requirement: intel/19.0.5
+JOBS_PER_NODE=1
+/ddnA/work/coltonb/Multivariable_Data_Struct/Near_Field_60AOI_batch_13_14/run_sim.py:6: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
+  import jcmwave,time,imp,shutil,os
+Total runtime for WVL: 275 AOI: 60 aziumth: 42 - 767.0535 s
+Total runtime for WVL: 276 AOI: 60 aziumth: 42 - 772.0391 s
+Total runtime for WVL: 277 AOI: 60 aziumth: 42 - 772.3031 s
+Total runtime for WVL: 278 AOI: 60 aziumth: 42 - 776.4739 s
+Total runtime for WVL: 279 AOI: 60 aziumth: 42 - 774.5803 s
+Total runtime for WVL: 280 AOI: 60 aziumth: 42 - 770.0717 s
+------------------------------------------------------
+Running PBS epilogue script    - 22-Oct-2023 16:57:22
+------------------------------------------------------
+Checking node smic382 (MS)
+Checking node smic382 ; cleared cache ; ok
+------------------------------------------------------
+Concluding PBS epilogue script - 22-Oct-2023 16:57:25
+------------------------------------------------------
+Exit Status:     0
+Job ID:          998029.smic3
+Username:        coltonb
+Group:           Users
+Job Name:        60aoi
+Session Id:      1515
+Resource Limits: ncpus=1,neednodes=1:ppn=28,nodes=1:ppn=28,walltime=06:00:00
+Resources Used:  cput=21:09:39,mem=37570560kb,vmem=44116104kb,walltime=01:17:17
+Queue Used:      bigmem
+Account String:  hpc_mcpeak11
+Node:            smic382
+Process id:      14193
+------------------------------------------------------

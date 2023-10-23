@@ -62,7 +62,7 @@ for wvl in WVL:
             'display_triangulation' : 'no',
             'boundary' : 'Periodic',
             'info_level' : -1,
-            'fem_degree' : 3,
+            'fem_degree' : 4,
             'n_refinement_steps' : 0, # Currently we get non-physical results if this is >0
             'thickness' : 50,
             'pitch' : 175, # pitch of square lattice (gammadion)
