@@ -27,7 +27,7 @@ for armi in arms:
 		'boundary' : 'Periodic',
 		'info_level' : -1,
 		'pitch': 500,
-		'fem_degree' : 3,
+		'fem_degree' : 4,
 		'arm_thickness' : armi,
 		'angle': 0,
 		'n_refinement_steps' : 0, # Currently we get non-physical results if this is >0
