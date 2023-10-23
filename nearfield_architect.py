@@ -16,7 +16,7 @@ import scipy
 from scipy.ndimage import median_filter
 folder = "Near_Field_60AOI_batch_13_14/project_results_azi"
 #folder = "LH_Gammadion_Simulation_Racemic_Trp_500/project_results/"
-#folder = "Near_Field_LH_Gammadion_Simulation_Racemic_Tyrosine_500/project_results/"
+folder = "Near_Field_LH_Gammadion_Simulation_Racemic_Tyrosine_500/project_results/"
 
 #remember ----
 # - old azi/wvl
@@ -25,8 +25,8 @@ folder = "Near_Field_60AOI_batch_13_14/project_results_azi"
 def ChiralDensityPlot(folder, trans_wvl, heights, azis):
     for azi in azis:
         for wvl in trans_wvl:
-            plug = folder+azi+'/wvl'+wvl+'_'
-            #plug = folder+wvl
+            #plug = folder+azi+'/wvl'+wvl+'_'
+            plug = folder
             first = True 
             for h in heights:
                 cfb = jcmwave.loadcartesianfields(plug+'ElectricChiralityDensity_xy_z'+h+'.jcm')
@@ -44,8 +44,8 @@ def ChiralDensityPlot(folder, trans_wvl, heights, azis):
             c0 = 299792458
             omega = (2*np.pi*c0)/(lam)
             eps0 = 8.854*1e-12
-            C0 = (2*eps0*omega)/(2*c0)
-            data = np.abs(C1/C0)
+            #C0 = (2*eps0*omega)/(2*c0)
+            data = np.abs(C1/0.175)
             #data = np.log10(data)
             fdata = scipy.ndimage.median_filter(data,size=(4,4))
             fig, ax = plt.subplots(figsize=(8,4))
@@ -53,14 +53,14 @@ def ChiralDensityPlot(folder, trans_wvl, heights, azis):
             
             plot1 = plt.pcolormesh(cfb['X']*10**9, cfb['Y']*10**9, fdata, cmap=plt.cm.seismic, shading='gouraud')
             low=0
-            high=40000
+            high=100
             #plot1 = plt.pcolormesh(cfb['X']*10**9, cfb['Y']*10**9, fdata, cmap=plt.cm.seismic, shading='gouraud', vmin=low, vmax=high)
              
             cb = plt.colorbar(plot1, label="|C1/C0|")     
             plt.savefig("pillar"+str(wvl)+"colton.png")
-azis = ['20']
-lambdas = [225]
-heights = ['104']
+azis = ['13']
+lambdas = [230]
+heights = ['110']
 s_wvl = []
 for l in lambdas:
    #s_wvl.append('82arm_trans_wvl' + str(l) + '_')
