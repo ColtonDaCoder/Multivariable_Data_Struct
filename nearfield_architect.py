@@ -15,8 +15,8 @@ import matplotlib.pyplot as plt
 import scipy
 from scipy.ndimage import median_filter
 folder = "Near_Field_60AOI_batch_13_14/project_results_azi"
-folder = "LH_Gammadion_Simulation_Racemic_Trp_500/project_results/"
-folder = "Near_Field_Tiago_Ref_Pillar/project_results/"
+#folder = "LH_Gammadion_Simulation_Racemic_Trp_500/project_results/"
+#folder = "Near_Field_Tiago_Ref_Pillar/project_results/"
 #folder = "Near_Field_LH_Gammadion_Simulation_Racemic_Tyrosine_500/project_results/"
 
 #remember ----
@@ -26,9 +26,10 @@ folder = "Near_Field_Tiago_Ref_Pillar/project_results/"
 def ChiralDensityPlot(folder, trans_wvl, heights, azis):
     for azi in azis:
         for wvl in trans_wvl:
-            #plug = folder+azi+'/wvl'+wvl+'_'
-            plug = folder
+            plug = folder+azi+'/wvl'+wvl+'_'
+            #plug = folder
             first = True 
+
             for h in heights:
                 cfb = jcmwave.loadcartesianfields(plug+'ElectricChiralityDensity_xy_z'+h+'.jcm')
                 chi = cfb['field'][0]
@@ -39,8 +40,18 @@ def ChiralDensityPlot(folder, trans_wvl, heights, azis):
                    C0 = C1
                    first = False
                 #plot1 = plt.pcolormesh(cfb['X']*10**9, cfb['Y']*10**9, np.abs(C1), cmap=plt.cm.seismic, shading='gouraud',vmin=0, vmax=5)
+                fig, ax = plt.subplots(figsize=(8,4))
+                plt.subplot(1,1,1)
+                data = np.abs(C1/0.16)
+                fdata = scipy.ndimage.median_filter(data,size=(4,4))
+                low=0
+                high=5.5
+                plot1 = plt.pcolormesh(cfb['X']*10**9, cfb['Y']*10**9, fdata, cmap=plt.cm.seismic, shading='gouraud', vmin=low, vmax=high)
                 #cb = plt.colorbar(plot1, label="log|C1/C0|")     
                 #plt.show()
+                cb = plt.colorbar(plot1, label="|C1/C0|")     
+                plt.savefig("pillar_azi"+str(azi)+'_wvl'+str(wvl)+"_height"+h+"colton.png")
+                plt.close()
             lam = 230*1e-9
             c0 = 299792458
             omega = (2*np.pi*c0)/(lam)
@@ -52,16 +63,16 @@ def ChiralDensityPlot(folder, trans_wvl, heights, azis):
             fig, ax = plt.subplots(figsize=(8,4))
             plt.subplot(1,1,1)
             
-            plot1 = plt.pcolormesh(cfb['X']*10**9, cfb['Y']*10**9, fdata, cmap=plt.cm.seismic, shading='gouraud')
+            #plot1 = plt.pcolormesh(cfb['X']*10**9, cfb['Y']*10**9, C1, cmap=plt.cm.seismic, shading='gouraud')
             low=0
             high=5.5
             #plot1 = plt.pcolormesh(cfb['X']*10**9, cfb['Y']*10**9, fdata, cmap=plt.cm.seismic, shading='gouraud', vmin=low, vmax=high)
              
             cb = plt.colorbar(plot1, label="|C1/C0|")     
-            plt.savefig("pillar_ref"+str(wvl)+"colton.png")
-azis = ['41']
-lambdas = [230]
-heights = ['110']
+            #plt.savefig("pillar_ref"+str(wvl)+"_height"+h"colton.png")
+azis = ['39','40','41','42']
+lambdas = [275,276,277,278,279,280]
+heights = ['104']
 s_wvl = []
 for l in lambdas:
    #s_wvl.append('82arm_trans_wvl' + str(l) + '_')
