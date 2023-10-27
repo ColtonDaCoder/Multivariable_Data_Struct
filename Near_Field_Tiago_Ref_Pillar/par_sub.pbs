@@ -1,6 +1,6 @@
 #!/bin/bash
 #PBS -l nodes=1:ppn=28
-#PBS -l walltime=10:00:00
+#PBS -l walltime=00:30:00
 #PBS -A hpc_mcpeak11
 #PBS -q bigmem
 #PBS -N tiago_ref
@@ -9,6 +9,6 @@
 JOBS_PER_NODE=1
 echo "JOBS_PER_NODE="$JOBS_PER_NODE
 
-export WDIR=/work/coltonb/Multivariable_Data_Struct/Near_Field_LH_Gammadion_Simulation_Racemic_Tyrosine_500/
+export WDIR=/work/coltonb/Multivariable_Data_Struct/Near_Field_Tiago_Ref_Pillar/
 cd $WDIR
 python run_simulation.py -t 28

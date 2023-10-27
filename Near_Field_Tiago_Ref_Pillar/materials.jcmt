@@ -10,7 +10,6 @@ keys['RelBiPermittivity_imag'] = keys['RelBiPermittivity'].imag
 
 keys['RelBiPermeability_real'] = keys['RelBiPermeability'].real
 keys['RelBiPermeability_imag'] = keys['RelBiPermeability'].imag
-keys['isKappa'] = keys['isKappa']
 ?>
 Material { 
   Name = "Air" 

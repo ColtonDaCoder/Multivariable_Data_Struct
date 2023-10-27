@@ -1,8 +1,8 @@
 <?
 import math
-k_total = 2*math.pi*keys['n_3'].real/keys['vacuum_wavelength']
-keys['k'] = [0, 0, -k_total]
-print(keys['k'])
+#k_total = 2*math.pi*keys['n_3'].real/keys['vacuum_wavelength']
+#keys['k'] = [0, 0, -k_total]
+#print(keys['k'])
 # there are two different definitions for right/left handedness
 # we follow the chapter "mathematical description" in Wikipedia article:
 # http://en.wikipedia.org/wiki/Circular_polarization
@@ -41,31 +41,28 @@ print(keys['k'])
 #}
 
 
-
-
 SourceBag {
   Source {
-    ElectricFieldStrength {
+    ElectricFieldStrength { #This is R-CPL
       PlaneWave {
         Lambda0 = %(vacuum_wavelength)e
-        ThetaPhi = [0 0]
+        ThetaPhi = [%(AOI)e 0]
 	Incidence = FromAbove
         SP = [(1, 0), (0, 1)]
-	#PowerFluxScaling=UnitNormal
+	PowerFluxScaling=UnitNormal
       }
     }
   }
 }
 SourceBag {
   Source {
-    ElectricFieldStrength {
+    ElectricFieldStrength { #This is L-CPL
       PlaneWave {
         Lambda0 = %(vacuum_wavelength)e
-        ThetaPhi = [0 0]
+        ThetaPhi = [%(AOI)e 0]
 	Incidence = FromAbove
 	SP = [(1, 0), (0, -1)]
-
-	#PowerFluxScaling=UnitNormal
+	PowerFluxScaling=UnitNormal
       }
     }
   }
