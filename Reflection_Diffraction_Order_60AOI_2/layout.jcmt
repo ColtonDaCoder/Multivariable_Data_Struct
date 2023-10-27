@@ -57,8 +57,7 @@ Layout3D {
                 MeshOptions {
             MaximumSidelengthZUpper = 2
         }
-        DomainIdMapping = [101 2 
-                           3 4]
+        DomainIdMapping = [101 2]
       }
       Layer {
         Thickness = 40

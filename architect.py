@@ -399,7 +399,7 @@ def list_toDict(set):
 
 id_names = ['azimuth','AOI','wvl','radius','pitch','height', 'kappa']
 
-file = 'full_60AOI_dmm.json'
+file = '60AOI.json'
 set = Structure.from_json(file)
 
 aoi = 60
@@ -411,7 +411,8 @@ X, Y, nok_Z = azi_X_wvl_Y(set, aoi, False, 4)
 #exit()
 X, Y, k_Z = azi_X_wvl_Y_reflect_sep_diff_orders(set, aoi, True, 0)
 print(k_Z[0][0])
-DI_heatmap_plot(['azi',X],['wvl',Y],k_Z,"P Reflected at AOI: " + str(aoi))
+complete_MM_heatmap_plot()
+#DI_heatmap_plot(['azi',X],['wvl',Y],k_Z,"P Reflected at AOI: " + str(aoi))
 exit()
 X, Y, k_Z = azi_X_wvl_Y_reflect_sep_diff_orders(set, aoi, False, 0)
 print(k_Z[0][0])

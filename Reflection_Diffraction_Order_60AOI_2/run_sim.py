@@ -7,10 +7,10 @@ import jcmwave,time,imp,shutil,os
 from optparse import OptionParser
 AOI = [60]
 AZI = [i for i in range(46)]
-WVL = [i*2+252 for i in range(25)]
+WVL = [i+200 for i in range(100)]
 kappa = True
 
-output_file = "60AOI.json"
+output_file = "top_60AOI.json"
 
 keys = {}  # Create empty dictionary for keys
 
