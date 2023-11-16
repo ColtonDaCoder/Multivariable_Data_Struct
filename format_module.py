@@ -179,7 +179,7 @@ def DI_heatmap_plot(X, Y, Z, title):
     plt.title(title)
     plt.show()
 
-def complete_MM_heatmap_plot(X, Y, no_kZ, raw, diff_order, kZ=0):
+def complete_MM_heatmap_plot(X, Y, no_kZ, raw, kZ=None):
     fig, ax = plt.subplots(4,4, figsize=(10,8))
     X[0] = [i*(180/np.pi) for i in X[1]]
     for j in range(4):
@@ -188,10 +188,10 @@ def complete_MM_heatmap_plot(X, Y, no_kZ, raw, diff_order, kZ=0):
             mm = str(str(j+1)+str(i+1))
 
             #toggle for difference or magnitude
-            if not kZ == 0:
+            if not kZ == None:
                 Z = [[(kZ[val][i][j] - no_kZ[val][i][j])/kZ[val][i][j] for j, azi in enumerate(kZ[val][i])] for i, aoi in enumerate(kZ[val])]   
                 Z = np.absolute(Z)
-                #Z = np.log10(Z)
+                Z = np.log10(Z)
             else:
                 Z = [[no_kZ[val][i][j] for j, azi in enumerate(no_kZ[val][i])] for i, aoi in enumerate(no_kZ[val])]  
                 Z = np.absolute(Z)

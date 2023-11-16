@@ -399,20 +399,24 @@ def list_toDict(set):
 
 id_names = ['azimuth','AOI','wvl','radius','pitch','height', 'kappa']
 
-file = '60AOI.json'
-set = Structure.from_json(file)
 
 aoi = 60
 
+file = 'full_60AOI_dmm.json'
+set = Structure.from_json(file)
 X, Y, k_Z = azi_X_wvl_Y(set, aoi, True, 0)
-X, Y, nok_Z = azi_X_wvl_Y(set, aoi, False, 4)
+file = 'proper_60AOI.json'
+set = Structure.from_json(file)
+X1, Y1, nok_Z = azi_X_wvl_Y(set, aoi, False,0)
 #complete_MM_heatmap_plot(X,Y,nok_Z, '', 0)
-#complete_MM_heatmap_plot(X,Y,nok_Z, '', 0, kZ=k_Z)
-#exit()
+print(len(k_Z[0]))
+nok_Z = nok_Z[0:27]
+print(len(nok_Z[0]))
+complete_MM_heatmap_plot(X,Y,k_Z, '')
+exit()
 X, Y, k_Z = azi_X_wvl_Y_reflect_sep_diff_orders(set, aoi, True, 0)
 print(k_Z[0][0])
-complete_MM_heatmap_plot()
-#DI_heatmap_plot(['azi',X],['wvl',Y],k_Z,"P Reflected at AOI: " + str(aoi))
+DI_heatmap_plot(['azi',X],['wvl',Y],k_Z,"P Reflected at AOI: " + str(aoi))
 exit()
 X, Y, k_Z = azi_X_wvl_Y_reflect_sep_diff_orders(set, aoi, False, 0)
 print(k_Z[0][0])
