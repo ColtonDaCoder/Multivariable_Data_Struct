@@ -1,0 +1,67 @@
+--------------------------------------
+Running PBS prologue script
+--------------------------------------
+User and Job Data:
+--------------------------------------
+Job ID:    1000059.smic3
+Username:  coltonb
+Group:     Users
+Date:      27-Oct-2023 11:19
+Node:      smic063 (29337)
+--------------------------------------
+PBS has allocated the following nodes:
+
+smic063
+
+A total of 20 processors on 1 nodes allocated
+---------------------------------------------
+Check nodes and clean them of stray processes
+---------------------------------------------
+Checking node smic063 11:19:38 
+Done clearing all the allocated nodes
+------------------------------------------------------
+Concluding PBS prologue script - 27-Oct-2023 11:19:38
+------------------------------------------------------
+Loading mvapich2/2.3.3/intel-19.0.5
+  Loading requirement: intel/19.0.5
+JOBS_PER_NODE=1
+/ddnA/work/coltonb/Multivariable_Data_Struct/Reflection_Diffraction_Order_60AOI_2/run_sim.py:6: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
+  import jcmwave,time,imp,shutil,os
+/ddnA/work/coltonb/Multivariable_Data_Struct/Reflection_Diffraction_Order_60AOI_2/run_sim.py:92: RuntimeWarning: Could not start JCMedit. local variable 'port' referenced before assignment
+  jcmwave.solve('project.jcmp')
+Traceback (most recent call last):
+  File "/ddnA/work/coltonb/Multivariable_Data_Struct/Reflection_Diffraction_Order_60AOI_2/run_sim.py", line 92, in <module>
+    jcmwave.solve('project.jcmp')
+  File "/home/coltonb/JCMsuite_5.4.0/ThirdPartySupport/Python/jcmwave/solve.py", line 478, in solve
+    raise RuntimeError('*** JCMsolve failed. ==>\n\n%s' % (str(msg),))
+RuntimeError: *** JCMsolve failed. ==>
+
+*** Error: File "layout.jcmt", line: 60
+>>>         DomainIdMapping = [101 2]
+Id 3 not mapped in layer
+ *** 
+
+
+*** Error:  *** 
+
+------------------------------------------------------
+Running PBS epilogue script    - 27-Oct-2023 11:19:48
+------------------------------------------------------
+Checking node smic063 (MS)
+Checking node smic063 ; cleared cache ; ok
+------------------------------------------------------
+Concluding PBS epilogue script - 27-Oct-2023 11:19:50
+------------------------------------------------------
+Exit Status:     1
+Job ID:          1000059.smic3
+Username:        coltonb
+Group:           Users
+Job Name:        reflection_diffraction_orders_60AOI_kappa
+Session Id:      29336
+Resource Limits: ncpus=1,neednodes=1:ppn=20,nodes=1:ppn=20,walltime=10:00:00
+Resources Used:  cput=00:00:01,mem=0kb,vmem=0kb,walltime=00:00:12
+Queue Used:      workq
+Account String:  hpc_mcpeak11
+Node:            smic063
+Process id:      30089
+------------------------------------------------------

@@ -10,7 +10,7 @@ AZI = [i for i in range(46)]
 WVL = [i*2+200 for i in range(51)]
 kappa = True
 
-output_file = "60AOI.json"
+output_file = "top_60AOI.json"
 
 keys = {}  # Create empty dictionary for keys
 

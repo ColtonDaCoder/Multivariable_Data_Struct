@@ -7,7 +7,7 @@ import jcmwave,time,imp,shutil,os
 from optparse import OptionParser
 AOI = [60]
 AZI = [i for i in range(46)]
-WVL = [i+200 for i in range(100)]
+WVL = [i+252 for i in range(25)]
 kappa = True
 
 output_file = "top_60AOI.json"
