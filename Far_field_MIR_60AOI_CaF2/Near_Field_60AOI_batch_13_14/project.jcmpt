@@ -22,6 +22,20 @@ Problem = {
 # ENERGY
 PostProcess {
   DensityIntegration {
+    OutputQuantity=ElectricFieldEnergy
+    FieldBagPath="project_results/fieldbag.jcm"
+    OutputFileName="project_results/electricfield.jcm"
+  }
+}
+PostProcess {
+  DensityIntegration {
+    OutputQuantity=MagneticFieldEnergy
+    FieldBagPath="project_results/fieldbag.jcm"
+    OutputFileName="project_results/magneticfield.jcm"
+  }
+}
+PostProcess {
+  DensityIntegration {
     OutputQuantity=ElectromagneticFieldAbsorption
     FieldBagPath="project_results/fieldbag.jcm"
     OutputFileName="project_results/absorption.jcm"

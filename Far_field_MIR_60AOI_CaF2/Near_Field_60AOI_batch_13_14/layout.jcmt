@@ -53,24 +53,11 @@ Layout3D {
         DomainId = 3
       }
       Layer {
-        Thickness = 200
-                MeshOptions {
-            MaximumSidelengthZUpper = 2
-        }
-        DomainIdMapping = [101 2 
-                           3 4]
-      }
-      Layer {
-        Thickness = 800
+        Thickness = 1000
                 MeshOptions {
             MaximumSidelengthZUpper = 2
         }
         DomainIdMapping = [101 2
-                           3 1]
-      }
-      Layer {
-        Thickness = 200
-        DomainIdMapping = [101 4
                            3 1]
       }
      Layer {

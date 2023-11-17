@@ -1,7 +1,5 @@
 <?
 keys['permittivity_1'] = (keys['n_1'])**2
-keys['permittivity_2'] = (keys['n_2'])**2
-keys['permittivity_4'] = (keys['n_4'])**2
 ?>
 Material { 
   Name = "Air" 
@@ -10,14 +8,14 @@ Material {
   RelPermeability = 1.0
 }
 Material { 
-  Name = "Si Pillar" # Si Pillars
+  Name = "Ge Pillar" # Ge Pillars
   Id = 2
-  RelPermittivity = %(permittivity_2)e
+  RelPermittivity = 4
   RelPermeability = 1.0
 }
 Material { 
   Name = "CaF2 Substrate" # CaF2 Substrate
   Id = 3
-  RelPermittivity = %(permittivity_2)e
+  RelPermittivity = 1.35
   RelPermeability = 1.0
 }
