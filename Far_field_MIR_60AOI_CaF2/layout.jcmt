@@ -1,0 +1,67 @@
+<?
+import math
+keys['lattice_vector'] = keys['pitch']
+keys['half_pitch'] = keys['pitch']/2
+?>
+
+Layout3D {
+  UnitOfLength = 1e-09
+ 
+  MeshOptions {
+    MaximumSideLength = 500
+  }
+  BoundaryConditions {
+    Boundary {
+      Direction = Vertical 
+      Class = Transparent 
+    }
+  }
+  Extrusion {
+    Objects {
+      Polygon { 
+        Name = "ComputationalDomain/Background" 
+        DomainId = 3
+        Priority = -1
+        Port = Origin
+        RotationAngle = %(azimuth)e ##JCMwave rotates anti-clockwise, RC2 rotates clockwise
+        PeriodicUnitCell {
+            LatticeAngle = 90
+            LatticeVectorLengths = [%(lattice_vector)e %(lattice_vector)e]
+            Shape = Rectilinear
+        }
+      } 
+      
+      Circle {
+        Name = "Circle" 
+        DomainId = 101
+                GlobalPosition = [%(half_pitch)e %(half_pitch)e]
+        Radius = %(radius)e
+        RefineAll = 2
+                MeshOptions {
+            MaximumSidelength = 400
+        }
+      }
+    }
+
+    MultiLayer {
+      MeshOptions {
+        MaximumSideLengthZ = 500
+      }    
+      
+      Layer {
+        Thickness = 1000
+        DomainId = 3
+      }
+      Layer {
+        Thickness = 2000
+        DomainIdMapping = [101 2
+                           3 1]
+      }
+     Layer {
+        Thickness = 4000
+        DomainIdMapping = [3 1]
+      }
+    }
+  }
+
+

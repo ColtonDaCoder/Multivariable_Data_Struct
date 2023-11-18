@@ -1,0 +1,29 @@
+/* <BLOBHead>
+__BLOBTYPE__=Table
+__MODE__=TEXT
+__OPTIONS__=LHExchanged
+__OWNER__=JCMwave
+__TAG__=049db61d3f1db59626891d32337991cc
+__VERSION__=1.0.0
+Column1:Name=DomainId
+Column1:Type=int
+Column2:Name=ElectricFieldEnergy_1
+Column2:Type=doublecomplex
+Column3:Name=ElectricFieldEnergy_2
+Column3:Type=doublecomplex
+Title=ElectricFieldEnergy
+<I>NColumns=3
+<I>NRows=3
+*/
+# Row 1
+1
+(2.497539132030074e-25,-2.182892355555817e-44)
+(2.475193316764691e-25,-2.274334733366223e-44)
+# Row 2
+2
+(2.465463134085234e-26,-1.158606548337407e-45)
+(2.146083406949044e-26,-4.227504446674589e-46)
+# Row 3
+3
+(3.836261768983999e-26,1.294158272624308e-44)
+(3.825914558097941e-26,-6.627624521989358e-45)

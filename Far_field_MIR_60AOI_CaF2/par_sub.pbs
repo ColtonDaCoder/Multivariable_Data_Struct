@@ -1,0 +1,14 @@
+#!/bin/bash
+#PBS -l nodes=1:ppn=28
+#PBS -l walltime=24:00:00
+#PBS -A hpc_mcpeak11
+#PBS -q bigmem
+#PBS -N CaF2_far_field
+#PBS -j oe
+
+JOBS_PER_NODE=1
+echo "JOBS_PER_NODE="$JOBS_PER_NODE
+
+export WDIR=/work/coltonb/Multivariable_Data_Struct/Far_field_MIR_60AOI_CaF2/
+cd $WDIR
+python run_sim.py -t 28
