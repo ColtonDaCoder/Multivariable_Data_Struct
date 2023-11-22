@@ -19,10 +19,10 @@ Layout3D {
         DomainId = 3
         Priority = -1
         Port = Origin
-        RotationAngle = 12 ##JCMwave rotates anti-clockwise, RC2 rotates clockwise
+        RotationAngle = 45 ##JCMwave rotates anti-clockwise, RC2 rotates clockwise
         PeriodicUnitCell {
             LatticeAngle = 90
-            LatticeVectorLengths = [3500 3500]
+            LatticeVectorLengths = [4000 4000]
             Shape = Rectilinear
         }
       } 
@@ -30,7 +30,7 @@ Layout3D {
       Circle {
         Name = "Circle" 
         DomainId = 101
-                GlobalPosition = [1750 1750]
+                GlobalPosition = [2000 2000]
         Radius = 500
         RefineAll = 2
                 MeshOptions {
@@ -41,7 +41,7 @@ Layout3D {
 
     MultiLayer {
       MeshOptions {
-        MaximumSideLengthZ = 500
+        MaximumSideLengthZ = 400
       }    
       
       Layer {

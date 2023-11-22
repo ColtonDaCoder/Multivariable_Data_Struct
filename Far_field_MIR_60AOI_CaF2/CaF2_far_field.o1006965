@@ -1,0 +1,83 @@
+--------------------------------------
+Running PBS prologue script
+--------------------------------------
+User and Job Data:
+--------------------------------------
+Job ID:    1006965.smic3
+Username:  coltonb
+Group:     Users
+Date:      19-Nov-2023 14:48
+Node:      smic381 (18791)
+--------------------------------------
+PBS has allocated the following nodes:
+
+smic381
+
+A total of 28 processors on 1 nodes allocated
+---------------------------------------------
+Check nodes and clean them of stray processes
+---------------------------------------------
+Checking node smic381 14:48:20 
+Done clearing all the allocated nodes
+------------------------------------------------------
+Concluding PBS prologue script - 19-Nov-2023 14:48:20
+------------------------------------------------------
+Loading mvapich2/2.3.3/intel-19.0.5
+  Loading requirement: intel/19.0.5
+JOBS_PER_NODE=1
+/ddnA/work/coltonb/Multivariable_Data_Struct/Far_field_MIR_60AOI_CaF2/run_sim.py:6: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
+  import jcmwave,time,imp,shutil,os
+Total runtime for WVL: 5350 AOI: 60 aziumth: 45 - 5714.4873 s
+Total runtime for WVL: 5500 AOI: 60 aziumth: 45 - 5729.2204 s
+Total runtime for WVL: 5650 AOI: 60 aziumth: 45 - 5751.8940 s
+Total runtime for WVL: 5800 AOI: 60 aziumth: 45 - 5724.7687 s
+Total runtime for WVL: 5950 AOI: 60 aziumth: 45 - 5705.2272 s
+Total runtime for WVL: 6100 AOI: 60 aziumth: 45 - 5724.9454 s
+Total runtime for WVL: 6250 AOI: 60 aziumth: 45 - 5749.9474 s
+Total runtime for WVL: 6400 AOI: 60 aziumth: 45 - 5695.8771 s
+Total runtime for WVL: 6550 AOI: 60 aziumth: 45 - 5743.3132 s
+Total runtime for WVL: 6700 AOI: 60 aziumth: 45 - 5736.9268 s
+Total runtime for WVL: 6850 AOI: 60 aziumth: 45 - 5778.9874 s
+Total runtime for WVL: 7000 AOI: 60 aziumth: 45 - 5804.3073 s
+Total runtime for WVL: 7150 AOI: 60 aziumth: 45 - 5926.9595 s
+Total runtime for WVL: 7300 AOI: 60 aziumth: 45 - 5968.6976 s
+Total runtime for WVL: 7450 AOI: 60 aziumth: 45 - 6105.3965 s
+Total runtime for WVL: 7600 AOI: 60 aziumth: 45 - 5961.2910 s
+Total runtime for WVL: 7750 AOI: 60 aziumth: 45 - 5977.3816 s
+Total runtime for WVL: 7900 AOI: 60 aziumth: 45 - 5967.5720 s
+Total runtime for WVL: 8050 AOI: 60 aziumth: 45 - 6107.4289 s
+Total runtime for WVL: 8200 AOI: 60 aziumth: 45 - 5899.9165 s
+Total runtime for WVL: 8350 AOI: 60 aziumth: 45 - 5870.9591 s
+Total runtime for WVL: 8500 AOI: 60 aziumth: 45 - 5831.9636 s
+Total runtime for WVL: 8650 AOI: 60 aziumth: 45 - 5761.2635 s
+Total runtime for WVL: 8800 AOI: 60 aziumth: 45 - 5755.2616 s
+Total runtime for WVL: 8950 AOI: 60 aziumth: 45 - 5754.7138 s
+Total runtime for WVL: 9100 AOI: 60 aziumth: 45 - 5751.2967 s
+Total runtime for WVL: 9250 AOI: 60 aziumth: 45 - 5859.3807 s
+Total runtime for WVL: 9400 AOI: 60 aziumth: 45 - 5905.2841 s
+Total runtime for WVL: 9550 AOI: 60 aziumth: 45 - 5869.6440 s
+Total runtime for WVL: 9700 AOI: 60 aziumth: 45 - 5859.9821 s
+Total runtime for WVL: 9850 AOI: 60 aziumth: 45 - 5857.1990 s
+Total runtime for WVL: 10000 AOI: 60 aziumth: 45 - 5858.4093 s
+------------------------------------------------------
+Running PBS epilogue script    - 21-Nov-2023 18:40:17
+------------------------------------------------------
+Checking node smic381 (MS)
+Checking node smic381 ; cleared cache ; ok
+------------------------------------------------------
+Concluding PBS epilogue script - 21-Nov-2023 18:40:19
+------------------------------------------------------
+Exit Status:     0
+Job ID:          1006965.smic3
+Username:        coltonb
+Group:           Users
+Job Name:        CaF2_far_field
+Session Id:      18790
+Resource Limits: ncpus=1,neednodes=1:ppn=28,nodes=1:ppn=28,walltime=55:00:00
+Resources Used:  cput=1015:46:20,mem=46092880kb,vmem=52741216kb,walltime=51:51:59
+Queue Used:      bigmem
+Account String:  hpc_mcpeak11
+Node:            smic381
+Process id:      18412
+Last status:     21-Nov-2023:18:01 PBS_job=1006965.smic3 user=coltonb allocation=hpc_mcpeak11 queue=bigmem total_load=14.17 cpu_hours=0.16 wall_hours=50.25 unused_nodes=0 total_nodes=1 ppn=28 avg_load=14.17 avg_cpu=2800% avg_mem=20270mb avg_vmem=45711mb top_proc=coltonb:JCMsolveWo+:smic381:43.8G:19.7G:0.0hr:2800% toppm=coltonb:JCMsolveWorker:smic381:40921M:24916M node_processes=5 avg_avail_mem=218536mb min_avail_mem=218536mb reverified_avg_load=23.59
+------------------------------------------------------

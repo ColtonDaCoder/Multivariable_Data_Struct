@@ -45,7 +45,7 @@ Layout3D {
 
     MultiLayer {
       MeshOptions {
-        MaximumSideLengthZ = 500
+        MaximumSideLengthZ = 400
       }    
       
       Layer {

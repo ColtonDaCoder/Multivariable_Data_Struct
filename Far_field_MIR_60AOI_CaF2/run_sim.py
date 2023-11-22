@@ -6,12 +6,12 @@ import json
 import jcmwave,time,imp,shutil,os 
 from optparse import OptionParser
 AOI = [60]
-AZI = [i for i in range(11)]
-WVL = [3000+1000*i for i in range(7)]
+AZI = [i for i in range(46)]
+WVL = [5350+150*i for i in range(32)]
 
 keys = {}  # Create empty dictionary for keys
 
-set = Structure(columns=['azi','aoi','svl','radius','pitch','mm', 'dmm','abs pillar','abs substrate','reflected flux','E','H'])
+set = Structure(columns=['azi','aoi','wvl','radius','pitch','mm', 'dmm','abs pillar','abs substrate','reflected flux','E','H'])
 for wvl in WVL:
         
     for aoi in AOI:
@@ -39,7 +39,7 @@ for wvl in WVL:
             'fem_degree' : 3,
             'n_refinement_steps' : 0, # Currently we get non-physical results if this is >0
             'thickness' : 1000,
-            'pitch' : 3500, # pitch of square lattice
+            'pitch' : 4000, # pitch of square lattice
             'wvl' : wvl
             }
 
@@ -141,7 +141,7 @@ for wvl in WVL:
             }
             set.append(entry)
 
-            set.save_csv('high_far_field_60AOI.csv')
+            set.save_csv('high2_far_field_60AOI.csv')
 
 	    
         toc = time.time() # use time() not clock() on linux system  
