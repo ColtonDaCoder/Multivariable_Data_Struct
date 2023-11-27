@@ -194,7 +194,7 @@ def complete_MM_heatmap_plot(X, Y, no_kZ, raw, kZ=None):
                 Z = np.log10(Z)
             else:
                 Z = [[no_kZ[val][i][j] for j, azi in enumerate(no_kZ[val][i])] for i, aoi in enumerate(no_kZ[val])]  
-                Z = np.absolute(Z)
+                #Z = np.absolute(Z)
             Z = np.array(Z)
             norm_list = Z.flatten() 
             norm_list = np.delete(norm_list, np.where(norm_list == 1234)) 
@@ -203,16 +203,19 @@ def complete_MM_heatmap_plot(X, Y, no_kZ, raw, kZ=None):
             #z_max = 1
             z_min = np.amin(norm_list)
             Z[Z == 1234] = z_min
-            #z_min = -0.02
-            #z_max = 0.1
+            #z_min = -0.2
+            #z_max = 0.2
             #c = ax[j,i].pcolormesh(X[1][0], Y[1][0], Z, cmap=plt.cm.Reds, vmin=z_min, vmax=z_max)
             c = ax[j,i].pcolormesh(X[0], Y[0], Z, cmap=plt.cm.Reds, vmin=z_min, vmax=z_max)
 
             fmt = ticker.FormatStrFormatter("%.2f")
             cbar = fig.colorbar(c, ax=ax[i,j], format=fmt) 
             #cbar.ax.yaxis.set_major_formatter(tick.FormatStrFormatter('%.2f'))
+             
+            #older ig?
             ax[j,i].set_xlabel(X[0][0][0], fontsize=10)
             ax[j,i].set_ylabel(Y[0][0][0], fontsize=10)
+
 
             #ax[j,i].set_title(str(raw[0]) + ": " + str(raw[1]) + " MM: " + str(mm), + "diff " + diff_order)
     plt.tight_layout(h_pad=1,w_pad=0.5)

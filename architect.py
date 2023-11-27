@@ -61,7 +61,6 @@ def cloude_decomp(mm):
     return M 
 
 
-
 def azi_X_aoi_Y(set, wvl, kappa, diff_order):
     id_names = ['azimuth','AOI','wvl','radius','pitch','height', 'kappa']
     radius = 50
@@ -413,6 +412,7 @@ print(len(k_Z[0]))
 nok_Z = nok_Z[0:27]
 print(len(nok_Z[0]))
 complete_MM_heatmap_plot(X,Y,k_Z, '')
+complete_MM_heatmap_plot(X1,Y1,nok_Z, '')
 exit()
 X, Y, k_Z = azi_X_wvl_Y_reflect_sep_diff_orders(set, aoi, True, 0)
 print(k_Z[0][0])
