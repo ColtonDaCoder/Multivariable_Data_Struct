@@ -1,5 +1,13 @@
 <?
 keys['permittivity_1'] = (keys['n_1'])**2
+keys['RelBiPermittivity'] = -1j*
+keys['RelBiPermeability'] = 1j*
+
+keys['RelBiPermittivity_real'] = keys['RelBiPermittivity'].real
+keys['RelBiPermittivity_imag'] = keys['RelBiPermittivity'].imag
+
+keys['RelBiPermeability_real'] = keys['RelBiPermeability'].real
+keys['RelBiPermeability_imag'] = keys['RelBiPermeability'].imag
 ?>
 Material { 
   Name = "Air" 
@@ -18,4 +26,13 @@ Material {
   Id = 3
   RelPermittivity = 1.35
   RelPermeability = 1.0
+}
+Material { 
+  Name = "Chiral Film" # Nondispersive Chiral Film
+  Id = 4
+  RelPermittivity = 1.62
+  RelPermeability = 1.0
+
+  RelBiPermittivity = (%(RelBiPermittivity_real)10e, %(RelBiPermittivity_imag)10e)
+  RelBiPermeability = (%(RelBiPermeability_real)10e, %(RelBiPermeability_imag)10e)
 }

@@ -44,6 +44,7 @@ for wvl in WVL:
             }
 
         # material properties
+        keys['kappa'] = 0.00038 + 1j*0.00038        
         keys['n_1'] = 1.00 # index refraction of Air
          
         for azi in AZI:

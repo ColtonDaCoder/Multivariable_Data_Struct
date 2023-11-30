@@ -188,12 +188,24 @@ df = pd.concat([df, df2])
 
 x, y = getXY(df, 'azi', 'wvl')
 
-X, Y, Z = get_dmm(df, x, y, 'azi','wvl')
-complete_MM_heatmap_plot(X, Y, 'azi', 'wvl', Z)
+#X, Y, Z = get_dmm(df, x, y, 'azi','wvl')
+#complete_MM_heatmap_plot(X, Y, 'azi', 'wvl', Z)
 #df = df.loc[(df["azi"] == 5)]
 #Y0 = [ast.literal_eval(i)[0] for i in df["abs pillar"].values]
 #Y1 = [ast.literal_eval(i)[1] for i in df["abs pillar"].values]
 #plot3d(df["wvl"].values, Y0, df["azi"].values)
+
+#kappa = np.loadtxt('LH_Gammadion_Simulation_Racemic_Trp_500/data/L-tyr_kappa.txt')
+kappa = np.loadtxt('LH_Gammadion_Simulation_Racemic_Trp_500/data/L-tyr_nx_kx.txt')
+
+print(kappa[0])
+print(kappa[1])
+plt.plot([i[0] for i in kappa],[i[1] for i in kappa])
+#plt.plot([i[0] for i in kappa],[i[2] for i in kappa])
+#plt.plot(kappa[0],kappa[2])
+plt.show()
+
+
 
 #X,Y,e = get_E(df, x, y, 'azi','wvl', 'abs pillar')
 #MM_heatmap_plot(X, Y, 'azi', 'wvl', e)
