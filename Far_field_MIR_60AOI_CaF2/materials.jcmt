@@ -1,7 +1,8 @@
 <?
 keys['permittivity_1'] = (keys['n_1'])**2
-keys['RelBiPermittivity'] = -1j*
-keys['RelBiPermeability'] = 1j*
+
+keys['RelBiPermittivity'] = -1j*keys['kappa']
+keys['RelBiPermeability'] = 1j*keys['kappa']
 
 keys['RelBiPermittivity_real'] = keys['RelBiPermittivity'].real
 keys['RelBiPermittivity_imag'] = keys['RelBiPermittivity'].imag
