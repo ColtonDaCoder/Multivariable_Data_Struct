@@ -4,15 +4,17 @@ import ast
 import matplotlib.pyplot as plt
 import matplotlib.ticker as ticker
 
-def complete_MM_heatmap_plot(X, Y, x_name, y_name, kZ):
+def complete_MM_heatmap_plot(X, Y, x_name, y_name, kZ, no_kZ=None):
     fig, ax = plt.subplots(4,4, figsize=(10,8))
     X[0] = [i*(180/np.pi) for i in X[1]]
     for j in range(4):
         for i in range(4):
             val = i*4+j
             mm = str(str(j+1)+str(i+1))
-
-            Z = [[kZ[val][i][j] for j, azi in enumerate(kZ[val][i])] for i, aoi in enumerate(kZ[val])]  
+            if not no_kZ == None: 
+                Z = [[abs(kZ[val][i][j] - no_kZ[val][i][j])/no_kZ[val][i][j] for j, azi in enumerate(kZ[val][i])] for i, aoi in enumerate(kZ[val])]  
+            else:
+                Z = [[kZ[val][i][j] for j, azi in enumerate(kZ[val][i])] for i, aoi in enumerate(kZ[val])]  
             #Z = np.absolute(Z)
             #Z = np.log10(Z)
             Z = np.array(Z)
@@ -172,6 +174,15 @@ def getXY(df, x_name, y_name):
         Y[int(element)] = None
     return list(X.keys()), list(Y.keys())
 
+file = "Far_field_MIR_60AOI_CaF2/high_far_field_60AOI_chiral.csv"
+
+df = pd.read_csv(file)
+x, y = getXY(df, 'azi', 'wvl')
+
+X, Y, Z = get_dmm(df, x, y, 'azi','wvl')
+#complete_MM_heatmap_plot(X, Y, 'azi', 'wvl', Z)
+
+
 file = "Far_field_MIR_60AOI_CaF2/high_far_field_60AOI.csv"
 
 df = pd.read_csv(file)
@@ -181,6 +192,7 @@ y = y[:-1]
 #X, Y, Z = get_dmm(df, x, y, 'azi','wvl')
 #complete_MM_heatmap_plot(X, Y, 'azi', 'wvl', Z)
 
+
 file = "Far_field_MIR_60AOI_CaF2/high2_far_field_60AOI.csv"
 
 df2 = pd.read_csv(file)
@@ -188,8 +200,9 @@ df = pd.concat([df, df2])
 
 x, y = getXY(df, 'azi', 'wvl')
 
-#X, Y, Z = get_dmm(df, x, y, 'azi','wvl')
-#complete_MM_heatmap_plot(X, Y, 'azi', 'wvl', Z)
+
+X, Y, no_kZ = get_dmm(df, x, y, 'azi','wvl')
+complete_MM_heatmap_plot(X, Y, 'azi', 'wvl', Z, no_kZ)
 #df = df.loc[(df["azi"] == 5)]
 #Y0 = [ast.literal_eval(i)[0] for i in df["abs pillar"].values]
 #Y1 = [ast.literal_eval(i)[1] for i in df["abs pillar"].values]
