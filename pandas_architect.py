@@ -26,8 +26,8 @@ def complete_MM_heatmap_plot(X, Y, x_name, y_name, kZ, no_kZ=None):
                 z_min = -z_max
             else:
                 z_max = -z_min
-            #z_max = 1.2
-            #z_min = -0.75
+            #z_max = 1
+            #z_min = -1
             Z[Z == 1234] = z_min
             c = ax[j,i].pcolormesh(X[0], Y[0], Z, cmap=plt.cm.seismic, vmin=z_min, vmax=z_max)
 
@@ -169,9 +169,11 @@ def getXY(df, x_name, y_name):
     X = dict()
     Y = dict()
     for element in df[x_name].values:
-        X[int(element)] = None
+        if element < 6:
+            X[int(element)] = None
     for element in df[y_name].values:
-        Y[int(element)] = None
+        if not element == 5450 and not element == 5300:
+            Y[int(element)] = None
     return list(X.keys()), list(Y.keys())
 
 file = "Far_field_MIR_60AOI_CaF2/high_far_field_60AOI_chiral.csv"
@@ -183,26 +185,27 @@ X, Y, Z = get_dmm(df, x, y, 'azi','wvl')
 #complete_MM_heatmap_plot(X, Y, 'azi', 'wvl', Z)
 
 
-file = "Far_field_MIR_60AOI_CaF2/high_far_field_60AOI.csv"
+file = "Far_field_MIR_60AOI_CaF2/high_far_field_60AOI_racemic.csv"
 
 df = pd.read_csv(file)
 x, y = getXY(df, 'azi', 'wvl')
-y = y[:-1]
+#y = y[:-1]
 
-#X, Y, Z = get_dmm(df, x, y, 'azi','wvl')
+#X_, Y_, Z = get_dmm(df, x, y, 'azi','wvl')
 #complete_MM_heatmap_plot(X, Y, 'azi', 'wvl', Z)
 
-
-file = "Far_field_MIR_60AOI_CaF2/high2_far_field_60AOI.csv"
+file = "Far_field_MIR_60AOI_CaF2_2/high_far_field_60AOI_racemic_2.csv"
 
 df2 = pd.read_csv(file)
 df = pd.concat([df, df2])
 
 x, y = getXY(df, 'azi', 'wvl')
-
+y = y[:-1]
 
 X, Y, no_kZ = get_dmm(df, x, y, 'azi','wvl')
-complete_MM_heatmap_plot(X, Y, 'azi', 'wvl', Z, no_kZ)
+complete_MM_heatmap_plot(X, Y, 'azi', 'wvl', Z)
+
+exit()
 #df = df.loc[(df["azi"] == 5)]
 #Y0 = [ast.literal_eval(i)[0] for i in df["abs pillar"].values]
 #Y1 = [ast.literal_eval(i)[1] for i in df["abs pillar"].values]
