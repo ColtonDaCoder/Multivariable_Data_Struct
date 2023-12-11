@@ -1,0 +1,25 @@
+
+Material { 
+  Name = "Air" 
+  Id = 1
+  RelPermittivity = 1
+  RelPermeability = 1.0
+}
+Material { 
+  Name = "Ge Pillar" # Ge Pillars
+  Id = 2
+  RelPermittivity = 4
+  RelPermeability = 1.0
+}
+Material { 
+  Name = "CaF2 Substrate" # CaF2 Substrate
+  Id = 3
+  RelPermittivity = 1.35
+  RelPermeability = 1.0
+}
+Material { 
+  Name = "Chiral Film" # Nondispersive Chiral Film
+  Id = 4
+  RelPermittivity = 1.62
+  RelPermeability = 1.0
+}

@@ -1,0 +1,54 @@
+--------------------------------------
+Running PBS prologue script
+--------------------------------------
+User and Job Data:
+--------------------------------------
+Job ID:    1011985.smic3
+Username:  coltonb
+Group:     Users
+Date:      09-Dec-2023 13:25
+Node:      smic381 (13469)
+--------------------------------------
+PBS has allocated the following nodes:
+
+smic381
+
+A total of 28 processors on 1 nodes allocated
+---------------------------------------------
+Check nodes and clean them of stray processes
+---------------------------------------------
+Checking node smic381 13:25:19 
+Done clearing all the allocated nodes
+------------------------------------------------------
+Concluding PBS prologue script - 09-Dec-2023 13:25:19
+------------------------------------------------------
+Loading mvapich2/2.3.3/intel-19.0.5
+  Loading requirement: intel/19.0.5
+JOBS_PER_NODE=1
+/ddnA/work/coltonb/Multivariable_Data_Struct/Far_field_MIR_60AOI_CaF2/run_sim.py:6: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
+  import jcmwave,time,imp,shutil,os
+Traceback (most recent call last):
+  File "/ddnA/work/coltonb/Multivariable_Data_Struct/Far_field_MIR_60AOI_CaF2/run_sim.py", line 63, in <module>
+    n1 = np.nonzero(table['DomainId'] == 1) # row number for Material Id 1 (Air)
+TypeError: list indices must be integers or slices, not str
+------------------------------------------------------
+Running PBS epilogue script    - 09-Dec-2023 13:44:20
+------------------------------------------------------
+Checking node smic381 (MS)
+Checking node smic381 ; cleared cache ; ok
+------------------------------------------------------
+Concluding PBS epilogue script - 09-Dec-2023 13:44:23
+------------------------------------------------------
+Exit Status:     1
+Job ID:          1011985.smic3
+Username:        coltonb
+Group:           Users
+Job Name:        CaF2_far_field
+Session Id:      13468
+Resource Limits: ncpus=1,neednodes=1:ppn=28,nodes=1:ppn=28,walltime=55:00:00
+Resources Used:  cput=06:20:34,mem=39030632kb,vmem=46381376kb,walltime=00:19:03
+Queue Used:      bigmem
+Account String:  hpc_mcpeak11
+Node:            smic381
+Process id:      17453
+------------------------------------------------------
