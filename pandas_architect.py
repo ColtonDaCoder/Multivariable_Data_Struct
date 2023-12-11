@@ -12,26 +12,28 @@ def complete_MM_heatmap_plot(X, Y, x_name, y_name, kZ, no_kZ=None):
             val = i*4+j
             mm = str(str(j+1)+str(i+1))
             if not no_kZ == None: 
-                Z = [[abs(kZ[val][i][j] - no_kZ[val][i][j])/no_kZ[val][i][j] for j, azi in enumerate(kZ[val][i])] for i, aoi in enumerate(kZ[val])]  
+                Z = [[abs(kZ[val][i][j] - no_kZ[val][i][j])/no_kZ[val][i][j]*100 for j, azi in enumerate(kZ[val][i])] for i, aoi in enumerate(kZ[val])]  
             else:
                 Z = [[kZ[val][i][j] for j, azi in enumerate(kZ[val][i])] for i, aoi in enumerate(kZ[val])]  
-            #Z = np.absolute(Z)
+            Z = np.absolute(Z)
             #Z = np.log10(Z)
             Z = np.array(Z)
             norm_list = Z.flatten() 
             norm_list = np.delete(norm_list, np.where(norm_list == 1234)) 
+            std = np.std(norm_list)
+            mean = np.mean(norm_list)
             z_max = np.amax(norm_list)
             z_min = np.amin(norm_list)
             if abs(z_max) > abs(z_min):
                 z_min = -z_max
             else:
                 z_max = -z_min
-            #z_max = 1
-            #z_min = -1
+            z_max = std
+            z_min = 0
             Z[Z == 1234] = z_min
-            c = ax[j,i].pcolormesh(X[0], Y[0], Z, cmap=plt.cm.seismic, vmin=z_min, vmax=z_max)
+            c = ax[j,i].pcolormesh(X[0], Y[0], Z, cmap=plt.cm.Reds, vmin=z_min, vmax=z_max)
 
-            fmt = ticker.FormatStrFormatter("%.3f")
+            fmt = ticker.FormatStrFormatter("%.0f%%")
             cbar = fig.colorbar(c, ax=ax[i,j], format=fmt) 
             
             #for new pandas df
@@ -169,17 +171,16 @@ def getXY(df, x_name, y_name):
     X = dict()
     Y = dict()
     for element in df[x_name].values:
-        if element < 6:
-            X[int(element)] = None
+        X[int(element)] = None
     for element in df[y_name].values:
-        if not element == 5450 and not element == 5300:
-            Y[int(element)] = None
+        Y[int(element)] = None
     return list(X.keys()), list(Y.keys())
 
 file = "Far_field_MIR_60AOI_CaF2/high_far_field_60AOI_chiral.csv"
 
 df = pd.read_csv(file)
 x, y = getXY(df, 'azi', 'wvl')
+x = x[1:]
 
 X, Y, Z = get_dmm(df, x, y, 'azi','wvl')
 #complete_MM_heatmap_plot(X, Y, 'azi', 'wvl', Z)
@@ -197,13 +198,19 @@ x, y = getXY(df, 'azi', 'wvl')
 file = "Far_field_MIR_60AOI_CaF2_2/high_far_field_60AOI_racemic_2.csv"
 
 df2 = pd.read_csv(file)
-df = pd.concat([df, df2])
+
+file = "Far_field_MIR_60AOI_CaF2/high_far_field_60AOI_racemic_1_5.csv"
+
+df3 = pd.read_csv(file)
+
+df = pd.concat([df, df2, df3])
 
 x, y = getXY(df, 'azi', 'wvl')
 y = y[:-1]
+x = x[1:]
 
 X, Y, no_kZ = get_dmm(df, x, y, 'azi','wvl')
-complete_MM_heatmap_plot(X, Y, 'azi', 'wvl', Z)
+complete_MM_heatmap_plot(X, Y, 'azi', 'wvl', Z, no_kZ)
 
 exit()
 #df = df.loc[(df["azi"] == 5)]
