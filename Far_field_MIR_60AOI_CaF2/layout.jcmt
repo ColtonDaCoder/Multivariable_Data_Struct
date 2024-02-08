@@ -53,12 +53,7 @@ Layout3D {
         DomainId = 3
       }
       Layer {
-        Thickness = 250
-        DomainIdMapping = [101 2
-                           3 4]
-      }
-      Layer {
-        Thickness = 2000
+        Thickness = 2250
         DomainIdMapping = [101 2
                            3 1]
       }

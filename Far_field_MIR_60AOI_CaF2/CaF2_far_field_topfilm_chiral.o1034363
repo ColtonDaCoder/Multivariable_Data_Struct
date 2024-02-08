@@ -1,0 +1,80 @@
+--------------------------------------
+Running PBS prologue script
+--------------------------------------
+User and Job Data:
+--------------------------------------
+Job ID:    1034363.smic3
+Username:  coltonb
+Group:     Users
+Date:      06-Feb-2024 11:57
+Node:      smic382 (21699)
+--------------------------------------
+PBS has allocated the following nodes:
+
+smic382
+
+A total of 28 processors on 1 nodes allocated
+---------------------------------------------
+Check nodes and clean them of stray processes
+---------------------------------------------
+Checking node smic382 11:57:04 
+Done clearing all the allocated nodes
+------------------------------------------------------
+Concluding PBS prologue script - 06-Feb-2024 11:57:04
+------------------------------------------------------
+Loading mvapich2/2.3.3/intel-19.0.5
+  Loading requirement: intel/19.0.5
+JOBS_PER_NODE=1
+/ddnA/work/coltonb/Multivariable_Data_Struct/Far_field_MIR_60AOI_CaF2/run_sim.py:6: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
+  import jcmwave,time,imp,shutil,os
+
+
+*** Warning: AbstractBLOB_Reader::GetKeyword
+ Improper Keyword  found *** 
+
+
+*** Warning: AbstractBLOB_Reader::GetKeyword
+ Improper Keyword < found *** 
+
+
+*** Warning: AbstractBLOB_Reader::GetKeyword
+ Improper Keyword << found *** 
+
+
+*** Warning: AbstractBLOB_Reader::GetKeyword
+ Improper Keyword <<< found *** 
+
+
+*** Warning: AbstractBLOB_Reader::GetKeyword
+ Improper Keyword <<<< found *** 
+
+
+*** Warning: AbstractBLOB_Reader::GetKeyword
+ Improper Keyword <<<<< found *** 
+
+
+*** Warning: AbstractBLOB_Reader::GetKeyword
+ Improper Keyword <<<<<< found *** 
+Total runtime for WVL: 5450 AOI: 60 aziumth: 45 - 5339.4411 s
+------------------------------------------------------
+Running PBS epilogue script    - 06-Feb-2024 13:26:11
+------------------------------------------------------
+Checking node smic382 (MS)
+Checking node smic382 ; cleared cache ; ok
+------------------------------------------------------
+Concluding PBS epilogue script - 06-Feb-2024 13:26:13
+------------------------------------------------------
+Exit Status:     0
+Job ID:          1034363.smic3
+Username:        coltonb
+Group:           Users
+Job Name:        CaF2_far_field_topfilm_chiral
+Session Id:      21698
+Resource Limits: ncpus=1,neednodes=1:ppn=28,nodes=1:ppn=28,walltime=55:00:00
+Resources Used:  cput=29:19:34,mem=36748680kb,vmem=44137796kb,walltime=01:29:09
+Queue Used:      bigmem
+Account String:  hpc_mcpeak12
+Node:            smic382
+Process id:      7526
+Last status:     06-Feb-2024:13:01 PBS_job=1034363.smic3 user=coltonb allocation=hpc_mcpeak12 queue=bigmem total_load=22.08 cpu_hours=0.23 wall_hours=0.21 unused_nodes=0 total_nodes=1 ppn=28 avg_load=22.08 avg_cpu=2756% avg_mem=24766mb avg_vmem=35364mb top_proc=coltonb:JCMsolveWo+:smic382:33.7G:24.1G:0.2hr:2756% toppm=polkitd:polkitd:smic382:610M:13M node_processes=5 avg_avail_mem=219207mb min_avail_mem=219207mb reverified_avg_load=24.64
+------------------------------------------------------

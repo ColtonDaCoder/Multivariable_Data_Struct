@@ -143,7 +143,7 @@ for wvl in WVL:
             }
             set.append(entry)
 
-            set.save_csv('high_far_field_60AOI_racemic_1_5.csv')
+            set.save_csv('high_far_field_60AOI_racemic_topfilm.csv')
 
 	    
         toc = time.time() # use time() not clock() on linux system  
