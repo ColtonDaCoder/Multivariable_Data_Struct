@@ -7,8 +7,8 @@ import jcmwave,time,imp,shutil,os
 from optparse import OptionParser
 AOI = [60]
 AZI = [i for i in range(46)]
-#WVL = [3050+150*i for i in range(16)]
-WVL = [5450]
+WVL = [3050+150*i for i in range(16)]
+#WVL = [5450]
 
 keys = {}  # Create empty dictionary for keys
 

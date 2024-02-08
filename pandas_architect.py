@@ -12,7 +12,7 @@ def complete_MM_heatmap_plot(X, Y, x_name, y_name, kZ, no_kZ=None):
             val = i*4+j
             mm = str(str(j+1)+str(i+1))
             if not no_kZ == None: 
-                Z = [[abs(kZ[val][i][j] - no_kZ[val][i][j])/no_kZ[val][i][j]*100 for j, azi in enumerate(kZ[val][i])] for i, aoi in enumerate(kZ[val])]  
+                Z = [[abs(kZ[val][i][j] - no_kZ[val][i][j])/no_kZ[val][i][j] for j, azi in enumerate(kZ[val][i])] for i, aoi in enumerate(kZ[val])]  
             else:
                 Z = [[kZ[val][i][j] for j, azi in enumerate(kZ[val][i])] for i, aoi in enumerate(kZ[val])]  
             Z = np.absolute(Z)
@@ -28,13 +28,15 @@ def complete_MM_heatmap_plot(X, Y, x_name, y_name, kZ, no_kZ=None):
                 z_min = -z_max
             else:
                 z_max = -z_min
-            z_max = std
-            z_min = 0
+            #z_max = std
+            #z_min = 0
+            print(z_max)
+            print(Z)
             Z[Z == 1234] = z_min
             c = ax[j,i].pcolormesh(X[0], Y[0], Z, cmap=plt.cm.Reds, vmin=z_min, vmax=z_max)
 
-            fmt = ticker.FormatStrFormatter("%.0f%%")
-            cbar = fig.colorbar(c, ax=ax[i,j], format=fmt) 
+            #fmt = ticker.FormatStrFormatter("%.0f%%")
+            cbar = fig.colorbar(c, ax=ax[i,j]) 
             
             #for new pandas df
             ax[j,i].set_xlabel(x_name, fontsize=10)
@@ -176,21 +178,25 @@ def getXY(df, x_name, y_name):
         Y[int(element)] = None
     return list(X.keys()), list(Y.keys())
 
-file = "Far_field_MIR_60AOI_CaF2/high_far_field_60AOI_chiral.csv"
+file = "Far_field_MIR_60AOI_CaF2/high_far_field_60AOI_chiral_topfilm.csv"
 
 df = pd.read_csv(file)
 x, y = getXY(df, 'azi', 'wvl')
-x = x[1:]
+#x = x[1:]
 
 X, Y, Z = get_dmm(df, x, y, 'azi','wvl')
 #complete_MM_heatmap_plot(X, Y, 'azi', 'wvl', Z)
 
 
-file = "Far_field_MIR_60AOI_CaF2/high_far_field_60AOI_racemic.csv"
+file = "Far_field_MIR_60AOI_CaF2/high_far_field_60AOI_racemic_topFilm.csv"
 
 df = pd.read_csv(file)
 x, y = getXY(df, 'azi', 'wvl')
 #y = y[:-1]
+
+X, Y, no_kZ = get_dmm(df, x, y, 'azi','wvl')
+complete_MM_heatmap_plot(X, Y, 'azi', 'wvl', no_kZ)
+exit()
 
 #X_, Y_, Z = get_dmm(df, x, y, 'azi','wvl')
 #complete_MM_heatmap_plot(X, Y, 'azi', 'wvl', Z)
