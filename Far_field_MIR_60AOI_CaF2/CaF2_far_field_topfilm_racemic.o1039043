@@ -1,0 +1,67 @@
+--------------------------------------
+Running PBS prologue script
+--------------------------------------
+User and Job Data:
+--------------------------------------
+Job ID:    1039043.smic3
+Username:  coltonb
+Group:     Users
+Date:      08-Feb-2024 13:11
+Node:      smic381 (1312)
+--------------------------------------
+PBS has allocated the following nodes:
+
+smic381
+
+A total of 28 processors on 1 nodes allocated
+---------------------------------------------
+Check nodes and clean them of stray processes
+---------------------------------------------
+Checking node smic381 13:11:02 
+Done clearing all the allocated nodes
+------------------------------------------------------
+Concluding PBS prologue script - 08-Feb-2024 13:11:02
+------------------------------------------------------
+Loading mvapich2/2.3.3/intel-19.0.5
+  Loading requirement: intel/19.0.5
+JOBS_PER_NODE=1
+/ddnA/work/coltonb/Multivariable_Data_Struct/Far_field_MIR_60AOI_CaF2/run_sim.py:6: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
+  import jcmwave,time,imp,shutil,os
+Total runtime for WVL: 3050 AOI: 60 aziumth: 45 - 6134.7806 s
+Total runtime for WVL: 3200 AOI: 60 aziumth: 45 - 6350.7329 s
+Total runtime for WVL: 3350 AOI: 60 aziumth: 45 - 7054.1133 s
+Total runtime for WVL: 3500 AOI: 60 aziumth: 45 - 6698.3117 s
+Total runtime for WVL: 3650 AOI: 60 aziumth: 45 - 7169.8636 s
+Total runtime for WVL: 3800 AOI: 60 aziumth: 45 - 5488.4145 s
+Total runtime for WVL: 3950 AOI: 60 aziumth: 45 - 5277.9775 s
+Total runtime for WVL: 4100 AOI: 60 aziumth: 45 - 5273.0154 s
+Total runtime for WVL: 4250 AOI: 60 aziumth: 45 - 5069.8008 s
+Total runtime for WVL: 4400 AOI: 60 aziumth: 45 - 5181.4405 s
+Total runtime for WVL: 4550 AOI: 60 aziumth: 45 - 5211.7070 s
+Total runtime for WVL: 4700 AOI: 60 aziumth: 45 - 5118.4746 s
+Total runtime for WVL: 4850 AOI: 60 aziumth: 45 - 5287.1881 s
+Total runtime for WVL: 5000 AOI: 60 aziumth: 45 - 5364.9188 s
+Total runtime for WVL: 5150 AOI: 60 aziumth: 45 - 5328.5989 s
+Total runtime for WVL: 5300 AOI: 60 aziumth: 45 - 5381.0734 s
+------------------------------------------------------
+Running PBS epilogue script    - 09-Feb-2024 14:34:20
+------------------------------------------------------
+Checking node smic381 (MS)
+Checking node smic381 ; cleared cache ; ok
+------------------------------------------------------
+Concluding PBS epilogue script - 09-Feb-2024 14:34:22
+------------------------------------------------------
+Exit Status:     0
+Job ID:          1039043.smic3
+Username:        coltonb
+Group:           Users
+Job Name:        CaF2_far_field_topfilm_racemic
+Session Id:      1311
+Resource Limits: ncpus=1,neednodes=1:ppn=28,nodes=1:ppn=28,walltime=55:00:00
+Resources Used:  cput=502:06:07,mem=41128728kb,vmem=48673116kb,walltime=25:23:20
+Queue Used:      bigmem
+Account String:  hpc_mcpeak12
+Node:            smic381
+Process id:      14841
+Last status:     09-Feb-2024:14:02 PBS_job=1039043.smic3 user=coltonb allocation=hpc_mcpeak12 queue=bigmem total_load=18.46 cpu_hours=0.25 wall_hours=23.95 unused_nodes=0 total_nodes=1 ppn=28 avg_load=18.46 avg_cpu=2800% avg_mem=24364mb avg_vmem=35059mb top_proc=coltonb:JCMsolveWo+:smic381:33.4G:23.7G:0.2hr:2800% toppm=coltonb:JCMsolveWorker:smic381:36753M:27325M node_processes=5 avg_avail_mem=219285mb min_avail_mem=219285mb reverified_avg_load=22.53
+------------------------------------------------------
