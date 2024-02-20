@@ -6,8 +6,8 @@ import json
 import jcmwave,time,imp,shutil,os 
 from optparse import OptionParser
 AOI = [60]
-AZI = [i for i in range(46)]
-WVL = [3050+150*i for i in range(16)]
+AZI = [35+i for i in range(11)]
+WVL = [6200, 6300]
 #WVL = [5450]
 
 keys = {}  # Create empty dictionary for keys
@@ -143,7 +143,7 @@ for wvl in WVL:
             }
             set.append(entry)
 
-            set.save_csv('high_far_field_60AOI_chiral_topfilm.csv')
+            set.save_csv('far_field_60AOI_racemic_topfilm_6200wvl.csv')
 
 	    
         toc = time.time() # use time() not clock() on linux system  
