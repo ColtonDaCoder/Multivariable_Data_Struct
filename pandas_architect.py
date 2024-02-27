@@ -176,7 +176,7 @@ def getXY(df, x_name, y_name):
         Y[int(element)] = None
     return list(X.keys()), list(Y.keys())
 
-file = "Far_field_MIR_60AOI_CaF2/high_far_field_60AOI_chiral_topfilm.csv"
+file = "Far_field_MIR_60AOI_CaF2/far_field_60AOI_chiral_topfilm.csv"
 
 df = pd.read_csv(file)
 x, y = getXY(df, 'azi', 'wvl')

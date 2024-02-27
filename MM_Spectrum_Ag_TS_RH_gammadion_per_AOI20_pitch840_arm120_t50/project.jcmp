@@ -1,0 +1,40 @@
+Project {
+  InfoLevel = -1
+  StorageFormat = Binary
+  Electromagnetics {
+    TimeHarmonic {
+      Scattering {
+        #FieldComponents = Electric	
+	    Accuracy {
+          FiniteElementDegree = 2
+          Precision = 1e-5
+          Refinement {
+            MaxNumberSteps = 0
+          }
+	}
+	  }
+    }
+  }
+}
+
+# POST PROCESSES
+
+PostProcess {
+  FourierTransform {
+    FieldBagPath = "project_results/fieldbag.jcm"
+    OutputFileName = "project_results/fourier_modes_r.jcm"
+    NormalDirection = Z
+    ChiefRay = [-20 0]
+    NumericalAperture = 0.09 # Affects the number of k-vectors even in isolated case
+    #DeltaK = 373999.125427356 # The sampling discritization of the continuous Fourier spectrum into modes
+  }
+}
+
+PostProcess {
+  ScatteringMatrix {
+    Format = JCM-ASCII
+    PolarizationConvention = Hauge-Berkeley
+    InputFileName = "project_results/fourier_modes_r.jcm"
+    OutputFileName = "project_results/sm_220nm.jcm"
+  }
+}
