@@ -19,7 +19,7 @@ Layout3D {
         DomainId = 3
         Priority = -1
         Port = Origin
-        RotationAngle = 45 ##JCMwave rotates anti-clockwise, RC2 rotates clockwise
+        RotationAngle = 35 ##JCMwave rotates anti-clockwise, RC2 rotates clockwise
         PeriodicUnitCell {
             LatticeAngle = 90
             LatticeVectorLengths = [4000 4000]
@@ -49,13 +49,8 @@ Layout3D {
         DomainId = 3
       }
       Layer {
-        Thickness = 2250
+        Thickness = 200
         DomainIdMapping = [101 2
-                           3 1]
-      }
-      Layer {
-        Thickness = 250
-        DomainIdMapping = [101 4
                            3 1]
       }
      Layer {

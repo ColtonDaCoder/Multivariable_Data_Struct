@@ -7,14 +7,15 @@ import jcmwave,time,imp,shutil,os
 from optparse import OptionParser
 AOI = [60]
 AZI = [35+i for i in range(11)]
-WVL = [6200, 6300]
-chiral = True
+AZI = [35]
+#WVL = [6200, 6300]
+WVL = [6200]
 #WVL = [5450]
 
 keys = {}  # Create empty dictionary for keys
 
 set = Structure(columns=['azi','aoi','wvl','radius','pitch','mm', 'dmm','abs pillar','abs substrate','reflected flux','E','H'])
-chirality_list = [True, False]
+chirality_list = [False]
 for is_Chiral in chirality_list:
     for wvl in WVL:
             
@@ -151,7 +152,7 @@ for is_Chiral in chirality_list:
                 if is_Chiral:
                     set.save_csv('far_field_60AOI_chiral_flats_6200wvl.csv')
                 else:
-                    set.save_csv('far_field_60AOI_racemic_flats_6200wvl.csv')
+                    set.save_csv('far_field_60AOI_small_pillar_6200wvl.csv')
 
             
             toc = time.time() # use time() not clock() on linux system  
