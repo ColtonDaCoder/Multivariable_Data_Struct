@@ -40,7 +40,7 @@ for is_Chiral in chirality_list:
                 'display_triangulation' : 'no',
                 'boundary' : 'Periodic',
                 'info_level' : -1,
-                'fem_degree' : 3,
+                'fem_degree' : 4,
                 'n_refinement_steps' : 0, # Currently we get non-physical results if this is >0
                 'thickness' : 1000,
                 'pitch' : 4000, # pitch of square lattice

@@ -176,18 +176,19 @@ def getXY(df, x_name, y_name):
         Y[int(element)] = None
     return list(X.keys()), list(Y.keys())
 
-file = "Far_field_MIR_60AOI_CaF2/far_field_60AOI_chiral_topfilm.csv"
+file = "Far_field_MIR_60AOI_CaF2/high_far_field_60AOI_chiral.csv"
 
 df = pd.read_csv(file)
 x, y = getXY(df, 'azi', 'wvl')
 x = x[1:]
+y=y[1:]
 #y=y[18:-10]
 X, Y, Z = get_dmm(df, x, y, 'azi','wvl')
 
 #complete_MM_heatmap_plot(X, Y, 'azi', 'wvl', Z)
 
 
-file = "Far_field_MIR_60AOI_CaF2/high_far_field_60AOI_racemic_topfilm.csv"
+file = "Far_field_MIR_60AOI_CaF2/high_far_field_60AOI_racemic.csv"
 
 df = pd.read_csv(file)
 x, y = getXY(df, 'azi', 'wvl')
