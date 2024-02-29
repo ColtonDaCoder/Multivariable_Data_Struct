@@ -1,0 +1,38 @@
+<?
+import math
+k_total = 2*math.pi*keys['n_1'].real/keys['vacuum_wavelength']
+keys['k'] = [0, 0, -k_total]
+
+#if ('polarization' in keys) and (keys['polarization']=='x'):
+#   keys['amp'] = [1.0, 0.0, 0.0]
+#else:
+#   keys['amp'] = [0.0, 1.0, 0.0]
+
+?>
+
+SourceBag {
+  Source {
+    ElectricFieldStrength { #This is R-CPL
+      PlaneWave {
+        Lambda0 = %(vacuum_wavelength)e
+        ThetaPhi = [%(AOI)e 0]
+	Incidence = FromAbove
+        SP = [(1, 0), (0, 1)]
+	PowerFluxScaling=UnitNormal
+      }
+    }
+  }
+}
+SourceBag {
+  Source {
+    ElectricFieldStrength { #This is L-CPL
+      PlaneWave {
+        Lambda0 = %(vacuum_wavelength)e
+        ThetaPhi = [%(AOI)e 0]
+	Incidence = FromAbove
+	SP = [(1, 0), (0, -1)]
+	PowerFluxScaling=UnitNormal
+      }
+    }
+  }
+}

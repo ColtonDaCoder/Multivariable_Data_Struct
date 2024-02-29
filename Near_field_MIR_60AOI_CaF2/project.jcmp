@@ -1,0 +1,93 @@
+Problem = {
+  InfoLevel = -1
+  StorageFormat = Binary
+  Electromagnetics {
+    TimeHarmonic {
+      Scattering {
+        #FieldComponents = Electric	
+	    Accuracy {
+          FiniteElementDegree = 3
+          Precision = 1e-6
+          Refinement {
+            MaxNumberSteps = 0
+          }
+	}
+	  }
+    }
+  }
+}
+
+# POST PROCESSES
+
+PostProcess {
+     ExportFields {
+                FieldBagPath = "project_results/fieldbag.jcm"
+        OutputQuantity = ElectricChiralityDensity
+                OutputFileName = "project_results/ElectricChiralityDensity_xy_z1200.jcm"
+                Cartesian {
+                        GridPointsX = [-4000e-09 : 0.5e-09 : 4000e-09]
+                        GridPointsY = [-4000e-09 : 0.5e-09 : 4000e-09]
+                        GridPointsZ = 1200e-9
+                }
+        }
+}
+PostProcess {
+     ExportFields {
+                FieldBagPath = "project_results/fieldbag.jcm"
+        OutputQuantity = MagneticChiralityDensity
+                OutputFileName = "project_results/MagneticChiralityDensity_xy_z1200.jcm"
+                Cartesian {
+                        GridPointsX = [-4000e-09 : 0.5e-09 : 4000e-09]
+                        GridPointsY = [-4000e-09 : 0.5e-09 : 4000e-09]
+                        GridPointsZ = 1200e-9
+                }
+        }
+}
+PostProcess {
+     ExportFields {
+                FieldBagPath = "project_results/fieldbag.jcm"
+        OutputQuantity = ElectricChiralityDensity
+                OutputFileName = "project_results/ElectricChiralityDensity_xy_z3450.jcm"
+                Cartesian {
+                        GridPointsX = [-4000e-09 : 0.5e-09 : 4000e-09]
+                        GridPointsY = [-4000e-09 : 0.5e-09 : 4000e-09]
+                        GridPointsZ = 3450e-9
+                }
+        }
+}
+PostProcess {
+     ExportFields {
+                FieldBagPath = "project_results/fieldbag.jcm"
+        OutputQuantity = MagneticChiralityDensity
+                OutputFileName = "project_results/MagneticChiralityDensity_xy_z3450.jcm"
+                Cartesian {
+                        GridPointsX = [-4000e-09 : 0.5e-09 : 4000e-09]
+                        GridPointsY = [-4000e-09 : 0.5e-09 : 4000e-09]
+                        GridPointsZ = 3450e-9
+                }
+        }
+}
+PostProcess {
+     ExportFields {
+                FieldBagPath = "project_results/fieldbag.jcm"
+        OutputQuantity = ElectricChiralityDensity
+                OutputFileName = "project_results/ElectricChiralityDensity_xy_z5450.jcm"
+                Cartesian {
+                        GridPointsX = [-4000e-09 : 0.5e-09 : 4000e-09]
+                        GridPointsY = [-4000e-09 : 0.5e-09 : 4000e-09]
+                        GridPointsZ = 5450e-9
+                }
+        }
+}
+PostProcess {
+     ExportFields {
+                FieldBagPath = "project_results/fieldbag.jcm"
+        OutputQuantity = MagneticChiralityDensity
+                OutputFileName = "project_results/MagneticChiralityDensity_xy_z5450.jcm"
+                Cartesian {
+                        GridPointsX = [-4000e-09 : 0.5e-09 : 4000e-09]
+                        GridPointsY = [-4000e-09 : 0.5e-09 : 4000e-09]
+                        GridPointsZ = 5450e-9
+                }
+        }
+}
