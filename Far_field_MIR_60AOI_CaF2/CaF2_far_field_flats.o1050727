@@ -1,0 +1,74 @@
+--------------------------------------
+Running PBS prologue script
+--------------------------------------
+User and Job Data:
+--------------------------------------
+Job ID:    1050727.smic3
+Username:  coltonb
+Group:     Users
+Date:      29-Feb-2024 15:55
+Node:      smic382 (2690)
+--------------------------------------
+PBS has allocated the following nodes:
+
+smic382
+
+A total of 28 processors on 1 nodes allocated
+---------------------------------------------
+Check nodes and clean them of stray processes
+---------------------------------------------
+Checking node smic382 15:55:38 
+Done clearing all the allocated nodes
+------------------------------------------------------
+Concluding PBS prologue script - 29-Feb-2024 15:55:38
+------------------------------------------------------
+Loading mvapich2/2.3.3/intel-19.0.5
+  Loading requirement: intel/19.0.5
+JOBS_PER_NODE=1
+/ddnA/work/coltonb/Multivariable_Data_Struct/Far_field_MIR_60AOI_CaF2/run_sim.py:6: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
+  import jcmwave,time,imp,shutil,os
+Traceback (most recent call last):
+  File "/home/coltonb/JCMsuite_5.2.4/ThirdPartySupport/Python/jcmwave/__private/jcmt2jcm_from_string.py", line 81, in jcmt2jcm_from_string
+    try: jcmpyo = compile(jcmpy, '<jcmpy>', 'exec')
+  File "<jcmpy>", line 78
+    i=i+1# __LINE 75
+IndentationError: unexpected indent
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/ddnA/work/coltonb/Multivariable_Data_Struct/Far_field_MIR_60AOI_CaF2/run_sim.py", line 65, in <module>
+    jcmwave.jcmt2jcm('layout.jcmt', keys)
+  File "/home/coltonb/JCMsuite_5.2.4/ThirdPartySupport/Python/jcmwave/jcmt2jcm.py", line 87, in jcmt2jcm
+    except Exception as ex: raise ex
+  File "/home/coltonb/JCMsuite_5.2.4/ThirdPartySupport/Python/jcmwave/jcmt2jcm.py", line 85, in jcmt2jcm
+    jcmt_filetag=__jcmt2jcm(jcmt_file, keys, outputfile)
+  File "/home/coltonb/JCMsuite_5.2.4/ThirdPartySupport/Python/jcmwave/jcmt2jcm.py", line 128, in __jcmt2jcm
+    [jcm,backtrace]=__private.jcmt2jcm_from_string(jcmt, keys, jcmt_file)
+  File "/home/coltonb/JCMsuite_5.2.4/ThirdPartySupport/Python/jcmwave/__private/jcmt2jcm_from_string.py", line 88, in jcmt2jcm_from_string
+    raise Exception(error_message(jcmt_file, None, (line, None), jcmt_orig, msg))
+Exception: 
+  File "layout.jcmt", line: 75
+          i=i+1
+unexpected indent 
+------------------------------------------------------
+Running PBS epilogue script    - 29-Feb-2024 15:55:41
+------------------------------------------------------
+Checking node smic382 (MS)
+Checking node smic382 ; cleared cache ; ok
+------------------------------------------------------
+Concluding PBS epilogue script - 29-Feb-2024 15:55:43
+------------------------------------------------------
+Exit Status:     1
+Job ID:          1050727.smic3
+Username:        coltonb
+Group:           Users
+Job Name:        CaF2_far_field_flats
+Session Id:      2689
+Resource Limits: ncpus=1,neednodes=1:ppn=28,nodes=1:ppn=28,walltime=05:00:00
+Resources Used:  cput=00:00:00,mem=0kb,vmem=0kb,walltime=00:00:05
+Queue Used:      bigmem
+Account String:  hpc_mcpeak12
+Node:            smic382
+Process id:      3481
+------------------------------------------------------

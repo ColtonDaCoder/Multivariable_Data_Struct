@@ -49,10 +49,191 @@ Layout3D {
         DomainId = 3
       }
       Layer {
-        Thickness = 200
+        Thickness = 180
         DomainIdMapping = [101 2
                            3 1]
       }
+
+      Layer {
+        Thickness = 1
+        DomainIdMapping = [101 2
+                           3 1]
+      }
+      LayerInterface{
+	GeometryValues = [Circle{1}/Radius: 497.5]
+      }
+
+      Layer {
+        Thickness = 1
+        DomainIdMapping = [101 2
+                           3 1]
+      }
+      LayerInterface{
+	GeometryValues = [Circle{1}/Radius: 495]
+      }
+
+      Layer {
+        Thickness = 1
+        DomainIdMapping = [101 2
+                           3 1]
+      }
+      LayerInterface{
+	GeometryValues = [Circle{1}/Radius: 492.5]
+      }
+
+      Layer {
+        Thickness = 1
+        DomainIdMapping = [101 2
+                           3 1]
+      }
+      LayerInterface{
+	GeometryValues = [Circle{1}/Radius: 490]
+      }
+
+      Layer {
+        Thickness = 1
+        DomainIdMapping = [101 2
+                           3 1]
+      }
+      LayerInterface{
+	GeometryValues = [Circle{1}/Radius: 487.5]
+      }
+
+      Layer {
+        Thickness = 1
+        DomainIdMapping = [101 2
+                           3 1]
+      }
+      LayerInterface{
+	GeometryValues = [Circle{1}/Radius: 485]
+      }
+
+      Layer {
+        Thickness = 1
+        DomainIdMapping = [101 2
+                           3 1]
+      }
+      LayerInterface{
+	GeometryValues = [Circle{1}/Radius: 482.5]
+      }
+
+      Layer {
+        Thickness = 1
+        DomainIdMapping = [101 2
+                           3 1]
+      }
+      LayerInterface{
+	GeometryValues = [Circle{1}/Radius: 480]
+      }
+
+      Layer {
+        Thickness = 1
+        DomainIdMapping = [101 2
+                           3 1]
+      }
+      LayerInterface{
+	GeometryValues = [Circle{1}/Radius: 477.5]
+      }
+
+      Layer {
+        Thickness = 1
+        DomainIdMapping = [101 2
+                           3 1]
+      }
+      LayerInterface{
+	GeometryValues = [Circle{1}/Radius: 475]
+      }
+
+      Layer {
+        Thickness = 1
+        DomainIdMapping = [101 2
+                           3 1]
+      }
+      LayerInterface{
+	GeometryValues = [Circle{1}/Radius: 472.5]
+      }
+
+      Layer {
+        Thickness = 1
+        DomainIdMapping = [101 2
+                           3 1]
+      }
+      LayerInterface{
+	GeometryValues = [Circle{1}/Radius: 470]
+      }
+
+      Layer {
+        Thickness = 1
+        DomainIdMapping = [101 2
+                           3 1]
+      }
+      LayerInterface{
+	GeometryValues = [Circle{1}/Radius: 467.5]
+      }
+
+      Layer {
+        Thickness = 1
+        DomainIdMapping = [101 2
+                           3 1]
+      }
+      LayerInterface{
+	GeometryValues = [Circle{1}/Radius: 465]
+      }
+
+      Layer {
+        Thickness = 1
+        DomainIdMapping = [101 2
+                           3 1]
+      }
+      LayerInterface{
+	GeometryValues = [Circle{1}/Radius: 462.5]
+      }
+
+      Layer {
+        Thickness = 1
+        DomainIdMapping = [101 2
+                           3 1]
+      }
+      LayerInterface{
+	GeometryValues = [Circle{1}/Radius: 460]
+      }
+
+      Layer {
+        Thickness = 1
+        DomainIdMapping = [101 2
+                           3 1]
+      }
+      LayerInterface{
+	GeometryValues = [Circle{1}/Radius: 457.5]
+      }
+
+      Layer {
+        Thickness = 1
+        DomainIdMapping = [101 2
+                           3 1]
+      }
+      LayerInterface{
+	GeometryValues = [Circle{1}/Radius: 455]
+      }
+
+      Layer {
+        Thickness = 1
+        DomainIdMapping = [101 2
+                           3 1]
+      }
+      LayerInterface{
+	GeometryValues = [Circle{1}/Radius: 452.5]
+      }
+
+      Layer {
+        Thickness = 1
+        DomainIdMapping = [101 2
+                           3 1]
+      }
+      LayerInterface{
+	GeometryValues = [Circle{1}/Radius: 450]
+      }
+
      Layer {
         Thickness = 2000
         DomainIdMapping = [3 1]

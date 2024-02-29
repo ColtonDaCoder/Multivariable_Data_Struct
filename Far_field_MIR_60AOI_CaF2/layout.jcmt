@@ -53,10 +53,252 @@ Layout3D {
         DomainId = 3
       }
       Layer {
-        Thickness = 200
+        Thickness = 180
         DomainIdMapping = [101 2
                            3 1]
       }
+<?
+i=1
+keys['radius_'] = (1-0.1*i/20)*keys['radius']
+?>
+      Layer {
+        Thickness = 1
+        DomainIdMapping = [101 2
+                           3 1]
+      }
+      LayerInterface{
+	GeometryValues = [Circle{1}/Radius: %(radius_)e]
+      }
+<?
+i=2
+keys['radius_'] = (1-0.1*i/20)*keys['radius']
+?>
+      Layer {
+        Thickness = 1
+        DomainIdMapping = [101 2
+                           3 1]
+      }
+      LayerInterface{
+	GeometryValues = [Circle{1}/Radius: %(radius_)e]
+      }
+<?
+i=3
+keys['radius_'] = (1-0.1*i/20)*keys['radius']
+?>
+      Layer {
+        Thickness = 1
+        DomainIdMapping = [101 2
+                           3 1]
+      }
+      LayerInterface{
+	GeometryValues = [Circle{1}/Radius: %(radius_)e]
+      }
+<?
+i=4
+keys['radius_'] = (1-0.1*i/20)*keys['radius']
+?>
+      Layer {
+        Thickness = 1
+        DomainIdMapping = [101 2
+                           3 1]
+      }
+      LayerInterface{
+	GeometryValues = [Circle{1}/Radius: %(radius_)e]
+      }
+<?
+i=5
+keys['radius_'] = (1-0.1*i/20)*keys['radius']
+?>
+      Layer {
+        Thickness = 1
+        DomainIdMapping = [101 2
+                           3 1]
+      }
+      LayerInterface{
+	GeometryValues = [Circle{1}/Radius: %(radius_)e]
+      }
+<?
+i=6
+keys['radius_'] = (1-0.1*i/20)*keys['radius']
+?>
+      Layer {
+        Thickness = 1
+        DomainIdMapping = [101 2
+                           3 1]
+      }
+      LayerInterface{
+	GeometryValues = [Circle{1}/Radius: %(radius_)e]
+      }
+<?
+i=7
+keys['radius_'] = (1-0.1*i/20)*keys['radius']
+?>
+      Layer {
+        Thickness = 1
+        DomainIdMapping = [101 2
+                           3 1]
+      }
+      LayerInterface{
+	GeometryValues = [Circle{1}/Radius: %(radius_)e]
+      }
+<?
+i=8
+keys['radius_'] = (1-0.1*i/20)*keys['radius']
+?>
+      Layer {
+        Thickness = 1
+        DomainIdMapping = [101 2
+                           3 1]
+      }
+      LayerInterface{
+	GeometryValues = [Circle{1}/Radius: %(radius_)e]
+      }
+<?
+i=9
+keys['radius_'] = (1-0.1*i/20)*keys['radius']
+?>
+      Layer {
+        Thickness = 1
+        DomainIdMapping = [101 2
+                           3 1]
+      }
+      LayerInterface{
+	GeometryValues = [Circle{1}/Radius: %(radius_)e]
+      }
+<?
+i=10
+keys['radius_'] = (1-0.1*i/20)*keys['radius']
+?>
+      Layer {
+        Thickness = 1
+        DomainIdMapping = [101 2
+                           3 1]
+      }
+      LayerInterface{
+	GeometryValues = [Circle{1}/Radius: %(radius_)e]
+      }
+<?
+i=11
+keys['radius_'] = (1-0.1*i/20)*keys['radius']
+?>
+      Layer {
+        Thickness = 1
+        DomainIdMapping = [101 2
+                           3 1]
+      }
+      LayerInterface{
+	GeometryValues = [Circle{1}/Radius: %(radius_)e]
+      }
+<?
+i=12
+keys['radius_'] = (1-0.1*i/20)*keys['radius']
+?>
+      Layer {
+        Thickness = 1
+        DomainIdMapping = [101 2
+                           3 1]
+      }
+      LayerInterface{
+	GeometryValues = [Circle{1}/Radius: %(radius_)e]
+      }
+<?
+i=13
+keys['radius_'] = (1-0.1*i/20)*keys['radius']
+?>
+      Layer {
+        Thickness = 1
+        DomainIdMapping = [101 2
+                           3 1]
+      }
+      LayerInterface{
+	GeometryValues = [Circle{1}/Radius: %(radius_)e]
+      }
+<?
+i=14
+keys['radius_'] = (1-0.1*i/20)*keys['radius']
+?>
+      Layer {
+        Thickness = 1
+        DomainIdMapping = [101 2
+                           3 1]
+      }
+      LayerInterface{
+	GeometryValues = [Circle{1}/Radius: %(radius_)e]
+      }
+<?
+i=15
+keys['radius_'] = (1-0.1*i/20)*keys['radius']
+?>
+      Layer {
+        Thickness = 1
+        DomainIdMapping = [101 2
+                           3 1]
+      }
+      LayerInterface{
+	GeometryValues = [Circle{1}/Radius: %(radius_)e]
+      }
+<?
+i=16
+keys['radius_'] = (1-0.1*i/20)*keys['radius']
+?>
+      Layer {
+        Thickness = 1
+        DomainIdMapping = [101 2
+                           3 1]
+      }
+      LayerInterface{
+	GeometryValues = [Circle{1}/Radius: %(radius_)e]
+      }
+<?
+i=17
+keys['radius_'] = (1-0.1*i/20)*keys['radius']
+?>
+      Layer {
+        Thickness = 1
+        DomainIdMapping = [101 2
+                           3 1]
+      }
+      LayerInterface{
+	GeometryValues = [Circle{1}/Radius: %(radius_)e]
+      }
+<?
+i=18
+keys['radius_'] = (1-0.1*i/20)*keys['radius']
+?>
+      Layer {
+        Thickness = 1
+        DomainIdMapping = [101 2
+                           3 1]
+      }
+      LayerInterface{
+	GeometryValues = [Circle{1}/Radius: %(radius_)e]
+      }
+<?
+i=19
+keys['radius_'] = (1-0.1*i/20)*keys['radius']
+?>
+      Layer {
+        Thickness = 1
+        DomainIdMapping = [101 2
+                           3 1]
+      }
+      LayerInterface{
+	GeometryValues = [Circle{1}/Radius: %(radius_)e]
+      }
+<?
+i=20
+keys['radius_'] = (1-0.1*i/20)*keys['radius']
+?>
+      Layer {
+        Thickness = 1
+        DomainIdMapping = [101 2
+                           3 1]
+      }
+      LayerInterface{
+	GeometryValues = [Circle{1}/Radius: %(radius_)e]
+      }
+<?
+?>
      Layer {
         Thickness = 2000
         DomainIdMapping = [3 1]
