@@ -46,10 +46,10 @@ for i in range(len(azi)):
     # material properties
     keys['n_3'] = 1.00 # index refraction of Air
         
-    Au_nk = np.loadtxt('../data/Al_Tiago.nk') # You would need to change this to the silver data file I will send you
+    Au_nk = np.loadtxt('../data/Au_Babar_micron.nk') # You would need to change this to the silver data file I will send you
     wl_Au_data = []; n_Au_real = []; n_Au_imag = [] ### ALUMINUM NOT GOLD!
     for data in Au_nk:
-        wl_Au_data.append(data[0]*1e-9) # e-10 for [ang], e-9 for [nm], e-6 for [um]
+        wl_Au_data.append(data[0]*1e-6) # e-10 for [ang], e-9 for [nm], e-6 for [um]
         n_Au_real.append(data[1])
         n_Au_imag.append(data[2])
     
