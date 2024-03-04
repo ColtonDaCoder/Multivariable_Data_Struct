@@ -184,10 +184,19 @@ x, y = getXY(df, 'azi', 'wvl')
 X = []
 Y = []
 Y2 = []
+X, Y, Z  = get_dmm(df, x, y, 'azi', 'wvl')
+plt.plot([j[0] for j in Y[3]],[i[0] for i in Z[3]], 'bo')
+plt.plot([j[0] for j in Y[12]],[i[0] for i in Z[12]], 'ro')
+plt.xlabel("wvl (nm)")
+plt.ylabel("cloude decomp MM (blue: 14; red: 41")
+plt.show()
+exit()
 for index, row in df.iterrows():
     X.append(row['wvl'])
-    Y.append(ast.literal_eval(row['reflected flux'])[0])
-    Y2.append(ast.literal_eval(row['reflected flux'])[1])
+    print(ast.literal_eval(row['dmm']))
+    #print(ast.literal_eval(row['dmm'])[3][0])
+    exit()
+    
 plt.plot(X,Y, 'ro')
 plt.plot(X,Y2, 'bo')
 plt.title("AOI: 60, AZI: 22, 450 thick Au Gammadion on Au")
