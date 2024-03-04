@@ -12,22 +12,27 @@ Layout {
         Priority = -1 
         Height =  %(pitch)e
         Width = %(pitch)e
-	BoundarySegment {
-	BoundaryClass = Periodic
-	}
-                 }  
+        BoundarySegment  { 
+        BoundaryClass = %(boundary)s
+                         }
+                 } 
+  
 Extrusion {
-  MeshOptions {
-    MaximumSidelengthZ = 450
-  }
-  LayerInterface {
-    BoundaryClass = Transparent
-  }
-  Layer {
-    Thickness = %(film)e
-    DomainId = 2
-  }
-}
+    MeshOptions {
+      MaximumSidelengthZ = 50
+    }    
+
+    LayerInterface {
+      BoundaryClass = Transparent
+    }
+    Layer {
+      MeshOptions {
+        ProgressionZUpper = 2
+      }
+      Thickness = %(film)e
+      DomainId = 2
+    }
+  }  
 } 
  
 
@@ -94,9 +99,9 @@ Layout {
         Priority = -1 
         Height =  %(pitch)e
         Width = %(pitch)e
-	BoundarySegment {
-	BoundaryClass = Periodic
-	}
+        BoundarySegment  { 
+        BoundaryClass = %(boundary)s
+                         }
                  }
       
 
@@ -114,7 +119,7 @@ Polygon {
          MaximumSidelength = %(MSL)e
         }
 	  CornerRounding {
-          Radius = 180
+          Radius = 20
           NPoints = 8
         }
 
@@ -128,7 +133,7 @@ Polygon {
     }
     
     MeshOptions {
-      MaximumSidelengthZ = 450
+      MaximumSidelengthZ = 50
       
         
     }    
@@ -137,8 +142,8 @@ Polygon {
 
     Layer {
       MeshOptions {
-        MaximumSidelengthZLower = 45
-        MaximumSidelengthZUpper = 45
+        MaximumSidelengthZLower = 5
+        MaximumSidelengthZUpper = 5
       }
       
       Thickness = %(structure_thickness_woZrounding)e
@@ -147,6 +152,129 @@ Polygon {
 
     }
 
+
+
+
+    
+ 
+
+  
+<?
+import numpy as np
+keys['num_Zradius_dimers'] = keys['z_radius']/keys['z_radius_MSL'] # The number of dimer slices in the Z-radius rounding
+z_step = keys['z_radius']/keys['z_radius_MSL']
+i=1
+while i <= keys['num_Zradius_dimers']:
+  keys['step'] = keys['z_radius'] - ((keys['z_radius']**2 - (keys['z_radius_MSL']*i)**2)**(1/2))
+  
+  keys['x1'] = -(3*keys['arm_thickness']+2*keys['gap'])/2 + keys['step']
+  keys['y1'] = -(3*keys['arm_thickness']+2*keys['gap'])/2 + keys['step']
+  keys['x2'] = (keys['arm_thickness']/2) - keys['step']
+  keys['y2'] = -(3*keys['arm_thickness']+2*keys['gap'])/2 + keys['step']
+  keys['x3'] = (keys['arm_thickness']/2) - keys['step']
+  keys['y3'] = -(keys['arm_thickness']/2) + keys['step']
+  keys['x4'] = (keys['arm_thickness']+2*keys['gap'])/2 + keys['step']
+  keys['y4'] = -(keys['arm_thickness']/2) + keys['step'] +  keys['step']
+  keys['x5'] = (keys['arm_thickness']+2*keys['gap'])/2 +  keys['step']
+  #keys['x5'] = (keys['arm_thickness']+2*keys['gap']+10)/2 +  keys['step']
+  keys['y5'] = -(3*keys['arm_thickness']+2*keys['gap'])/2 +  keys['step']
+  keys['x6'] = (3*keys['arm_thickness']+2*keys['gap'])/2 - keys['step']
+  #keys['x6'] = (3*keys['arm_thickness']+2*keys['gap']-10)/2 - keys['step']
+  keys['y6'] = -(3*keys['arm_thickness']+2*keys['gap'])/2 +  keys['step']
+  keys['x7'] = (3*keys['arm_thickness']+2*keys['gap'])/2 - keys['step']
+  keys['y7'] = (keys['arm_thickness']/2) - keys['step']
+  keys['x8'] = (keys['arm_thickness']/2) - keys['step']
+  keys['y8'] = (keys['arm_thickness']/2) - keys['step']
+  keys['x9'] = (keys['arm_thickness']/2) - keys['step']
+  keys['y9'] = (keys['arm_thickness']+2*keys['gap'])/2 + keys['step']
+  keys['x10'] = (3*keys['arm_thickness']+2*keys['gap'])/2 - keys['step']
+  keys['y10'] = (keys['arm_thickness']+2*keys['gap'])/2 + keys['step']
+  keys['x11'] = (3*keys['arm_thickness']+2*keys['gap'])/2 - keys['step']
+  keys['y11'] = (3*keys['arm_thickness']+2*keys['gap'])/2 - keys['step']
+  keys['x12'] = -(keys['arm_thickness']/2) +  keys['step']
+  keys['y12'] = (3*keys['arm_thickness']+2*keys['gap'])/2 -  keys['step']
+  keys['x13'] = -(keys['arm_thickness']/2) + keys['step']
+  keys['y13'] = (keys['arm_thickness']/2) - keys['step']
+  keys['x14'] = -(keys['arm_thickness']+2*keys['gap'])/2 - keys['step']
+  keys['y14'] = (keys['arm_thickness']/2) - keys['step']
+  keys['x15'] = -(keys['arm_thickness']+2*keys['gap'])/2 - keys['step']
+  keys['y15'] = (3*keys['arm_thickness']+2*keys['gap'])/2 - keys['step']
+  keys['x16'] = -(3*keys['arm_thickness']+2*keys['gap'])/2 + keys['step']
+  keys['y16'] = (3*keys['arm_thickness']+2*keys['gap'])/2 - keys['step']
+  keys['x17'] = -(3*keys['arm_thickness']+2*keys['gap'])/2 + keys['step']
+  keys['y17'] = -(keys['arm_thickness']/2) + keys['step']
+  keys['x18'] = -(keys['arm_thickness']/2) + keys['step']
+  keys['y18'] = -(keys['arm_thickness']/2) + keys['step']
+  keys['x19'] = -(keys['arm_thickness']/2) + keys['step']
+  keys['y19'] = -(keys['arm_thickness']+2*keys['gap'])/2 - keys['step']
+  keys['x20'] = -(3*keys['arm_thickness']+2*keys['gap'])/2 + keys['step']
+  keys['y20'] = -(keys['arm_thickness']+2*keys['gap'])/2 -  keys['step']
+  
+  
+  i=i+1
+  ?>
+Layer {
+  Thickness = %(z_radius_MSL)e
+  DomainIdMapping = [1 3 ##Air
+                    101 2
+					] ##Au
+}
+
+LayerInterface {
+  GeometryValues = [
+    Gammadion/Points = [%(x1)e %(y1)e, %(x2)e %(y2)e, %(x3)e %(y3)e, %(x4)e %(y4)e, %(x5)e %(y5)e, %(x6)e %(y6)e, %(x7)e %(y7)e, %(x8)e %(y8)e, %(x9)e %(y9)e, %(x10)e %(y10)e, %(x11)e %(y11)e, %(x12)e %(y12)e, %(x13)e %(y13)e, %(x14)e %(y14)e, %(x15)e %(y15)e, %(x16)e %(y16)e, %(x17)e %(y17)e, %(x18)e %(y18)e, %(x19)e %(y19)e, %(x20)e %(y20)e]
+	]
+}
+
+<?
+?>
+
+Layer {
+  Thickness = %(z_radius)e
+  DomainIdMapping = [1 3 ##Air
+                    101 3
+					] ##Air
+}
+
+LayerInterface {
+  GeometryValues = [
+    Gammadion/Points = [%(x1)e %(y1)e, %(x2)e %(y2)e, %(x3)e %(y3)e, %(x4)e %(y4)e, %(x5)e %(y5)e, %(x6)e %(y6)e, %(x7)e %(y7)e, %(x8)e %(y8)e, %(x9)e %(y9)e, %(x10)e %(y10)e, %(x11)e %(y11)e, %(x12)e %(y12)e, %(x13)e %(y13)e, %(x14)e %(y14)e, %(x15)e %(y15)e, %(x16)e %(y16)e, %(x17)e %(y17)e, %(x18)e %(y18)e, %(x19)e %(y19)e, %(x20)e %(y20)e]
+	]
+}
+
+}
+}
+
+Layout {
+  UnitOfLength = 1e-09
+
+  MeshOptions {
+    MaximumSidelength = %(MSL)e
+  }
+
+      Parallelogram  { 
+        Name = "ComputationalDomain/Background" 
+        DomainId = 1
+        Priority = -1 
+        Height =  %(pitch)e
+        Width = %(pitch)e
+        BoundarySegment  { 
+        BoundaryClass = %(boundary)s
+                         }
+                 } 
+
+  Extrusion {
+    MeshOptions {
+      MaximumSidelengthZ = 50
+    }    
+
+    Layer {
+      Thickness = 150
+      DomainId = 3
+    }
+    LayerInterface {
+      BoundaryClass = Transparent
+    }
   }  
 
 }

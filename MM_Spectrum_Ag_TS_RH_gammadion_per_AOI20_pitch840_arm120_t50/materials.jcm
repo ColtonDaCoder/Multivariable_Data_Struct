@@ -1,9 +1,16 @@
 
+Material { 
+  Name = "Dielectric" 
+  Id = 1
+  RelPermittivity = 1
+  RelPermeability = 1.0
+}
+
 
 Material { 
-  Name = "Au Film" 
+  Name = "Al Film" 
   Id = 2
-  RelPermittivity = (-747.355110811056, 51.6250039634793)
+  RelPermittivity = (-4.246295634087, 0.466850499784)
   RelPermeability = 1.0
 }
 Material { 
@@ -13,8 +20,8 @@ Material {
   RelPermeability = 1.0
 }
 Material { 
-  Name = "Au" # Nanostructure Metal
+  Name = "Al" # Nanostructure Metal
   Id = 4
-  RelPermittivity = (-747.355110811056, 51.6250039634793)
+  RelPermittivity = (-4.246295634087, 0.466850499784)
   RelPermeability = 1.0
 }

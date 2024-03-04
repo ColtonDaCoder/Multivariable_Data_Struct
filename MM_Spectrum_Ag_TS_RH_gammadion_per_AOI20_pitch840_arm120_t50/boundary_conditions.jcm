@@ -1,4 +1,1 @@
-BoundaryCondition {
- BoundaryId = 0
- Electromagnetic = TangentialElectric
-}
+# empty file

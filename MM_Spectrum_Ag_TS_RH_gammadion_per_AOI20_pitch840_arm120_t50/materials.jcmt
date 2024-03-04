@@ -4,8 +4,9 @@ keys['permittivity_3']    = (keys['n_3'])**2
 keys['permittivity_4']    = (keys['n_4'])**2
 ?>
 
+
 Material { 
-  Name = "Au Film" 
+  Name = "Al Film" 
   Id = 2
   RelPermittivity = %(permittivity_2)e
   RelPermeability = 1.0

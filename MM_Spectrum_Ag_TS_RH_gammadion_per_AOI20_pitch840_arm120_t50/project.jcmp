@@ -24,9 +24,9 @@ PostProcess {
     FieldBagPath = "project_results/fieldbag.jcm"
     OutputFileName = "project_results/fourier_modes_r.jcm"
     NormalDirection = Z
-    ChiefRay = [-60 0]
+    ChiefRay = [-20 0]
     NumericalAperture = 0.09 # Affects the number of k-vectors even in isolated case
-    #DeltaK = 41555.4583808174 # The sampling discritization of the continuous Fourier spectrum into modes
+    #DeltaK = 373999.125427356 # The sampling discritization of the continuous Fourier spectrum into modes
   }
 }
 
@@ -35,6 +35,6 @@ PostProcess {
     Format = JCM-ASCII
     PolarizationConvention = Hauge-Berkeley
     InputFileName = "project_results/fourier_modes_r.jcm"
-    OutputFileName = "project_results/sm.jcm"
+    OutputFileName = "project_results/sm_220nm.jcm"
   }
 }
