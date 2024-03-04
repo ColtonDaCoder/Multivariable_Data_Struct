@@ -1,19 +1,11 @@
 <?
-keys['permittivity_1']    = (keys['n_1'])**2
 keys['permittivity_2']    = (keys['n_2'])**2
 keys['permittivity_3']    = (keys['n_3'])**2
 keys['permittivity_4']    = (keys['n_4'])**2
 ?>
-Material { 
-  Name = "Dielectric" 
-  Id = 1
-  RelPermittivity = %(permittivity_1)e
-  RelPermeability = 1.0
-}
-
 
 Material { 
-  Name = "Al Film" 
+  Name = "Au Film" 
   Id = 2
   RelPermittivity = %(permittivity_2)e
   RelPermeability = 1.0
@@ -25,7 +17,7 @@ Material {
   RelPermeability = 1.0
 }
 Material { 
-  Name = "Al" # Nanostructure Metal
+  Name = "Au" # Nanostructure Metal
   Id = 4
   RelPermittivity = %(permittivity_4)e
   RelPermeability = 1.0

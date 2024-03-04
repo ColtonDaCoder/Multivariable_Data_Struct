@@ -15,24 +15,7 @@ Layout {
         BoundarySegment  { 
         BoundaryClass = %(boundary)s
                          }
-                 } 
-  
-Extrusion {
-    MeshOptions {
-      MaximumSidelengthZ = 50
-    }    
-
-    LayerInterface {
-      BoundaryClass = Transparent
-    }
-    Layer {
-      MeshOptions {
-        ProgressionZUpper = 2
-      }
-      Thickness = %(film)e
-      DomainId = 2
-    }
-  }  
+                 }  
 } 
  
 
