@@ -152,11 +152,6 @@ Polygon {
 
     }
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
->>>>>>> 6de4aaed6511a195b45c1034bab14fdafe478fd9
 
 
 
@@ -270,28 +265,16 @@ Layout {
 
   Extrusion {
     MeshOptions {
-<<<<<<< HEAD
       MaximumSidelengthZ = 50
     }    
 
     Layer {
       Thickness = 150
-=======
-      MaximumSidelengthZ = 450
-    }    
-
-    Layer {
-      Thickness = 1350
->>>>>>> 6de4aaed6511a195b45c1034bab14fdafe478fd9
       DomainId = 3
     }
     LayerInterface {
       BoundaryClass = Transparent
     }
-<<<<<<< HEAD
-=======
->>>>>>> aae7b33cee61b8cbb9163c7b3f87fc69c149b70f
->>>>>>> 6de4aaed6511a195b45c1034bab14fdafe478fd9
   }  
 
 }
