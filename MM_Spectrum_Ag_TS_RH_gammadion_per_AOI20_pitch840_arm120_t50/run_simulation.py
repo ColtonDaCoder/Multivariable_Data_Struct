@@ -15,7 +15,7 @@ WVL = [i*50+4000 for i in range(80)]
 aoi = AOI
 azi = AZI
 
-set = Structure(columns=['azi','aoi','wvl','radius','pitch','mm', 'dmm','reflected flux'])
+set = Structure(columns=['azi','aoi','wvl','pitch','mm', 'dmm','reflected flux'])
 
     
 keys = {} # Create empty dictionary for keys
@@ -37,7 +37,7 @@ keys = {
     'n_refinement_steps' : 0, # Currently we get non-physical results if this is >0
     'thickness' : 450, #thickness of the gammadion
     'film': 900, # Thickness of the flat film
-    'MSL':900, #MaximumSideLength for the gammadion mesh (not the z mesh)
+    'MSL':750, #MaximumSideLength for the gammadion mesh (not the z mesh)
     'z_radius' : 45, # radius of curvature of gammadion in the z plane
     'z_radius_MSL' : 9 # maximum side length of z radius
     }
@@ -91,14 +91,13 @@ for wvl in WVL:
             'azi' : azi,
             'aoi' : aoi, 
             'wvl' : wvl, 
-            'radius' : keys['radius'], 
             'pitch' : keys['pitch'], 
             'mm': [mm], 
             'dmm' : [dmm],
             'reflected flux' : [[P_s_r, P_p_r]]
     }
     set.append(entry)
-    set.save_csv('Au_on_Au_Gammadion.csv')
+    set.save_csv('Au_on_Au_Gammadion_fe2_MSL500.csv')
 
 toc = time.time() # use time() not clock() on linux system  
 t = toc-tic

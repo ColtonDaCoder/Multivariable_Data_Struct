@@ -1,0 +1,212 @@
+--------------------------------------
+Running PBS prologue script
+--------------------------------------
+User and Job Data:
+--------------------------------------
+Job ID:    1052862.smic3
+Username:  coltonb
+Group:     Users
+Date:      04-Mar-2024 03:46
+Node:      smic383 (18267)
+--------------------------------------
+PBS has allocated the following nodes:
+
+smic383
+
+A total of 28 processors on 1 nodes allocated
+---------------------------------------------
+Check nodes and clean them of stray processes
+---------------------------------------------
+Checking node smic383 03:46:23 
+Done clearing all the allocated nodes
+------------------------------------------------------
+Concluding PBS prologue script - 04-Mar-2024 03:46:23
+------------------------------------------------------
+Loading mvapich2/2.3.3/intel-19.0.5
+  Loading requirement: intel/19.0.5
+JOBS_PER_NODE=1
+/ddnA/work/coltonb/Multivariable_Data_Struct/MM_Spectrum_Ag_TS_RH_gammadion_per_AOI20_pitch840_arm120_t50/run_simulation.py:3: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
+  import jcmwave,time,imp,shutil,os
+Wavelength: 4000
+[0, 0, -1570796.3267948963]
+Wavelength: 4050
+[0, 0, -1551403.779550515]
+Wavelength: 4100
+[0, 0, -1532484.2212633134]
+Wavelength: 4150
+[0, 0, -1514020.5559468882]
+Wavelength: 4200
+[0, 0, -1495996.5017094251]
+Wavelength: 4250
+[0, 0, -1478396.542865785]
+Wavelength: 4300
+[0, 0, -1461205.8853906014]
+Wavelength: 4350
+[0, 0, -1444410.4154435832]
+Wavelength: 4400
+[0, 0, -1427996.6607226331]
+Wavelength: 4450
+[0, 0, -1411951.7544223787]
+Wavelength: 4500
+[0, 0, -1396263.4015954635]
+Wavelength: 4550
+[0, 0, -1380919.847731777]
+Wavelength: 4600
+[0, 0, -1365909.8493868667]
+Wavelength: 4650
+[0, 0, -1351222.6467052873]
+Wavelength: 4700
+[0, 0, -1336847.9376977843]
+Wavelength: 4750
+[0, 0, -1322775.8541430708]
+Wavelength: 4800
+[0, 0, -1308996.938995747]
+Wavelength: 4850
+[0, 0, -1295502.1251916671]
+Wavelength: 4900
+[0, 0, -1282282.7157509357]
+Wavelength: 4950
+[0, 0, -1269330.365086785]
+Wavelength: 5000
+[0, 0, -1256637.0614359172]
+Wavelength: 5050
+[0, 0, -1244195.1103325915]
+Wavelength: 5100
+[0, 0, -1231997.1190548209]
+Wavelength: 5150
+[0, 0, -1220035.9819766185]
+Wavelength: 5200
+[0, 0, -1208304.866765305]
+Wavelength: 5250
+[0, 0, -1196797.20136754]
+Wavelength: 5300
+[0, 0, -1185506.6617319973]
+Wavelength: 5350
+[0, 0, -1174427.1602204833]
+Wavelength: 5400
+[0, 0, -1163552.8346628863]
+Wavelength: 5450
+[0, 0, -1152878.0380146028]
+Wavelength: 5500
+[0, 0, -1142397.3285781064]
+Wavelength: 5550
+[0, 0, -1132105.4607530786]
+Wavelength: 5600
+[0, 0, -1121997.376282069]
+Wavelength: 5650
+[0, 0, -1112068.1959609888]
+Wavelength: 5700
+[0, 0, -1102313.2117858923]
+Wavelength: 5750
+[0, 0, -1092727.8795094932]
+Wavelength: 5800
+[0, 0, -1083307.8115826873]
+Wavelength: 5850
+[0, 0, -1074048.770458049]
+Wavelength: 5900
+[0, 0, -1064946.662233828]
+Wavelength: 5950
+[0, 0, -1055997.5306184178]
+Wavelength: 6000
+[0, 0, -1047197.5511965976]
+Wavelength: 6050
+[0, 0, -1038543.0259800968]
+Wavelength: 6100
+[0, 0, -1030030.3782261617]
+Wavelength: 6150
+[0, 0, -1021656.1475088757]
+Wavelength: 6200
+[0, 0, -1013416.9850289654]
+Wavelength: 6250
+[0, 0, -1005309.6491487337]
+Wavelength: 6300
+[0, 0, -997331.0011396167]
+Wavelength: 6350
+[0, 0, -989478.0011306434]
+Wavelength: 6400
+[0, 0, -981747.7042468103]
+Wavelength: 6450
+[0, 0, -974137.2569270676]
+Wavelength: 6500
+[0, 0, -966643.8934122439]
+Wavelength: 6550
+[0, 0, -959264.9323938298]
+Wavelength: 6600
+[0, 0, -951997.7738150888]
+Wavelength: 6650
+[0, 0, -944839.895816479]
+Wavelength: 6700
+[0, 0, -937788.8518178486]
+Wavelength: 6750
+[0, 0, -930842.267730309]
+Wavelength: 6800
+[0, 0, -923997.8392911156]
+Wavelength: 6850
+[0, 0, -917253.329515268]
+Wavelength: 6900
+[0, 0, -910606.5662579109]
+Wavelength: 6950
+[0, 0, -904055.4398819548]
+Wavelength: 7000
+[0, 0, -897597.9010256551]
+Wavelength: 7050
+[0, 0, -891231.9584651896]
+Wavelength: 7100
+[0, 0, -884955.6770675472]
+Wavelength: 7150
+[0, 0, -878767.1758293128]
+Wavelength: 7200
+[0, 0, -872664.6259971646]
+Wavelength: 7250
+[0, 0, -866646.2492661498]
+Wavelength: 7300
+[0, 0, -860710.3160519981]
+Wavelength: 7350
+[0, 0, -854855.1438339573]
+Wavelength: 7400
+[0, 0, -849079.0955648089]
+Wavelength: 7450
+[0, 0, -843380.5781449109]
+Wavelength: 7500
+[0, 0, -837758.0409572781]
+Wavelength: 7550
+[0, 0, -832209.9744608722]
+Wavelength: 7600
+[0, 0, -826734.9088394193]
+Wavelength: 7650
+[0, 0, -821331.4127032137]
+Wavelength: 7700
+[0, 0, -815998.0918415047]
+Wavelength: 7750
+[0, 0, -810733.5880231723]
+Wavelength: 7800
+[0, 0, -805536.5778435367]
+Wavelength: 7850
+[0, 0, -800405.7716152339]
+Wavelength: 7900
+[0, 0, -795339.9123012134]
+Wavelength: 7950
+[0, 0, -790337.7744879982]
+Total runtime for WVL: 7950 AOI: 60 aziumth: 22 - 16214.9138 s
+------------------------------------------------------
+Running PBS epilogue script    - 04-Mar-2024 08:16:41
+------------------------------------------------------
+Checking node smic383 (MS)
+Checking node smic383 ; cleared cache ; ok
+------------------------------------------------------
+Concluding PBS epilogue script - 04-Mar-2024 08:16:43
+------------------------------------------------------
+Exit Status:     0
+Job ID:          1052862.smic3
+Username:        coltonb
+Group:           Users
+Job Name:        Gammadion
+Session Id:      18266
+Resource Limits: ncpus=1,neednodes=1:ppn=28,nodes=1:ppn=28,walltime=10:00:00
+Resources Used:  cput=75:53:16,mem=56994840kb,vmem=63924304kb,walltime=04:30:20
+Queue Used:      bigmem
+Account String:  hpc_mcpeak12
+Node:            smic383
+Process id:      22600
+Last status:     04-Mar-2024:08:01 PBS_job=1052862.smic3 user=coltonb allocation=hpc_mcpeak12 queue=bigmem total_load=12.16 cpu_hours=1.20 wall_hours=3.43 unused_nodes=0 total_nodes=1 ppn=28 avg_load=12.16 avg_cpu=2794% avg_mem=29357mb avg_vmem=59920mb top_proc=coltonb:JCMsolveWo+:smic383:57.7G:28.6G:1.2hr:2794% toppm=coltonb:JCMsolveWorker:smic383:52434M:29034M node_processes=5 avg_avail_mem=250524mb min_avail_mem=250524mb reverified_avg_load=14.21
+------------------------------------------------------

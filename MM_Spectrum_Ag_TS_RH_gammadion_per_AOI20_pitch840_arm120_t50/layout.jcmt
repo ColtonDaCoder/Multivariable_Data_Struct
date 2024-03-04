@@ -269,7 +269,7 @@ Layout {
     }    
 
     Layer {
-      Thickness = 150
+      Thickness = 1350
       DomainId = 3
     }
     LayerInterface {

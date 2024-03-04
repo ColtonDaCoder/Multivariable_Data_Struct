@@ -1,0 +1,671 @@
+--------------------------------------
+Running PBS prologue script
+--------------------------------------
+User and Job Data:
+--------------------------------------
+Job ID:    1052857.smic3
+Username:  coltonb
+Group:     Users
+Date:      04-Mar-2024 03:35
+Node:      smic382 (11873)
+--------------------------------------
+PBS has allocated the following nodes:
+
+smic382
+
+A total of 28 processors on 1 nodes allocated
+---------------------------------------------
+Check nodes and clean them of stray processes
+---------------------------------------------
+Checking node smic382 03:35:49 
+Done clearing all the allocated nodes
+------------------------------------------------------
+Concluding PBS prologue script - 04-Mar-2024 03:35:49
+------------------------------------------------------
+Loading mvapich2/2.3.3/intel-19.0.5
+  Loading requirement: intel/19.0.5
+JOBS_PER_NODE=1
+/ddnA/work/coltonb/Multivariable_Data_Struct/MM_Spectrum_Ag_TS_RH_gammadion_per_AOI20_pitch840_arm120_t50/run_simulation.py:3: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
+  import jcmwave,time,imp,shutil,os
+Wavelength: 4000
+[0, 0, -1570796.3267948963]
+Traceback (most recent call last):
+  File "/ddnA/work/coltonb/Multivariable_Data_Struct/MM_Spectrum_Ag_TS_RH_gammadion_per_AOI20_pitch840_arm120_t50/run_simulation.py", line 69, in <module>
+    jcmwave.solve('./project.jcmp')
+  File "/home/coltonb/JCMsuite_5.2.4/ThirdPartySupport/Python/jcmwave/solve.py", line 478, in solve
+    raise RuntimeError('*** JCMsolve failed. ==>\n\n%s' % (str(msg),))
+RuntimeError: *** JCMsolve failed. ==>
+
+*** Error in `JCMgeoWorker': malloc(): memory corruption: 0x00000000026a9918 ***
+======= Backtrace: =========
+/lib64/libc.so.6(+0x82aa6)[0x2ac9bd0a4aa6]
+/lib64/libc.so.6(__libc_malloc+0x4c)[0x2ac9bd0a76fc]
+/home/coltonb/JCMsuite_5.2.4/lib/libstdc++.so.6(_Znwm+0x1d)[0x2ac9bc63b18d]
+/home/coltonb/JCMsuite_5.2.4/lib/libjcm_geo.so(+0x320177)[0x2ac9b4358177]
+/home/coltonb/JCMsuite_5.2.4/lib/libjcm_geo.so(+0x33126d)[0x2ac9b436926d]
+/home/coltonb/JCMsuite_5.2.4/lib/libjcm_geo.so(+0x331572)[0x2ac9b4369572]
+/home/coltonb/JCMsuite_5.2.4/lib/libjcm_geo.so(+0x2d0e1c)[0x2ac9b4308e1c]
+/home/coltonb/JCMsuite_5.2.4/lib/libjcm_geo.so(+0x490262)[0x2ac9b44c8262]
+/home/coltonb/JCMsuite_5.2.4/lib/libjcm_geo.so(+0x2e7aaf)[0x2ac9b431faaf]
+/home/coltonb/JCMsuite_5.2.4/lib/libjcm_geo.so(+0x238a9e)[0x2ac9b4270a9e]
+/home/coltonb/JCMsuite_5.2.4/lib/libjcm_geo.so(+0x5f52fe)[0x2ac9b462d2fe]
+/home/coltonb/JCMsuite_5.2.4/lib/libjcm_geo.so(+0x72c1d8)[0x2ac9b47641d8]
+/home/coltonb/JCMsuite_5.2.4/lib/libjcm_geo.so(+0x72abd9)[0x2ac9b4762bd9]
+/home/coltonb/JCMsuite_5.2.4/lib/libjcm_geo.so(JCMGeoMainV2+0xa90)[0x2ac9b4767e1b]
+JCMgeoWorker[0x40a8da]
+/lib64/libc.so.6(__libc_start_main+0xf5)[0x2ac9bd044555]
+JCMgeoWorker[0x40a6c5]
+======= Memory map: ========
+00400000-0040a000 r--p 00000000 00:26 157247892                          /home/coltonb/JCMsuite_5.2.4/bin/JCMgeoWorker
+0040a000-00410000 r-xp 0000a000 00:26 157247892                          /home/coltonb/JCMsuite_5.2.4/bin/JCMgeoWorker
+00410000-00414000 r--p 00010000 00:26 157247892                          /home/coltonb/JCMsuite_5.2.4/bin/JCMgeoWorker
+00414000-00415000 r--p 00013000 00:26 157247892                          /home/coltonb/JCMsuite_5.2.4/bin/JCMgeoWorker
+00415000-00416000 rw-p 00014000 00:26 157247892                          /home/coltonb/JCMsuite_5.2.4/bin/JCMgeoWorker
+02097000-09aa1000 rw-p 00000000 00:00 0                                  [heap]
+2ac9b3e14000-2ac9b3e36000 r-xp 00000000 08:01 6294312                    /usr/lib64/ld-2.17.so
+2ac9b3e36000-2ac9b3e38000 rw-p 00000000 00:00 0 
+2ac9b3e38000-2ac9b3e47000 r--p 00000000 00:26 157247998                  /home/coltonb/JCMsuite_5.2.4/lib/libmetis.so
+2ac9b3e47000-2ac9b3e92000 r-xp 0000f000 00:26 157247998                  /home/coltonb/JCMsuite_5.2.4/lib/libmetis.so
+2ac9b3e92000-2ac9b3ea3000 r--p 0005a000 00:26 157247998                  /home/coltonb/JCMsuite_5.2.4/lib/libmetis.so
+2ac9b3ea3000-2ac9b3ea4000 r--p 0006a000 00:26 157247998                  /home/coltonb/JCMsuite_5.2.4/lib/libmetis.so
+2ac9b3ea4000-2ac9b3ea5000 rw-p 0006b000 00:26 157247998                  /home/coltonb/JCMsuite_5.2.4/lib/libmetis.so
+2ac9b3ea5000-2ac9b3ea6000 rw-p 00000000 00:00 0 
+2ac9b3ed3000-2ac9b3ed7000 rw-p 00000000 00:00 0 
+2ac9b3ed7000-2ac9b3ee8000 r--p 00000000 00:26 157247968                  /home/coltonb/JCMsuite_5.2.4/lib/libboost_thread.so.1.79.0
+2ac9b3ee8000-2ac9b3ef9000 r-xp 00011000 00:26 157247968                  /home/coltonb/JCMsuite_5.2.4/lib/libboost_thread.so.1.79.0
+2ac9b3ef9000-2ac9b3f01000 r--p 00022000 00:26 157247968                  /home/coltonb/JCMsuite_5.2.4/lib/libboost_thread.so.1.79.0
+2ac9b3f01000-2ac9b3f02000 ---p 0002a000 00:26 157247968                  /home/coltonb/JCMsuite_5.2.4/lib/libboost_thread.so.1.79.0
+2ac9b3f02000-2ac9b3f04000 r--p 0002a000 00:26 157247968                  /home/coltonb/JCMsuite_5.2.4/lib/libboost_thread.so.1.79.0
+2ac9b3f04000-2ac9b3f05000 rw-p 0002c000 00:26 157247968                  /home/coltonb/JCMsuite_5.2.4/lib/libboost_thread.so.1.79.0
+2ac9b3f05000-2ac9b3f06000 r--p 00000000 00:26 157247969                  /home/coltonb/JCMsuite_5.2.4/lib/libboost_system.so.1.79.0
+2ac9b3f06000-2ac9b3f07000 r-xp 00001000 00:26 157247969                  /home/coltonb/JCMsuite_5.2.4/lib/libboost_system.so.1.79.0
+2ac9b3f07000-2ac9b3f08000 r--p 00002000 00:26 157247969                  /home/coltonb/JCMsuite_5.2.4/lib/libboost_system.so.1.79.0
+2ac9b3f08000-2ac9b3f09000 r--p 00002000 00:26 157247969                  /home/coltonb/JCMsuite_5.2.4/lib/libboost_system.so.1.79.0
+2ac9b3f09000-2ac9b3f0a000 rw-p 00003000 00:26 157247969                  /home/coltonb/JCMsuite_5.2.4/lib/libboost_system.so.1.79.0
+2ac9b3f0a000-2ac9b3f0b000 rw-p 00000000 00:00 0 
+2ac9b3f0b000-2ac9b3f15000 r--p 00000000 00:26 157247976                  /home/coltonb/JCMsuite_5.2.4/lib/libmkl_blacs_intelmpi_lp64.so.2
+2ac9b3f15000-2ac9b3f42000 r-xp 0000a000 00:26 157247976                  /home/coltonb/JCMsuite_5.2.4/lib/libmkl_blacs_intelmpi_lp64.so.2
+2ac9b3f42000-2ac9b3f51000 r--p 00037000 00:26 157247976                  /home/coltonb/JCMsuite_5.2.4/lib/libmkl_blacs_intelmpi_lp64.so.2
+2ac9b3f51000-2ac9b3f52000 r--p 00045000 00:26 157247976                  /home/coltonb/JCMsuite_5.2.4/lib/libmkl_blacs_intelmpi_lp64.so.2
+2ac9b3f52000-2ac9b3f53000 rw-p 00046000 00:26 157247976                  /home/coltonb/JCMsuite_5.2.4/lib/libmkl_blacs_intelmpi_lp64.so.2
+2ac9b3f53000-2ac9b3f55000 rw-p 00000000 00:00 0 
+2ac9b3f55000-2ac9b3f95000 r--p 00000000 00:26 157247906                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKBRep.so.11
+2ac9b3f95000-2ac9b3ffa000 r-xp 00040000 00:26 157247906                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKBRep.so.11
+2ac9b3ffa000-2ac9b401e000 r--p 000a5000 00:26 157247906                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKBRep.so.11
+2ac9b401e000-2ac9b401f000 ---p 000c9000 00:26 157247906                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKBRep.so.11
+2ac9b401f000-2ac9b4023000 r--p 000c9000 00:26 157247906                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKBRep.so.11
+2ac9b4023000-2ac9b4025000 rw-p 000cd000 00:26 157247906                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKBRep.so.11
+2ac9b4025000-2ac9b402f000 rw-p 00000000 00:00 0 
+2ac9b402f000-2ac9b4031000 r--p 00000000 00:26 157247931                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libFWOSPlugin.so.11
+2ac9b4031000-2ac9b4032000 r-xp 00002000 00:26 157247931                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libFWOSPlugin.so.11
+2ac9b4032000-2ac9b4033000 r--p 00003000 00:26 157247931                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libFWOSPlugin.so.11
+2ac9b4033000-2ac9b4034000 r--p 00003000 00:26 157247931                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libFWOSPlugin.so.11
+2ac9b4034000-2ac9b4035000 rw-p 00004000 00:26 157247931                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libFWOSPlugin.so.11
+2ac9b4035000-2ac9b4036000 r--p 00021000 08:01 6294312                    /usr/lib64/ld-2.17.so
+2ac9b4036000-2ac9b4037000 rw-p 00022000 08:01 6294312                    /usr/lib64/ld-2.17.so
+2ac9b4037000-2ac9b4038000 rw-p 00000000 00:00 0 
+2ac9b4038000-2ac9b40db000 r--p 00000000 00:26 157247999                  /home/coltonb/JCMsuite_5.2.4/lib/libjcm_geo.so.5.2.4
+2ac9b40db000-2ac9b49c8000 r-xp 000a3000 00:26 157247999                  /home/coltonb/JCMsuite_5.2.4/lib/libjcm_geo.so.5.2.4
+2ac9b49c8000-2ac9b4b73000 r--p 00990000 00:26 157247999                  /home/coltonb/JCMsuite_5.2.4/lib/libjcm_geo.so.5.2.4
+2ac9b4b73000-2ac9b4b74000 ---p 00b3b000 00:26 157247999                  /home/coltonb/JCMsuite_5.2.4/lib/libjcm_geo.so.5.2.4
+2ac9b4b74000-2ac9b4b8a000 r--p 00b3b000 00:26 157247999                  /home/coltonb/JCMsuite_5.2.4/lib/libjcm_geo.so.5.2.4
+2ac9b4b8a000-2ac9b4b8f000 rw-p 00b51000 00:26 157247999                  /home/coltonb/JCMsuite_5.2.4/lib/libjcm_geo.so.5.2.4
+2ac9b4b8f000-2ac9b4b92000 rw-p 00000000 00:00 0 
+2ac9b4b92000-2ac9b51cb000 r--p 00000000 00:26 157248026                  /home/coltonb/JCMsuite_5.2.4/lib/libjcm_fetools.so.5.2.4
+2ac9b51cb000-2ac9bb360000 r-xp 00639000 00:26 157248026                  /home/coltonb/JCMsuite_5.2.4/lib/libjcm_fetools.so.5.2.4
+2ac9bb360000-2ac9bbf99000 r--p 067ce000 00:26 157248026                  /home/coltonb/JCMsuite_5.2.4/lib/libjcm_fetools.so.5.2.4
+2ac9bbf99000-2ac9bc1a5000 r--p 07406000 00:26 157248026                  /home/coltonb/JCMsuite_5.2.4/lib/libjcm_fetools.so.5.2.4
+2ac9bc1a5000-2ac9bc1b0000 rw-p 07612000 00:26 157248026                  /home/coltonb/JCMsuite_5.2.4/lib/libjcm_fetools.so.5.2.4
+2ac9bc1b0000-2ac9bc1bc000 rw-p 00000000 00:00 0 
+2ac9bc1bc000-2ac9bc1be000 r-xp 00000000 08:01 6294325                    /usr/lib64/libdl-2.17.so
+2ac9bc1be000-2ac9bc3be000 ---p 00002000 08:01 6294325                    /usr/lib64/libdl-2.17.so
+2ac9bc3be000-2ac9bc3bf000 r--p 00002000 08:01 6294325                    /usr/lib64/libdl-2.17.so
+2ac9bc3bf000-2ac9bc3c0000 rw-p 00003000 08:01 6294325                    /usr/lib64/libdl-2.17.so
+2ac9bc3c0000-2ac9bc3d7000 r-xp 00000000 08:01 6294345                    /usr/lib64/libpthread-2.17.so
+2ac9bc3d7000-2ac9bc5d6000 ---p 00017000 08:01 6294345                    /usr/lib64/libpthread-2.17.so
+2ac9bc5d6000-2ac9bc5d7000 r--p 00016000 08:01 6294345                    /usr/lib64/libpthread-2.17.so
+2ac9bc5d7000-2ac9bc5d8000 rw-p 00017000 08:01 6294345                    /usr/lib64/libpthread-2.17.so
+2ac9bc5d8000-2ac9bc5dc000 rw-p 00000000 00:00 0 
+2ac9bc5dc000-2ac9bc6c5000 r-xp 00000000 00:26 157247967                  /home/coltonb/JCMsuite_5.2.4/lib/libstdc++.so.6
+2ac9bc6c5000-2ac9bc8c5000 ---p 000e9000 00:26 157247967                  /home/coltonb/JCMsuite_5.2.4/lib/libstdc++.so.6
+2ac9bc8c5000-2ac9bc8cd000 r--p 000e9000 00:26 157247967                  /home/coltonb/JCMsuite_5.2.4/lib/libstdc++.so.6
+2ac9bc8cd000-2ac9bc8cf000 rw-p 000f1000 00:26 157247967                  /home/coltonb/JCMsuite_5.2.4/lib/libstdc++.so.6
+2ac9bc8cf000-2ac9bc8e4000 rw-p 00000000 00:00 0 
+2ac9bc8e4000-2ac9bc9e5000 r-xp 00000000 08:01 6294327                    /usr/lib64/libm-2.17.so
+2ac9bc9e5000-2ac9bcbe4000 ---p 00101000 08:01 6294327                    /usr/lib64/libm-2.17.so
+2ac9bcbe4000-2ac9bcbe5000 r--p 00100000 08:01 6294327                    /usr/lib64/libm-2.17.so
+2ac9bcbe5000-2ac9bcbe6000 rw-p 00101000 08:01 6294327                    /usr/lib64/libm-2.17.so
+2ac9bcbe6000-2ac9bcc0b000 r-xp 00000000 00:26 157247965                  /home/coltonb/JCMsuite_5.2.4/lib/libgomp.so.1
+2ac9bcc0b000-2ac9bce0a000 ---p 00025000 00:26 157247965                  /home/coltonb/JCMsuite_5.2.4/lib/libgomp.so.1
+2ac9bce0a000-2ac9bce0b000 r--p 00024000 00:26 157247965                  /home/coltonb/JCMsuite_5.2.4/lib/libgomp.so.1
+2ac9bce0b000-2ac9bce0c000 rw-p 00025000 00:26 157247965                  /home/coltonb/JCMsuite_5.2.4/lib/libgomp.so.1
+2ac9bce0c000-2ac9bce21000 r-xp 00000000 00:26 157247963                  /home/coltonb/JCMsuite_5.2.4/lib/libgcc_s.so.1
+2ac9bce21000-2ac9bd020000 ---p 00015000 00:26 157247963                  /home/coltonb/JCMsuite_5.2.4/lib/libgcc_s.so.1
+2ac9bd020000-2ac9bd021000 r--p 00014000 00:26 157247963                  /home/coltonb/JCMsuite_5.2.4/lib/libgcc_s.so.1
+2ac9bd021000-2ac9bd022000 rw-p 00015000 00:26 157247963                  /home/coltonb/JCMsuite_5.2.4/lib/libgcc_s.so.1
+2ac9bd022000-2ac9bd1e6000 r-xp 00000000 08:01 6294319                    /usr/lib64/libc-2.17.so
+2ac9bd1e6000-2ac9bd3e5000 ---p 001c4000 08:01 6294319                    /usr/lib64/libc-2.17.so
+2ac9bd3e5000-2ac9bd3e9000 r--p 001c3000 08:01 6294319                    /usr/lib64/libc-2.17.so
+2ac9bd3e9000-2ac9bd3eb000 rw-p 001c7000 08:01 6294319                    /usr/lib64/libc-2.17.so
+2ac9bd3eb000-2ac9bd3f0000 rw-p 00000000 00:00 0 
+2ac9bd3f0000-2ac9bd40e000 r-xp 00000000 00:26 157247945                  /home/coltonb/JCMsuite_5.2.4/lib/impi/libmpicxx.so.12
+2ac9bd40e000-2ac9bd60d000 ---p 0001e000 00:26 157247945                  /home/coltonb/JCMsuite_5.2.4/lib/impi/libmpicxx.so.12
+2ac9bd60d000-2ac9bd60e000 r--p 0001d000 00:26 157247945                  /home/coltonb/JCMsuite_5.2.4/lib/impi/libmpicxx.so.12
+2ac9bd60e000-2ac9bd610000 rw-p 0001e000 00:26 157247945                  /home/coltonb/JCMsuite_5.2.4/lib/impi/libmpicxx.so.12
+2ac9bd610000-2ac9bd798000 r-xp 00000000 00:26 157247946                  /home/coltonb/JCMsuite_5.2.4/lib/impi/libmpifort.so.12
+2ac9bd798000-2ac9bd998000 ---p 00188000 00:26 157247946                  /home/coltonb/JCMsuite_5.2.4/lib/impi/libmpifort.so.12
+2ac9bd998000-2ac9bd99c000 r--p 00188000 00:26 157247946                  /home/coltonb/JCMsuite_5.2.4/lib/impi/libmpifort.so.12
+2ac9bd99c000-2ac9bd9a0000 rw-p 0018c000 00:26 157247946                  /home/coltonb/JCMsuite_5.2.4/lib/impi/libmpifort.so.12
+2ac9bd9a0000-2ac9bd9c4000 rw-p 00000000 00:00 0 
+2ac9bd9c4000-2ac9be7f1000 r-xp 00000000 00:26 157247947                  /home/coltonb/JCMsuite_5.2.4/lib/impi/libmpi.so.12
+2ac9be7f1000-2ac9be9f1000 ---p 00e2d000 00:26 157247947                  /home/coltonb/JCMsuite_5.2.4/lib/impi/libmpi.so.12
+2ac9be9f1000-2ac9bea02000 r--p 00e2d000 00:26 157247947                  /home/coltonb/JCMsuite_5.2.4/lib/impi/libmpi.so.12
+2ac9bea02000-2ac9bea16000 rw-p 00e3e000 00:26 157247947                  /home/coltonb/JCMsuite_5.2.4/lib/impi/libmpi.so.12
+2ac9bea16000-2ac9bf20c000 rw-p 00000000 00:00 0 
+2ac9bf20c000-2ac9bf250000 r--p 00000000 00:26 157247984                  /home/coltonb/JCMsuite_5.2.4/lib/libmkl_scalapack_lp64.so.2
+2ac9bf250000-2ac9bf822000 r-xp 00044000 00:26 157247984                  /home/coltonb/JCMsuite_5.2.4/lib/libmkl_scalapack_lp64.so.2
+2ac9bf822000-2ac9bf8b0000 r--p 00616000 00:26 157247984                  /home/coltonb/JCMsuite_5.2.4/lib/libmkl_scalapack_lp64.so.2
+2ac9bf8b0000-2ac9bf8b1000 r--p 006a3000 00:26 157247984                  /home/coltonb/JCMsuite_5.2.4/lib/libmkl_scalapack_lp64.so.2
+2ac9bf8b1000-2ac9bf8b5000 rw-p 006a4000 00:26 157247984                  /home/coltonb/JCMsuite_5.2.4/lib/libmkl_scalapack_lp64.so.2
+2ac9bf8b5000-2ac9bf939000 rw-p 00000000 00:00 0 
+2ac9bf939000-2ac9bfaeb000 r--p 00000000 00:26 157247980                  /home/coltonb/JCMsuite_5.2.4/lib/libmkl_intel_lp64.so.2
+2ac9bfaeb000-2ac9c03d0000 r-xp 001b2000 00:26 157247980                  /home/coltonb/JCMsuite_5.2.4/lib/libmkl_intel_lp64.so.2
+2ac9c03d0000-2ac9c07cd000 r--p 00a97000 00:26 157247980                  /home/coltonb/JCMsuite_5.2.4/lib/libmkl_intel_lp64.so.2
+2ac9c07cd000-2ac9c07cf000 r--p 00e93000 00:26 157247980                  /home/coltonb/JCMsuite_5.2.4/lib/libmkl_intel_lp64.so.2
+2ac9c07cf000-2ac9c07e7000 rw-p 00e95000 00:26 157247980                  /home/coltonb/JCMsuite_5.2.4/lib/libmkl_intel_lp64.so.2
+2ac9c07e7000-2ac9c07ee000 rw-p 00000000 00:00 0 
+2ac9c07ee000-2ac9c09be000 r--p 00000000 00:26 157247979                  /home/coltonb/JCMsuite_5.2.4/lib/libmkl_gnu_thread.so.2
+2ac9c09be000-2ac9c2190000 r-xp 001d0000 00:26 157247979                  /home/coltonb/JCMsuite_5.2.4/lib/libmkl_gnu_thread.so.2
+2ac9c2190000-2ac9c2331000 r--p 019a2000 00:26 157247979                  /home/coltonb/JCMsuite_5.2.4/lib/libmkl_gnu_thread.so.2
+2ac9c2331000-2ac9c2335000 r--p 01b42000 00:26 157247979                  /home/coltonb/JCMsuite_5.2.4/lib/libmkl_gnu_thread.so.2
+2ac9c2335000-2ac9c2382000 rw-p 01b46000 00:26 157247979                  /home/coltonb/JCMsuite_5.2.4/lib/libmkl_gnu_thread.so.2
+2ac9c2382000-2ac9c256e000 r--p 00000000 00:26 157247977                  /home/coltonb/JCMsuite_5.2.4/lib/libmkl_core.so.2
+2ac9c256e000-2ac9c5c97000 r-xp 001ec000 00:26 157247977                  /home/coltonb/JCMsuite_5.2.4/lib/libmkl_core.so.2
+2ac9c5c97000-2ac9c66f7000 r--p 03915000 00:26 157247977                  /home/coltonb/JCMsuite_5.2.4/lib/libmkl_core.so.2
+2ac9c66f7000-2ac9c66f8000 ---p 04375000 00:26 157247977                  /home/coltonb/JCMsuite_5.2.4/lib/libmkl_core.so.2
+2ac9c66f8000-2ac9c66ff000 r--p 04375000 00:26 157247977                  /home/coltonb/JCMsuite_5.2.4/lib/libmkl_core.so.2
+2ac9c66ff000-2ac9c672f000 rw-p 0437c000 00:26 157247977                  /home/coltonb/JCMsuite_5.2.4/lib/libmkl_core.so.2
+2ac9c672f000-2ac9c6758000 rw-p 00000000 00:00 0 
+2ac9c6758000-2ac9c675f000 r-xp 00000000 08:01 6294349                    /usr/lib64/librt-2.17.so
+2ac9c675f000-2ac9c695e000 ---p 00007000 08:01 6294349                    /usr/lib64/librt-2.17.so
+2ac9c695e000-2ac9c695f000 r--p 00006000 08:01 6294349                    /usr/lib64/librt-2.17.so
+2ac9c695f000-2ac9c6960000 rw-p 00007000 08:01 6294349                    /usr/lib64/librt-2.17.so
+2ac9c6960000-2ac9c69e3000 r--p 00000000 00:26 157247904                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKernel.so.11
+2ac9c69e3000-2ac9c6a92000 r-xp 00083000 00:26 157247904                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKernel.so.11
+2ac9c6a92000-2ac9c6b6b000 r--p 00132000 00:26 157247904                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKernel.so.11
+2ac9c6b6b000-2ac9c6b6c000 ---p 0020b000 00:26 157247904                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKernel.so.11
+2ac9c6b6c000-2ac9c6b73000 r--p 0020b000 00:26 157247904                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKernel.so.11
+2ac9c6b73000-2ac9c6b77000 rw-p 00212000 00:26 157247904                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKernel.so.11
+2ac9c6b77000-2ac9c6b7f000 rw-p 00000000 00:00 0 
+2ac9c6b7f000-2ac9c6c0d000 r--p 00000000 00:26 157247905                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKMath.so.11
+2ac9c6c0d000-2ac9c6d56000 r-xp 0008e000 00:26 157247905                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKMath.so.11
+2ac9c6d56000-2ac9c6de1000 r--p 001d7000 00:26 157247905                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKMath.so.11
+2ac9c6de1000-2ac9c6dea000 r--p 00261000 00:26 157247905                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKMath.so.11
+2ac9c6dea000-2ac9c6dee000 rw-p 0026a000 00:26 157247905                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKMath.so.11
+2ac9c6dee000-2ac9c6df1000 rw-p 00000000 00:00 0 
+2ac9c6df1000-2ac9c6e73000 r--p 00000000 00:26 157247907                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKTopAlgo.so.11
+2ac9c6e73000-2ac9c7013000 r-xp 00082000 00:26 157247907                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKTopAlgo.so.11
+2ac9c7013000-2ac9c705f000 r--p 00222000 00:26 157247907                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKTopAlgo.so.11
+2ac9c705f000-2ac9c7064000 r--p 0026d000 00:26 157247907                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKTopAlgo.so.11
+2ac9c7064000-2ac9c706a000 rw-p 00272000 00:26 157247907                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKTopAlgo.so.11
+2ac9c706a000-2ac9c706b000 rw-p 00000000 00:00 0 
+2ac9c706b000-2ac9c7083000 r--p 00000000 00:26 157247908                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKPrim.so.11
+2ac9c7083000-2ac9c70ad000 r-xp 00018000 00:26 157247908                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKPrim.so.11
+2ac9c70ad000-2ac9c70b9000 r--p 00042000 00:26 157247908                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKPrim.so.11
+2ac9c70b9000-2ac9c70bb000 r--p 0004d000 00:26 157247908                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKPrim.so.11
+2ac9c70bb000-2ac9c70bc000 rw-p 0004f000 00:26 157247908                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKPrim.so.11
+2ac9c70bc000-2ac9c7115000 r--p 00000000 00:26 157247909                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKBO.so.11
+2ac9c7115000-2ac9c724a000 r-xp 00059000 00:26 157247909                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKBO.so.11
+2ac9c724a000-2ac9c727c000 r--p 0018e000 00:26 157247909                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKBO.so.11
+2ac9c727c000-2ac9c727d000 ---p 001c0000 00:26 157247909                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKBO.so.11
+2ac9c727d000-2ac9c7281000 r--p 001c0000 00:26 157247909                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKBO.so.11
+2ac9c7281000-2ac9c7285000 rw-p 001c4000 00:26 157247909                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKBO.so.11
+2ac9c7285000-2ac9c72c1000 r--p 00000000 00:26 157247910                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKOffset.so.11
+2ac9c72c1000-2ac9c7386000 r-xp 0003c000 00:26 157247910                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKOffset.so.11
+2ac9c7386000-2ac9c73a2000 r--p 00101000 00:26 157247910                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKOffset.so.11
+2ac9c73a2000-2ac9c73a5000 r--p 0011c000 00:26 157247910                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKOffset.so.11
+2ac9c73a5000-2ac9c73a8000 rw-p 0011f000 00:26 157247910                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKOffset.so.11
+2ac9c73a8000-2ac9c73a9000 rw-p 00000000 00:00 0 
+2ac9c73a9000-2ac9c7409000 r--p 00000000 00:26 157247911                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKFillet.so.11
+2ac9c7409000-2ac9c7612000 r-xp 00060000 00:26 157247911                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKFillet.so.11
+2ac9c7612000-2ac9c7649000 r--p 00269000 00:26 157247911                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKFillet.so.11
+2ac9c7649000-2ac9c764e000 r--p 0029f000 00:26 157247911                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKFillet.so.11
+2ac9c764e000-2ac9c7652000 rw-p 002a4000 00:26 157247911                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKFillet.so.11
+2ac9c7652000-2ac9c7653000 rw-p 00000000 00:00 0 
+2ac9c7653000-2ac9c76e8000 r--p 00000000 00:26 157247912                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKGeomBase.so.11
+2ac9c76e8000-2ac9c7978000 r-xp 00095000 00:26 157247912                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKGeomBase.so.11
+2ac9c7978000-2ac9c7acd000 r--p 00325000 00:26 157247912                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKGeomBase.so.11
+2ac9c7acd000-2ac9c7ad2000 r--p 00479000 00:26 157247912                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKGeomBase.so.11
+2ac9c7ad2000-2ac9c7b18000 rw-p 0047e000 00:26 157247912                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKGeomBase.so.11
+2ac9c7b18000-2ac9c7b1d000 rw-p 00000000 00:00 0 
+2ac9c7b1d000-2ac9c7be0000 r--p 00000000 00:26 157247913                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKGeomAlgo.so.11
+2ac9c7be0000-2ac9c7fa5000 r-xp 000c3000 00:26 157247913                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKGeomAlgo.so.11
+2ac9c7fa5000-2ac9c8021000 r--p 00488000 00:26 157247913                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKGeomAlgo.so.11
+2ac9c8021000-2ac9c8029000 r--p 00503000 00:26 157247913                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKGeomAlgo.so.11
+2ac9c8029000-2ac9c8030000 rw-p 0050b000 00:26 157247913                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKGeomAlgo.so.11
+2ac9c8030000-2ac9c8033000 rw-p 00000000 00:00 0 
+2ac9c8033000-2ac9c8051000 r--p 00000000 00:26 157247914                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKMesh.so.11
+2ac9c8051000-2ac9c8098000 r-xp 0001e000 00:26 157247914                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKMesh.so.11
+2ac9c8098000-2ac9c80a4000 r--p 00065000 00:26 157247914                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKMesh.so.11
+2ac9c80a4000-2ac9c80a5000 ---p 00071000 00:26 157247914                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKMesh.so.11
+2ac9c80a5000-2ac9c80a7000 r--p 00071000 00:26 157247914                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKMesh.so.11
+2ac9c80a7000-2ac9c80a9000 rw-p 00073000 00:26 157247914                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKMesh.so.11
+2ac9c80a9000-2ac9c8108000 r--p 00000000 00:26 157247915                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKShHealing.so.11
+2ac9c8108000-2ac9c829d000 r-xp 0005f000 00:26 157247915                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKShHealing.so.11
+2ac9c829d000-2ac9c82de000 r--p 001f4000 00:26 157247915                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKShHealing.so.11
+2ac9c82de000-2ac9c82df000 ---p 00235000 00:26 157247915                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKShHealing.so.11
+2ac9c82df000-2ac9c82e3000 r--p 00235000 00:26 157247915                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKShHealing.so.11
+2ac9c82e3000-2ac9c82e8000 rw-p 00239000 00:26 157247915                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKShHealing.so.11
+2ac9c82e8000-2ac9c82e9000 rw-p 00000000 00:00 0 
+2ac9c82e9000-2ac9c83a5000 r--p 00000000 00:26 157247916                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKBool.so.11
+2ac9c83a5000-2ac9c85e5000 r-xp 000bc000 00:26 157247916                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKBool.so.11
+2ac9c85e5000-2ac9c865a000 r--p 002fc000 00:26 157247916                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKBool.so.11
+2ac9c865a000-2ac9c865b000 ---p 00371000 00:26 157247916                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKBool.so.11
+2ac9c865b000-2ac9c8660000 r--p 00371000 00:26 157247916                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKBool.so.11
+2ac9c8660000-2ac9c8669000 rw-p 00376000 00:26 157247916                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKBool.so.11
+2ac9c8669000-2ac9c866b000 rw-p 00000000 00:00 0 
+2ac9c866b000-2ac9c86ab000 r--p 00000000 00:26 157247917                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKHLR.so.11
+2ac9c86ab000-2ac9c875e000 r-xp 00040000 00:26 157247917                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKHLR.so.11
+2ac9c875e000-2ac9c877e000 r--p 000f3000 00:26 157247917                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKHLR.so.11
+2ac9c877e000-2ac9c8781000 r--p 00112000 00:26 157247917                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKHLR.so.11
+2ac9c8781000-2ac9c8784000 rw-p 00115000 00:26 157247917                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKHLR.so.11
+2ac9c8784000-2ac9c8785000 rw-p 00000000 00:00 0 
+2ac9c8785000-2ac9c87a7000 r--p 00000000 00:26 157247918                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKG2d.so.11
+2ac9c87a7000-2ac9c87e3000 r-xp 00022000 00:26 157247918                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKG2d.so.11
+2ac9c87e3000-2ac9c87f6000 r--p 0005e000 00:26 157247918                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKG2d.so.11
+2ac9c87f6000-2ac9c87f7000 ---p 00071000 00:26 157247918                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKG2d.so.11
+2ac9c87f7000-2ac9c87f9000 r--p 00071000 00:26 157247918                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKG2d.so.11
+2ac9c87f9000-2ac9c87fa000 rw-p 00073000 00:26 157247918                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKG2d.so.11
+2ac9c87fa000-2ac9c87fb000 rw-p 00000000 00:00 0 
+2ac9c87fb000-2ac9c8840000 r--p 00000000 00:26 157247919                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKG3d.so.11
+2ac9c8840000-2ac9c88da000 r-xp 00045000 00:26 157247919                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKG3d.so.11
+2ac9c88da000-2ac9c8904000 r--p 000df000 00:26 157247919                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKG3d.so.11
+2ac9c8904000-2ac9c8909000 r--p 00108000 00:26 157247919                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKG3d.so.11
+2ac9c8909000-2ac9c890b000 rw-p 0010d000 00:26 157247919                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKG3d.so.11
+2ac9c890b000-2ac9c890d000 rw-p 00000000 00:00 0 
+2ac9c890d000-2ac9c8933000 r--p 00000000 00:26 157247920                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKFeat.so.11
+2ac9c8933000-2ac9c89ed000 r-xp 00026000 00:26 157247920                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKFeat.so.11
+2ac9c89ed000-2ac9c8a04000 r--p 000e0000 00:26 157247920                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKFeat.so.11
+2ac9c8a04000-2ac9c8a06000 r--p 000f6000 00:26 157247920                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKFeat.so.11
+2ac9c8a06000-2ac9c8a08000 rw-p 000f8000 00:26 157247920                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKFeat.so.11
+2ac9c8a08000-2ac9c8a09000 rw-p 00000000 00:00 0 
+2ac9c8a09000-2ac9c8a55000 r--p 00000000 00:26 157247921                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKLCAF.so.11
+2ac9c8a55000-2ac9c8aaa000 r-xp 0004c000 00:26 157247921                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKLCAF.so.11
+2ac9c8aaa000-2ac9c8ad8000 r--p 000a1000 00:26 157247921                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKLCAF.so.11
+2ac9c8ad8000-2ac9c8add000 r--p 000ce000 00:26 157247921                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKLCAF.so.11
+2ac9c8add000-2ac9c8ae0000 rw-p 000d3000 00:26 157247921                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKLCAF.so.11
+2ac9c8ae0000-2ac9c8ae2000 rw-p 00000000 00:00 0 
+2ac9c8ae2000-2ac9c8aff000 r--p 00000000 00:26 157247922                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKXCAF.so.11
+2ac9c8aff000-2ac9c8b1e000 r-xp 0001d000 00:26 157247922                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKXCAF.so.11
+2ac9c8b1e000-2ac9c8b2d000 r--p 0003c000 00:26 157247922                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKXCAF.so.11
+2ac9c8b2d000-2ac9c8b2e000 ---p 0004b000 00:26 157247922                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKXCAF.so.11
+2ac9c8b2e000-2ac9c8b30000 r--p 0004b000 00:26 157247922                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKXCAF.so.11
+2ac9c8b30000-2ac9c8b32000 rw-p 0004d000 00:26 157247922                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKXCAF.so.11
+2ac9c8b32000-2ac9c8b66000 r--p 00000000 00:26 157247923                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKCAF.so.11
+2ac9c8b66000-2ac9c8bb8000 r-xp 00034000 00:26 157247923                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKCAF.so.11
+2ac9c8bb8000-2ac9c8bd2000 r--p 00086000 00:26 157247923                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKCAF.so.11
+2ac9c8bd2000-2ac9c8bd6000 r--p 0009f000 00:26 157247923                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKCAF.so.11
+2ac9c8bd6000-2ac9c8bd8000 rw-p 000a3000 00:26 157247923                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKCAF.so.11
+2ac9c8bd8000-2ac9c8bd9000 rw-p 00000000 00:00 0 
+2ac9c8bd9000-2ac9c8cbf000 r--p 00000000 00:26 157247924                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKSTEP.so.11
+2ac9c8cbf000-2ac9c8dd9000 r-xp 000e6000 00:26 157247924                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKSTEP.so.11
+2ac9c8dd9000-2ac9c8e29000 r--p 00200000 00:26 157247924                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKSTEP.so.11
+2ac9c8e29000-2ac9c8e2e000 r--p 0024f000 00:26 157247924                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKSTEP.so.11
+2ac9c8e2e000-2ac9c8e39000 rw-p 00254000 00:26 157247924                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKSTEP.so.11
+2ac9c8e39000-2ac9c8e3e000 rw-p 00000000 00:00 0 
+2ac9c8e3e000-2ac9c8e87000 r--p 00000000 00:26 157247925                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKSTEP209.so.11
+2ac9c8e87000-2ac9c8ecc000 r-xp 00049000 00:26 157247925                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKSTEP209.so.11
+2ac9c8ecc000-2ac9c8ef2000 r--p 0008e000 00:26 157247925                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKSTEP209.so.11
+2ac9c8ef2000-2ac9c8ef3000 ---p 000b4000 00:26 157247925                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKSTEP209.so.11
+2ac9c8ef3000-2ac9c8ef7000 r--p 000b4000 00:26 157247925                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKSTEP209.so.11
+2ac9c8ef7000-2ac9c8ef9000 rw-p 000b8000 00:26 157247925                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKSTEP209.so.11
+2ac9c8ef9000-2ac9c8efb000 rw-p 00000000 00:00 0 
+2ac9c8efb000-2ac9c8f3a000 r--p 00000000 00:26 157247926                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKSTEPAttr.so.11
+2ac9c8f3a000-2ac9c8f74000 r-xp 0003f000 00:26 157247926                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKSTEPAttr.so.11
+2ac9c8f74000-2ac9c8f95000 r--p 00079000 00:26 157247926                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKSTEPAttr.so.11
+2ac9c8f95000-2ac9c8f96000 ---p 0009a000 00:26 157247926                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKSTEPAttr.so.11
+2ac9c8f96000-2ac9c8f9a000 r--p 0009a000 00:26 157247926                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKSTEPAttr.so.11
+2ac9c8f9a000-2ac9c8f9b000 rw-p 0009e000 00:26 157247926                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKSTEPAttr.so.11
+2ac9c8f9b000-2ac9c8f9e000 rw-p 00000000 00:00 0 
+2ac9c8f9e000-2ac9c9087000 r--p 00000000 00:26 157247927                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKSTEPBase.so.11
+2ac9c9087000-2ac9c9170000 r-xp 000e9000 00:26 157247927                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKSTEPBase.so.11
+2ac9c9170000-2ac9c91ef000 r--p 001d2000 00:26 157247927                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKSTEPBase.so.11
+2ac9c91ef000-2ac9c91fc000 r--p 00250000 00:26 157247927                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKSTEPBase.so.11
+2ac9c91fc000-2ac9c9200000 rw-p 0025d000 00:26 157247927                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKSTEPBase.so.11
+2ac9c9200000-2ac9c920a000 rw-p 00000000 00:00 0 
+2ac9c920a000-2ac9c92ef000 r--p 00000000 00:26 157247928                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKIGES.so.11
+2ac9c92ef000-2ac9c94ed000 r-xp 000e5000 00:26 157247928                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKIGES.so.11
+2ac9c94ed000-2ac9c9588000 r--p 002e3000 00:26 157247928                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKIGES.so.11
+2ac9c9588000-2ac9c9593000 r--p 0037d000 00:26 157247928                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKIGES.so.11
+2ac9c9593000-2ac9c959d000 rw-p 00388000 00:26 157247928                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKIGES.so.11
+2ac9c959d000-2ac9c95a3000 rw-p 00000000 00:00 0 
+2ac9c95a3000-2ac9c964b000 r--p 00000000 00:26 157247929                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKXSBase.so.11
+2ac9c964b000-2ac9c9767000 r-xp 000a8000 00:26 157247929                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKXSBase.so.11
+2ac9c9767000-2ac9c97ed000 r--p 001c4000 00:26 157247929                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKXSBase.so.11
+2ac9c97ed000-2ac9c97f5000 r--p 00249000 00:26 157247929                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKXSBase.so.11
+2ac9c97f5000-2ac9c97fb000 rw-p 00251000 00:26 157247929                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKXSBase.so.11
+2ac9c97fb000-2ac9c9800000 rw-p 00000000 00:00 0 
+2ac9c9800000-2ac9c9822000 r--p 00000000 00:26 157247930                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKCDF.so.11
+2ac9c9822000-2ac9c984f000 r-xp 00022000 00:26 157247930                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKCDF.so.11
+2ac9c984f000-2ac9c9864000 r--p 0004f000 00:26 157247930                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKCDF.so.11
+2ac9c9864000-2ac9c9866000 r--p 00063000 00:26 157247930                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKCDF.so.11
+2ac9c9866000-2ac9c9868000 rw-p 00065000 00:26 157247930                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKCDF.so.11
+2ac9c9868000-2ac9c986a000 rw-p 00000000 00:00 0 
+2ac9c986a000-2ac9c9876000 r--p 00000000 00:26 157247932                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKSTL.so.11
+2ac9c9876000-2ac9c9883000 r-xp 0000c000 00:26 157247932                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKSTL.so.11
+2ac9c9883000-2ac9c9887000 r--p 00019000 00:26 157247932                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKSTL.so.11
+2ac9c9887000-2ac9c9888000 ---p 0001d000 00:26 157247932                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKSTL.so.11
+2ac9c9888000-2ac9c9889000 r--p 0001d000 00:26 157247932                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKSTL.so.11
+2ac9c9889000-2ac9c988a000 rw-p 0001e000 00:26 157247932                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKSTL.so.11
+2ac9c988a000-2ac9c98a8000 r--p 00000000 00:26 157247933                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKXDESTEP.so.11
+2ac9c98a8000-2ac9c98d1000 r-xp 0001e000 00:26 157247933                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKXDESTEP.so.11
+2ac9c98d1000-2ac9c98db000 r--p 00047000 00:26 157247933                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKXDESTEP.so.11
+2ac9c98db000-2ac9c98dc000 ---p 00051000 00:26 157247933                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKXDESTEP.so.11
+2ac9c98dc000-2ac9c98dd000 r--p 00051000 00:26 157247933                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKXDESTEP.so.11
+2ac9c98dd000-2ac9c98df000 rw-p 00052000 00:26 157247933                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKXDESTEP.so.11
+2ac9c98df000-2ac9c98e5000 r--p 00000000 00:26 157247934                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKXDEIGES.so.11
+2ac9c98e5000-2ac9c98ec000 r-xp 00006000 00:26 157247934                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKXDEIGES.so.11
+2ac9c98ec000-2ac9c98ee000 r--p 0000d000 00:26 157247934                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKXDEIGES.so.11
+2ac9c98ee000-2ac9c98ef000 r--p 0000e000 00:26 157247934                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKXDEIGES.so.11
+2ac9c98ef000-2ac9c98f0000 rw-p 0000f000 00:26 157247934                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKXDEIGES.so.11
+2ac9c98f0000-2ac9c98f1000 rw-p 00000000 00:00 0 
+2ac9c98f1000-2ac9c99c2000 r--p 00000000 00:26 157247935                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKV3d.so.11
+2ac9c99c2000-2ac9c9b88000 r-xp 000d1000 00:26 157247935                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKV3d.so.11
+2ac9c9b88000-2ac9c9c00000 r--p 00297000 00:26 157247935                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKV3d.so.11
+2ac9c9c00000-2ac9c9c01000 ---p 0030f000 00:26 157247935                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKV3d.so.11
+2ac9c9c01000-2ac9c9c0f000 r--p 0030f000 00:26 157247935                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKV3d.so.11
+2ac9c9c0f000-2ac9c9c16000 rw-p 0031d000 00:26 157247935                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKV3d.so.11
+2ac9c9c16000-2ac9c9c1a000 rw-p 00000000 00:00 0 
+2ac9c9c1a000-2ac9c9c33000 r--p 00000000 00:26 157247936                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKService.so.11
+2ac9c9c33000-2ac9c9c4e000 r-xp 00019000 00:26 157247936                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKService.so.11
+2ac9c9c4e000-2ac9c9c5a000 r--p 00034000 00:26 157247936                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKService.so.11
+2ac9c9c5a000-2ac9c9c5b000 ---p 00040000 00:26 157247936                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKService.so.11
+2ac9c9c5b000-2ac9c9c5d000 r--p 00040000 00:26 157247936                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKService.so.11
+2ac9c9c5d000-2ac9c9c5e000 rw-p 00042000 00:26 157247936                  /home/coltonb/JCMsuite_5.2.4/lib/oce/libTKService.so.11
+2ac9c9c5e000-2ac9c9c5f000 rw-p 00000000 00:00 0 
+2ac9c9c5f000-2ac9c9c68000 r--p 00000000 00:26 157247937                  /home/coltonb/JCMsuite_5.2.4/lib/netgen/libnglib.so
+2ac9c9c68000-2ac9c9c6d000 r-xp 00009000 00:26 157247937                  /home/coltonb/JCMsuite_5.2.4/lib/netgen/libnglib.so
+2ac9c9c6d000-2ac9c9c6f000 r--p 0000e000 00:26 157247937                  /home/coltonb/JCMsuite_5.2.4/lib/netgen/libnglib.so
+2ac9c9c6f000-2ac9c9c70000 ---p 00010000 00:26 157247937                  /home/coltonb/JCMsuite_5.2.4/lib/netgen/libnglib.so
+2ac9c9c70000-2ac9c9c71000 r--p 00010000 00:26 157247937                  /home/coltonb/JCMsuite_5.2.4/lib/netgen/libnglib.so
+2ac9c9c71000-2ac9c9c72000 rw-p 00011000 00:26 157247937                  /home/coltonb/JCMsuite_5.2.4/lib/netgen/libnglib.so
+2ac9c9c72000-2ac9c9c73000 rw-p 00000000 00:00 0 
+2ac9c9c73000-2ac9c9c8f000 r--p 00000000 00:26 157247938                  /home/coltonb/JCMsuite_5.2.4/lib/netgen/libocc.so
+2ac9c9c8f000-2ac9c9cd3000 r-xp 0001c000 00:26 157247938                  /home/coltonb/JCMsuite_5.2.4/lib/netgen/libocc.so
+2ac9c9cd3000-2ac9c9cdd000 r--p 00060000 00:26 157247938                  /home/coltonb/JCMsuite_5.2.4/lib/netgen/libocc.so
+2ac9c9cdd000-2ac9c9cdf000 r--p 00069000 00:26 157247938                  /home/coltonb/JCMsuite_5.2.4/lib/netgen/libocc.so
+2ac9c9cdf000-2ac9c9ce1000 rw-p 0006b000 00:26 157247938                  /home/coltonb/JCMsuite_5.2.4/lib/netgen/libocc.so
+2ac9c9ce1000-2ac9c9d07000 r--p 00000000 00:26 157247939                  /home/coltonb/JCMsuite_5.2.4/lib/netgen/libcsg.so
+2ac9c9d07000-2ac9c9d72000 r-xp 00026000 00:26 157247939                  /home/coltonb/JCMsuite_5.2.4/lib/netgen/libcsg.so
+2ac9c9d72000-2ac9c9d83000 r--p 00091000 00:26 157247939                  /home/coltonb/JCMsuite_5.2.4/lib/netgen/libcsg.so
+2ac9c9d83000-2ac9c9d87000 r--p 000a1000 00:26 157247939                  /home/coltonb/JCMsuite_5.2.4/lib/netgen/libcsg.so
+2ac9c9d87000-2ac9c9d88000 rw-p 000a5000 00:26 157247939                  /home/coltonb/JCMsuite_5.2.4/lib/netgen/libcsg.so
+2ac9c9d88000-2ac9c9d89000 rw-p 00000000 00:00 0 
+2ac9c9d89000-2ac9c9d91000 r--p 00000000 00:26 157247940                  /home/coltonb/JCMsuite_5.2.4/lib/netgen/libgeom2d.so
+2ac9c9d91000-2ac9c9d9d000 r-xp 00008000 00:26 157247940                  /home/coltonb/JCMsuite_5.2.4/lib/netgen/libgeom2d.so
+2ac9c9d9d000-2ac9c9da0000 r--p 00014000 00:26 157247940                  /home/coltonb/JCMsuite_5.2.4/lib/netgen/libgeom2d.so
+2ac9c9da0000-2ac9c9da1000 r--p 00016000 00:26 157247940                  /home/coltonb/JCMsuite_5.2.4/lib/netgen/libgeom2d.so
+2ac9c9da1000-2ac9c9da2000 rw-p 00017000 00:26 157247940                  /home/coltonb/JCMsuite_5.2.4/lib/netgen/libgeom2d.so
+2ac9c9da2000-2ac9c9da3000 rw-p 00000000 00:00 0 
+2ac9c9da3000-2ac9c9df6000 r--p 00000000 00:26 157247941                  /home/coltonb/JCMsuite_5.2.4/lib/netgen/libmesh.so
+2ac9c9df6000-2ac9c9f17000 r-xp 00053000 00:26 157247941                  /home/coltonb/JCMsuite_5.2.4/lib/netgen/libmesh.so
+2ac9c9f17000-2ac9c9f3f000 r--p 00174000 00:26 157247941                  /home/coltonb/JCMsuite_5.2.4/lib/netgen/libmesh.so
+2ac9c9f3f000-2ac9c9f40000 ---p 0019c000 00:26 157247941                  /home/coltonb/JCMsuite_5.2.4/lib/netgen/libmesh.so
+2ac9c9f40000-2ac9c9f42000 r--p 0019c000 00:26 157247941                  /home/coltonb/JCMsuite_5.2.4/lib/netgen/libmesh.so
+2ac9c9f42000-2ac9c9f61000 rw-p 0019e000 00:26 157247941                  /home/coltonb/JCMsuite_5.2.4/lib/netgen/libmesh.so
+2ac9c9f61000-2ac9c9f6b000 rw-p 00000000 00:00 0 
+2ac9c9f6b000-2ac9c9f7f000 r--p 00000000 00:26 157247942                  /home/coltonb/JCMsuite_5.2.4/lib/netgen/libinterface.so
+2ac9c9f7f000-2ac9c9fbe000 r-xp 00014000 00:26 157247942                  /home/coltonb/JCMsuite_5.2.4/lib/netgen/libinterface.so
+2ac9c9fbe000-2ac9c9fcc000 r--p 00053000 00:26 157247942                  /home/coltonb/JCMsuite_5.2.4/lib/netgen/libinterface.so
+2ac9c9fcc000-2ac9c9fcd000 ---p 00061000 00:26 157247942                  /home/coltonb/JCMsuite_5.2.4/lib/netgen/libinterface.so
+2ac9c9fcd000-2ac9c9fce000 r--p 00061000 00:26 157247942                  /home/coltonb/JCMsuite_5.2.4/lib/netgen/libinterface.so
+2ac9c9fce000-2ac9c9fcf000 rw-p 00062000 00:26 157247942                  /home/coltonb/JCMsuite_5.2.4/lib/netgen/libinterface.so
+2ac9c9fcf000-2ac9c9fd0000 rw-p 00000000 00:00 0 
+2ac9c9fd0000-2ac9c9fd1000 r--p 00000000 00:26 157247943                  /home/coltonb/JCMsuite_5.2.4/lib/netgen/libvisual.so
+2ac9c9fd1000-2ac9c9fd2000 r-xp 00001000 00:26 157247943                  /home/coltonb/JCMsuite_5.2.4/lib/netgen/libvisual.so
+2ac9c9fd2000-2ac9c9fd3000 r--p 00002000 00:26 157247943                  /home/coltonb/JCMsuite_5.2.4/lib/netgen/libvisual.so
+2ac9c9fd3000-2ac9c9fd4000 r--p 00002000 00:26 157247943                  /home/coltonb/JCMsuite_5.2.4/lib/netgen/libvisual.so
+2ac9c9fd4000-2ac9c9fd5000 rw-p 00003000 00:26 157247943                  /home/coltonb/JCMsuite_5.2.4/lib/netgen/libvisual.so
+2ac9c9fd5000-2ac9c9fd6000 rw-p 00000000 00:00 0 
+2ac9c9fd6000-2ac9c9fe4000 r--p 00000000 00:26 157247944                  /home/coltonb/JCMsuite_5.2.4/lib/netgen/libstl.so
+2ac9c9fe4000-2ac9ca032000 r-xp 0000e000 00:26 157247944                  /home/coltonb/JCMsuite_5.2.4/lib/netgen/libstl.so
+2ac9ca032000-2ac9ca03d000 r--p 0005c000 00:26 157247944                  /home/coltonb/JCMsuite_5.2.4/lib/netgen/libstl.so
+2ac9ca03d000-2ac9ca03e000 ---p 00067000 00:26 157247944                  /home/coltonb/JCMsuite_5.2.4/lib/netgen/libstl.so
+2ac9ca03e000-2ac9ca03f000 r--p 00067000 00:26 157247944                  /home/coltonb/JCMsuite_5.2.4/lib/netgen/libstl.so
+2ac9ca03f000-2ac9ca040000 rw-p 00068000 00:26 157247944                  /home/coltonb/JCMsuite_5.2.4/lib/netgen/libstl.so
+2ac9ca040000-2ac9ca05e000 r--p 00000000 00:26 157247996                  /home/coltonb/JCMsuite_5.2.4/lib/libsmumps.so
+2ac9ca05e000-2ac9ca22d000 r-xp 0001e000 00:26 157247996                  /home/coltonb/JCMsuite_5.2.4/lib/libsmumps.so
+2ac9ca22d000-2ac9ca269000 r--p 001ed000 00:26 157247996                  /home/coltonb/JCMsuite_5.2.4/lib/libsmumps.so
+2ac9ca269000-2ac9ca26a000 ---p 00229000 00:26 157247996                  /home/coltonb/JCMsuite_5.2.4/lib/libsmumps.so
+2ac9ca26a000-2ac9ca26e000 r--p 00229000 00:26 157247996                  /home/coltonb/JCMsuite_5.2.4/lib/libsmumps.so
+2ac9ca26e000-2ac9ca270000 rw-p 0022d000 00:26 157247996                  /home/coltonb/JCMsuite_5.2.4/lib/libsmumps.so
+2ac9ca270000-2ac9ca276000 rw-p 00000000 00:00 0 
+2ac9ca276000-2ac9ca293000 r--p 00000000 00:26 157247994                  /home/coltonb/JCMsuite_5.2.4/lib/libdmumps.so
+2ac9ca293000-2ac9ca462000 r-xp 0001d000 00:26 157247994                  /home/coltonb/JCMsuite_5.2.4/lib/libdmumps.so
+2ac9ca462000-2ac9ca49e000 r--p 001ec000 00:26 157247994                  /home/coltonb/JCMsuite_5.2.4/lib/libdmumps.so
+2ac9ca49e000-2ac9ca49f000 ---p 00228000 00:26 157247994                  /home/coltonb/JCMsuite_5.2.4/lib/libdmumps.so
+2ac9ca49f000-2ac9ca4a3000 r--p 00228000 00:26 157247994                  /home/coltonb/JCMsuite_5.2.4/lib/libdmumps.so
+2ac9ca4a3000-2ac9ca4a5000 rw-p 0022c000 00:26 157247994                  /home/coltonb/JCMsuite_5.2.4/lib/libdmumps.so
+2ac9ca4a5000-2ac9ca4ad000 rw-p 00000000 00:00 0 
+2ac9ca4ad000-2ac9ca4cb000 r--p 00000000 00:26 157247993                  /home/coltonb/JCMsuite_5.2.4/lib/libcmumps.so
+2ac9ca4cb000-2ac9ca6a2000 r-xp 0001e000 00:26 157247993                  /home/coltonb/JCMsuite_5.2.4/lib/libcmumps.so
+2ac9ca6a2000-2ac9ca6df000 r--p 001f5000 00:26 157247993                  /home/coltonb/JCMsuite_5.2.4/lib/libcmumps.so
+2ac9ca6df000-2ac9ca6e3000 r--p 00231000 00:26 157247993                  /home/coltonb/JCMsuite_5.2.4/lib/libcmumps.so
+2ac9ca6e3000-2ac9ca6e5000 rw-p 00235000 00:26 157247993                  /home/coltonb/JCMsuite_5.2.4/lib/libcmumps.so
+2ac9ca6e5000-2ac9ca6eb000 rw-p 00000000 00:00 0 
+2ac9ca6eb000-2ac9ca709000 r--p 00000000 00:26 157247997                  /home/coltonb/JCMsuite_5.2.4/lib/libzmumps.so
+2ac9ca709000-2ac9ca8e1000 r-xp 0001e000 00:26 157247997                  /home/coltonb/JCMsuite_5.2.4/lib/libzmumps.so
+2ac9ca8e1000-2ac9ca91e000 r--p 001f6000 00:26 157247997                  /home/coltonb/JCMsuite_5.2.4/lib/libzmumps.so
+2ac9ca91e000-2ac9ca922000 r--p 00232000 00:26 157247997                  /home/coltonb/JCMsuite_5.2.4/lib/libzmumps.so
+2ac9ca922000-2ac9ca924000 rw-p 00236000 00:26 157247997                  /home/coltonb/JCMsuite_5.2.4/lib/libzmumps.so
+2ac9ca924000-2ac9ca92d000 rw-p 00000000 00:00 0 
+2ac9ca92d000-2ac9ca92e000 r--p 00000000 00:26 157247903                  /home/coltonb/JCMsuite_5.2.4/lib/oce/dummyGL/libGL.so.1
+2ac9ca92e000-2ac9ca92f000 r-xp 00001000 00:26 157247903                  /home/coltonb/JCMsuite_5.2.4/lib/oce/dummyGL/libGL.so.1
+2ac9ca92f000-2ac9ca930000 r--p 00002000 00:26 157247903                  /home/coltonb/JCMsuite_5.2.4/lib/oce/dummyGL/libGL.so.1
+2ac9ca930000-2ac9ca931000 r--p 00002000 00:26 157247903                  /home/coltonb/JCMsuite_5.2.4/lib/oce/dummyGL/libGL.so.1
+2ac9ca931000-2ac9ca932000 rw-p 00003000 00:26 157247903                  /home/coltonb/JCMsuite_5.2.4/lib/oce/dummyGL/libGL.so.1
+2ac9ca932000-2ac9ca940000 r--p 00000000 00:26 157247970                  /home/coltonb/JCMsuite_5.2.4/lib/libfreetype.so.6
+2ac9ca940000-2ac9ca99e000 r-xp 0000e000 00:26 157247970                  /home/coltonb/JCMsuite_5.2.4/lib/libfreetype.so.6
+2ac9ca99e000-2ac9ca9c1000 r--p 0006c000 00:26 157247970                  /home/coltonb/JCMsuite_5.2.4/lib/libfreetype.so.6
+2ac9ca9c1000-2ac9ca9c7000 r--p 0008e000 00:26 157247970                  /home/coltonb/JCMsuite_5.2.4/lib/libfreetype.so.6
+2ac9ca9c7000-2ac9ca9c8000 rw-p 00094000 00:26 157247970                  /home/coltonb/JCMsuite_5.2.4/lib/libfreetype.so.6
+2ac9ca9c8000-2ac9ca9ca000 rw-p 00000000 00:00 0 
+2ac9ca9ca000-2ac9ca9cc000 r--p 00000000 00:26 157248025                  /home/coltonb/JCMsuite_5.2.4/lib/libz.so.1
+2ac9ca9cc000-2ac9ca9dc000 r-xp 00002000 00:26 157248025                  /home/coltonb/JCMsuite_5.2.4/lib/libz.so.1
+2ac9ca9dc000-2ac9ca9e2000 r--p 00012000 00:26 157248025                  /home/coltonb/JCMsuite_5.2.4/lib/libz.so.1
+2ac9ca9e2000-2ac9ca9e3000 r--p 00017000 00:26 157248025                  /home/coltonb/JCMsuite_5.2.4/lib/libz.so.1
+2ac9ca9e3000-2ac9ca9e4000 rw-p 00018000 00:26 157248025                  /home/coltonb/JCMsuite_5.2.4/lib/libz.so.1
+2ac9ca9e4000-2ac9ca9e5000 rw-p 00000000 00:00 0 
+2ac9ca9e5000-2ac9ca9f0000 r--p 00000000 00:26 157247995                  /home/coltonb/JCMsuite_5.2.4/lib/libmumps_common.so
+2ac9ca9f0000-2ac9caa3c000 r-xp 0000b000 00:26 157247995                  /home/coltonb/JCMsuite_5.2.4/lib/libmumps_common.so
+2ac9caa3c000-2ac9caa45000 r--p 00057000 00:26 157247995                  /home/coltonb/JCMsuite_5.2.4/lib/libmumps_common.so
+2ac9caa45000-2ac9caa46000 ---p 00060000 00:26 157247995                  /home/coltonb/JCMsuite_5.2.4/lib/libmumps_common.so
+2ac9caa46000-2ac9caa47000 r--p 00060000 00:26 157247995                  /home/coltonb/JCMsuite_5.2.4/lib/libmumps_common.so
+2ac9caa47000-2ac9caa48000 rw-p 00061000 00:26 157247995                  /home/coltonb/JCMsuite_5.2.4/lib/libmumps_common.so
+2ac9caa48000-2ac9caa4b000 rw-p 00000000 00:00 0 
+2ac9caa4b000-2ac9cacc1000 r-xp 00000000 00:26 157247964                  /home/coltonb/JCMsuite_5.2.4/lib/libgfortran.so.5
+2ac9cacc1000-2ac9caec0000 ---p 00276000 00:26 157247964                  /home/coltonb/JCMsuite_5.2.4/lib/libgfortran.so.5
+2ac9caec0000-2ac9caec1000 r--p 00275000 00:26 157247964                  /home/coltonb/JCMsuite_5.2.4/lib/libgfortran.so.5
+2ac9caec1000-2ac9caec3000 rw-p 00276000 00:26 157247964                  /home/coltonb/JCMsuite_5.2.4/lib/libgfortran.so.5
+2ac9caec3000-2ac9caefe000 r-xp 00000000 00:26 157247966                  /home/coltonb/JCMsuite_5.2.4/lib/libquadmath.so.0
+2ac9caefe000-2ac9cb0fd000 ---p 0003b000 00:26 157247966                  /home/coltonb/JCMsuite_5.2.4/lib/libquadmath.so.0
+2ac9cb0fd000-2ac9cb0fe000 r--p 0003a000 00:26 157247966                  /home/coltonb/JCMsuite_5.2.4/lib/libquadmath.so.0
+2ac9cb0fe000-2ac9cb0ff000 rw-p 0003b000 00:26 157247966                  /home/coltonb/JCMsuite_5.2.4/lib/libquadmath.so.0
+2ac9cb0ff000-2ac9cb100000 rw-p 00000000 00:00 0 
+2ac9cb100000-2ac9cb10f000 r-xp 00000000 08:01 6294597                    /usr/lib64/libbz2.so.1.0.6
+2ac9cb10f000-2ac9cb30e000 ---p 0000f000 08:01 6294597                    /usr/lib64/libbz2.so.1.0.6
+2ac9cb30e000-2ac9cb30f000 r--p 0000e000 08:01 6294597                    /usr/lib64/libbz2.so.1.0.6
+2ac9cb30f000-2ac9cb310000 rw-p 0000f000 08:01 6294597                    /usr/lib64/libbz2.so.1.0.6
+2ac9cb310000-2ac9cb315000 r--p 00000000 00:26 157248024                  /home/coltonb/JCMsuite_5.2.4/lib/libpng16.so.16
+2ac9cb315000-2ac9cb348000 r-xp 00005000 00:26 157248024                  /home/coltonb/JCMsuite_5.2.4/lib/libpng16.so.16
+2ac9cb348000-2ac9cb352000 r--p 00038000 00:26 157248024                  /home/coltonb/JCMsuite_5.2.4/lib/libpng16.so.16
+2ac9cb352000-2ac9cb353000 r--p 00041000 00:26 157248024                  /home/coltonb/JCMsuite_5.2.4/lib/libpng16.so.16
+2ac9cb353000-2ac9cb354000 rw-p 00042000 00:26 157248024                  /home/coltonb/JCMsuite_5.2.4/lib/libpng16.so.16
+2ac9cb354000-2ac9cb367000 rw-p 00000000 00:00 0 
+2ac9cb367000-2ac9cb368000 ---p 00000000 00:00 0 
+2ac9cb368000-2ac9cb568000 rwxp 00000000 00:00 0 
+2ac9cb568000-2ac9cb574000 r-xp 00000000 08:01 6294337                    /usr/lib64/libnss_files-2.17.so
+2ac9cb574000-2ac9cb773000 ---p 0000c000 08:01 6294337                    /usr/lib64/libnss_files-2.17.so
+2ac9cb773000-2ac9cb774000 r--p 0000b000 08:01 6294337                    /usr/lib64/libnss_files-2.17.so
+2ac9cb774000-2ac9cb775000 rw-p 0000c000 08:01 6294337                    /usr/lib64/libnss_files-2.17.so
+2ac9cb775000-2ac9cb77b000 rw-p 00000000 00:00 0 
+2ac9cb77b000-2ac9cb783000 r-xp 00000000 08:01 6316327                    /usr/lib64/libnss_sss.so.2
+2ac9cb783000-2ac9cb982000 ---p 00008000 08:01 6316327                    /usr/lib64/libnss_sss.so.2
+2ac9cb982000-2ac9cb983000 r--p 00007000 08:01 6316327                    /usr/lib64/libnss_sss.so.2
+2ac9cb983000-2ac9cb984000 rw-p 00008000 08:01 6316327                    /usr/lib64/libnss_sss.so.2
+2ac9cb984000-2ac9cb985000 ---p 00000000 00:00 0 
+2ac9cb985000-2ac9cbb85000 rwxp 00000000 00:00 0 
+2ac9cbb85000-2ac9cbb86000 ---p 00000000 00:00 0 
+2ac9cbb86000-2ac9cbd86000 rwxp 00000000 00:00 0 
+2ac9cbd86000-2ac9cbd87000 ---p 00000000 00:00 0 
+2ac9cbd87000-2ac9cbf87000 rwxp 00000000 00:00 0 
+2ac9cc000000-2ac9cc021000 rw-p 00000000 00:00 0 
+2ac9cc021000-2ac9d0000000 ---p 00000000 00:00 0 
+2ac9d0000000-2ac9d00f8000 r--p 00000000 00:26 157247973                  /home/coltonb/JCMsuite_5.2.4/lib/libmkl_avx2.so.2
+2ac9d00f8000-2ac9d2c51000 r-xp 000f8000 00:26 157247973                  /home/coltonb/JCMsuite_5.2.4/lib/libmkl_avx2.so.2
+2ac9d2c51000-2ac9d2ea5000 r--p 02c51000 00:26 157247973                  /home/coltonb/JCMsuite_5.2.4/lib/libmkl_avx2.so.2
+2ac9d2ea5000-2ac9d2ea6000 ---p 02ea5000 00:26 157247973                  /home/coltonb/JCMsuite_5.2.4/lib/libmkl_avx2.so.2
+2ac9d2ea6000-2ac9d2ead000 r--p 02ea5000 00:26 157247973                  /home/coltonb/JCMsuite_5.2.4/lib/libmkl_avx2.so.2
+2ac9d2ead000-2ac9d2ebb000 rw-p 02eac000 00:26 157247973                  /home/coltonb/JCMsuite_5.2.4/lib/libmkl_avx2.so.2
+2ac9d2ebb000-2ac9d2ebd000 rw-p 00000000 00:00 0 
+2ac9d2ebd000-2ac9d2f19000 r--p 00000000 00:26 157247985                  /home/coltonb/JCMsuite_5.2.4/lib/libmkl_vml_avx2.so.2
+2ac9d2f19000-2ac9d377d000 r-xp 0005c000 00:26 157247985                  /home/coltonb/JCMsuite_5.2.4/lib/libmkl_vml_avx2.so.2
+2ac9d377d000-2ac9d3c8d000 r--p 008c0000 00:26 157247985                  /home/coltonb/JCMsuite_5.2.4/lib/libmkl_vml_avx2.so.2
+2ac9d3c8d000-2ac9d3c91000 r--p 00dcf000 00:26 157247985                  /home/coltonb/JCMsuite_5.2.4/lib/libmkl_vml_avx2.so.2
+2ac9d3c91000-2ac9d3caa000 rw-p 00dd3000 00:26 157247985                  /home/coltonb/JCMsuite_5.2.4/lib/libmkl_vml_avx2.so.2
+2ac9d3caa000-2ac9d3cab000 rw-p 00000000 00:00 0 
+2ac9d3cab000-2ac9d4516000 r--s 00000000 08:01 8265692                    /var/lib/sss/mc/passwd
+2ac9d4516000-2ac9d4517000 ---p 00000000 00:00 0 
+2ac9d4517000-2ac9d4717000 rwxp 00000000 00:00 0 
+2ac9d4717000-2ac9d4718000 ---p 00000000 00:00 0 
+2ac9d4718000-2ac9d4918000 rwxp 00000000 00:00 0 
+2ac9d4918000-2ac9d4919000 ---p 00000000 00:00 0 
+2ac9d4919000-2ac9d4b19000 rwxp 00000000 00:00 0 
+2ac9d4b19000-2ac9d4b1a000 ---p 00000000 00:00 0 
+2ac9d4b1a000-2ac9d4d1a000 rwxp 00000000 00:00 0 
+2ac9d4d1a000-2ac9d4d1b000 ---p 00000000 00:00 0 
+2ac9d4d1b000-2ac9d4f1b000 rwxp 00000000 00:00 0 
+2ac9d4f1b000-2ac9d4f1c000 ---p 00000000 00:00 0 
+2ac9d4f1c000-2ac9d511c000 rwxp 00000000 00:00 0 
+2ac9d511c000-2ac9d511d000 ---p 00000000 00:00 0 
+2ac9d511d000-2ac9d531d000 rwxp 00000000 00:00 0 
+2ac9d531d000-2ac9d531e000 ---p 00000000 00:00 0 
+2ac9d531e000-2ac9d551e000 rwxp 00000000 00:00 0 
+2ac9d551e000-2ac9d551f000 ---p 00000000 00:00 0 
+2ac9d551f000-2ac9d571f000 rwxp 00000000 00:00 0 
+2ac9d571f000-2ac9d5720000 ---p 00000000 00:00 0 
+2ac9d5720000-2ac9d5920000 rwxp 00000000 00:00 0 
+2ac9d5920000-2ac9d5921000 ---p 00000000 00:00 0 
+2ac9d5921000-2ac9d5b21000 rwxp 00000000 00:00 0 
+2ac9d5b21000-2ac9d5b22000 ---p 00000000 00:00 0 
+2ac9d5b22000-2ac9d5d22000 rwxp 00000000 00:00 0 
+2ac9d5d22000-2ac9d5d23000 ---p 00000000 00:00 0 
+2ac9d5d23000-2ac9d5f23000 rwxp 00000000 00:00 0 
+2ac9d5f23000-2ac9d5f24000 ---p 00000000 00:00 0 
+2ac9d5f24000-2ac9d6124000 rwxp 00000000 00:00 0 
+2ac9d6124000-2ac9d6125000 ---p 00000000 00:00 0 
+2ac9d6125000-2ac9d6325000 rwxp 00000000 00:00 0 
+2ac9d6325000-2ac9d6326000 ---p 00000000 00:00 0 
+2ac9d6326000-2ac9d6526000 rwxp 00000000 00:00 0 
+2ac9d6526000-2ac9d6527000 ---p 00000000 00:00 0 
+2ac9d6527000-2ac9d6727000 rwxp 00000000 00:00 0 
+2ac9d6727000-2ac9d6728000 ---p 00000000 00:00 0 
+2ac9d6728000-2ac9d6928000 rwxp 00000000 00:00 0 
+2ac9d6928000-2ac9d6929000 ---p 00000000 00:00 0 
+2ac9d6929000-2ac9d6b29000 rwxp 00000000 00:00 0 
+2ac9d6b29000-2ac9d6b2a000 ---p 00000000 00:00 0 
+2ac9d6b2a000-2ac9d6d2a000 rwxp 00000000 00:00 0 
+2ac9d6d2a000-2ac9d6d2b000 ---p 00000000 00:00 0 
+2ac9d6d2b000-2ac9d6f2b000 rwxp 00000000 00:00 0 
+2ac9d6f2b000-2ac9d6f2c000 ---p 00000000 00:00 0 
+2ac9d6f2c000-2ac9d712c000 rwxp 00000000 00:00 0 
+2ac9d712c000-2ac9d712d000 ---p 00000000 00:00 0 
+2ac9d712d000-2ac9d732d000 rwxp 00000000 00:00 0 
+2ac9d732d000-2ac9d732e000 ---p 00000000 00:00 0 
+2ac9d732e000-2ac9d752e000 rwxp 00000000 00:00 0 
+2ac9d752e000-2ac9d752f000 ---p 00000000 00:00 0 
+2ac9d752f000-2ac9d772f000 rwxp 00000000 00:00 0 
+2ac9d772f000-2ac9d7ed4000 rw-p 00000000 00:00 0 
+2ac9d8000000-2ac9d9b18000 rw-p 00000000 00:00 0 
+2ac9d9b18000-2ac9dc000000 ---p 00000000 00:00 0 
+2ac9dc000000-2ac9ddb18000 rw-p 00000000 00:00 0 
+2ac9ddb18000-2ac9e0000000 ---p 00000000 00:00 0 
+2ac9e0000000-2ac9e1b18000 rw-p 00000000 00:00 0 
+2ac9e1b18000-2ac9e4000000 ---p 00000000 00:00 0 
+2ac9e4000000-2ac9e5b18000 rw-p 00000000 00:00 0 
+2ac9e5b18000-2ac9e8000000 ---p 00000000 00:00 0 
+2ac9e8000000-2ac9e9b18000 rw-p 00000000 00:00 0 
+2ac9e9b18000-2ac9ec000000 ---p 00000000 00:00 0 
+2ac9ec000000-2ac9edb18000 rw-p 00000000 00:00 0 
+2ac9edb18000-2ac9f0000000 ---p 00000000 00:00 0 
+2ac9f0000000-2ac9f1b18000 rw-p 00000000 00:00 0 
+2ac9f1b18000-2ac9f4000000 ---p 00000000 00:00 0 
+2ac9f4000000-2ac9f5b18000 rw-p 00000000 00:00 0 
+2ac9f5b18000-2ac9f8000000 ---p 00000000 00:00 0 
+2ac9f8000000-2ac9f9b18000 rw-p 00000000 00:00 0 
+2ac9f9b18000-2ac9fc000000 ---p 00000000 00:00 0 
+2ac9fc000000-2ac9fdb18000 rw-p 00000000 00:00 0 
+2ac9fdb18000-2aca00000000 ---p 00000000 00:00 0 
+2aca00000000-2aca01b18000 rw-p 00000000 00:00 0 
+2aca01b18000-2aca04000000 ---p 00000000 00:00 0 
+2aca04000000-2aca05b18000 rw-p 00000000 00:00 0 
+2aca05b18000-2aca08000000 ---p 00000000 00:00 0 
+2aca08000000-2aca09b18000 rw-p 00000000 00:00 0 
+2aca09b18000-2aca0c000000 ---p 00000000 00:00 0 
+2aca0c000000-2aca0db18000 rw-p 00000000 00:00 0 
+2aca0db18000-2aca10000000 ---p 00000000 00:00 0 
+2aca10000000-2aca11b18000 rw-p 00000000 00:00 0 
+2aca11b18000-2aca14000000 ---p 00000000 00:00 0 
+2aca14000000-2aca15b18000 rw-p 00000000 00:00 0 
+2aca15b18000-2aca18000000 ---p 00000000 00:00 0 
+2aca18000000-2aca19b18000 rw-p 00000000 00:00 0 
+2aca19b18000-2aca1c000000 ---p 00000000 00:00 0 
+2aca1c000000-2aca1db18000 rw-p 00000000 00:00 0 
+2aca1db18000-2aca20000000 ---p 00000000 00:00 0 
+2aca20000000-2aca21b18000 rw-p 00000000 00:00 0 
+2aca21b18000-2aca24000000 ---p 00000000 00:00 0 
+2aca24000000-2aca25b18000 rw-p 00000000 00:00 0 
+2aca25b18000-2aca28000000 ---p 00000000 00:00 0 
+2aca28000000-2aca29b18000 rw-p 00000000 00:00 0 
+2aca29b18000-2aca2c000000 ---p 00000000 00:00 0 
+2aca2c000000-2aca2db18000 rw-p 00000000 00:00 0 
+2aca2db18000-2aca30000000 ---p 00000000 00:00 0 
+2aca30000000-2aca31b18000 rw-p 00000000 00:00 0 
+2aca31b18000-2aca34000000 ---p 00000000 00:00 0 
+2aca34000000-2aca35b18000 rw-p 00000000 00:00 0 
+2aca35b18000-2aca38000000 ---p 00000000 00:00 0 
+2aca38000000-2aca39b18000 rw-p 00000000 00:00 0 
+2aca39b18000-2aca3c000000 ---p 00000000 00:00 0 
+2aca3c000000-2aca3db18000 rw-p 00000000 00:00 0 
+2aca3db18000-2aca40000000 ---p 00000000 00:00 0 
+2aca40000000-2aca41b18000 rw-p 00000000 00:00 0 
+2aca41b18000-2aca44000000 ---p 00000000 00:00 0 
+7ffeee878000-7ffeee8d4000 rwxp 00000000 00:00 0                          [stack]
+7ffeee8d4000-7ffeee8d8000 rw-p 00000000 00:00 0 
+7ffeee9d6000-7ffeee9d8000 r-xp 00000000 00:00 0                          [vdso]
+ffffffffff600000-ffffffffff601000 r-xp 00000000 00:00 0                  [vsyscall]
+
+
+*** Error:  *** 
+
+------------------------------------------------------
+Running PBS epilogue script    - 04-Mar-2024 03:35:57
+------------------------------------------------------
+Checking node smic382 (MS)
+Checking node smic382 ; cleared cache ; ok
+------------------------------------------------------
+Concluding PBS epilogue script - 04-Mar-2024 03:35:59
+------------------------------------------------------
+Exit Status:     1
+Job ID:          1052857.smic3
+Username:        coltonb
+Group:           Users
+Job Name:        Gammadion
+Session Id:      11872
+Resource Limits: ncpus=1,neednodes=1:ppn=28,nodes=1:ppn=28,walltime=10:00:00
+Resources Used:  cput=00:00:11,mem=0kb,vmem=0kb,walltime=00:00:10
+Queue Used:      bigmem
+Account String:  hpc_mcpeak12
+Node:            smic382
+Process id:      12808
+------------------------------------------------------
