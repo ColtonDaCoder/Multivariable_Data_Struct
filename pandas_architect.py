@@ -176,6 +176,36 @@ def getXY(df, x_name, y_name):
         Y[int(element)] = None
     return list(X.keys()), list(Y.keys())
 
+
+file = "MM_Spectrum_Ag_TS_RH_gammadion_per_AOI20_pitch840_arm120_t50/Au_on_Au_Gammadion_fe2_MSL500.csv"
+
+df = pd.read_csv(file)
+x, y = getXY(df, 'azi', 'wvl')
+X = []
+Y = []
+Y2 = []
+for index, row in df.iterrows():
+    X.append(row['wvl'])
+    Y.append(ast.literal_eval(row['reflected flux'])[0])
+    Y2.append(ast.literal_eval(row['reflected flux'])[1])
+plt.plot(X,Y, 'ro')
+plt.plot(X,Y2, 'bo')
+plt.title("AOI: 60, AZI: 22, 450 thick Au Gammadion on Au")
+plt.xlabel("wvl (nm)")
+plt.ylabel("reflected flux w/o PowerFluxScaling")
+plt.show()
+exit()
+print(df)
+exit()
+for val in y:
+    df
+print(x,y)
+
+exit()
+X, Y, Z = get_dmm(df, x, y, 'azi','wvl')
+
+
+
 file = "Far_field_MIR_60AOI_CaF2/high_far_field_60AOI_chiral.csv"
 
 df = pd.read_csv(file)

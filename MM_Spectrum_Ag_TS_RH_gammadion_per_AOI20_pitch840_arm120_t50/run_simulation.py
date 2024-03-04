@@ -97,7 +97,7 @@ for wvl in WVL:
             'reflected flux' : [[P_s_r, P_p_r]]
     }
     set.append(entry)
-    set.save_csv('Au_on_Au_Gammadion_fe2_MSL500.csv')
+    set.save_csv('Au_on_Au_Gammadion_fe2_MSL500_powerfluxscaling.csv')
 
 toc = time.time() # use time() not clock() on linux system  
 t = toc-tic

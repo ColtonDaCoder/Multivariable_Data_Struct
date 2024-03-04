@@ -50,7 +50,7 @@ SourceBag {
         ThetaPhi = [%(AOI)e 0]
 	Incidence = FromAbove
         SP = [1 0]
-	#PowerFluxScaling=UnitNormal
+	PowerFluxScaling=UnitNormal
       }
     }
   }
@@ -63,7 +63,7 @@ SourceBag {
         ThetaPhi = [%(AOI)e 0]
 	Incidence = FromAbove
 	SP = [0 1]
-	#PowerFluxScaling=UnitNormal
+	PowerFluxScaling=UnitNormal
       }
     }
   }
