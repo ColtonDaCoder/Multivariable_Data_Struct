@@ -47,7 +47,7 @@ keys['delta_k'] = (2*np.pi)/(20*keys['pitch']*1e-9) # For the discritization of 
 # material properties
 keys['n_3'] = 1.00 # index refraction of Air
     
-Au_nk = np.loadtxt('../data/Au_Babar_micron.nk') # You would need to change this to the silver data file I will send you
+Au_nk = np.loadtxt('data/Au_Babar_micron.nk') # You would need to change this to the silver data file I will send you
 wl_Au_data = []; n_Au_real = []; n_Au_imag = [] ### ALUMINUM NOT GOLD!
 for data in Au_nk:
     wl_Au_data.append(data[0]*1e-6) # e-10 for [ang], e-9 for [nm], e-6 for [um]

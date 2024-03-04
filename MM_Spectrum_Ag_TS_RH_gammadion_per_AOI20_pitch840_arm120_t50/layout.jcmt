@@ -16,6 +16,18 @@ Layout {
         BoundaryClass = %(boundary)s
                          }
                  }  
+Extrusion {
+  MeshOptions {
+    MaximumSidelengthZ = 450
+  }
+  LayerInterface {
+    BoundaryClass = Transparent
+  }
+  Layer {
+    Thickness = %(film)e
+    DomainId = 2
+  }
+}
 } 
  
 
@@ -102,7 +114,7 @@ Polygon {
          MaximumSidelength = %(MSL)e
         }
 	  CornerRounding {
-          Radius = 20
+          Radius = 180
           NPoints = 8
         }
 
@@ -116,7 +128,7 @@ Polygon {
     }
     
     MeshOptions {
-      MaximumSidelengthZ = 50
+      MaximumSidelengthZ = 450
       
         
     }    
@@ -125,8 +137,8 @@ Polygon {
 
     Layer {
       MeshOptions {
-        MaximumSidelengthZLower = 5
-        MaximumSidelengthZUpper = 5
+        MaximumSidelengthZLower = 45
+        MaximumSidelengthZUpper = 45
       }
       
       Thickness = %(structure_thickness_woZrounding)e
@@ -248,11 +260,11 @@ Layout {
 
   Extrusion {
     MeshOptions {
-      MaximumSidelengthZ = 50
+      MaximumSidelengthZ = 450
     }    
 
     Layer {
-      Thickness = 150
+      Thickness = 1350
       DomainId = 3
     }
     LayerInterface {
