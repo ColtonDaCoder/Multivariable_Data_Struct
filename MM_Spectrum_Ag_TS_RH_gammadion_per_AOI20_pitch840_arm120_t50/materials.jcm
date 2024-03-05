@@ -4,7 +4,7 @@
 Material { 
   Name = "Al Film" 
   Id = 2
-  RelPermittivity = (-2936.99049454197, 407.410697470584)
+  RelPermittivity = (-5532.39191989362, 1089.50827970845)
   RelPermeability = 1.0
 }
 Material { 
@@ -16,6 +16,6 @@ Material {
 Material { 
   Name = "Au" # Nanostructure Metal
   Id = 4
-  RelPermittivity = (-2936.99049454197, 407.410697470584)
+  RelPermittivity = (-5532.39191989362, 1089.50827970845)
   RelPermeability = 1.0
 }
