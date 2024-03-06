@@ -10,8 +10,8 @@ jcmwave.set_num_threads(options.threads)
 
 tic = time.time() # use time() not clock() on linux system
 AOI = 60
-AZI = [0, 45]
-WVL = [i*70+4000 for i in range(101)]
+AZI = [0, 22,45]
+WVL = [i*25+3000 for i in range(41)]
 aoi = AOI
 
 set = Structure(columns=['azi','aoi','wvl','pitch','mm', 'dmm','reflected flux'])
@@ -97,7 +97,7 @@ for azi in AZI:
                 'reflected flux' : [[P_s_r, P_p_r]]
         }
         set.append(entry)
-        set.save_csv('Au_on_Au_Gammadion_fe2_MSL500_azi0_45.csv')
+        set.save_csv('Au_on_Au_Gammadion_fe2_MSL500_azi0_22_45_low_wvl.csv')
 
     toc = time.time() # use time() not clock() on linux system  
     t = toc-tic

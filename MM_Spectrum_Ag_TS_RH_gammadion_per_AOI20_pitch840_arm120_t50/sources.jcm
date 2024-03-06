@@ -8,7 +8,7 @@
 #	SP = [(1, 0), (0, 1)]
 #        ThetaPhi = [20 0]
 #	    Incidence = FromAbove
-#	    Lambda0 = 1.1e-05
+#	    Lambda0 = 4e-06
 #      }
 #    }
 #  }
@@ -20,7 +20,7 @@
 #        SP = [(1, 0), (0, -1)]
 #	    ThetaPhi=[20 0]
 #	    Incidence = FromAbove
-#	    Lambda0 = 1.1e-05
+#	    Lambda0 = 4e-06
 #      }
 #    }
 #  }
@@ -32,7 +32,7 @@ SourceBag {
   Source {
     ElectricFieldStrength {
       PlaneWave {
-        Lambda0 = 1.1e-05
+        Lambda0 = 4e-06
         ThetaPhi = [60 0]
 	Incidence = FromAbove
         SP = [1 0]
@@ -45,7 +45,7 @@ SourceBag {
   Source {
     ElectricFieldStrength {
       PlaneWave {
-        Lambda0 = 1.1e-05
+        Lambda0 = 4e-06
         ThetaPhi = [60 0]
 	Incidence = FromAbove
 	SP = [0 1]

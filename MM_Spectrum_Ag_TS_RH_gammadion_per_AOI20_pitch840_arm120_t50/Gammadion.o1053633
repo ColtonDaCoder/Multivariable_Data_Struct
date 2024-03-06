@@ -1,0 +1,300 @@
+--------------------------------------
+Running PBS prologue script
+--------------------------------------
+User and Job Data:
+--------------------------------------
+Job ID:    1053633.smic3
+Username:  coltonb
+Group:     Users
+Date:      05-Mar-2024 10:11
+Node:      smic381 (3290)
+--------------------------------------
+PBS has allocated the following nodes:
+
+smic381
+
+A total of 28 processors on 1 nodes allocated
+---------------------------------------------
+Check nodes and clean them of stray processes
+---------------------------------------------
+Checking node smic381 10:11:12 
+Done clearing all the allocated nodes
+------------------------------------------------------
+Concluding PBS prologue script - 05-Mar-2024 10:11:12
+------------------------------------------------------
+Loading mvapich2/2.3.3/intel-19.0.5
+  Loading requirement: intel/19.0.5
+JOBS_PER_NODE=1
+/ddnA/work/coltonb/Multivariable_Data_Struct/MM_Spectrum_Ag_TS_RH_gammadion_per_AOI20_pitch840_arm120_t50/run_simulation.py:3: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
+  import jcmwave,time,imp,shutil,os
+Wavelength: 3000
+[0, 0, -2094395.1023931953]
+Wavelength: 3025
+[0, 0, -2077086.0519601936]
+Wavelength: 3050
+[0, 0, -2060060.7564523234]
+Wavelength: 3075
+[0, 0, -2043312.2950177514]
+Wavelength: 3100
+[0, 0, -2026833.9700579308]
+Wavelength: 3125
+[0, 0, -2010619.2982974674]
+Wavelength: 3150
+[0, 0, -1994662.0022792334]
+Wavelength: 3175
+[0, 0, -1978956.0022612868]
+Wavelength: 3200
+[0, 0, -1963495.4084936206]
+Wavelength: 3225
+[0, 0, -1948274.5138541353]
+Wavelength: 3250
+[0, 0, -1933287.7868244878]
+Wavelength: 3275
+[0, 0, -1918529.8647876596]
+Wavelength: 3300
+[0, 0, -1903995.5476301776]
+Wavelength: 3325
+[0, 0, -1889679.791632958]
+Wavelength: 3350
+[0, 0, -1875577.7036356973]
+Wavelength: 3375
+[0, 0, -1861684.535460618]
+Wavelength: 3400
+[0, 0, -1847995.6785822313]
+Wavelength: 3425
+[0, 0, -1834506.659030536]
+Wavelength: 3450
+[0, 0, -1821213.1325158218]
+Wavelength: 3475
+[0, 0, -1808110.8797639096]
+Wavelength: 3500
+[0, 0, -1795195.8020513102]
+Wavelength: 3525
+[0, 0, -1782463.916930379]
+Wavelength: 3550
+[0, 0, -1769911.3541350944]
+Wavelength: 3575
+[0, 0, -1757534.3516586255]
+Wavelength: 3600
+[0, 0, -1745329.2519943293]
+Wavelength: 3625
+[0, 0, -1733292.4985322997]
+Wavelength: 3650
+[0, 0, -1721420.6321039961]
+Wavelength: 3675
+[0, 0, -1709710.2876679145]
+Wavelength: 3700
+[0, 0, -1698158.1911296179]
+Wavelength: 3725
+[0, 0, -1686761.1562898217]
+Wavelength: 3750
+[0, 0, -1675516.0819145562]
+Wavelength: 3775
+[0, 0, -1664419.9489217445]
+Wavelength: 3800
+[0, 0, -1653469.8176788385]
+Wavelength: 3825
+[0, 0, -1642662.8254064275]
+Wavelength: 3850
+[0, 0, -1631996.1836830094]
+Wavelength: 3875
+[0, 0, -1621467.1760463447]
+Wavelength: 3900
+[0, 0, -1611073.1556870735]
+Wavelength: 3925
+[0, 0, -1600811.5432304677]
+Wavelength: 3950
+[0, 0, -1590679.8246024267]
+Wavelength: 3975
+[0, 0, -1580675.5489759964]
+Wavelength: 4000
+[0, 0, -1570796.3267948963]
+Total runtime for WVL: 4000 AOI: 60 aziumth: 0 - 8670.0380 s
+Wavelength: 3000
+[0, 0, -2094395.1023931953]
+Wavelength: 3025
+[0, 0, -2077086.0519601936]
+Wavelength: 3050
+[0, 0, -2060060.7564523234]
+Wavelength: 3075
+[0, 0, -2043312.2950177514]
+Wavelength: 3100
+[0, 0, -2026833.9700579308]
+Wavelength: 3125
+[0, 0, -2010619.2982974674]
+Wavelength: 3150
+[0, 0, -1994662.0022792334]
+Wavelength: 3175
+[0, 0, -1978956.0022612868]
+Wavelength: 3200
+[0, 0, -1963495.4084936206]
+Wavelength: 3225
+[0, 0, -1948274.5138541353]
+Wavelength: 3250
+[0, 0, -1933287.7868244878]
+Wavelength: 3275
+[0, 0, -1918529.8647876596]
+Wavelength: 3300
+[0, 0, -1903995.5476301776]
+Wavelength: 3325
+[0, 0, -1889679.791632958]
+Wavelength: 3350
+[0, 0, -1875577.7036356973]
+Wavelength: 3375
+[0, 0, -1861684.535460618]
+Wavelength: 3400
+[0, 0, -1847995.6785822313]
+Wavelength: 3425
+[0, 0, -1834506.659030536]
+Wavelength: 3450
+[0, 0, -1821213.1325158218]
+Wavelength: 3475
+[0, 0, -1808110.8797639096]
+Wavelength: 3500
+[0, 0, -1795195.8020513102]
+Wavelength: 3525
+[0, 0, -1782463.916930379]
+Wavelength: 3550
+[0, 0, -1769911.3541350944]
+Wavelength: 3575
+[0, 0, -1757534.3516586255]
+Wavelength: 3600
+[0, 0, -1745329.2519943293]
+Wavelength: 3625
+[0, 0, -1733292.4985322997]
+Wavelength: 3650
+[0, 0, -1721420.6321039961]
+Wavelength: 3675
+[0, 0, -1709710.2876679145]
+Wavelength: 3700
+[0, 0, -1698158.1911296179]
+Wavelength: 3725
+[0, 0, -1686761.1562898217]
+Wavelength: 3750
+[0, 0, -1675516.0819145562]
+Wavelength: 3775
+[0, 0, -1664419.9489217445]
+Wavelength: 3800
+[0, 0, -1653469.8176788385]
+Wavelength: 3825
+[0, 0, -1642662.8254064275]
+Wavelength: 3850
+[0, 0, -1631996.1836830094]
+Wavelength: 3875
+[0, 0, -1621467.1760463447]
+Wavelength: 3900
+[0, 0, -1611073.1556870735]
+Wavelength: 3925
+[0, 0, -1600811.5432304677]
+Wavelength: 3950
+[0, 0, -1590679.8246024267]
+Wavelength: 3975
+[0, 0, -1580675.5489759964]
+Wavelength: 4000
+[0, 0, -1570796.3267948963]
+Total runtime for WVL: 4000 AOI: 60 aziumth: 22 - 17103.2359 s
+Wavelength: 3000
+[0, 0, -2094395.1023931953]
+Wavelength: 3025
+[0, 0, -2077086.0519601936]
+Wavelength: 3050
+[0, 0, -2060060.7564523234]
+Wavelength: 3075
+[0, 0, -2043312.2950177514]
+Wavelength: 3100
+[0, 0, -2026833.9700579308]
+Wavelength: 3125
+[0, 0, -2010619.2982974674]
+Wavelength: 3150
+[0, 0, -1994662.0022792334]
+Wavelength: 3175
+[0, 0, -1978956.0022612868]
+Wavelength: 3200
+[0, 0, -1963495.4084936206]
+Wavelength: 3225
+[0, 0, -1948274.5138541353]
+Wavelength: 3250
+[0, 0, -1933287.7868244878]
+Wavelength: 3275
+[0, 0, -1918529.8647876596]
+Wavelength: 3300
+[0, 0, -1903995.5476301776]
+Wavelength: 3325
+[0, 0, -1889679.791632958]
+Wavelength: 3350
+[0, 0, -1875577.7036356973]
+Wavelength: 3375
+[0, 0, -1861684.535460618]
+Wavelength: 3400
+[0, 0, -1847995.6785822313]
+Wavelength: 3425
+[0, 0, -1834506.659030536]
+Wavelength: 3450
+[0, 0, -1821213.1325158218]
+Wavelength: 3475
+[0, 0, -1808110.8797639096]
+Wavelength: 3500
+[0, 0, -1795195.8020513102]
+Wavelength: 3525
+[0, 0, -1782463.916930379]
+Wavelength: 3550
+[0, 0, -1769911.3541350944]
+Wavelength: 3575
+[0, 0, -1757534.3516586255]
+Wavelength: 3600
+[0, 0, -1745329.2519943293]
+Wavelength: 3625
+[0, 0, -1733292.4985322997]
+Wavelength: 3650
+[0, 0, -1721420.6321039961]
+Wavelength: 3675
+[0, 0, -1709710.2876679145]
+Wavelength: 3700
+[0, 0, -1698158.1911296179]
+Wavelength: 3725
+[0, 0, -1686761.1562898217]
+Wavelength: 3750
+[0, 0, -1675516.0819145562]
+Wavelength: 3775
+[0, 0, -1664419.9489217445]
+Wavelength: 3800
+[0, 0, -1653469.8176788385]
+Wavelength: 3825
+[0, 0, -1642662.8254064275]
+Wavelength: 3850
+[0, 0, -1631996.1836830094]
+Wavelength: 3875
+[0, 0, -1621467.1760463447]
+Wavelength: 3900
+[0, 0, -1611073.1556870735]
+Wavelength: 3925
+[0, 0, -1600811.5432304677]
+Wavelength: 3950
+[0, 0, -1590679.8246024267]
+Wavelength: 3975
+[0, 0, -1580675.5489759964]
+Wavelength: 4000
+[0, 0, -1570796.3267948963]
+Total runtime for WVL: 4000 AOI: 60 aziumth: 45 - 25407.9283 s
+------------------------------------------------------
+Running PBS epilogue script    - 05-Mar-2024 17:14:46
+------------------------------------------------------
+Checking node smic381 (MS)
+Checking node smic381 ; cleared cache ; ok
+------------------------------------------------------
+Concluding PBS epilogue script - 05-Mar-2024 17:14:48
+------------------------------------------------------
+Exit Status:     0
+Job ID:          1053633.smic3
+Username:        coltonb
+Group:           Users
+Job Name:        Gammadion
+Session Id:      3289
+Resource Limits: ncpus=1,neednodes=1:ppn=28,nodes=1:ppn=28,walltime=20:00:00
+Resources Used:  cput=119:04:12,mem=53196768kb,vmem=59654760kb,walltime=07:03:36
+Queue Used:      bigmem
+Account String:  hpc_mcpeak12
+Node:            smic381
+Process id:      28467
+Last status:     05-Mar-2024:17:02 PBS_job=1053633.smic3 user=coltonb allocation=hpc_mcpeak12 queue=bigmem total_load=23.14 cpu_hours=2.38 wall_hours=6.01 unused_nodes=0 total_nodes=1 ppn=28 avg_load=23.14 avg_cpu=2762% avg_mem=48917mb avg_vmem=55415mb top_proc=coltonb:JCMsolveWo+:smic381:53.3G:47.7G:2.3hr:2762% toppm=coltonb:JCMsolveWorker:smic381:49671M:44264M node_processes=5 avg_avail_mem=223948mb min_avail_mem=223948mb reverified_avg_load=10.37
+------------------------------------------------------
