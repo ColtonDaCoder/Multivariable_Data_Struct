@@ -177,25 +177,32 @@ def getXY(df, x_name, y_name):
     return list(X.keys()), list(Y.keys())
 
 
-file = "MM_Spectrum_Ag_TS_RH_gammadion_per_AOI20_pitch840_arm120_t50/Au_on_Au_Gammadion_fe2_MSL500.csv"
+file = "MM_Spectrum_Ag_TS_RH_gammadion_per_AOI20_pitch840_arm120_t50/Au_on_Au_Gammadion_fe2_MSL500_azi0_45.csv"
 
 df = pd.read_csv(file)
 x, y = getXY(df, 'azi', 'wvl')
 X = []
 Y = []
 Y2 = []
+for index, row in df.iterrows():
+    if(row['azi'] == 45):
+        X.append(row['wvl'])
+        Y.append(ast.literal_eval(row['reflected flux'])[0])
+    if(row['azi'] == 45):
+        Y2.append(ast.literal_eval(row['reflected flux'])[1])
+plt.plot(X,Y, 'ro')
+plt.plot(X,Y2, 'bo')
+plt.title("AOI: 45, AZI: 22, 450 thick Au Gammadion on Au")
+plt.xlabel("wvl (nm)")
+plt.ylabel("reflected flux")
+plt.show()
 X, Y, Z  = get_dmm(df, x, y, 'azi', 'wvl')
 plt.plot([j[0] for j in Y[3]],[i[0] for i in Z[3]], 'bo')
 plt.plot([j[0] for j in Y[12]],[i[0] for i in Z[12]], 'ro')
 plt.xlabel("wvl (nm)")
-plt.ylabel("cloude decomp MM (blue: 14; red: 41")
+plt.ylabel("cloude decomp MM (blue: 14; red: 41)")
 plt.show()
 exit()
-for index, row in df.iterrows():
-    X.append(row['wvl'])
-    print(ast.literal_eval(row['dmm']))
-    #print(ast.literal_eval(row['dmm'])[3][0])
-    exit()
     
 plt.plot(X,Y, 'ro')
 plt.plot(X,Y2, 'bo')
