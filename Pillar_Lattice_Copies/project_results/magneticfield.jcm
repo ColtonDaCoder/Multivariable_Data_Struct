@@ -1,0 +1,29 @@
+/* <BLOBHead>
+__BLOBTYPE__=Table
+__MODE__=TEXT
+__OPTIONS__=LHExchanged
+__OWNER__=JCMwave
+__TAG__=5725cf2b314ae027ca78c808b3b548ed
+__VERSION__=1.0.0
+Column1:Name=DomainId
+Column1:Type=int
+Column2:Name=MagneticFieldEnergy_1
+Column2:Type=doublecomplex
+Column3:Name=MagneticFieldEnergy_2
+Column3:Type=doublecomplex
+Title=MagneticFieldEnergy
+<I>NColumns=3
+<I>NRows=3
+*/
+# Row 1
+1
+(1.120260885510598e-25,-3.511756193657442e-45)
+(1.120542056765493e-25,-4.921063837059265e-45)
+# Row 2
+2
+(4.632728564904436e-28,-2.570707578487786e-46)
+(4.663198281288490e-28,-4.687639800364832e-46)
+# Row 3
+3
+(4.534900645652097e-26,-4.365424333168581e-46)
+(4.534420556898442e-26,-5.867036149195862e-46)

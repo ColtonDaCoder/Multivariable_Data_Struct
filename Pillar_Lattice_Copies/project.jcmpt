@@ -1,0 +1,62 @@
+Problem = {
+  InfoLevel = %(info_level)i
+  StorageFormat = Binary
+  Electromagnetics {
+    TimeHarmonic {
+      Scattering {
+        #FieldComponents = Electric	
+	    Accuracy {
+          FiniteElementDegree = %(fem_degree)i
+          Precision = 1e-6
+          Refinement {
+            MaxNumberSteps = %(n_refinement_steps)i
+          }
+	}
+	  }
+    }
+  }
+}
+
+# POST PROCESSES
+
+# ENERGY
+PostProcess {
+  DensityIntegration {
+    OutputQuantity=ElectricFieldEnergy
+    FieldBagPath="project_results/fieldbag.jcm"
+    OutputFileName="project_results/electricfield.jcm"
+  }
+}
+PostProcess {
+  DensityIntegration {
+    OutputQuantity=MagneticFieldEnergy
+    FieldBagPath="project_results/fieldbag.jcm"
+    OutputFileName="project_results/magneticfield.jcm"
+  }
+}
+
+# ENERGY
+PostProcess {
+  DensityIntegration {
+    OutputQuantity=ElectromagneticFieldAbsorption
+    FieldBagPath="project_results/fieldbag.jcm"
+    OutputFileName="project_results/absorption.jcm"
+  }
+}
+PostProcess {
+  FourierTransform {
+    NormalDirection = Z
+    FieldBagPath = "./project_results/fieldbag.jcm"
+    OutputFileName = "./project_results/fourier_modes_r.jcm"
+    #ChiefRay = [-%(AOI)e 0]  
+    #NumericalAperture = 5.0
+  }
+}
+PostProcess {                                
+  ScatteringMatrix {                                
+    PolarizationConvention = Hauge-Berkeley                                
+    InputFileName = "project_results/fourier_modes_r.jcm"                                
+    OutputFileName = %(sm_filename)s                                
+  }                                
+}   
+

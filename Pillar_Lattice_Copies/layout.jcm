@@ -1,0 +1,244 @@
+
+
+Layout3D {
+  UnitOfLength = 1e-09
+ 
+  MeshOptions {
+    MaximumSideLength = 500
+  }
+  BoundaryConditions {
+    Boundary {
+      Direction = Vertical 
+      Class = Transparent 
+    }
+  }
+  Extrusion {
+    Objects {
+      Polygon { 
+        Name = "ComputationalDomain/Background" 
+        DomainId = 3
+        Priority = -1
+        Port = Origin
+        RotationAngle = 35 ##JCMwave rotates anti-clockwise, RC2 rotates clockwise
+        PeriodicUnitCell {
+            LatticeAngle = 90
+            LatticeVectorLengths = [4000 4000]
+            Shape = Rectilinear
+        }
+      } 
+      
+      Circle {
+        Name = "Circle" 
+        DomainId = 101
+                GlobalPosition = [2000 2000]
+        Radius = 500
+        RefineAll = 2
+                MeshOptions {
+            MaximumSidelength = 400
+        }
+      }
+    }
+
+    MultiLayer {
+      MeshOptions {
+        MaximumSideLengthZ = 400
+      }    
+      
+      Layer {
+        Thickness = 1000
+        DomainId = 3
+      }
+      Layer {
+        Thickness = 180
+        DomainIdMapping = [101 2
+                           3 1]
+      }
+
+      Layer {
+        Thickness = 1
+        DomainIdMapping = [101 2
+                           3 1]
+      }
+      LayerInterface{
+	GeometryValues = [Circle{1}/Radius: 497.5]
+      }
+
+      Layer {
+        Thickness = 1
+        DomainIdMapping = [101 2
+                           3 1]
+      }
+      LayerInterface{
+	GeometryValues = [Circle{1}/Radius: 495]
+      }
+
+      Layer {
+        Thickness = 1
+        DomainIdMapping = [101 2
+                           3 1]
+      }
+      LayerInterface{
+	GeometryValues = [Circle{1}/Radius: 492.5]
+      }
+
+      Layer {
+        Thickness = 1
+        DomainIdMapping = [101 2
+                           3 1]
+      }
+      LayerInterface{
+	GeometryValues = [Circle{1}/Radius: 490]
+      }
+
+      Layer {
+        Thickness = 1
+        DomainIdMapping = [101 2
+                           3 1]
+      }
+      LayerInterface{
+	GeometryValues = [Circle{1}/Radius: 487.5]
+      }
+
+      Layer {
+        Thickness = 1
+        DomainIdMapping = [101 2
+                           3 1]
+      }
+      LayerInterface{
+	GeometryValues = [Circle{1}/Radius: 485]
+      }
+
+      Layer {
+        Thickness = 1
+        DomainIdMapping = [101 2
+                           3 1]
+      }
+      LayerInterface{
+	GeometryValues = [Circle{1}/Radius: 482.5]
+      }
+
+      Layer {
+        Thickness = 1
+        DomainIdMapping = [101 2
+                           3 1]
+      }
+      LayerInterface{
+	GeometryValues = [Circle{1}/Radius: 480]
+      }
+
+      Layer {
+        Thickness = 1
+        DomainIdMapping = [101 2
+                           3 1]
+      }
+      LayerInterface{
+	GeometryValues = [Circle{1}/Radius: 477.5]
+      }
+
+      Layer {
+        Thickness = 1
+        DomainIdMapping = [101 2
+                           3 1]
+      }
+      LayerInterface{
+	GeometryValues = [Circle{1}/Radius: 475]
+      }
+
+      Layer {
+        Thickness = 1
+        DomainIdMapping = [101 2
+                           3 1]
+      }
+      LayerInterface{
+	GeometryValues = [Circle{1}/Radius: 472.5]
+      }
+
+      Layer {
+        Thickness = 1
+        DomainIdMapping = [101 2
+                           3 1]
+      }
+      LayerInterface{
+	GeometryValues = [Circle{1}/Radius: 470]
+      }
+
+      Layer {
+        Thickness = 1
+        DomainIdMapping = [101 2
+                           3 1]
+      }
+      LayerInterface{
+	GeometryValues = [Circle{1}/Radius: 467.5]
+      }
+
+      Layer {
+        Thickness = 1
+        DomainIdMapping = [101 2
+                           3 1]
+      }
+      LayerInterface{
+	GeometryValues = [Circle{1}/Radius: 465]
+      }
+
+      Layer {
+        Thickness = 1
+        DomainIdMapping = [101 2
+                           3 1]
+      }
+      LayerInterface{
+	GeometryValues = [Circle{1}/Radius: 462.5]
+      }
+
+      Layer {
+        Thickness = 1
+        DomainIdMapping = [101 2
+                           3 1]
+      }
+      LayerInterface{
+	GeometryValues = [Circle{1}/Radius: 460]
+      }
+
+      Layer {
+        Thickness = 1
+        DomainIdMapping = [101 2
+                           3 1]
+      }
+      LayerInterface{
+	GeometryValues = [Circle{1}/Radius: 457.5]
+      }
+
+      Layer {
+        Thickness = 1
+        DomainIdMapping = [101 2
+                           3 1]
+      }
+      LayerInterface{
+	GeometryValues = [Circle{1}/Radius: 455]
+      }
+
+      Layer {
+        Thickness = 1
+        DomainIdMapping = [101 2
+                           3 1]
+      }
+      LayerInterface{
+	GeometryValues = [Circle{1}/Radius: 452.5]
+      }
+
+      Layer {
+        Thickness = 1
+        DomainIdMapping = [101 2
+                           3 1]
+      }
+      LayerInterface{
+	GeometryValues = [Circle{1}/Radius: 450]
+      }
+
+     Layer {
+        Thickness = 2000
+        DomainIdMapping = [3 1]
+      }
+    }
+  }
+
+

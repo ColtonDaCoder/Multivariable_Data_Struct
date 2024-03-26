@@ -3,6 +3,7 @@ import numpy as np
 import ast
 import matplotlib.pyplot as plt
 import matplotlib.ticker as ticker
+import matplotlib.patches as patches
 
 def complete_MM_heatmap_plot(X, Y, x_name, y_name, kZ, no_kZ=None):
     fig, ax = plt.subplots(4,4, figsize=(10,8))
@@ -177,30 +178,79 @@ def getXY(df, x_name, y_name):
     return list(X.keys()), list(Y.keys())
 
 
+file = "MM_Spectrum_Ag_TS_RH_gammadion_per_AOI20_pitch840_arm120_t50/Au_on_Au_Gammadion_fe2_MSL500_azi0_22_45_low_wvl.csv"
+
+df1 = pd.read_csv(file)
 file = "MM_Spectrum_Ag_TS_RH_gammadion_per_AOI20_pitch840_arm120_t50/Au_on_Au_Gammadion_fe2_MSL500_azi0_45.csv"
 
-df = pd.read_csv(file)
+df2 = pd.read_csv(file)
+file = "MM_Spectrum_Ag_TS_RH_gammadion_per_AOI20_pitch840_arm120_t50/Au_on_Au_Gammadion_fe2_MSL500.csv"
+
+df3 = pd.read_csv(file)
+
+df = pd.concat([df1, df2])
+
 x, y = getXY(df, 'azi', 'wvl')
 X = []
 Y = []
 Y2 = []
+AZI = 22
+for index, row in df.iterrows():
+    if(row['azi'] == 0):
+        X.append(row['wvl'])
+        Y.append(ast.literal_eval(row['reflected flux'])[1])
+plt.plot(X,Y, 'ro')
+X = []
+Y = []
+for index, row in df.iterrows():
+    if(row['azi'] == 22):
+        X.append(row['wvl'])
+        Y.append(ast.literal_eval(row['reflected flux'])[1])
+plt.plot(X,Y, 'bo')
+X = []
+Y = []
 for index, row in df.iterrows():
     if(row['azi'] == 45):
         X.append(row['wvl'])
-        Y.append(ast.literal_eval(row['reflected flux'])[0])
-    if(row['azi'] == 45):
-        Y2.append(ast.literal_eval(row['reflected flux'])[1])
-plt.plot(X,Y, 'ro')
-plt.plot(X,Y2, 'bo')
-plt.title("AOI: 45, AZI: 22, 450 thick Au Gammadion on Au")
+        Y.append(ast.literal_eval(row['reflected flux'])[1])
+plt.plot(X,Y, 'go')
+#plt.plot(X,Y2, 'bo')
+plt.title("AOI: 60, 450 thick Au Gammadion on Au, S polarized")
 plt.xlabel("wvl (nm)")
 plt.ylabel("reflected flux")
+redPatch = patches.Patch(color="red",label="AZI: 0")
+bluePatch = patches.Patch(color="blue",label="AZI: 22")
+greenPatch = patches.Patch(color="green",label="AZI: 45")
+plt.legend(handles=[redPatch,bluePatch,greenPatch])
 plt.show()
-X, Y, Z  = get_dmm(df, x, y, 'azi', 'wvl')
-plt.plot([j[0] for j in Y[3]],[i[0] for i in Z[3]], 'bo')
-plt.plot([j[0] for j in Y[12]],[i[0] for i in Z[12]], 'ro')
+plt.clf()
+#plt.plot([j[AZI] for j in Y[12]],[i[AZI] for i in Z[12]], 'ro')
+x, y = getXY(df1, 'azi', 'wvl')
+X, Y, Z  = get_dmm(df1, x, y, 'azi', 'wvl')
+AZI = 0
+plt.plot([j[AZI] for j in Y[3]],[i[AZI] for i in Z[3]], 'ro')
+AZI = 1
+plt.plot([j[AZI] for j in Y[3]],[i[AZI] for i in Z[3]], 'bo')
+AZI = 2
+plt.plot([j[AZI] for j in Y[3]],[i[AZI] for i in Z[3]], 'go')
+x, y = getXY(df2, 'azi', 'wvl')
+X, Y, Z  = get_dmm(df2, x, y, 'azi', 'wvl')
+AZI = 0
+plt.plot([j[AZI] for j in Y[3]],[i[AZI] for i in Z[3]], 'ro')
+AZI = 1
+plt.plot([j[AZI] for j in Y[3]],[i[AZI] for i in Z[3]], 'go')
+x, y = getXY(df3, 'azi', 'wvl')
+X, Y, Z  = get_dmm(df3, x, y, 'azi', 'wvl')
+AZI = 0
+plt.plot([j[AZI] for j in Y[3]],[i[AZI] for i in Z[3]], 'bo')
+redPatch = patches.Patch(color="red",label="AZI: 0")
+bluePatch = patches.Patch(color="blue",label="AZI: 22")
+greenPatch = patches.Patch(color="green",label="AZI: 45")
+plt.legend(handles=[redPatch,bluePatch,greenPatch])
+
+#plt.plot([j[AZI] for j in Y[12]],[i[AZI] for i in Z[12]], 'ro')
 plt.xlabel("wvl (nm)")
-plt.ylabel("cloude decomp MM (blue: 14; red: 41)")
+plt.ylabel("cloude decomp MM")
 plt.show()
 exit()
     
