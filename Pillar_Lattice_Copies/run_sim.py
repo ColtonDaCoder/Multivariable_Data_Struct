@@ -6,10 +6,10 @@ import json
 import jcmwave,time,imp,shutil,os 
 from optparse import OptionParser
 AOI = [60]
-AZI = [35+i for i in range(11)]
-#AZI = [35]
+#AZI = [35+i for i in range(11)]
+AZI = [39]
 #WVL = [6200, 6300]
-WVL = [6200]
+WVL = [3500+24*i for i in range(22)]
 #WVL = [5450]
 
 keys = {}  # Create empty dictionary for keys
@@ -101,7 +101,7 @@ for is_Chiral in chirality_list:
                         'reflected flux' : [[P_s_r, P_p_r]]
                 }
                 set.append(entry)
-                set.save_csv('pillar_lattice_copies_1.csv')
+                set.save_csv('pillar_lattice_copies_wvl.csv')
 
 	    
             toc = time.time() # use time() not clock() on linux system  
