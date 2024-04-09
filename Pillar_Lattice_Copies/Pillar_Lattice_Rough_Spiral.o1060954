@@ -1,0 +1,62 @@
+--------------------------------------
+Running PBS prologue script
+--------------------------------------
+User and Job Data:
+--------------------------------------
+Job ID:    1060954.smic3
+Username:  coltonb
+Group:     Users
+Date:      26-Mar-2024 01:19
+Node:      smic381 (27018)
+--------------------------------------
+PBS has allocated the following nodes:
+
+smic381
+
+A total of 28 processors on 1 nodes allocated
+---------------------------------------------
+Check nodes and clean them of stray processes
+---------------------------------------------
+Checking node smic381 01:19:43 
+Done clearing all the allocated nodes
+------------------------------------------------------
+Concluding PBS prologue script - 26-Mar-2024 01:19:43
+------------------------------------------------------
+Loading mvapich2/2.3.3/intel-19.0.5
+  Loading requirement: intel/19.0.5
+JOBS_PER_NODE=1
+/ddnA/work/coltonb/Multivariable_Data_Struct/Pillar_Lattice_Copies/run_sim.py:6: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
+  import jcmwave,time,imp,shutil,os
+Traceback (most recent call last):
+  File "/ddnA/work/coltonb/Multivariable_Data_Struct/Pillar_Lattice_Copies/run_sim.py", line 66, in <module>
+    jcmwave.solve('project.jcmp')
+  File "/home/coltonb/JCMsuite_5.2.4/ThirdPartySupport/Python/jcmwave/solve.py", line 478, in solve
+    raise RuntimeError('*** JCMsolve failed. ==>\n\n%s' % (str(msg),))
+RuntimeError: *** JCMsolve failed. ==>
+
+
+
+*** Error: Licensing failed: Network license manager error ->
+ OlServer 703 No floating license free *** 
+
+------------------------------------------------------
+Running PBS epilogue script    - 26-Mar-2024 01:19:53
+------------------------------------------------------
+Checking node smic381 (MS)
+Checking node smic381 ; cleared cache ; ok
+------------------------------------------------------
+Concluding PBS epilogue script - 26-Mar-2024 01:19:55
+------------------------------------------------------
+Exit Status:     1
+Job ID:          1060954.smic3
+Username:        coltonb
+Group:           Users
+Job Name:        Pillar_Lattice_Rough_Spiral
+Session Id:      27017
+Resource Limits: ncpus=1,neednodes=1:ppn=28,nodes=1:ppn=28,walltime=15:00:00
+Resources Used:  cput=00:00:08,mem=0kb,vmem=0kb,walltime=00:00:12
+Queue Used:      bigmem
+Account String:  hpc_mcpeak12
+Node:            smic381
+Process id:      27791
+------------------------------------------------------

@@ -1,26 +1,22 @@
 
+
+
+
 Material { 
-  Name = "Air" 
-  Id = 1
+  Name = "Au Film" 
+  Id = 2
+  RelPermittivity = (-1795.75181462682, 192.225817642924)
+  RelPermeability = 1.0
+}
+Material { 
+  Name = "Air/Vacuum" # Background
+  Id = 3
   RelPermittivity = 1
   RelPermeability = 1.0
 }
 Material { 
-  Name = "Ge Pillar" # Ge Pillars
-  Id = 2
-  RelPermittivity = 4
-  RelPermeability = 1.0
-}
-Material { 
-  Name = "CaF2 Substrate" # CaF2 Substrate
-  Id = 3
-  RelPermittivity = 1.35
-  RelPermeability = 1.0
-}
-Material { 
-  Name = "Chiral Film" # Nondispersive Chiral Film
+  Name = "Au" # Nanostructure Metal
   Id = 4
-  RelPermittivity = 1.62
+  RelPermittivity = (-1795.75181462682, 192.225817642924)
   RelPermeability = 1.0
-
 }

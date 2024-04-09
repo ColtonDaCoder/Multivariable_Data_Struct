@@ -6,7 +6,7 @@ Problem = {
       Scattering {
         #FieldComponents = Electric	
 	    Accuracy {
-          FiniteElementDegree = 4
+          FiniteElementDegree = 3
           Precision = 1e-6
           Refinement {
             MaxNumberSteps = 0

@@ -1,244 +1,95 @@
-
-
 Layout3D {
   UnitOfLength = 1e-09
- 
   MeshOptions {
-    MaximumSideLength = 500
+    MaximumSideLength = 4000
   }
   BoundaryConditions {
     Boundary {
-      Direction = Vertical 
-      Class = Transparent 
+      Direction = Vertical
+      Class = Transparent
     }
   }
   Extrusion {
     Objects {
-      Polygon { 
-        Name = "ComputationalDomain/Background" 
-        DomainId = 3
+      Polygon {
+        Name = "ComputationalDomain/Background"
+        DomainId = 2
         Priority = -1
         Port = Origin
-        RotationAngle = 35 ##JCMwave rotates anti-clockwise, RC2 rotates clockwise
+        RotationAngle = 0 ##JCMwave rotates anti-clockwise, RC2 rotates clockwise
         PeriodicUnitCell {
             LatticeAngle = 90
-            LatticeVectorLengths = [4000 4000]
+            LatticeVectorLengths = [19000 19000]
             Shape = Rectilinear
         }
-      } 
-      
+      }
       Circle {
-        Name = "Circle" 
-        DomainId = 101
+        Name = "Circle"
+        DomainId = 5
                 GlobalPosition = [2000 2000]
         Radius = 500
         RefineAll = 2
-                MeshOptions {
-            MaximumSidelength = 400
+        LatticeCopies {
+          LatticeVectorLengths = [500 500]
+          LatticeAngle = 90
+          Positions {
+            IndexShiftY = 0
+            RangeStart = [0 0]
+            DomainIds = [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 5 0 0 0 0 0 0 0 0 0 0 0 0 0 0;
+                         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0;
+                         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 5 0 0 0 0 0 0 0 0 0 0 0;
+                         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0;
+                         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0;
+                         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 5 0 0 0 0 0 0 0 0;
+                         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0;
+                         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0;
+                         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0;
+                         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 5 0 0 0 0 0 0 0;
+                         0 0 0 0 0 0 0 0 0 5 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0;
+                         0 0 0 0 0 5 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0;
+                         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 5 0 0 0 0 0 0 0 0;
+                         0 0 0 0 0 0 0 0 0 0 0 0 5 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0;
+                         0 0 5 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0;
+                         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 5 0 0 0 0 0 0 0 0 0 0 0;
+                         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0;
+                         5 0 0 0 0 0 0 0 0 0 0 0 0 0 5 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0;
+                         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 5;
+                         0 0 0 0 0 0 0 0 0 0 5 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0;
+                         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0;
+                         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 5 0 0;
+                         0 0 0 0 0 0 0 5 0 0 0 0 0 0 0 0 0 5 0 0 0 0 0 0 0 0 0 0 0 0;
+                         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0;
+                         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 5 0 0 0 0 0;
+                         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 5 0 0 0 0 0 0 0 0 0;
+                         0 0 0 0 0 0 0 0 5 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0;
+                         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0;
+                         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0;
+                         0 0 0 0 0 0 0 0 0 0 0 5 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0;
+                         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0;
+                         0 0 0 0 0 0 0 0 0 0 0 0 0 0 5 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+          }
+        }
+        MeshOptions {
+            MaximumSidelength = 800
         }
       }
     }
-
     MultiLayer {
       MeshOptions {
-        MaximumSideLengthZ = 400
-      }    
-      
+        MaximumSideLengthZ = 800
+      }
       Layer {
         Thickness = 1000
-        DomainId = 3
+        DomainId = 2
       }
       Layer {
-        Thickness = 180
-        DomainIdMapping = [101 2
-                           3 1]
+        Thickness = 200
+        DomainIdMapping = [5 4
+                           2 3]
       }
-
       Layer {
-        Thickness = 1
-        DomainIdMapping = [101 2
-                           3 1]
-      }
-      LayerInterface{
-	GeometryValues = [Circle{1}/Radius: 497.5]
-      }
-
-      Layer {
-        Thickness = 1
-        DomainIdMapping = [101 2
-                           3 1]
-      }
-      LayerInterface{
-	GeometryValues = [Circle{1}/Radius: 495]
-      }
-
-      Layer {
-        Thickness = 1
-        DomainIdMapping = [101 2
-                           3 1]
-      }
-      LayerInterface{
-	GeometryValues = [Circle{1}/Radius: 492.5]
-      }
-
-      Layer {
-        Thickness = 1
-        DomainIdMapping = [101 2
-                           3 1]
-      }
-      LayerInterface{
-	GeometryValues = [Circle{1}/Radius: 490]
-      }
-
-      Layer {
-        Thickness = 1
-        DomainIdMapping = [101 2
-                           3 1]
-      }
-      LayerInterface{
-	GeometryValues = [Circle{1}/Radius: 487.5]
-      }
-
-      Layer {
-        Thickness = 1
-        DomainIdMapping = [101 2
-                           3 1]
-      }
-      LayerInterface{
-	GeometryValues = [Circle{1}/Radius: 485]
-      }
-
-      Layer {
-        Thickness = 1
-        DomainIdMapping = [101 2
-                           3 1]
-      }
-      LayerInterface{
-	GeometryValues = [Circle{1}/Radius: 482.5]
-      }
-
-      Layer {
-        Thickness = 1
-        DomainIdMapping = [101 2
-                           3 1]
-      }
-      LayerInterface{
-	GeometryValues = [Circle{1}/Radius: 480]
-      }
-
-      Layer {
-        Thickness = 1
-        DomainIdMapping = [101 2
-                           3 1]
-      }
-      LayerInterface{
-	GeometryValues = [Circle{1}/Radius: 477.5]
-      }
-
-      Layer {
-        Thickness = 1
-        DomainIdMapping = [101 2
-                           3 1]
-      }
-      LayerInterface{
-	GeometryValues = [Circle{1}/Radius: 475]
-      }
-
-      Layer {
-        Thickness = 1
-        DomainIdMapping = [101 2
-                           3 1]
-      }
-      LayerInterface{
-	GeometryValues = [Circle{1}/Radius: 472.5]
-      }
-
-      Layer {
-        Thickness = 1
-        DomainIdMapping = [101 2
-                           3 1]
-      }
-      LayerInterface{
-	GeometryValues = [Circle{1}/Radius: 470]
-      }
-
-      Layer {
-        Thickness = 1
-        DomainIdMapping = [101 2
-                           3 1]
-      }
-      LayerInterface{
-	GeometryValues = [Circle{1}/Radius: 467.5]
-      }
-
-      Layer {
-        Thickness = 1
-        DomainIdMapping = [101 2
-                           3 1]
-      }
-      LayerInterface{
-	GeometryValues = [Circle{1}/Radius: 465]
-      }
-
-      Layer {
-        Thickness = 1
-        DomainIdMapping = [101 2
-                           3 1]
-      }
-      LayerInterface{
-	GeometryValues = [Circle{1}/Radius: 462.5]
-      }
-
-      Layer {
-        Thickness = 1
-        DomainIdMapping = [101 2
-                           3 1]
-      }
-      LayerInterface{
-	GeometryValues = [Circle{1}/Radius: 460]
-      }
-
-      Layer {
-        Thickness = 1
-        DomainIdMapping = [101 2
-                           3 1]
-      }
-      LayerInterface{
-	GeometryValues = [Circle{1}/Radius: 457.5]
-      }
-
-      Layer {
-        Thickness = 1
-        DomainIdMapping = [101 2
-                           3 1]
-      }
-      LayerInterface{
-	GeometryValues = [Circle{1}/Radius: 455]
-      }
-
-      Layer {
-        Thickness = 1
-        DomainIdMapping = [101 2
-                           3 1]
-      }
-      LayerInterface{
-	GeometryValues = [Circle{1}/Radius: 452.5]
-      }
-
-      Layer {
-        Thickness = 1
-        DomainIdMapping = [101 2
-                           3 1]
-      }
-      LayerInterface{
-	GeometryValues = [Circle{1}/Radius: 450]
-      }
-
-     Layer {
-        Thickness = 2000
-        DomainIdMapping = [3 1]
+        Thickness = 1000
+        DomainIdMapping = [2 3]
       }
     }
   }
-
-

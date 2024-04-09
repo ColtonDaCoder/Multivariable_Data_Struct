@@ -7,7 +7,7 @@ import jcmwave,time,imp,shutil,os
 from optparse import OptionParser
 AOI = [60]
 AZI = [35+i for i in range(11)]
-AZI = [35]
+#AZI = [35]
 #WVL = [6200, 6300]
 WVL = [6200]
 #WVL = [5450]
@@ -41,7 +41,7 @@ for is_Chiral in chirality_list:
                 'display_triangulation' : 'no',
                 'boundary' : 'Periodic',
                 'info_level' : -1,
-                'fem_degree' : 4,
+                'fem_degree' : 3,
                 'n_refinement_steps' : 0, # Currently we get non-physical results if this is >0
                 'thickness' : 1000,
                 'pitch' : 4000, # pitch of square lattice
@@ -49,51 +49,37 @@ for is_Chiral in chirality_list:
                 }
 
             # material properties
-            keys['kappa'] = 0.00038 + 1j*0.00038        
-            keys['n_1'] = 1.00 # index refraction of Air
-             
+            keys['n_3'] = 1.00 # index refraction of Air
+
+            Au_nk = np.loadtxt('data/Au_Babar_micron.nk') # You would need to change this to the silver data file I will send you
+            wl_Au_data = []; n_Au_real = []; n_Au_imag = [] ### ALUMINUM NOT GOLD!
+            for data in Au_nk:
+                wl_Au_data.append(data[0]*1e-6) # e-10 for [ang], e-9 for [nm], e-6 for [um]
+                n_Au_real.append(data[1])
+                n_Au_imag.append(data[2])
+		
             for azi in AZI:
+                print("Wavelength: " + str(wvl))
+                keys['vacuum_wavelength'] = keys['uol']*wvl
+                Au_Material = np.interp(keys['vacuum_wavelength'], wl_Au_data, n_Au_real) + 1j*np.interp(keys['vacuum_wavelength'], wl_Au_data, n_Au_imag)
+                keys['n_2'] = Au_Material
+                keys['n_4'] = Au_Material
                 keys['sm_filename'] = '"'+'project_results/sm.jcm"'
-                keys['azimuth'] = azi
-                jcmwave.jcmt2jcm('boundary_conditions.jcmt', keys)
-                if is_Chiral:
-                    jcmwave.jcmt2jcm('materials_chiral.jcmt', keys)
-                else:
-                    jcmwave.jcmt2jcm('materials.jcmt', keys)
-                jcmwave.jcmt2jcm('project.jcmpt', keys)
-                jcmwave.jcmt2jcm('sources.jcmt', keys)
-                jcmwave.jcmt2jcm('layout.jcmt', keys)
-                jcmwave.solve('project.jcmp')
-            
-                # extract absorption data:
-                fileName = './project_results/absorption.jcm'
-                table = jcmwave.loadtable(fileName)
-                n1 = np.nonzero(table['DomainId'] == 1) # row number for Material Id 1 (Air)
-                n2 = np.nonzero(table['DomainId'] == 2) # row number for Material Id 2 (Ge Pillar)
-                n3 = np.nonzero(table['DomainId'] == 3) # row number for Material Id 3 (CaF2 Substrate)
-
-                # Power from plane wave
-                #p_in = (0.5)*(Eamp**2/Z1)*(((3*np.sqrt(3))/2)*((keys['pitch']*keys['uol'])**2)))*math.cos(math.radians(keys['AOI'])) # ((Eamp V/m)/ohms)*m^2 = Watts
-                #hexagon area
-                #p_in = 1.0 * (((3*np.sqrt(3))/2)*((keys['pitch']*keys['uol'])**2))*math.cos(math.radians(keys['AOI'])) # Eamp is not used because PowerScaling is being used in sources.jcmt
-                #square
-                #p_in = 1.0 * (((keys['pitch']*keys['uol'])**2))*math.cos(math.radians(keys['AOI'])) # Eamp is not used because PowerScaling is being used in sources.jcmt
-                p_in = 1.0 * (((keys['pitch']*keys['uol'])**2)) # Eamp is not used because PowerScaling is being used in sources.jcmt
-
-                absS_pillar = (np.real(np.sum(table['ElectromagneticFieldAbsorption'][0][n2]))/p_in)
-                absP_pillar = (np.real(np.sum(table['ElectromagneticFieldAbsorption'][1][n2]))/p_in)
-             
-                absS_substrate = (np.real(np.sum(table['ElectromagneticFieldAbsorption'][0][n3]))/p_in)
-                absP_substrate = (np.real(np.sum(table['ElectromagneticFieldAbsorption'][1][n3]))/p_in)            
-
-                # Gather Reflected Fourier Modes (Z)
+                jcmwave.jcmt2jcm('./boundary_conditions.jcmt', keys)
+                jcmwave.jcmt2jcm('./materials.jcmt', keys)
+                jcmwave.jcmt2jcm('./project.jcmpt', keys)
+                jcmwave.jcmt2jcm('./sources.jcmt', keys)
+                jcmwave.jcmt2jcm('./layout.jcmt', keys)
+                jcmwave.solve('./project.jcmp')
+		
+                ## Gather Reflected Fourier Modes (+Z)
                 filename_fourierModes_r = './project_results/fourier_modes_r.jcm';
                 fourierModes_r = jcmwave.loadtable(filename_fourierModes_r,format='named')
                 powerFlux_r = jcmwave.convert2powerflux(fourierModes_r)
-                
-                # Reflected flux in normal direction
-                reflectedS_flux = np.real(powerFlux_r['PowerFluxDensity'][0][:,2])[0]
-                reflectedP_flux = np.real(powerFlux_r['PowerFluxDensity'][1][:,2])[0]
+
+                ## Reflected flux in normal direction
+                P_s_r = np.sum(powerFlux_r['PowerFluxDensity'][0][:, 2]);
+                P_p_r = np.sum(powerFlux_r['PowerFluxDensity'][1][:, 2]); 
 
                 filename_MM = './project_results/sm.jcm'
                 table = jcmwave.loadtable(filename_MM)
@@ -105,53 +91,19 @@ for is_Chiral in chirality_list:
                     mm.append(row)
                 dmm = cloude_decomp(mm)
 
-
-                fileName = './project_results/electricfield.jcm'
-                table = jcmwave.loadtable(fileName)
-
-                Es_air  = (np.real(np.sum(table['ElectricFieldEnergy'][0][n1])))
-                Ep_air  = (np.real(np.sum(table['ElectricFieldEnergy'][1][n1])))
-
-                Es_Ge = (np.real(np.sum(table['ElectricFieldEnergy'][0][n2])))
-                Ep_Ge = (np.real(np.sum(table['ElectricFieldEnergy'][1][n2])))            
-             
-                Es_CaF2 = (np.real(np.sum(table['ElectricFieldEnergy'][0][n3])))
-                Ep_CaF2 = (np.real(np.sum(table['ElectricFieldEnergy'][1][n3])))            
-
-                fileName = './project_results/magneticfield.jcm'
-                table = jcmwave.loadtable(fileName)
-
-                Hs_air  = (np.real(np.sum(table['MagneticFieldEnergy'][0][n1])))
-                Hp_air  = (np.real(np.sum(table['MagneticFieldEnergy'][1][n1])))
-
-                Hs_Ge = (np.real(np.sum(table['MagneticFieldEnergy'][0][n2])))
-                Hp_Ge = (np.real(np.sum(table['MagneticFieldEnergy'][1][n2])))            
-             
-                Hs_CaF2 = (np.real(np.sum(table['MagneticFieldEnergy'][0][n3])))
-                Hp_CaF2 = (np.real(np.sum(table['MagneticFieldEnergy'][1][n3])))            
-
                 entry = {
                         'azi' : azi,
                         'aoi' : aoi, 
                         'wvl' : wvl, 
-                        'radius' : keys['radius'], 
                         'pitch' : keys['pitch'], 
                         'mm': [mm], 
                         'dmm' : [dmm],
-                        'abs pillar' : [[absS_pillar, absP_pillar]], 
-                        'abs substrate' : [[absS_substrate, absP_substrate]], 
-                        'reflected flux' : [[reflectedS_flux, reflectedP_flux]],
-                        'E air' : [[Es_air, Ep_air]],
-                        'H air' : [[Hs_air, Hp_air]],
-                        'E Ge' : [[Es_Ge, Ep_Ge]],
-                        'H Ge' : [[Hs_Ge, Hp_Ge]],
-                        'E CaF2' : [[Es_CaF2, Ep_CaF2]], 
-                        'H CaF2' : [[Hs_CaF2, Hp_CaF2]]
+                        'reflected flux' : [[P_s_r, P_p_r]]
                 }
                 set.append(entry)
                 set.save_csv('pillar_lattice_copies_1.csv')
 
-            
+	    
             toc = time.time() # use time() not clock() on linux system  
             t = toc-tic
             print ("Total runtime for WVL: "+str(wvl)+" AOI: "+str(aoi)+" aziumth: "+str(azi)+" - %6.4f s" % t)

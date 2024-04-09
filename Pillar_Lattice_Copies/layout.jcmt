@@ -1,7 +1,7 @@
 Layout3D {
   UnitOfLength = 1e-09
   MeshOptions {
-    MaximumSideLength = 1000
+    MaximumSideLength = 4000
   }
   BoundaryConditions {
     Boundary {
@@ -13,7 +13,7 @@ Layout3D {
     Objects {
       Polygon {
         Name = "ComputationalDomain/Background"
-        DomainId = 3
+        DomainId = 2
         Priority = -1
         Port = Origin
         RotationAngle = 0 ##JCMwave rotates anti-clockwise, RC2 rotates clockwise
@@ -70,22 +70,26 @@ Layout3D {
           }
         }
         MeshOptions {
-            MaximumSidelength = 400
+            MaximumSidelength = 800
         }
       }
     }
     MultiLayer {
       MeshOptions {
-        MaximumSideLengthZ = 400
+        MaximumSideLengthZ = 800
       }
       Layer {
         Thickness = 1000
-        DomainId = 3
+        DomainId = 2
       }
       Layer {
-        Thickness = 500
-        DomainIdMapping = [5 2
-                           3 1]
+        Thickness = 200
+        DomainIdMapping = [5 4
+                           2 3]
+      }
+      Layer {
+        Thickness = 1000
+        DomainIdMapping = [2 3]
       }
     }
   }

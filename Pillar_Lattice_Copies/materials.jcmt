@@ -1,37 +1,26 @@
+
 <?
-keys['permittivity_1'] = (keys['n_1'])**2
-
-keys['RelBiPermittivity'] = -1j*keys['kappa']
-keys['RelBiPermeability'] = 1j*keys['kappa']
-
-keys['RelBiPermittivity_real'] = keys['RelBiPermittivity'].real
-keys['RelBiPermittivity_imag'] = keys['RelBiPermittivity'].imag
-
-keys['RelBiPermeability_real'] = keys['RelBiPermeability'].real
-keys['RelBiPermeability_imag'] = keys['RelBiPermeability'].imag
+keys['permittivity_2']    = (keys['n_2'])**2
+keys['permittivity_3']    = (keys['n_3'])**2
+keys['permittivity_4']    = (keys['n_4'])**2
 ?>
-Material { 
-  Name = "Air" 
-  Id = 1
-  RelPermittivity = %(permittivity_1)e
-  RelPermeability = 1.0
-}
-Material { 
-  Name = "Ge Pillar" # Ge Pillars
-  Id = 2
-  RelPermittivity = 4
-  RelPermeability = 1.0
-}
-Material { 
-  Name = "CaF2 Substrate" # CaF2 Substrate
-  Id = 3
-  RelPermittivity = 1.35
-  RelPermeability = 1.0
-}
-Material { 
-  Name = "Chiral Film" # Nondispersive Chiral Film
-  Id = 4
-  RelPermittivity = 1.62
-  RelPermeability = 1.0
 
+
+Material { 
+  Name = "Au Film" 
+  Id = 2
+  RelPermittivity = %(permittivity_2)e
+  RelPermeability = 1.0
+}
+Material { 
+  Name = "Air/Vacuum" # Background
+  Id = 3
+  RelPermittivity = %(permittivity_3)e
+  RelPermeability = 1.0
+}
+Material { 
+  Name = "Au" # Nanostructure Metal
+  Id = 4
+  RelPermittivity = %(permittivity_4)e
+  RelPermeability = 1.0
 }

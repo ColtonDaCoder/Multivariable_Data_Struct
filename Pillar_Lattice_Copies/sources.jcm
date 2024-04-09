@@ -1,13 +1,43 @@
 
 
+#SRC 1, Theta: 0, Phi: 0
+#SP Sources
+#SourceBag = { # R
+#  Source {    
+#    ElectricFieldStrength = {
+#      PlaneWave {
+#	SP = [(1, 0), (0, 1)]
+#        ThetaPhi = [20 0]
+#	    Incidence = FromAbove
+#	    Lambda0 = 6.2e-06
+#      }
+#    }
+#  }
+#}
+#SourceBag = { # L
+# Source {    
+#    ElectricFieldStrength = {
+#     PlaneWave {
+#        SP = [(1, 0), (0, -1)]
+#	    ThetaPhi=[20 0]
+#	    Incidence = FromAbove
+#	    Lambda0 = 6.2e-06
+#      }
+#    }
+#  }
+#}
+
+
+
+
 SourceBag {
   Source {
-    ElectricFieldStrength { #This is R-CPL
+    ElectricFieldStrength {
       PlaneWave {
         Lambda0 = 6.2e-06
         ThetaPhi = [60 0]
 	Incidence = FromAbove
-        SP = [(1, 0), (0, 1)]
+        SP = [1 0]
 	PowerFluxScaling=UnitNormal
       }
     }
@@ -15,12 +45,12 @@ SourceBag {
 }
 SourceBag {
   Source {
-    ElectricFieldStrength { #This is L-CPL
+    ElectricFieldStrength {
       PlaneWave {
         Lambda0 = 6.2e-06
         ThetaPhi = [60 0]
 	Incidence = FromAbove
-	SP = [(1, 0), (0, -1)]
+	SP = [0 1]
 	PowerFluxScaling=UnitNormal
       }
     }
