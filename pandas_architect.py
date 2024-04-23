@@ -178,6 +178,21 @@ def getXY(df, x_name, y_name):
     return list(X.keys()), list(Y.keys())
 
 
+
+file = "Pillar_Lattice_Copies/pillar_lattice_copies_wvl.csv"
+
+df = pd.read_csv(file)
+x, y = getXY(df, 'azi', 'wvl')
+X = []
+Y = []
+for index, row in df.iterrows():
+    X.append(row['wvl'])
+    Y.append((ast.literal_eval(row['reflected flux'])[0]))
+plt.plot(X,Y)
+plt.show()
+
+exit()
+
 file = "MM_Spectrum_Ag_TS_RH_gammadion_per_AOI20_pitch840_arm120_t50/Au_on_Au_Gammadion_fe2_MSL500_azi0_22_45_low_wvl.csv"
 
 df1 = pd.read_csv(file)
