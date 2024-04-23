@@ -6,7 +6,7 @@ Layout3D {
   BoundaryConditions {
     Boundary {
       Direction = Vertical
-      Class = Transparent
+      Class = Periodic
     }
   }
   Extrusion {

@@ -101,7 +101,7 @@ for is_Chiral in chirality_list:
                         'reflected flux' : [[P_s_r, P_p_r]]
                 }
                 set.append(entry)
-                set.save_csv('pillar_lattice_copies_wvl.csv')
+                set.save_csv('pillar_lattice_copies_wvl_periodic.csv')
 
 	    
             toc = time.time() # use time() not clock() on linux system  
